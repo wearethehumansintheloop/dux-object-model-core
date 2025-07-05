@@ -54,15 +54,15 @@ def step_have_behaviors_with_signals(context):
                 "object_type": "Behavior",
                 "id": "behavior_analyze_usage",
                 "user_enablement": "Platform admin is able to analyze resource usage patterns",
-                "signals": ["usage_analysis_started", "usage_analysis_completed", "usage_report_generated"],
-                "behavior_type": "Task"
+                "end_user": "Platform Administrator",
+                "signals": ["usage_analysis_started", "usage_analysis_completed", "usage_report_generated"]
             },
             {
                 "object_type": "Behavior", 
                 "id": "behavior_identify_waste",
                 "user_enablement": "Platform admin is able to identify resource waste",
-                "signals": ["waste_detection_run", "waste_identified", "waste_report_created"],
-                "behavior_type": "Task"
+                "end_user": "Platform Administrator",
+                "signals": ["waste_detection_run", "waste_identified", "waste_report_created"]
             }
         ]
 
@@ -93,7 +93,7 @@ def step_have_useroutcomes_with_metrics(context):
                 "Cost reduction measurements show consistent 15-25% savings"
             ],
             "target_impact_when_achieved": "Contributes $2.3M to ACV through reduced customer churn and increased platform adoption",
-            "flow_ids": [{"id": "flow_cost_optimization_workflow", "reference_context": "Primary flow for achieving cost reduction outcomes"}]
+            "user_flow_id": "flow_cost_optimization_workflow"
         }]
 
 
@@ -269,33 +269,14 @@ def step_verify_outcome_includes_behavior_signals(context):
         f"Signal coverage too low: {coverage_ratio:.2%}. Expected at least 50% of behavior signals in outcome"
 
 
-@then('the UserOutcome should reference the UserFlow in its flow_ids array')
+@then('the UserOutcome should reference the UserFlow via user_flow_id')
 def step_verify_outcome_references_flow(context):
-    """Verify that UserOutcome properly references the UserFlow."""
+    """Verify that UserOutcome references the UserFlow via user_flow_id."""
     userflow_id = context.current_userflow['id']
-    outcome_flow_ids = context.related_useroutcome.get('flow_ids', [])
+    outcome_user_flow_id = context.related_useroutcome.get('user_flow_id')
     
-    referenced_flow_ids = [flow_ref.get('id') for flow_ref in outcome_flow_ids]
-    assert userflow_id in referenced_flow_ids, \
-        f"UserOutcome should reference UserFlow {userflow_id} in flow_ids: {referenced_flow_ids}"
-
-
-@then('the reference_context should explain how the flow contributes to the outcome')
-def step_verify_reference_context_explains_contribution(context):
-    """Verify that reference_context provides meaningful explanation."""
-    userflow_id = context.current_userflow['id']
-    outcome_flow_ids = context.related_useroutcome.get('flow_ids', [])
-    
-    for flow_ref in outcome_flow_ids:
-        if flow_ref.get('id') == userflow_id:
-            reference_context = flow_ref.get('reference_context', '')
-            assert len(reference_context) > 20, \
-                f"reference_context should be descriptive (>20 chars): '{reference_context}'"
-            assert any(keyword in reference_context.lower() for keyword in ['contribute', 'enable', 'achieve', 'support', 'drive']), \
-                f"reference_context should explain contribution: '{reference_context}'"
-            break
-    else:
-        assert False, f"No reference found for UserFlow {userflow_id} in UserOutcome flow_ids"
+    assert outcome_user_flow_id == userflow_id, \
+        f"UserOutcome should reference UserFlow {userflow_id} via user_flow_id: {outcome_user_flow_id}"
 
 
 @given('I have a UserOutcome with defined key_signals')
@@ -433,13 +414,13 @@ def step_evaluate_metrics_against_target(context):
     }
 
 
-@then('the UserOutcome target_impact_when_achieved should align with ACV growth')
-def step_verify_target_impact_aligns_with_acv(context):
-    """Verify that target impact aligns with ACV growth objectives."""
+@then('the UserOutcome success_criteria should align with ACV growth')
+def step_verify_success_criteria_aligns_with_acv(context):
+    """Verify that success criteria align with ACV growth objectives."""
     evaluation = context.impact_evaluation
     
     assert evaluation['has_acv_reference'] or evaluation['has_quantified_impact'], \
-        f"target_impact_when_achieved should reference ACV or revenue impact: '{evaluation['target_impact']}'"
+        f"success_criteria should reference ACV or revenue impact: '{evaluation['target_impact']}'"
 
 
 @then('the success metrics should specify required signal change thresholds')

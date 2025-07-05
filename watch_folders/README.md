@@ -6,10 +6,11 @@ This system enables collaborative workflows between humans and AI for the DUX Ob
 
 ```
 watch_folders/
-├── hitl_review/      → Drop files here for AI analysis & review prompts
-├── hitl_feedback/    → Drop completed human responses here  
-├── hitl_processed/   → Archive of processed files
-└── README.md         → This file
+├── hitl_review/                    → Drop files here for architectural review
+├── hitl_workshop/                  → Workshop objects with LLM for improvements
+├── hitl_failed/                    → Objects that failed validation
+├── hitl_approved_for_production/   → Objects ready for production deployment
+└── README.md                       → This file
 ```
 
 ## 🚀 Quick Start
@@ -27,31 +28,32 @@ watch_folders/
 
 5. **Drop your response** in `hitl_feedback/` for AI processing
 
-## 🔄 Workflow Example
+## 🔄 IaC Workflow Example
 
 1. **You:** Drop `new_schema.json` in `hitl_review/`
-2. **AI:** Creates analysis and review prompt in `hitl_sessions/review_[timestamp]_new_schema/`
-3. **You:** Review AI analysis, fill out `human_response_template.md`
-4. **You:** Drop completed response in `hitl_feedback/`
-5. **AI:** Processes feedback and creates next steps in `hitl_sessions/feedback_[timestamp]/`
+2. **System:** Performs architectural review against governance standards (no AI)
+3. **If failed:** Object moves to `hitl_failed/` with error details
+4. **If needs work:** Move to `hitl_workshop/` for LLM collaboration
+5. **If approved:** Object moves to `hitl_approved_for_production/`
+6. **Production:** Object is deployed to live DUX object model
 
 ## 📋 Use Cases
 
-### Schema Updates
-- Drop new/modified schema files for validation
-- AI checks DUX v9.5 compliance and suggests improvements
+### Architectural Review
+- Drop new objects in `hitl_review/` for architectural review
+- System reviews against DUX v9.6 schemas and naming conventions (no AI)
 
-### Test Data Creation  
-- Drop test data for validation
-- AI validates structure and evidence requirements
+### LLM Workshop
+- Move objects to `hitl_workshop/` for collaborative improvement
+- Work with LLM to refine object structure and content
 
-### Documentation Review
-- Drop documentation for alignment checking
-- AI compares against object model guide
+### Production Deployment
+- Approved objects in `hitl_approved_for_production/` are ready for live use
+- Objects become part of canonical DUX object model
 
-### Prompt Template Work
-- Drop prompt templates for review
-- AI checks against current schemas
+### Quality Control
+- Failed objects in `hitl_failed/` show architectural review errors
+- Review and fix before resubmitting to review
 
 ## 🎯 Benefits vs Blind Automation
 

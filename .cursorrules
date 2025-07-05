@@ -1,0 +1,135 @@
+# DUX Object Model Governance System - Cursor Rules
+
+## Core Principles
+
+The DUX Object Model governance system enforces declarative UX specifications through schema validation, BDD testing, and evidence tracking. This is a pure quality control layer that rejects invalid objects but does not auto-correct them.
+
+## File Structure and Naming
+
+- **Validation Scripts**: `scripts/validation/validate_<object_type>_objects.py`
+- **BDD Features**: `features/<validation_type>_validation.feature`
+- **Step Definitions**: `features/steps/<validation_type>_steps.py`
+- **Schemas**: `src/dux_v9.6_split_schema/dux_object_<object_type>.json`
+- **Documentation**: `docs/01_versionNext/<object_type>_object_model.md`
+
+## Schema Management
+
+- Always create backups before updating schemas
+- Maintain versioning in schema metadata
+- Update validation scripts after schema changes
+- Run BDD tests to validate schema updates
+- Use semantic versioning for schema versions
+
+## BDD Conventions
+
+- **Feature files**: Use descriptive scenarios that validate business logic
+- **Step definitions**: Implement validation logic, not business logic
+- **Background**: Set up test data and schema files
+- **Given/When/Then**: Follow BDD best practices for readability
+- **Assertions**: Use clear, descriptive assertion messages
+
+## Evidence Array Structure
+
+Every DUX object's evidence array must contain:
+1. **Provenance ID**: Links to creation metadata
+2. **Teaser Quote Object**: 
+   ```json
+   {
+     "quote": "Compelling statement supporting the object",
+     "attribution": "Source or participant name",
+     "participant_id": "P001", // For user research
+     "source_file": "research/interviews/session_2025_01_10.md"
+   }
+   ```
+
+## Validation Script Patterns
+
+- Use consistent error handling and logging
+- Create timestamped backups before processing
+- Implement duplicate handling logic
+- Generate detailed validation reports
+- Quarantine invalid files with error logs
+
+## Object Relationships
+
+- Reference objects by ID, not by embedding full objects
+- Maintain referential integrity across objects
+- Use conditional validation for optional relationships
+- Validate ID format consistency
+
+## Governance Workflow
+
+1. **HITL Review**: Architectural review (validation only, no AI)
+2. **HITL Workshop**: LLM collaboration to improve objects
+3. **HITL Failed**: Failed validations requiring fixes
+4. **HITL Approved**: Production-ready objects
+
+## Code Quality
+
+- Follow PEP 8 for Python code
+- Use descriptive variable and function names
+- Add comprehensive docstrings
+- Handle exceptions gracefully
+- Log important operations for audit trail
+
+## Documentation Standards
+
+- **README files**: Explain purpose, workflow, and usage
+- **Schema docs**: Document field purposes and relationships
+- **Validation docs**: Explain validation logic and error codes
+- **BDD docs**: Document test scenarios and expected outcomes
+
+## Testing Requirements
+
+- All schema updates must pass BDD validation
+- Validation scripts must handle edge cases
+- Evidence arrays must have proper structure
+- Object relationships must maintain integrity
+- Provenance tracking must be complete
+
+## Security and Privacy
+
+- Never embed sensitive data in objects
+- Use ID references for external objects
+- Maintain audit trails for all changes
+- Validate input data thoroughly
+- Log access and modification events
+
+## Performance Considerations
+
+- Process objects in batches for efficiency
+- Use duplicate handling to avoid reprocessing
+- Implement caching for frequently accessed schemas
+- Optimize validation logic for large datasets
+- Monitor validation performance metrics
+
+## Integration Points
+
+- **ETL Pipeline**: Handles intelligent inference and relationship creation
+- **RAG System**: Uses validated objects for knowledge retrieval
+- **Research Platform**: Provides source data and context
+- **UI Components**: Display validated objects with proper formatting
+
+## Error Handling
+
+- Provide clear error messages with actionable guidance
+- Log detailed error information for debugging
+- Implement graceful degradation for partial failures
+- Create error recovery procedures
+- Maintain error categorization for analysis
+
+## Version Control
+
+- Use semantic versioning for all components
+- Maintain backward compatibility where possible
+- Document breaking changes clearly
+- Tag releases with descriptive messages
+- Keep changelog updated
+
+## Collaboration Guidelines
+
+- Review all schema changes through pull requests
+- Test validation scripts with sample data
+- Update documentation when changing interfaces
+- Coordinate with ETL pipeline team for integration
+- Maintain clear communication about governance decisions 

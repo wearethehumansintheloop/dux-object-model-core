@@ -4,7 +4,7 @@ Feature: Signal Flow and Success Metrics Validation
   So that we can ensure proper signal traceability from user actions to business impact ($46M ACV target)
 
   Background:
-    Given I have the DUX v9.5 split schema files
+    Given I have the DUX v9.6 split schema files
     And I have UserFlow objects with behavior sequences
     And I have Behavior objects with defined signals
     And I have UserOutcome objects with key signals and success metrics
@@ -23,8 +23,7 @@ Feature: Signal Flow and Success Metrics Validation
     And I have a UserOutcome related to that UserFlow
     When I validate the signal flow from behavior to outcome
     Then the UserOutcome key_signals should include signals from the flow's key behaviors
-    And the UserOutcome should reference the UserFlow in its flow_ids array
-    And the reference_context should explain how the flow contributes to the outcome
+    And the UserOutcome should reference the UserFlow via user_flow_id
     And the signal mapping should be traceable and logical
 
   Scenario: Validate UserOutcome success metrics derive from key signals
@@ -40,7 +39,7 @@ Feature: Signal Flow and Success Metrics Validation
     Given I have UserOutcome success metrics with signal change measurements
     And I have a target impact of "$46M ACV increase aggregated across existing customers"
     When I evaluate the metrics against the target impact
-    Then the UserOutcome target_impact_when_achieved should align with ACV growth
+    Then the UserOutcome success_criteria should align with ACV growth
     And the success metrics should specify required signal change thresholds
     And the aggregated outcomes should contribute to the $46M target
     And the leading indicators should predict ACV impact
