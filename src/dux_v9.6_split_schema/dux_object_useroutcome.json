@@ -2,7 +2,7 @@
     "$schema": "http://json-schema.org/draft-07/schema#",
     "type": "object",
     "title": "DUX v9.5 UserOutcome Object",
-    "description": "OKR-style tracking object linking user scenarios to measurable business outcomes",
+    "description": "OKR-style tracking object linking user scenarios to measurable business outcomes. User Outcomes inherit key signals from linked user flows, creating traceable relationships between behaviors and measurable outcomes.",
     "properties": {
         "object_type": {
             "type": "string",
@@ -49,7 +49,7 @@
                     }
                 }
             },
-            "description": "Array of Flow IDs that contribute to achieving this outcome"
+            "description": "INHERITANCE SOURCE: Array of Flow IDs that contribute to achieving this outcome. When present, the key_signals field should inherit signals from the behaviors within these flows. This creates a traceable relationship between user flows, their behaviors, and the measurable signals that indicate outcome achievement."
         },
         "problem_ids": {
             "type": "array",
@@ -95,7 +95,7 @@
             "items": {
                 "type": "string"
             },
-            "description": "Observable signals that indicate this outcome is being achieved - derived from key behaviors in related flows"
+            "description": "INHERITED: Observable signals inherited from key behaviors in linked user flows (flow_ids). When a user_flow is referenced, these signals are automatically inherited from the behaviors within that flow. If no user_flow is linked, this field is optional and may be populated by ETL pipeline suggestions. Each signal should correspond to a measurable behavior or action that indicates progress toward this outcome."
         },
         "acceptance_criteria": {
             "type": "array",
