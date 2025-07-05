@@ -12,10 +12,22 @@
         "id": {
             "type": "string"
         },
+        "outcome_who": {
+            "type": "string",
+            "description": "Who is the user that achieves this outcome? Example: 'Joel, the cluster admin'"
+        },
+        "outcome_behavior": {
+            "type": "string", 
+            "description": "What behavior does the user perform? This should align with the key behaviors in the linked user flow. Example: 'is able to efficiently track and control GPU access and usage across the cluster'"
+        },
+        "degree_of_signal_change": {
+            "type": "string",
+            "description": "How much should the inherited signals change to indicate success? This is the measure of the outcome. Example: 'reducing the time it takes to allocate resources by 20%'"
+        },
         "outcome_statement": {
             "type": "string",
             "pattern": "^[A-Z][^.]*[.!]$",
-            "description": "Write a clear, human-readable statement of what outcome users achieve. Start with 'Who' (the user), then 'does what' (the behavior), and 'by how much' (the measurable change). Example: 'Joel, the cluster admin, is able to efficiently track and control GPU access and usage across the cluster, reducing the time it takes to allocate resources by 20%.'"
+            "description": "The complete human-readable outcome statement constructed from: [outcome_who] + [outcome_behavior] + [degree_of_signal_change]. Example: 'Joel, the cluster admin, is able to efficiently track and control GPU access and usage across the cluster, reducing the time it takes to allocate resources by 20%.'"
         },
         "user_scenario": {
             "type": "string",
@@ -95,7 +107,7 @@
             "items": {
                 "type": "string"
             },
-            "description": "What behaviors should you measure to know if users are achieving this outcome? If you've linked a user flow above, these signals are automatically copied from the behaviors in that flow - no guessing required! If you haven't linked a flow, this field is optional and the ETL pipeline can suggest what to measure based on the outcome statement."
+            "description": "These signals are automatically inherited from the 'key behaviors' identified in the linked user flow. Each signal corresponds to a measurable behavior that indicates progress toward the outcome. The degree_of_signal_change field specifies how much these signals should change to indicate success. If no user flow is linked, this field is optional and the ETL pipeline can suggest signals based on the outcome_behavior."
         },
         "acceptance_criteria": {
             "type": "array",
@@ -126,6 +138,9 @@
     "required": [
         "object_type",
         "id",
+        "outcome_who",
+        "outcome_behavior", 
+        "degree_of_signal_change",
         "outcome_statement",
         "key_signals",
         "acceptance_criteria",
