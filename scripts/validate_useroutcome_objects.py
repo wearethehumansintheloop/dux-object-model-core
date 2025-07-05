@@ -16,6 +16,7 @@ import shutil
 from datetime import datetime
 from pathlib import Path
 from typing import List, Dict, Any, Tuple
+from duplicate_handler import filter_duplicate_files, get_duplicate_summary
 
 # Schema for User Outcome objects (v9.6) - matches actual schema
 USEROUTCOME_SCHEMA = {
@@ -143,50 +144,7 @@ def has_related_user_flow(useroutcome: Dict[str, Any]) -> bool:
     return False
 
 
-def extract_object_id_from_filename(filename: str) -> str:
-    """Extract object ID from filename pattern like '20250705_001358_user_outcome_object_model.md'."""
-    # Remove timestamp prefix and file extension
-    base_name = filename.replace('.md', '')
-    
-    # Extract the object identifier part (after timestamp)
-    parts = base_name.split('_')
-    if len(parts) >= 4:  # timestamp format: YYYYMMDD_HHMMSS
-        # Skip timestamp parts and get the object identifier
-        object_parts = parts[2:]  # Skip YYYYMMDD and HHMMSS
-        return '_'.join(object_parts)
-    
-    return base_name
 
-
-def get_timestamp_from_filename(filename: str) -> str:
-    """Extract timestamp from filename pattern like '20250705_001358_user_outcome_object_model.md'."""
-    parts = filename.split('_')
-    if len(parts) >= 2:
-        return f"{parts[0]}_{parts[1]}"  # YYYYMMDD_HHMMSS
-    return ""
-
-
-def filter_duplicate_files(files: List[Path]) -> List[Path]:
-    """Filter out duplicate files, keeping only the most recent version of each object."""
-    object_files = {}  # object_id -> (timestamp, file_path)
-    
-    for file_path in files:
-        if not file_path.name.endswith('.md'):
-            continue
-            
-        object_id = extract_object_id_from_filename(file_path.name)
-        timestamp = get_timestamp_from_filename(file_path.name)
-        
-        if object_id in object_files:
-            existing_timestamp, existing_file = object_files[object_id]
-            # Keep the more recent timestamp
-            if timestamp > existing_timestamp:
-                object_files[object_id] = (timestamp, file_path)
-        else:
-            object_files[object_id] = (timestamp, file_path)
-    
-    # Return only the most recent file for each object
-    return [file_path for timestamp, file_path in object_files.values()]
 
 
 def validate_useroutcome_object(obj: Dict[str, Any]) -> Tuple[bool, List[str]]:
@@ -294,7 +252,7 @@ def main():
     # Filter out duplicates, keeping only the most recent version of each object
     markdown_files = filter_duplicate_files(all_markdown_files)
     
-    print(f"📁 Found {len(all_markdown_files)} total files, processing {len(markdown_files)} unique objects (duplicates filtered)")
+    print(get_duplicate_summary(all_markdown_files))
     
     valid_files = 0
     failed_files = 0
