@@ -2,7 +2,7 @@
     "$schema": "http://json-schema.org/draft-07/schema#",
     "type": "object",
     "title": "DUX v9.5 UserOutcome Object",
-    "description": "OKR-style tracking object linking user scenarios to measurable business outcomes. User Outcomes inherit key signals from linked user flows, creating traceable relationships between behaviors and measurable outcomes.",
+    "description": "A User Outcome tracks what measurable benefit a user gets from engaging in specific behaviors within a user flow. Think of it as 'When users do X behaviors in this flow, they achieve Y outcome.' The key signals that indicate success are automatically inherited from the behaviors in the linked user flow - you don't have to guess what to measure, it's already defined by the flow's behaviors.",
     "properties": {
         "object_type": {
             "type": "string",
@@ -49,7 +49,7 @@
                     }
                 }
             },
-            "description": "INHERITANCE SOURCE: Array of Flow IDs that contribute to achieving this outcome. When present, the key_signals field should inherit signals from the behaviors within these flows. This creates a traceable relationship between user flows, their behaviors, and the measurable signals that indicate outcome achievement."
+            "description": "Which user flows contain the behaviors that lead to this outcome? When you link a user flow here, the key_signals field automatically gets populated with the signals from those behaviors. This is where the inheritance happens - you're saying 'the behaviors in this flow lead to this outcome, so measure those behaviors to track success.'"
         },
         "problem_ids": {
             "type": "array",
@@ -95,7 +95,7 @@
             "items": {
                 "type": "string"
             },
-            "description": "INHERITED: Observable signals inherited from key behaviors in linked user flows (flow_ids). When a user_flow is referenced, these signals are automatically inherited from the behaviors within that flow. If no user_flow is linked, this field is optional and may be populated by ETL pipeline suggestions. Each signal should correspond to a measurable behavior or action that indicates progress toward this outcome."
+            "description": "What behaviors should you measure to know if users are achieving this outcome? If you've linked a user flow above, these signals are automatically copied from the behaviors in that flow - no guessing required! If you haven't linked a flow, this field is optional and the ETL pipeline can suggest what to measure based on the outcome statement."
         },
         "acceptance_criteria": {
             "type": "array",
