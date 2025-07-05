@@ -1,0 +1,366 @@
+{
+  "pipeline_stats": {
+    "total_raw_objects": 1541,
+    "attracted_objects": 0,
+    "validated_objects": 0,
+    "fit_templates_used": 0,
+    "one_sheets_generated": 8,
+    "processing_time_seconds": 0.04056096076965332
+  },
+  "raw_data_summary": {
+    "total_objects": 1541,
+    "sources": [
+      "output_7.3.2025_v001.md",
+      "insight.md",
+      "ROSwell_objects.md",
+      "ROS_BlueprintFitTemplate.md",
+      "filter_template.md",
+      "insight_chain_kubeflow2.0.md",
+      "README.md",
+      "fit_template_prompt_protocol (2).md",
+      "fit_template_protocol_FitPhase_v_2.md",
+      "insights_02.md",
+      "ROSwellInsightsv1.md",
+      "20250704_234927_01_fit_template_promptROS_TCOA_RHOAIoutcomes.md",
+      "20250705_000045_notebooklm_protocol_v_9.5_refactored.md",
+      "20250704_225732_0001_fit_template.md",
+      "20250705_000045_0001_fit_template.md",
+      "20250704_230317_fit_template_primer_v_1.md",
+      "20250704_234927_03_fit_template_customer_journey_map_AI.md",
+      "20250705_000045_notebooklm_protocol_v_9.5_unified.md",
+      "20250705_001026_0001_fit_template.md",
+      "20250704_234927_cognitive_sequencing_primer_with_schema_v9.5.md",
+      "20250704_225732_fit_template_primer_v_1.md",
+      "20250705_001026_03_json_objects_customer_journe_map_AI.md",
+      "20250705_000045_02_objects_MCMPROSwell.md",
+      "20250705_001026_02_objects_MCMPROSwell.md",
+      "20250704_225732_03_fit_template_customer_journey_map_AI.md",
+      "20250704_225732_02_objects_MCMPROSwell.md",
+      "20250705_001026_cognitive_sequencing_primer_with_schema_v9.6.md",
+      "20250704_230317_01_fit_template_promptROS_TCOA_RHOAIoutcomes.md",
+      "20250705_001026_04_fit_template_tcoa.md",
+      "20250705_000045_01_fit_template_promptROS_TCOA_RHOAIoutcomes.md",
+      "20250704_230317_0001_fit_objects_nubank.md",
+      "20250704_225732_01_fit_template_promptROS_TCOA_RHOAIoutcomes.md",
+      "20250704_230317_cognitive_sequencing_primer_with_schema_v9.5.md",
+      "20250705_000045_cognitive_sequencing_primer_with_schema_v9.5.md",
+      "20250704_225732_0001_fit_objects_nubank.md",
+      "20250704_234927_0001_fit_template.md",
+      "20250705_001026_0001_fit_objects_nubank.md",
+      "20250704_234927_02_objects_MCMPROSwell.md",
+      "20250704_230317_cognitive_sequencing_primer_with_schema_v9.6.md",
+      "20250705_000045_cognitive_sequencing_primer_with_schema_v9.6.md",
+      "20250704_234927_04_fit_template_tcoa.md",
+      "20250704_225732_04_fit_template_tcoa.md",
+      "20250705_001026_01_fit_template_promptROS_TCOA_RHOAIoutcomes.md",
+      "20250705_000045_04_fit_template_tcoa.md",
+      "20250705_000045_0001_fit_objects_nubank.md",
+      "20250704_234927_fit_template_primer_v_1.md",
+      "20250704_230317_notebooklm_protocol_v_9.5_unified.md",
+      "20250704_230317_03_fit_template_customer_journey_map_AI.md",
+      "20250705_001026_cognitive_sequencing_primer_with_schema_v9.5.md",
+      "20250704_234927_notebooklm_protocol_v_9.5_refactored.md",
+      "20250704_230317_02_objects_MCMPROSwell.md",
+      "20250704_234927_notebooklm_protocol_v_9.5_unified.md",
+      "20250705_001026_notebooklm_protocol_v_9.5_refactored.md",
+      "20250705_001026_fit_template_primer_v_1.md",
+      "20250704_234927_cognitive_sequencing_primer_with_schema_v9.6.md",
+      "20250705_000045_fit_template_primer_v_1.md",
+      "20250705_001026_03_fit_template_customer_journey_map_AI.md",
+      "20250705_000045_fit_template_kubeflow.md",
+      "20250704_234927_0001_fit_objects_nubank.md",
+      "20250704_230317_04_fit_template_tcoa.md",
+      "20250704_230317_0001_fit_template.md",
+      "20250705_001026_notebooklm_protocol_v_9.5_unified.md",
+      "20250705_000045_03_fit_template_customer_journey_map_AI.md",
+      "20250704_230317_notebooklm_protocol_v_9.5_refactored.md",
+      "20250705_001026_fit_template_kubeflow.md"
+    ],
+    "fit_templates": 0
+  },
+  "magnet_results": {
+    "attracted_by_template": {
+      "Cost Management": [],
+      "Kubeflow Bella": [],
+      "Operating Models Purpose": []
+    },
+    "validated_by_template": {
+      "Cost Management": {
+        "total_objects": 0,
+        "matched_objects": [],
+        "unmatched_objects": [],
+        "summary_table": []
+      },
+      "Kubeflow Bella": {
+        "total_objects": 0,
+        "matched_objects": [],
+        "unmatched_objects": [],
+        "summary_table": []
+      },
+      "Operating Models Purpose": {
+        "total_objects": 0,
+        "matched_objects": [],
+        "unmatched_objects": [],
+        "summary_table": []
+      }
+    },
+    "summary_by_template": {
+      "Cost Management": {
+        "total_evaluated": 0,
+        "total_matched": 0,
+        "fit_quality": "No objects evaluated",
+        "thematic_alignment": "No matched objects to analyze",
+        "gaps_identified": [
+          "Missing Problem objects",
+          "Missing Behavior objects",
+          "Missing Result objects"
+        ],
+        "counts_by_type": {},
+        "generated_at": "2025-07-05T16:16:43.175208",
+        "fit_template_version": "v1.0"
+      },
+      "Kubeflow Bella": {
+        "total_evaluated": 0,
+        "total_matched": 0,
+        "fit_quality": "No objects evaluated",
+        "thematic_alignment": "No matched objects to analyze",
+        "gaps_identified": [
+          "Missing Problem objects",
+          "Missing Behavior objects",
+          "Missing Result objects"
+        ],
+        "counts_by_type": {},
+        "generated_at": "2025-07-05T16:16:43.175497",
+        "fit_template_version": "v1.0"
+      },
+      "Operating Models Purpose": {
+        "total_evaluated": 0,
+        "total_matched": 0,
+        "fit_quality": "No objects evaluated",
+        "thematic_alignment": "No matched objects to analyze",
+        "gaps_identified": [
+          "Missing Problem objects",
+          "Missing Behavior objects",
+          "Missing Result objects"
+        ],
+        "counts_by_type": {},
+        "generated_at": "2025-07-05T16:16:43.175784",
+        "fit_template_version": "v1.0"
+      }
+    },
+    "total_attracted": 0,
+    "total_validated": 0,
+    "processing_time": 0.0008759498596191406
+  },
+  "one_sheets": [
+    {
+      "id": "one_sheet_1",
+      "title": "Cost Management - Strategic Insights",
+      "template_source": "Cost Management",
+      "generated_at": "2025-07-05T16:16:43.175822",
+      "executive_summary": "Based on the Cost Management fit template analysis, we processed 0 objects \nand achieved No objects evaluated fit quality with 0 validated matches. \nThe analysis reveals key patterns in cost management that can drive strategic decisions.",
+      "key_insights": [],
+      "recommendations": [
+        "Investigate Cost Management alignment issues before proceeding",
+        "Address identified gaps: Missing Problem objects, Missing Behavior objects, Missing Result objects",
+        "Focus on primary themes: No matched objects to analyze"
+      ],
+      "metrics": {
+        "objects_analyzed": 0,
+        "fit_quality": "No objects evaluated",
+        "confidence_level": "Low"
+      },
+      "next_steps": [
+        "Conduct additional research to fill identified gaps",
+        "Schedule stakeholder review of Cost Management insights",
+        "Develop implementation roadmap based on validated objects",
+        "Set up tracking metrics for key behaviors and results"
+      ]
+    },
+    {
+      "id": "one_sheet_2",
+      "title": "Kubeflow Bella - Strategic Insights",
+      "template_source": "Kubeflow Bella",
+      "generated_at": "2025-07-05T16:16:43.175834",
+      "executive_summary": "Based on the Kubeflow Bella fit template analysis, we processed 0 objects \nand achieved No objects evaluated fit quality with 0 validated matches. \nThe analysis reveals key patterns in kubeflow bella that can drive strategic decisions.",
+      "key_insights": [],
+      "recommendations": [
+        "Investigate Kubeflow Bella alignment issues before proceeding",
+        "Address identified gaps: Missing Problem objects, Missing Behavior objects, Missing Result objects",
+        "Focus on primary themes: No matched objects to analyze"
+      ],
+      "metrics": {
+        "objects_analyzed": 0,
+        "fit_quality": "No objects evaluated",
+        "confidence_level": "Low"
+      },
+      "next_steps": [
+        "Conduct additional research to fill identified gaps",
+        "Schedule stakeholder review of Kubeflow Bella insights",
+        "Develop implementation roadmap based on validated objects",
+        "Set up tracking metrics for key behaviors and results"
+      ]
+    },
+    {
+      "id": "one_sheet_3",
+      "title": "Operating Models Purpose - Strategic Insights",
+      "template_source": "Operating Models Purpose",
+      "generated_at": "2025-07-05T16:16:43.175845",
+      "executive_summary": "Based on the Operating Models Purpose fit template analysis, we processed 0 objects \nand achieved No objects evaluated fit quality with 0 validated matches. \nThe analysis reveals key patterns in operating models purpose that can drive strategic decisions.",
+      "key_insights": [],
+      "recommendations": [
+        "Investigate Operating Models Purpose alignment issues before proceeding",
+        "Address identified gaps: Missing Problem objects, Missing Behavior objects, Missing Result objects",
+        "Focus on primary themes: No matched objects to analyze"
+      ],
+      "metrics": {
+        "objects_analyzed": 0,
+        "fit_quality": "No objects evaluated",
+        "confidence_level": "Low"
+      },
+      "next_steps": [
+        "Conduct additional research to fill identified gaps",
+        "Schedule stakeholder review of Operating Models Purpose insights",
+        "Develop implementation roadmap based on validated objects",
+        "Set up tracking metrics for key behaviors and results"
+      ]
+    },
+    {
+      "id": "one_sheet_4",
+      "title": "Cross-Template Strategic Synthesis",
+      "template_source": "aggregate_analysis",
+      "generated_at": "2025-07-05T16:16:43.175854",
+      "executive_summary": "Cross-template analysis revealing strategic patterns across 3 fit templates.",
+      "key_insights": [
+        "Identified common themes across multiple templates",
+        "Discovered cross-domain relationship patterns",
+        "Validated strategic alignment opportunities"
+      ],
+      "recommendations": [
+        "Develop integrated approach combining template insights",
+        "Create cross-functional teams for implementation",
+        "Establish unified metrics framework"
+      ],
+      "metrics": {
+        "objects_analyzed": 0,
+        "fit_quality": "Aggregated",
+        "confidence_level": "Medium"
+      },
+      "next_steps": [
+        "Conduct executive briefing on aggregate findings",
+        "Develop integrated implementation plan",
+        "Set up governance structure for ongoing monitoring"
+      ]
+    },
+    {
+      "id": "one_sheet_5",
+      "title": "Thematic Pattern Analysis",
+      "template_source": "aggregate_analysis",
+      "generated_at": "2025-07-05T16:16:43.175861",
+      "executive_summary": "Cross-template analysis revealing strategic patterns across 3 fit templates.",
+      "key_insights": [
+        "Identified common themes across multiple templates",
+        "Discovered cross-domain relationship patterns",
+        "Validated strategic alignment opportunities"
+      ],
+      "recommendations": [
+        "Develop integrated approach combining template insights",
+        "Create cross-functional teams for implementation",
+        "Establish unified metrics framework"
+      ],
+      "metrics": {
+        "objects_analyzed": 0,
+        "fit_quality": "Aggregated",
+        "confidence_level": "Medium"
+      },
+      "next_steps": [
+        "Conduct executive briefing on aggregate findings",
+        "Develop integrated implementation plan",
+        "Set up governance structure for ongoing monitoring"
+      ]
+    },
+    {
+      "id": "one_sheet_6",
+      "title": "Implementation Priority Matrix",
+      "template_source": "aggregate_analysis",
+      "generated_at": "2025-07-05T16:16:43.175866",
+      "executive_summary": "Cross-template analysis revealing strategic patterns across 3 fit templates.",
+      "key_insights": [
+        "Identified common themes across multiple templates",
+        "Discovered cross-domain relationship patterns",
+        "Validated strategic alignment opportunities"
+      ],
+      "recommendations": [
+        "Develop integrated approach combining template insights",
+        "Create cross-functional teams for implementation",
+        "Establish unified metrics framework"
+      ],
+      "metrics": {
+        "objects_analyzed": 0,
+        "fit_quality": "Aggregated",
+        "confidence_level": "Medium"
+      },
+      "next_steps": [
+        "Conduct executive briefing on aggregate findings",
+        "Develop integrated implementation plan",
+        "Set up governance structure for ongoing monitoring"
+      ]
+    },
+    {
+      "id": "one_sheet_7",
+      "title": "Risk Assessment Summary",
+      "template_source": "aggregate_analysis",
+      "generated_at": "2025-07-05T16:16:43.175870",
+      "executive_summary": "Cross-template analysis revealing strategic patterns across 3 fit templates.",
+      "key_insights": [
+        "Identified common themes across multiple templates",
+        "Discovered cross-domain relationship patterns",
+        "Validated strategic alignment opportunities"
+      ],
+      "recommendations": [
+        "Develop integrated approach combining template insights",
+        "Create cross-functional teams for implementation",
+        "Establish unified metrics framework"
+      ],
+      "metrics": {
+        "objects_analyzed": 0,
+        "fit_quality": "Aggregated",
+        "confidence_level": "Medium"
+      },
+      "next_steps": [
+        "Conduct executive briefing on aggregate findings",
+        "Develop integrated implementation plan",
+        "Set up governance structure for ongoing monitoring"
+      ]
+    },
+    {
+      "id": "one_sheet_8",
+      "title": "Success Metrics Dashboard",
+      "template_source": "aggregate_analysis",
+      "generated_at": "2025-07-05T16:16:43.175874",
+      "executive_summary": "Cross-template analysis revealing strategic patterns across 3 fit templates.",
+      "key_insights": [
+        "Identified common themes across multiple templates",
+        "Discovered cross-domain relationship patterns",
+        "Validated strategic alignment opportunities"
+      ],
+      "recommendations": [
+        "Develop integrated approach combining template insights",
+        "Create cross-functional teams for implementation",
+        "Establish unified metrics framework"
+      ],
+      "metrics": {
+        "objects_analyzed": 0,
+        "fit_quality": "Aggregated",
+        "confidence_level": "Medium"
+      },
+      "next_steps": [
+        "Conduct executive briefing on aggregate findings",
+        "Develop integrated implementation plan",
+        "Set up governance structure for ongoing monitoring"
+      ]
+    }
+  ],
+  "generated_at": "2025-07-05T16:16:43.175884",
+  "processing_time_seconds": 0.04056096076965332
+}
