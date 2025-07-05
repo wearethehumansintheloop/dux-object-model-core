@@ -1,9 +1,0 @@
-Validation failed for: cognitive_sequencing_primer_with_schema_v9.6.md
-Timestamp: 2025-07-05T00:00:45.584116
-Original location: watch_folders/hitl_review/study_orchestrators/primers/cognitive_sequencing_primer_with_schema_v9.6.md
-
-Errors:
-- Behavior[0] (behavior_generate_cost_reports): Invalid behavior_type: Task
-- Flow[0] (flow_proactive_cost_management): Missing required field: flow_name
-- Flow[0] (flow_proactive_cost_management): Missing required field: flow_description
-- Insight[0] (insight_cost_optimization_story): Missing required field: evidence_maturity

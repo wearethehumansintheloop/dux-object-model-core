@@ -1,6 +1,0 @@
-Validation failed for: behavior_object.md
-Timestamp: 2025-07-04T23:03:17.917970
-Original location: watch_folders/hitl_review/dux_object_model_9.6/behavior_object.md
-
-Errors:
-- Behavior[0] (behavior_001): Invalid behavior_type: Task

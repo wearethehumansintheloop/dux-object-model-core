@@ -1,0 +1,114 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "Provenance Junction Object Schema",
+  "description": "Schema for Provenance Junction objects connecting Session and Data objects with evidence maturity",
+  "type": "object",
+  "version": "9.6.0",
+  "required": ["object_type", "id", "session_id", "data_id", "evidence_maturity", "evidence_block", "confidence_score", "validation_status"],
+  "properties": {
+    "object_type": {
+      "type": "string",
+      "enum": ["ProvenanceJunction"],
+      "description": "Object type discriminator"
+    },
+    "id": {
+      "type": "string",
+      "pattern": "^provenance_junction_.*",
+      "description": "Unique identifier for this provenance junction"
+    },
+    "session_id": {
+      "type": "string",
+      "pattern": "^session_.*",
+      "description": "ID of the Session that generated the evidence"
+    },
+    "data_id": {
+      "type": "string",
+      "pattern": "^data_.*",
+      "description": "ID of the Data object that contains the evidence"
+    },
+    "evidence_maturity": {
+      "type": "string",
+      "enum": ["01_assumptive", "02_anecdotal", "03_early_signal", "04_balanced_signal", "05_triangulated"],
+      "description": "System-derived evidence quality tier"
+    },
+    "evidence_block": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["teaser", "quote", "citation", "provenance_id", "evidence_type", "confidence_level"],
+        "properties": {
+          "teaser": {
+            "type": "string",
+            "description": "Summary of insight hook for pain point, stat, or finding"
+          },
+          "quote": {
+            "type": "string",
+            "description": "The actual evidence quote or finding"
+          },
+          "citation": {
+            "type": "string",
+            "description": "Source citation for the evidence"
+          },
+          "provenance_id": {
+            "type": "string",
+            "description": "Reference to this provenance junction"
+          },
+          "evidence_type": {
+            "type": "string",
+            "description": "Type of evidence (user_research_finding, observation, metric, etc.)"
+          },
+          "confidence_level": {
+            "type": "string",
+            "enum": ["low", "medium", "high"],
+            "description": "Confidence level in this evidence unit"
+          }
+        }
+      },
+      "minItems": 1,
+      "description": "Required array of grouped evidence units"
+    },
+    "evidence_teaser": {
+      "type": "string",
+      "description": "Optional summary of insight hook for pain point, stat, or finding"
+    },
+    "confidence_score": {
+      "type": "number",
+      "minimum": 0.0,
+      "maximum": 1.0,
+      "description": "Calculated confidence score based on evidence quality and freshness"
+    },
+    "triangulation_count": {
+      "type": "integer",
+      "minimum": 0,
+      "description": "Number of independent sources that support this evidence"
+    },
+    "last_validation_date": {
+      "type": "string",
+      "format": "date-time",
+      "description": "Date when this evidence was last validated or reviewed"
+    },
+    "validation_status": {
+      "type": "string",
+      "enum": ["pending", "validated", "needs_review", "invalid"],
+      "description": "Current validation status"
+    },
+    "tags": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "description": "System-derived tags from DUX scan (not manually added)"
+    },
+    "created_at": {
+      "type": "string",
+      "format": "date-time",
+      "description": "Creation timestamp"
+    },
+    "updated_at": {
+      "type": "string",
+      "format": "date-time",
+      "description": "Last update timestamp"
+    }
+  },
+  "additionalProperties": false
+} 

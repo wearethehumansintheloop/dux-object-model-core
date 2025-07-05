@@ -1,8 +1,0 @@
-Validation failed for: notebooklm_protocol_v_9.5_unified.md
-Timestamp: 2025-07-05T00:00:45.586553
-Original location: watch_folders/hitl_review/study_orchestrators/protocols/notebooklm_protocol_v_9.5_unified.md
-
-Errors:
-- Behavior[0] (behavior_example_001): Invalid behavior_type: Task
-- Flow[0] (flow_example_001): Missing required field: flow_name
-- Flow[0] (flow_example_001): Missing required field: flow_description

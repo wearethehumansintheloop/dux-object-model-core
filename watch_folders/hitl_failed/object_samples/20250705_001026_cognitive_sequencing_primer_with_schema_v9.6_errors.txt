@@ -1,7 +1,0 @@
-Behavior Object Validation Errors
-File: cognitive_sequencing_primer_with_schema_v9.6.md
-Timestamp: 2025-07-05T00:10:26.907826
-Total Errors: 1
-
-Errors:
-- behavior_generate_cost_reports: Missing required field: behavior_statement

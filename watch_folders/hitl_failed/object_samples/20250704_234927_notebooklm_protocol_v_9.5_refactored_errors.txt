@@ -1,6 +1,0 @@
-Validation failed for: notebooklm_protocol_v_9.5_refactored.md
-Timestamp: 2025-07-04T23:49:27.382822
-Original location: watch_folders/hitl_review/study_orchestrators/protocols/notebooklm_protocol_v_9.5_refactored.md
-
-Errors:
-- Behavior[0] (behavior_example_001): Invalid behavior_type: Task

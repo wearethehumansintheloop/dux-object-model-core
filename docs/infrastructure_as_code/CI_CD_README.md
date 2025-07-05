@@ -6,7 +6,7 @@ The DUX Object Model CI/CD Pipeline provides automated validation, testing, and 
 
 ## 🎯 User Story
 
-> **As a DUX architect, I need to collaborate with multiple humans and AI collaborators and quickly implement changes across the project, version it, and output the latest package so others can consume the changes as quickly as possible.**
+> **As a DUX architect, I need to collaborate with multiple humans and AI collaborators through the sacred watch folder, quickly implement changes across the project, version it, and output the latest package so others can consume the changes as quickly as possible.**
 
 ## 🏗️ Architecture
 
@@ -112,7 +112,8 @@ ls -la dist/
 ## 🎛️ Configuration
 
 ### Watched Files
-- `docs/100_START_HERE/dux_object_model_guide_v_9_5.md` (primary trigger)
+- `watch_folders/hitl_review/dux_object_model_9.6/` (sacred source - primary trigger)
+- `docs/100_START_HERE/dux_object_model_guide_v_9_5.md` (secondary trigger)
 - `src/dux_v9.5_split_schema/*.json` (schema changes)
 
 ### Generated Artifacts
@@ -171,8 +172,8 @@ The pipeline also runs automatically on GitHub Actions:
 
 ## 🔄 Continuous Integration Flow
 
-1. **Developer edits** object model guide
-2. **File watcher detects** change (2-second debounce)
+1. **Human-in-the-loop review** updates object model files in sacred watch folder
+2. **File watcher detects** change in watch_folders/hitl_review/dux_object_model_9.6/ (2-second debounce)
 3. **Pipeline validates** guide structure
 4. **Schemas updated** (if needed)
 5. **Prompts regenerated** (all types)

@@ -20,28 +20,47 @@ SCHEMA_DIR = Path("src/dux_v9.6_split_schema")
 # Naming conventions from GOVERNANCE_NAMING_CONVENTIONS.md
 OBJECT_TYPE_PATTERNS = {
     "Behavior": r"^behavior_.*",
+    "Data": r"^data_.*",
+    "EvidenceJunction": r"^evidence_junction_.*",
     "Flow": r"^flow_.*", 
+    "Frame": r"^frame_.*",
     "Insight": r"^insight_.*",
+    "InsightJunction": r"^insight_junction_.*",
     "Problem": r"^problem_.*",
     "Provenance": r"^prov_.*",
+    "ProvenanceJunction": r"^provenance_junction_.*",
+    "Report": r"^report_.*",
+    "ReportGallery": r"^gallery_.*",
     "Result": r"^result_.*",
+    "Session": r"^session_.*",
+    "Study": r"^study_.*",
     "UserOutcome": r"^useroutcome_.*"
 }
 
 # Schema object types (exact values)
 SCHEMA_OBJECT_TYPES = [
-    "Behavior", "Flow", "Insight", "Problem", 
-    "Provenance", "Result", "UserOutcome"
+    "Behavior", "Data", "EvidenceJunction", "Flow", "Frame", "Insight",
+    "InsightJunction", "Problem", "Provenance", "ProvenanceJunction",
+    "Report", "ReportGallery", "Result", "Session", "Study", "UserOutcome"
 ]
 
 # Validation script execution order (alphabetical)
 VALIDATION_SCRIPTS = [
     "validate_behavior_objects.py",
-    "validate_flow_objects.py", 
+    "validate_data_objects.py",
+    "validate_evidence_junction_objects.py",
+    "validate_flow_objects.py",
+    "validate_frame_objects.py",
     "validate_insight_objects.py",
+    "validate_insight_junction_objects.py",
     "validate_problem_objects.py",
     "validate_provenance_objects.py",
+    "validate_provenance_junction_objects.py",
+    "validate_report_objects.py",
+    "validate_report_gallery_objects.py",
     "validate_result_objects.py",
+    "validate_session_objects.py",
+    "validate_study_objects.py",
     "validate_useroutcome_objects.py"
 ]
 
