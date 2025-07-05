@@ -15,7 +15,7 @@
         "outcome_statement": {
             "type": "string",
             "pattern": "^[A-Z][^.]*[.!]$",
-            "description": "Who does what by how much to make progress toward our target result? When our user succeeds how will our solution have changed their behavior?"
+            "description": "Write a clear, human-readable statement of what outcome users achieve. Start with 'Who' (the user), then 'does what' (the behavior), and 'by how much' (the measurable change). Example: 'Joel, the cluster admin, is able to efficiently track and control GPU access and usage across the cluster, reducing the time it takes to allocate resources by 20%.'"
         },
         "user_scenario": {
             "type": "string",
