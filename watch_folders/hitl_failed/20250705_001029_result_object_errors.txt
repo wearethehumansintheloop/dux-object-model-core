@@ -1,0 +1,7 @@
+Result Object Validation Errors
+File: result_object.md
+Timestamp: 2025-07-05T00:10:29.801303
+Total Errors: 1
+
+Errors:
+- result_001: Missing required field: result_statement

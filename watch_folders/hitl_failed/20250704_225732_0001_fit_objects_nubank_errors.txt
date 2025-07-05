@@ -1,0 +1,8 @@
+Validation failed for: 0001_fit_objects_nubank.md
+Timestamp: 2025-07-04T22:57:32.882134
+Original location: watch_folders/hitl_review/testcase_001/0001_fit_objects_nubank.md
+
+Errors:
+- Problem[0] (problem-financial-exclusion-001): Evidence[0] must be a string, got <class 'dict'>
+- Problem[1] (problem-poor-forecasting-002): Evidence[0] must be a string, got <class 'dict'>
+- Problem[1] (problem-poor-forecasting-002): Evidence[1] must be a string, got <class 'dict'>

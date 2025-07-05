@@ -1,0 +1,14 @@
+Behavior Object Validation Errors
+File: fit_template_kubeflow.md
+Timestamp: 2025-07-05T00:10:26.896447
+Total Errors: 8
+
+Errors:
+- beh-bella-setup-finetune-env: Missing required field: behavior_statement
+- beh-bella-setup-finetune-env: ID must start with 'behavior_'
+- beh-bella-setup-finetune-env: evidence[0] must be a string, got <class 'dict'>
+- beh-bella-setup-finetune-env: evidence[1] must be a string, got <class 'dict'>
+- beh-joel-monitor-reclaim-gpu: Missing required field: behavior_statement
+- beh-joel-monitor-reclaim-gpu: ID must start with 'behavior_'
+- beh-joel-monitor-reclaim-gpu: evidence[0] must be a string, got <class 'dict'>
+- beh-joel-monitor-reclaim-gpu: evidence[1] must be a string, got <class 'dict'>

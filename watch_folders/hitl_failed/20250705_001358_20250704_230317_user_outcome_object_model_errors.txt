@@ -1,0 +1,7 @@
+User Outcome Object Validation Errors
+File: 20250704_230317_user_outcome_object_model.md
+Timestamp: 2025-07-05T00:13:58.069324
+Total Errors: 1
+
+Errors:
+- useroutcome_001: Missing required field: outcome_statement

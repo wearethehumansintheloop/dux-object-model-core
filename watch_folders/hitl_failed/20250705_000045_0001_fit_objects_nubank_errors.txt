@@ -1,0 +1,23 @@
+Validation failed for: 0001_fit_objects_nubank.md
+Timestamp: 2025-07-05T00:00:45.568866
+Original location: watch_folders/hitl_review/testcase_001/0001_fit_objects_nubank.md
+
+Errors:
+- Problem[0] (problem-financial-exclusion-001): Evidence[0] must be a string, got <class 'dict'>
+- Problem[1] (problem-poor-forecasting-002): Evidence[0] must be a string, got <class 'dict'>
+- Problem[1] (problem-poor-forecasting-002): Evidence[1] must be a string, got <class 'dict'>
+- Behavior[0] (behavior-fight-complexity-001): Evidence[0] must be a string, got <class 'dict'>
+- Behavior[0] (behavior-fight-complexity-001): Invalid behavior_type: strategic_action
+- Behavior[1] (behavior-simple-model-002): Evidence[0] must be a string, got <class 'dict'>
+- Behavior[1] (behavior-simple-model-002): Invalid behavior_type: process_iteration
+- Behavior[2] (behavior-split-budgets-003): Evidence[0] must be a string, got <class 'dict'>
+- Behavior[2] (behavior-split-budgets-003): Invalid behavior_type: process_iteration
+- Behavior[3] (behavior-granular-budgets-004): Evidence[0] must be a string, got <class 'dict'>
+- Behavior[3] (behavior-granular-budgets-004): Invalid behavior_type: process_improvement
+- Behavior[4] (behavior-demand-drivers-006): Evidence[0] must be a string, got <class 'dict'>
+- Behavior[4] (behavior-demand-drivers-006): Invalid behavior_type: process_improvement
+- Behavior[5] (behavior-multiple-buckets-005): Evidence[0] must be a string, got <class 'dict'>
+- Behavior[5] (behavior-multiple-buckets-005): Invalid behavior_type: process_optimization
+- Result[0] (result-120M-customers-001): Evidence[0] must be a string, got <class 'dict'>
+- Result[1] (result-less-than-1-deviation-005): Evidence[0] must be a string, got <class 'dict'>
+- Result[1] (result-less-than-1-deviation-005): Evidence[1] must be a string, got <class 'dict'>

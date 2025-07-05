@@ -1,0 +1,24 @@
+Behavior Object Validation Errors
+File: 0001_fit_objects_nubank.md
+Timestamp: 2025-07-05T00:10:26.903813
+Total Errors: 18
+
+Errors:
+- behavior-fight-complexity-001: Missing required field: behavior_statement
+- behavior-fight-complexity-001: ID must start with 'behavior_'
+- behavior-fight-complexity-001: evidence[0] must be a string, got <class 'dict'>
+- behavior-simple-model-002: Missing required field: behavior_statement
+- behavior-simple-model-002: ID must start with 'behavior_'
+- behavior-simple-model-002: evidence[0] must be a string, got <class 'dict'>
+- behavior-split-budgets-003: Missing required field: behavior_statement
+- behavior-split-budgets-003: ID must start with 'behavior_'
+- behavior-split-budgets-003: evidence[0] must be a string, got <class 'dict'>
+- behavior-granular-budgets-004: Missing required field: behavior_statement
+- behavior-granular-budgets-004: ID must start with 'behavior_'
+- behavior-granular-budgets-004: evidence[0] must be a string, got <class 'dict'>
+- behavior-demand-drivers-006: Missing required field: behavior_statement
+- behavior-demand-drivers-006: ID must start with 'behavior_'
+- behavior-demand-drivers-006: evidence[0] must be a string, got <class 'dict'>
+- behavior-multiple-buckets-005: Missing required field: behavior_statement
+- behavior-multiple-buckets-005: ID must start with 'behavior_'
+- behavior-multiple-buckets-005: evidence[0] must be a string, got <class 'dict'>

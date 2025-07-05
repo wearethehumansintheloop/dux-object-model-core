@@ -1,0 +1,7 @@
+Behavior Object Validation Errors
+File: fit_template_primer_v_1.md
+Timestamp: 2025-07-05T00:10:26.895863
+Total Errors: 1
+
+Errors:
+- behavior_example_001: Missing required field: behavior_statement

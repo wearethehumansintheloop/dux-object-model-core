@@ -1,0 +1,7 @@
+Behavior Object Validation Errors
+File: notebooklm_protocol_v_9.5_unified.md
+Timestamp: 2025-07-05T00:10:26.908305
+Total Errors: 1
+
+Errors:
+- behavior_example_001: Missing required field: behavior_statement

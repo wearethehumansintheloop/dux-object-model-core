@@ -1,0 +1,6 @@
+Validation failed for: user_outcome_object_model.md
+Timestamp: 2025-07-04T23:49:27.380306
+Original location: watch_folders/hitl_review/dux_object_model_9.6/user_outcome_object_model.md
+
+Errors:
+- UserOutcome[0] (useroutcome_001): Missing required field: outcome_statement

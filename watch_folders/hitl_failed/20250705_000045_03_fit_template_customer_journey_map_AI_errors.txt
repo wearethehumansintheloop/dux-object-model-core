@@ -1,0 +1,28 @@
+Validation failed for: 03_fit_template_customer_journey_map_AI.md
+Timestamp: 2025-07-05T00:00:45.576137
+Original location: watch_folders/hitl_review/testcase_001/03_fit_template_customer_journey_map_AI.md
+
+Errors:
+- Problem[0] (pr-001): Evidence[0] must be a string, got <class 'dict'>
+- Problem[0] (pr-001): Evidence[1] must be a string, got <class 'dict'>
+- Problem[0] (pr-001): Evidence[2] must be a string, got <class 'dict'>
+- Problem[1] (pr-002): Evidence[0] must be a string, got <class 'dict'>
+- Problem[1] (pr-002): Evidence[1] must be a string, got <class 'dict'>
+- Problem[1] (pr-002): Evidence[2] must be a string, got <class 'dict'>
+- Behavior[0] (beh-001): Evidence[0] must be a string, got <class 'dict'>
+- Behavior[0] (beh-001): Evidence[1] must be a string, got <class 'dict'>
+- Behavior[0] (beh-001): Evidence[2] must be a string, got <class 'dict'>
+- Behavior[0] (beh-001): Evidence[3] must be a string, got <class 'dict'>
+- Behavior[0] (beh-001): Invalid behavior_type: Validation
+- Behavior[1] (beh-002): Evidence[0] must be a string, got <class 'dict'>
+- Behavior[1] (beh-002): Evidence[1] must be a string, got <class 'dict'>
+- Behavior[1] (beh-002): Evidence[2] must be a string, got <class 'dict'>
+- Behavior[1] (beh-002): Evidence[3] must be a string, got <class 'dict'>
+- Behavior[1] (beh-002): Invalid behavior_type: Support
+- Result[0] (res-001): Evidence[0] must be a string, got <class 'dict'>
+- Result[0] (res-001): Evidence[1] must be a string, got <class 'dict'>
+- Result[1] (res-002): Evidence[0] must be a string, got <class 'dict'>
+- Result[1] (res-002): Evidence[1] must be a string, got <class 'dict'>
+- Result[1] (res-002): Evidence[2] must be a string, got <class 'dict'>
+- Result[1] (res-002): Evidence[3] must be a string, got <class 'dict'>
+- Result[1] (res-002): Evidence[4] must be a string, got <class 'dict'>

@@ -1,0 +1,93 @@
+Behavior Object Validation Errors
+File: 02_objects_MCMPROSwell.md
+Timestamp: 2025-07-05T00:10:26.902577
+Total Errors: 87
+
+Errors:
+- BEH-001: Missing required field: behavior_statement
+- BEH-001: ID must start with 'behavior_'
+- BEH-001: evidence[0] must be a string, got <class 'dict'>
+- BEH-002: Missing required field: behavior_statement
+- BEH-002: ID must start with 'behavior_'
+- BEH-002: evidence[0] must be a string, got <class 'dict'>
+- BEH-003: Missing required field: behavior_statement
+- BEH-003: ID must start with 'behavior_'
+- BEH-003: evidence[0] must be a string, got <class 'dict'>
+- BEH-003: evidence[1] must be a string, got <class 'dict'>
+- BEH-004: Missing required field: behavior_statement
+- BEH-004: ID must start with 'behavior_'
+- BEH-004: evidence[0] must be a string, got <class 'dict'>
+- BEH-005: Missing required field: behavior_statement
+- BEH-005: ID must start with 'behavior_'
+- BEH-005: evidence[0] must be a string, got <class 'dict'>
+- BEH-005: evidence[1] must be a string, got <class 'dict'>
+- BEH-006: Missing required field: behavior_statement
+- BEH-006: ID must start with 'behavior_'
+- BEH-006: evidence[0] must be a string, got <class 'dict'>
+- BEH-006: evidence[1] must be a string, got <class 'dict'>
+- BEH-007: Missing required field: behavior_statement
+- BEH-007: ID must start with 'behavior_'
+- BEH-007: evidence[0] must be a string, got <class 'dict'>
+- BEH-008: Missing required field: behavior_statement
+- BEH-008: ID must start with 'behavior_'
+- BEH-008: evidence[0] must be a string, got <class 'dict'>
+- BEH-009: Missing required field: behavior_statement
+- BEH-009: ID must start with 'behavior_'
+- BEH-009: evidence[0] must be a string, got <class 'dict'>
+- BEH-010: Missing required field: behavior_statement
+- BEH-010: ID must start with 'behavior_'
+- BEH-010: evidence[0] must be a string, got <class 'dict'>
+- BEH-011: Missing required field: behavior_statement
+- BEH-011: ID must start with 'behavior_'
+- BEH-011: evidence[0] must be a string, got <class 'dict'>
+- BEH-011: evidence[1] must be a string, got <class 'dict'>
+- BEH-011: evidence[2] must be a string, got <class 'dict'>
+- BEH-012: Missing required field: behavior_statement
+- BEH-012: ID must start with 'behavior_'
+- BEH-012: evidence[0] must be a string, got <class 'dict'>
+- BEH-012: evidence[1] must be a string, got <class 'dict'>
+- BEH-013: Missing required field: behavior_statement
+- BEH-013: ID must start with 'behavior_'
+- BEH-013: evidence[0] must be a string, got <class 'dict'>
+- BEH-014: Missing required field: behavior_statement
+- BEH-014: ID must start with 'behavior_'
+- BEH-014: evidence[0] must be a string, got <class 'dict'>
+- BEH-014: evidence[1] must be a string, got <class 'dict'>
+- BEH-015: Missing required field: behavior_statement
+- BEH-015: ID must start with 'behavior_'
+- BEH-015: evidence[0] must be a string, got <class 'dict'>
+- BEH-015: evidence[1] must be a string, got <class 'dict'>
+- BEH-016: Missing required field: behavior_statement
+- BEH-016: ID must start with 'behavior_'
+- BEH-016: evidence[0] must be a string, got <class 'dict'>
+- BEH-017: Missing required field: behavior_statement
+- BEH-017: ID must start with 'behavior_'
+- BEH-017: evidence[0] must be a string, got <class 'dict'>
+- BEH-017: evidence[1] must be a string, got <class 'dict'>
+- BEH-018: Missing required field: behavior_statement
+- BEH-018: ID must start with 'behavior_'
+- BEH-018: evidence[0] must be a string, got <class 'dict'>
+- BEH-019: Missing required field: behavior_statement
+- BEH-019: ID must start with 'behavior_'
+- BEH-019: evidence[0] must be a string, got <class 'dict'>
+- BEH-019: evidence[1] must be a string, got <class 'dict'>
+- BEH-020: Missing required field: behavior_statement
+- BEH-020: ID must start with 'behavior_'
+- BEH-020: evidence[0] must be a string, got <class 'dict'>
+- BEH-020: evidence[1] must be a string, got <class 'dict'>
+- BEH-021: Missing required field: behavior_statement
+- BEH-021: ID must start with 'behavior_'
+- BEH-021: evidence[0] must be a string, got <class 'dict'>
+- BEH-021: evidence[1] must be a string, got <class 'dict'>
+- BEH-023: Missing required field: behavior_statement
+- BEH-023: ID must start with 'behavior_'
+- BEH-023: evidence[0] must be a string, got <class 'dict'>
+- BEH-023: evidence[1] must be a string, got <class 'dict'>
+- BEH-024: Missing required field: behavior_statement
+- BEH-024: ID must start with 'behavior_'
+- BEH-024: evidence[0] must be a string, got <class 'dict'>
+- BEH-024: evidence[1] must be a string, got <class 'dict'>
+- BEH-030: Missing required field: behavior_statement
+- BEH-030: ID must start with 'behavior_'
+- BEH-030: evidence[0] must be a string, got <class 'dict'>
+- BEH-030: evidence[1] must be a string, got <class 'dict'>

@@ -1,0 +1,14 @@
+Behavior Object Validation Errors
+File: 01_fit_template_promptROS_TCOA_RHOAIoutcomes.md
+Timestamp: 2025-07-05T00:10:26.903063
+Total Errors: 8
+
+Errors:
+- B-AUTOMATED-COST-DATA-DISTRIBUTION: Missing required field: behavior_statement
+- B-AUTOMATED-COST-DATA-DISTRIBUTION: ID must start with 'behavior_'
+- B-AUTOMATED-COST-DATA-DISTRIBUTION: evidence[0] must be a string, got <class 'dict'>
+- B-DEVELOPER-RESOURCEFUL-PRACTICES: Missing required field: behavior_statement
+- B-DEVELOPER-RESOURCEFUL-PRACTICES: ID must start with 'behavior_'
+- B-DEVELOPER-RESOURCEFUL-PRACTICES: evidence[0] must be a string, got <class 'dict'>
+- B-DEVELOPER-RESOURCEFUL-PRACTICES: evidence[1] must be a string, got <class 'dict'>
+- B-DEVELOPER-RESOURCEFUL-PRACTICES: evidence[2] must be a string, got <class 'dict'>

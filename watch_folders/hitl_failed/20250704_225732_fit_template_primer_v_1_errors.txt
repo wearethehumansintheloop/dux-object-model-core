@@ -1,0 +1,6 @@
+Validation failed for: fit_template_primer_v_1.md
+Timestamp: 2025-07-04T22:57:32.884610
+Original location: watch_folders/hitl_review/study_orchestrators/primers/fit_template_primer_v_1.md
+
+Errors:
+- Problem[0] (problem_example_001): Missing required field: job_statement
