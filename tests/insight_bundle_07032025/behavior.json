@@ -1,0 +1,21 @@
+{
+  "object_type": "Behavior",
+  "behavior_id": "behavior_203",
+  "description": "Cloud ops teams proactively identify governance handoffs during initial scoping.",
+  "behavior_type": "Enablement",
+  "acceptance_criteria": [
+    "Evidence of scoped handoff checklists in kickoff decks",
+    "Pre-deployment roles explicitly clarified"
+  ],
+  "evidence": [
+    {
+      "source_filename": "IBM_MCMP_OM_TLV2.3_2020-1-8.pdf",
+      "participant_id": "doc_author_system",
+      "timestamp_in": "page_2",
+      "timestamp_out": "page_3",
+      "teaser": "MCMP outlines an operating model for multicloud orchestration.",
+      "quote": "MCMP provides an integrated suite of applications, along with federated orchestration...",
+      "citation": "IBM_MCMP_OM_TLV2.3_2020-1-8.pdf, page 2\u20133"
+    }
+  ]
+}

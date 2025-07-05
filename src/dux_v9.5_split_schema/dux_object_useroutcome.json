@@ -1,0 +1,135 @@
+{
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "type": "object",
+    "title": "DUX v9.5 UserOutcome Object",
+    "description": "OKR-style tracking object linking user scenarios to measurable business outcomes",
+    "properties": {
+        "object_type": {
+            "type": "string",
+            "const": "UserOutcome",
+            "description": "Object type discriminator - always 'UserOutcome' for UserOutcome objects"
+        },
+        "id": {
+            "type": "string"
+        },
+        "outcome_statement": {
+            "type": "string",
+            "pattern": "^[A-Z][^.]*[.!]$",
+            "description": "Who does what by how much to make progress toward our target result? When our user succeeds how will our solution have changed their behavior?"
+        },
+        "user_scenario": {
+            "type": "string",
+            "description": "High-level scenario or context for this outcome"
+        },
+        "target_impact_when_achieved": {
+            "type": "string",
+            "description": "Expected business or user impact when this outcome is achieved"
+        },
+        "priority": {
+            "type": "string",
+            "enum": [
+                "critical",
+                "high",
+                "medium",
+                "low"
+            ],
+            "description": "Business priority level for this outcome"
+        },
+        "flow_ids": {
+            "type": "array",
+            "items": {
+                "type": "object",
+                "properties": {
+                    "id": {
+                        "type": "string"
+                    },
+                    "reference_context": {
+                        "type": "string",
+                        "description": "LLM-generated explanation of why this relationship exists"
+                    }
+                }
+            },
+            "description": "Array of Flow IDs that contribute to achieving this outcome"
+        },
+        "problem_ids": {
+            "type": "array",
+            "items": {
+                "type": "object",
+                "properties": {
+                    "id": {
+                        "type": "string"
+                    },
+                    "reference_context": {
+                        "type": "string",
+                        "description": "LLM-generated explanation of why this relationship exists"
+                    }
+                }
+            },
+            "description": "Array of Problem IDs that this outcome addresses"
+        },
+        "result_ids": {
+            "type": "array",
+            "items": {
+                "type": "object",
+                "properties": {
+                    "id": {
+                        "type": "string"
+                    },
+                    "reference_context": {
+                        "type": "string",
+                        "description": "LLM-generated explanation of why this relationship exists"
+                    }
+                }
+            },
+            "description": "Array of Result IDs that contribute to this outcome"
+        },
+        "end_user": {
+            "type": "array",
+            "items": {
+                "type": "string"
+            },
+            "description": "User personas or roles who experience this outcome"
+        },
+        "key_signals": {
+            "type": "array",
+            "items": {
+                "type": "string"
+            },
+            "description": "Observable signals that indicate this outcome is being achieved - derived from key behaviors in related flows"
+        },
+        "acceptance_criteria": {
+            "type": "array",
+            "items": {
+                "type": "string"
+            },
+            "description": "Clear, testable criteria that define successful achievement of this outcome"
+        },
+        "evidence_maturity": {
+            "type": "string",
+            "enum": [
+                "01_assumptive",
+                "02_anecdotal",
+                "03_early_signal",
+                "04_balanced_signal",
+                "05_triangulated"
+            ],
+            "description": "Progressive evidence maturity tier: 01_assumptive (inferred, no direct support), 02_anecdotal (1-2 qualitative signals), 03_early_signal (recurring signal, no quant), 04_balanced_signal (qualitative + quantitative), 05_triangulated (cross-method validation)"
+        },
+        "evidence": {
+            "type": "array",
+            "items": {
+                "type": "string"
+            },
+            "description": "Array of Provenance IDs that support this outcome"
+        }
+    },
+    "required": [
+        "object_type",
+        "id",
+        "outcome_statement",
+        "key_signals",
+        "acceptance_criteria",
+        "evidence_maturity",
+        "evidence"
+    ]
+}

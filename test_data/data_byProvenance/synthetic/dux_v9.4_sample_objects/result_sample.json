@@ -1,0 +1,38 @@
+{
+  "object_type": "sample_object_type",
+  "id": "e497c1b9-9ed2-44e0-926b-6edf6364f8e6",
+  "description": "sample_description",
+  "end_user": "sample_end_user",
+  "key_signals": [
+    "sample_key_signals_item"
+  ],
+  "derived_from_behavior_signals": true,
+  "source_behavior_ids": [
+    "sample_source_behavior_ids_item"
+  ],
+  "source_behavior_ids_evidence_status": "sample_source_behavior_ids_evidence_status",
+  "signal_discovery_method": "sample_signal_discovery_method",
+  "success_criteria": [
+    "sample_success_criteria_item"
+  ],
+  "outcome_metrics": {
+    "key": "sample_value"
+  },
+  "related_jira_urls": [
+    "sample_related_jira_urls_item"
+  ],
+  "spike_urls": [
+    "sample_spike_urls_item"
+  ],
+  "work_issue_urls": [
+    "sample_work_issue_urls_item"
+  ],
+  "evidence_status": "sample_evidence_status",
+  "evidence": "sample_evidence",
+  "evidence_teaser": "sample_evidence_teaser",
+  "tags": [
+    "sample_tags_item"
+  ],
+  "created_at": "2025-07-02T00:49:22.485504",
+  "updated_at": "2025-07-02T00:49:22.485504"
+}

@@ -1,0 +1,6 @@
+participant,question,response,timestamp,context,session_id
+Participant_001,How do you currently receive emergency alerts?,I mostly get them through my phone notifications but sometimes they come too late or I miss them when I'm busy.,00:05:30,Emergency notification preferences,interview_001
+Participant_001,What challenges do you face with current alert systems?,The biggest issue is timing - I need alerts immediately not 15 minutes later. Also some alerts are too vague.,00:12:45,Alert system pain points,interview_001
+Participant_002,How important are earthquake alerts to you?,Extremely important! I live in a high-risk area. Quick alerts could save lives and help us prepare.,00:03:15,Alert importance and urgency,interview_002
+Participant_002,What would make alerts more useful for you?,More specific information about what to do. Not just 'earthquake detected' but 'drop cover and hold on for 30 seconds'.,00:08:20,Alert content preferences,interview_002
+Participant_003,Tell me about your current earthquake preparedness.,We have an emergency kit but I'm not sure if my family knows what to do when they get the alert.,00:02:45,Preparedness assessment,interview_003

@@ -1,0 +1,697 @@
+[
+  {
+    "dux_schema_version": "9.4",
+    "object_type": "Behavior",
+    "id": "behavior_automate_cost_report_generation",
+    "description": "A system automatically generates comprehensive cost reports by integrating all relevant data sources.",
+    "behavior_type": "System",
+    "end_user": "Platform Engineer",
+    "related_problem_ids": [
+      {
+        "id": "P1-Problem-ManualCostReporting",
+        "name": "Manual and Fragmented Cost Reporting Process"
+      }
+    ],
+    "evidence_status": "observed",
+    "evidence": [
+      {
+        "quote": "So the report itself gets its data from several different places. Like I mentioned the invoice of our infrastructure provided. I think that's the biggest third party. Yeah, I guess that's it.",
+        "citation": "P1_DigitaalVlanderenc",
+        "provenance": "interview_extraction",
+        "evidence_type": "stakeholder_feedback",
+        "collection_method": "interview",
+        "confidence_level": "high"
+      },
+      {
+        "quote": "With within the DevOps part, we would try to drill down the, the, the shared resources that are being used there or dedicated resources being used in OpenShift. On the database infrastructure for instance, you have dedicated databases there, dedicated Mongo instances, but also shared ones that is part of an invoice, eh, that is sent to the, to the Flemish government. And also that information is being used in that specific Excel sheet that is types of questions.",
+        "citation": "Steven_Digital Vlaanderen",
+        "provenance": "interview_extraction",
+        "evidence_type": "stakeholder_feedback",
+        "collection_method": "interview",
+        "confidence_level": "high"
+      }
+    ],
+    "flow_ids": [],
+    "created_at": "2025-07-01T00:00:00Z"
+  },
+  {
+    "dux_schema_version": "9.4",
+    "object_type": "Behavior",
+    "id": "behavior_provide_cost_report_visibility",
+    "description": "Technical teams have direct access to and can view detailed, integrated cost reports for their applications.",
+    "behavior_type": "System",
+    "end_user": "Platform Engineer",
+    "related_problem_ids": [
+      {
+        "id": "P1-Problem-ManualCostReporting",
+        "name": "Manual and Fragmented Cost Reporting Process"
+      }
+    ],
+    "evidence_status": "observed",
+    "evidence": [
+      {
+        "quote": "I actually don't, don't receive any cost reports. So I just get the raw data and I deliver it to that other person and that's it for me. I don't see the report itself.",
+        "citation": "P1_DigitaalVlanderenc",
+        "provenance": "interview_extraction",
+        "evidence_type": "stakeholder_feedback",
+        "collection_method": "interview",
+        "confidence_level": "high"
+      },
+      {
+        "quote": "We don't have a complete overview of, for example, the databases for example, are also delivered by this third party. How much is the cost of that database, for example? That is something that we don't have. An overview of that we don't see in cost management because it's managed by third party.",
+        "citation": "P1_DigitaalVlanderenc",
+        "provenance": "interview_extraction",
+        "evidence_type": "stakeholder_feedback",
+        "collection_method": "interview",
+        "confidence_level": "high"
+      }
+    ],
+    "flow_ids": [],
+    "created_at": "2025-07-01T00:00:00Z"
+  },
+  {
+    "dux_schema_version": "9.4",
+    "object_type": "Behavior",
+    "id": "behavior_alert_on_cost_thresholds",
+    "description": "The system proactively alerts on cost thresholds, not just usage, to identify resource optimization opportunities.",
+    "behavior_type": "System",
+    "end_user": "Platform Engineer",
+    "related_problem_ids": [
+      {
+        "id": "P1-Problem-ReactiveOptimization",
+        "name": "Resource optimization is reactive and not cost-driven"
+      }
+    ],
+    "evidence_status": "observed",
+    "evidence": [
+      {
+        "quote": "We are solely alerting on usage.",
+        "citation": "P1_DigitaalVlanderenc",
+        "provenance": "interview_extraction",
+        "evidence_type": "stakeholder_feedback",
+        "collection_method": "interview",
+        "confidence_level": "high"
+      },
+      {
+        "quote": "Can, has it happened yet? But this could certainly be the case for example, I guess if there is an unreasonable cost associated with one application, then they could ask why this cost has happened or why there is such a big cost for this. And then we can of course figure out yeah, why this is happening.",
+        "citation": "P1_DigitaalVlanderenc",
+        "provenance": "interview_extraction",
+        "evidence_type": "stakeholder_feedback",
+        "collection_method": "interview",
+        "confidence_level": "high"
+      }
+    ],
+    "flow_ids": [],
+    "created_at": "2025-07-01T00:00:00Z"
+  },
+  {
+    "dux_schema_version": "9.4",
+    "object_type": "Behavior",
+    "id": "behavior_provide_optimization_recommendations_with_cost_impact",
+    "description": "The system provides recommendations for resource optimization with clear cost implications for proactive management.",
+    "behavior_type": "System",
+    "end_user": "Platform Engineer",
+    "related_problem_ids": [
+      {
+        "id": "P1-Problem-ReactiveOptimization",
+        "name": "Resource optimization is reactive and not cost-driven"
+      }
+    ],
+    "evidence_status": "observed",
+    "evidence": [
+      {
+        "quote": "We are solely alerting on usage.",
+        "citation": "P1_DigitaalVlanderenc",
+        "provenance": "interview_extraction",
+        "evidence_type": "stakeholder_feedback",
+        "collection_method": "interview",
+        "confidence_level": "high"
+      },
+      {
+        "quote": "if there is an unreasonable cost associated with one application, then they could ask why this cost has happened or why there is such a big cost for this. And then we can of course figure out yeah, why this is happening.",
+        "citation": "P1_DigitaalVlanderenc",
+        "provenance": "interview_extraction",
+        "evidence_type": "stakeholder_feedback",
+        "collection_method": "interview",
+        "confidence_level": "high"
+      }
+    ],
+    "flow_ids": [],
+    "created_at": "2025-07-01T00:00:00Z"
+  },
+  {
+    "dux_schema_version": "9.4",
+    "object_type": "Behavior",
+    "id": "behavior_generate_granular_chargeback_reports",
+    "description": "The system generates cost reports at the application, team, and business unit level to facilitate accurate chargeback.",
+    "behavior_type": "System",
+    "end_user": "Management",
+    "related_problem_ids": [
+      {
+        "id": "P2-Problem-MissingChargeback",
+        "name": "Inability to perform granular chargeback/showback for OpenShift costs"
+      }
+    ],
+    "evidence_status": "observed",
+    "evidence": [
+      {
+        "quote": "what they don't have the management is to charge back to the business units or to the development teams. That's the main thing now we want for our cost management in OpenShift.",
+        "citation": "P2_LCM",
+        "provenance": "interview_extraction",
+        "evidence_type": "stakeholder_feedback",
+        "collection_method": "interview",
+        "confidence_level": "high"
+      },
+      {
+        "quote": "Yes. It's, it's per application per team. And per team, and per business unit that we want to have the figures for OpenShift",
+        "citation": "P2_LCM",
+        "provenance": "interview_extraction",
+        "evidence_type": "stakeholder_feedback",
+        "collection_method": "interview",
+        "confidence_level": "high"
+      }
+    ],
+    "flow_ids": [],
+    "created_at": "2025-07-01T00:00:00Z"
+  },
+  {
+    "dux_schema_version": "9.4",
+    "object_type": "Behavior",
+    "id": "behavior_increase_developer_cost_awareness",
+    "description": "Development teams can view their application costs directly to promote cost-conscious behavior.",
+    "behavior_type": "Action",
+    "end_user": "Developer",
+    "related_problem_ids": [
+      {
+        "id": "P2-Problem-MissingChargeback",
+        "name": "Inability to perform granular chargeback/showback for OpenShift costs"
+      }
+    ],
+    "evidence_status": "observed",
+    "evidence": [
+      {
+        "quote": "No, they don't care about costs, that's the problem. Okay. That's, that's the problem. They, they set the requests too high and, and then yes. They, they don't, they don't are cost aware.",
+        "citation": "P2_LCM",
+        "provenance": "interview_extraction",
+        "evidence_type": "stakeholder_feedback",
+        "collection_method": "interview",
+        "confidence_level": "high"
+      },
+      {
+        "quote": "So, yeah. So they, they will, if, if they have to pay more that's the the most important thing for us. That if, if they have to pay for their usage, then, then they will be more careful to to, to put their resources on their pods.",
+        "citation": "P2_LCM",
+        "provenance": "interview_extraction",
+        "evidence_type": "stakeholder_feedback",
+        "collection_method": "interview",
+        "confidence_level": "high"
+      }
+    ],
+    "flow_ids": [],
+    "created_at": "2025-07-01T00:00:00Z"
+  },
+  {
+    "dux_schema_version": "9.4",
+    "object_type": "Behavior",
+    "id": "behavior_integrate_usage_and_cost_data_view",
+    "description": "The cost management tool displays both resource usage (CPU, memory, storage) and associated costs in a single, integrated view.",
+    "behavior_type": "System",
+    "end_user": "Platform Engineer",
+    "related_problem_ids": [
+      {
+        "id": "P2-Problem-LaborIntensiveOptimization",
+        "name": "Resource optimization efforts are manual and labor-intensive"
+      }
+    ],
+    "evidence_status": "observed",
+    "evidence": [
+      {
+        "quote": "But it's not only container cost. Yes. Does it, does it include also storage? Because we don't have only containers, C P U memory. But what is very important for us also, it's the, the storage cost together these containers is for, for us it's C P U memory and and then storage.",
+        "citation": "P2_LCM",
+        "provenance": "interview_extraction",
+        "evidence_type": "stakeholder_feedback",
+        "collection_method": "interview",
+        "confidence_level": "high"
+      },
+      {
+        "quote": "I've seen cost management and you have only the, the graphs with the costs. But then if you want to see the real usage and requests, then we have to, to go to our monitoring tool because we don't see it in the same product.",
+        "citation": "P2_LCM",
+        "provenance": "interview_extraction",
+        "evidence_type": "stakeholder_feedback",
+        "collection_method": "interview",
+        "confidence_level": "high"
+      }
+    ],
+    "flow_ids": [],
+    "created_at": "2025-07-01T00:00:00Z"
+  },
+  {
+    "dux_schema_version": "9.4",
+    "object_type": "Behavior",
+    "id": "behavior_support_external_storage_cost_tracking",
+    "description": "The cost management tool tracks and attributes costs for external storage solutions, such as NetApp.",
+    "behavior_type": "System",
+    "end_user": "Platform Engineer",
+    "related_problem_ids": [
+      {
+        "id": "P2-Problem-LaborIntensiveOptimization",
+        "name": "Resource optimization efforts are manual and labor-intensive"
+      }
+    ],
+    "evidence_status": "observed",
+    "evidence": [
+      {
+        "quote": "Is the charge back of the storage in cost management. That's also something important for us. And it's not only the storage that is used by the OpenShift cluster, but it's also external storage. So we have also an NFS NetApp that is mounted to our OpenShift nodes, in fact, and we want, and, and it'll be good also to see the cost of that.",
+        "citation": "P2_LCM",
+        "provenance": "interview_extraction",
+        "evidence_type": "stakeholder_feedback",
+        "collection_method": "interview",
+        "confidence_level": "high"
+      }
+    ],
+    "flow_ids": [],
+    "created_at": "2025-07-01T00:00:00Z"
+  },
+  {
+    "dux_schema_version": "9.4",
+    "object_type": "Behavior",
+    "id": "behavior_provide_optimization_rationale",
+    "description": "The system provides clear rationale and justification for resource optimization recommendations (e.g., cost savings, performance improvements) to motivate developers.",
+    "behavior_type": "System",
+    "end_user": "Developer",
+    "related_problem_ids": [
+      {
+        "id": "P3-Problem-DeveloperBehavior",
+        "name": "Developers lack motivation/awareness for efficient resource usage"
+      }
+    ],
+    "evidence_status": "observed",
+    "evidence": [
+      {
+        "quote": "Currently we provide them some dashboards to give them insights on their request and their limits. We are not really focusing on the project costs us that much, but really focusing on trying to get them to lower their request limits and to put effort in horizontal scaling... But yeah, that's, that's something where we're struggling with, yeah, providing them the correct data and the correct motivation to do to change something.",
+        "citation": "P3_VDAB",
+        "provenance": "interview_extraction",
+        "evidence_type": "stakeholder_feedback",
+        "collection_method": "interview",
+        "confidence_level": "high"
+      },
+      {
+        "quote": "Also, you give a lot of recommendations but there is really no motivation on why you give these recommendations and that's something that we are looking for at the moment.",
+        "citation": "P3_VDAB",
+        "provenance": "interview_extraction",
+        "evidence_type": "stakeholder_feedback",
+        "collection_method": "interview",
+        "confidence_level": "high"
+      },
+      {
+        "quote": "And I think providing that data is, is a difficult one. And yeah, analyzing it correctly. Yeah. We really don't have insights on how you calculate it, these recommendations. Yeah. And that makes it a bit more difficult to sell it to our developers.",
+        "citation": "P3_VDAB",
+        "provenance": "interview_extraction",
+        "evidence_type": "stakeholder_feedback",
+        "collection_method": "interview",
+        "confidence_level": "high"
+      }
+    ],
+    "flow_ids": [],
+    "created_at": "2025-07-01T00:00:00Z"
+  },
+  {
+    "dux_schema_version": "9.4",
+    "object_type": "Behavior",
+    "id": "behavior_automate_optimization_actions",
+    "description": "The system allows for automated application of optimization recommendations (e.g., via GitOps integration) to reduce manual effort.",
+    "behavior_type": "System",
+    "end_user": "Platform Engineer",
+    "related_problem_ids": [
+      {
+        "id": "P3-Problem-DeveloperBehavior",
+        "name": "Developers lack motivation/awareness for efficient resource usage"
+      }
+    ],
+    "evidence_status": "observed",
+    "evidence": [
+      {
+        "quote": "Ideal situation is that we would have the ability to group applications which are, which belong to a team and that if there are optimization possibilities that they just received an email or that, that we are able to create a J ticket for them and that not has to go through us and that we don't have to point the developers towards it, that it just fully automate or even that they don't have to care about it anymore. That we can just blindly trust on that this tool, it gives this recommendation. Okay. The tool can commit to our git repositories itself and just do their it's magic. Be the ideal situation for this.",
+        "citation": "P3_VDAB",
+        "provenance": "interview_extraction",
+        "evidence_type": "stakeholder_feedback",
+        "collection_method": "interview",
+        "confidence_level": "high"
+      }
+    ],
+    "flow_ids": [],
+    "created_at": "2025-07-01T00:00:00Z"
+  },
+  {
+    "dux_schema_version": "9.4",
+    "object_type": "Behavior",
+    "id": "behavior_clear_cost_terminology",
+    "description": "The tool uses clear and understandable terminology for cost and usage metrics to reduce user confusion.",
+    "behavior_type": "System",
+    "end_user": "Platform Engineer",
+    "related_problem_ids": [
+      {
+        "id": "P3-Problem-ToolingChallenges",
+        "name": "Challenges with disconnected cost management setup, unclear terminology, and limited/unmotivated optimization recommendations"
+      }
+    ],
+    "evidence_status": "observed",
+    "evidence": [
+      {
+        "quote": "I still need to get used to the notations used there like core hourse and gigabyte hours, stuff like that. So still need to find my way around it.",
+        "citation": "P3_VDAB",
+        "provenance": "interview_extraction",
+        "evidence_type": "stakeholder_feedback",
+        "collection_method": "interview",
+        "confidence_level": "high"
+      }
+    ],
+    "flow_ids": [],
+    "created_at": "2025-07-01T00:00:00Z"
+  },
+  {
+    "dux_schema_version": "9.4",
+    "object_type": "Behavior",
+    "id": "behavior_comprehensive_platform_cost_allocation",
+    "description": "The cost management tool accurately calculates and distributes all platform overhead costs, including custom components like ACS or external secrets.",
+    "behavior_type": "System",
+    "end_user": "Platform Engineer",
+    "related_problem_ids": [
+      {
+        "id": "P3-Problem-ToolingChallenges",
+        "name": "Challenges with disconnected cost management setup, unclear terminology, and limited/unmotivated optimization recommendations"
+      }
+    ],
+    "evidence_status": "observed",
+    "evidence": [
+      {
+        "quote": "But the drawback on that one is that these platform cost feels like it's, you decide what the platform costs are. Like the OpenShift API service is part of it, the [HALP] is part of it, but for us, that platform is more than the default OpenShift projects. It's also like our ACS stuff our cluster security or our external secret parts.",
+        "citation": "P3_VDAB",
+        "provenance": "interview_extraction",
+        "evidence_type": "stakeholder_feedback",
+        "collection_method": "interview",
+        "confidence_level": "high"
+      },
+      {
+        "quote": "And then being able to have a clear split between platform and application. So yeah, and that's the platform components are customizable. We like for example the external secrets that we have that we can say yeah that's also part of the the platform. And it would also be nice if we could just, say something stupid, one Grafana view from an external application so that we have just this unified dashboard where we have this whole overview.",
+        "citation": "P3_VDAB",
+        "provenance": "interview_extraction",
+        "evidence_type": "stakeholder_feedback",
+        "collection_method": "interview",
+        "confidence_level": "high"
+      }
+    ],
+    "flow_ids": [],
+    "created_at": "2025-07-01T00:00:00Z"
+  },
+  {
+    "dux_schema_version": "9.4",
+    "object_type": "Behavior",
+    "id": "behavior_provide_advanced_optimization_recommendations",
+    "description": "The system provides actionable recommendations for horizontal scaling and node density optimization, with clear rationale.",
+    "behavior_type": "System",
+    "end_user": "Platform Engineer",
+    "related_problem_ids": [
+      {
+        "id": "P3-Problem-ToolingChallenges",
+        "name": "Challenges with disconnected cost management setup, unclear terminology, and limited/unmotivated optimization recommendations"
+      }
+    ],
+    "evidence_status": "observed",
+    "evidence": [
+      {
+        "quote": "And it's also limited towards yeah, requests and limits, but we are also looking, yeah, for that horizontal scaling part, like lower the limits and I lower the request or have that many replicas of your application and that you take into account peak usage during. yeah, on a Monday, let's say on a Monday there is a big usage, but on Tuesday, there is almost no usage. That stuff like that is Yeah. Not sure if that is feasible to you, or also get taken into account.",
+        "citation": "P3_VDAB",
+        "provenance": "interview_extraction",
+        "evidence_type": "stakeholder_feedback",
+        "collection_method": "interview",
+        "confidence_level": "high"
+      },
+      {
+        "quote": "And then just like the whole, the total picture of how your cluster is being used yeah., Scheduling wise, would it be you have all the data available and maybe you could also give a recommendation on scheduling pods or, yeah, relocating pods towards other nodes to make them more dense or the opposite to make the cluster more healthy. Yeah. Stuff like that.",
+        "citation": "P3_VDAB",
+        "provenance": "interview_extraction",
+        "evidence_type": "stakeholder_feedback",
+        "collection_method": "interview",
+        "confidence_level": "high"
+      }
+    ],
+    "flow_ids": [],
+    "created_at": "2025-07-01T00:00:00Z"
+  },
+  {
+    "dux_schema_version": "9.4",
+    "object_type": "Behavior",
+    "id": "behavior_track_optimization_exceptions",
+    "description": "The system provides an in-tool decision log to track and document exceptions to optimization recommendations with reasons.",
+    "behavior_type": "System",
+    "end_user": "Platform Engineer",
+    "related_problem_ids": [
+      {
+        "id": "P3-Problem-ToolingChallenges",
+        "name": "Challenges with disconnected cost management setup, unclear terminology, and limited/unmotivated optimization recommendations"
+      }
+    ],
+    "evidence_status": "observed",
+    "evidence": [
+      {
+        "quote": "Yeah, you certainly need to have the ability to have exceptions or to ignore a certain change with a reason of course and have a backlog on it. I have backlog a list on it. Like we gave this exception because of that reason. That's really something that's required. I required would be nice to have because today I'm working for, for this customer but maybe in a month I leave and then the guy who replaces me has no clue on the exceptions why and how and yes there are external ticketing systems available here. But yeah, the new guy searching to an external ticketing system, it's updating the, and it would just be nice if it would be part of the product itself.",
+        "citation": "P3_VDAB",
+        "provenance": "interview_extraction",
+        "evidence_type": "stakeholder_feedback",
+        "collection_method": "interview",
+        "confidence_level": "high"
+      }
+    ],
+    "flow_ids": [],
+    "created_at": "2025-07-01T00:00:00Z"
+  },
+  {
+    "dux_schema_version": "9.4",
+    "object_type": "Behavior",
+    "id": "behavior_reconcile_cloud_cost_data",
+    "description": "The cost management tool consistently reconciles cost data with external cloud provider bills to ensure accuracy.",
+    "behavior_type": "System",
+    "end_user": "Finance/FinOps",
+    "related_problem_ids": [
+      {
+        "id": "P4-Problem-DataAccuracyRetention",
+        "name": "Inaccurate and insufficient historical cost data for long-term financial planning"
+      }
+    ],
+    "evidence_status": "observed",
+    "evidence": [
+      {
+        "quote": "unfortunately the last time we looked at the data, it was not meshing to what was coming out of Azure and what we were seeing in cost management.",
+        "citation": "P4_AAP",
+        "provenance": "interview_extraction",
+        "evidence_type": "stakeholder_feedback",
+        "collection_method": "interview",
+        "confidence_level": "high"
+      },
+      {
+        "quote": "I think based on the last meeting that we had yesterday, there may actually be some, some additional issues on the Microsoft side with what's being reported in the data.",
+        "citation": "P4_AAP",
+        "provenance": "interview_extraction",
+        "evidence_type": "stakeholder_feedback",
+        "collection_method": "interview",
+        "confidence_level": "high"
+      }
+    ],
+    "flow_ids": [],
+    "created_at": "2025-07-01T00:00:00Z"
+  },
+  {
+    "dux_schema_version": "9.4",
+    "object_type": "Behavior",
+    "id": "behavior_extend_data_retention_for_budgeting",
+    "description": "The system retains historical cost data for longer periods (e.g., yearly) to support financial planning and budgeting.",
+    "behavior_type": "System",
+    "end_user": "Finance/FinOps",
+    "related_problem_ids": [
+      {
+        "id": "P4-Problem-DataAccuracyRetention",
+        "name": "Inaccurate and insufficient historical cost data for long-term financial planning"
+      }
+    ],
+    "evidence_status": "observed",
+    "evidence": [
+      {
+        "quote": "So I, I think one of the things that our finops team has a desire to do is look at billing for the, the year.",
+        "citation": "P4_AAP",
+        "provenance": "interview_extraction",
+        "evidence_type": "stakeholder_feedback",
+        "collection_method": "interview",
+        "confidence_level": "high"
+      },
+      {
+        "quote": "So, as I said before, one of the things that we see in cost management is, is you know, you have a 90 day window of data",
+        "citation": "P4_AAP",
+        "provenance": "interview_extraction",
+        "evidence_type": "stakeholder_feedback",
+        "collection_method": "interview",
+        "confidence_level": "high"
+      }
+    ],
+    "flow_ids": [],
+    "created_at": "2025-07-01T00:00:00Z"
+  },
+  {
+    "dux_schema_version": "9.4",
+    "object_type": "Behavior",
+    "id": "behavior_granular_shared_resource_cost_allocation",
+    "description": "The system accurately attributes costs for shared cluster resources (e.g., Istio, network traffic) to individual namespaces or applications.",
+    "behavior_type": "System",
+    "end_user": "OpenShift Admin",
+    "related_problem_ids": [
+      {
+        "id": "P4-Problem-SharedCostAttribution",
+        "name": "Difficulty in attributing costs accurately for shared cluster resources and specific services"
+      }
+    ],
+    "evidence_status": "observed",
+    "evidence": [
+      {
+        "quote": "If it is a cluster that houses many business domains, then we need to start diving into name spaces and, and looking at the cost at a namespace level so then we can show back to our business domains that, you know, this is how much, how much your projects are costing in this shared infrastructure style cluster.",
+        "citation": "P4_AAP",
+        "provenance": "interview_extraction",
+        "evidence_type": "stakeholder_feedback",
+        "collection_method": "interview",
+        "confidence_level": "high"
+      },
+      {
+        "quote": "one of the things that not to, not to get terribly sidetracked, but one of the things that we discussed was when we have shared clusters where multiple teams utilize things like Istio service mesh, you know, how do we break that cost out to each team at the service mesh layer?",
+        "citation": "P4_AAP",
+        "provenance": "interview_extraction",
+        "evidence_type": "stakeholder_feedback",
+        "collection_method": "interview",
+        "confidence_level": "high"
+      }
+    ],
+    "flow_ids": [],
+    "created_at": "2025-07-01T00:00:00Z"
+  },
+  {
+    "dux_schema_version": "9.4",
+    "object_type": "Behavior",
+    "id": "behavior_track_network_cost",
+    "description": "The cost management tool captures and reports network utilization and associated costs for applications.",
+    "behavior_type": "System",
+    "end_user": "OpenShift Admin",
+    "related_problem_ids": [
+      {
+        "id": "P4-Problem-SharedCostAttribution",
+        "name": "Difficulty in attributing costs accurately for shared cluster resources and specific services"
+      }
+    ],
+    "evidence_status": "observed",
+    "evidence": [
+      {
+        "quote": "I don't know if it's possible to get any network utilization in, you know, some applications that may support front end applications or our customer facing applications may consume more, you know, networking costs than others.",
+        "citation": "P4_AAP",
+        "provenance": "interview_extraction",
+        "evidence_type": "stakeholder_feedback",
+        "collection_method": "interview",
+        "confidence_level": "high"
+      }
+    ],
+    "flow_ids": [],
+    "created_at": "2025-07-01T00:00:00Z"
+  },
+  {
+    "dux_schema_version": "9.4",
+    "object_type": "Behavior",
+    "id": "behavior_support_multi_source_data_integration",
+    "description": "The cost management tool integrates data from various infrastructure sources, including private cloud providers, for a coherent view.",
+    "behavior_type": "System",
+    "end_user": "Platform Engineer",
+    "related_problem_ids": [
+      {
+        "id": "P5-Problem-PrivateCloudAllocation",
+        "name": "Challenges with integrating diverse private cloud infrastructure data and allocating pre-purchased resources"
+      }
+    ],
+    "evidence_status": "observed",
+    "evidence": [
+      {
+        "quote": "What we're trying to achieve is we're trying to bring in different data sources from our infrastructure level, bring that data together in a coherent view, link that, to link that usage information to actual costs.",
+        "citation": "DV_SolutionArchitect_ITOps",
+        "provenance": "interview_extraction",
+        "evidence_type": "stakeholder_feedback",
+        "collection_method": "interview",
+        "confidence_level": "high"
+      },
+      {
+        "quote": "What we've been trying to do is we've been trying to use cost management more as an allocation system for a bill that we've received with some categories in it, like virtual machines, like databases.",
+        "citation": "DV_SolutionArchitect_ITOps",
+        "provenance": "interview_extraction",
+        "evidence_type": "stakeholder_feedback",
+        "collection_method": "interview",
+        "confidence_level": "high"
+      }
+    ],
+    "flow_ids": [],
+    "created_at": "2025-07-01T00:00:00Z"
+  },
+  {
+    "dux_schema_version": "9.4",
+    "object_type": "Behavior",
+    "id": "behavior_allow_comprehensive_label_export",
+    "description": "The system allows export of cost data with all relevant labels (e.g., team, project, application) simultaneously to ensure complete data dimensions.",
+    "behavior_type": "System",
+    "end_user": "Platform Engineer",
+    "related_problem_ids": [
+      {
+        "id": "P5-Problem-PrivateCloudAllocation",
+        "name": "Challenges with integrating diverse private cloud infrastructure data and allocating pre-purchased resources"
+      }
+    ],
+    "evidence_status": "observed",
+    "evidence": [
+      {
+        "quote": "There are gaps between what we have from the OpenShift cost export, which has only a subset of the labels in each export that we make. I think that's one of our primary problems right now. We can use labels to indicate or to group specific costs in the OpenShift cost management tool, but when we make an export, we actually have to choose one of the labels. We can't make selection of multiple labels by which we can export all at once, for example, to get all of the workloads with their respective, we, we have a label that we assign for teams. We have a label that we assign for projects and we have a label that we assign for the application itself, an app label. And those three labels, we would actually like to get in an export all at once, but right now we can only get one label that we have to, to select for.",
+        "citation": "DV_SolutionArchitect_ITOps",
+        "provenance": "interview_extraction",
+        "evidence_type": "stakeholder_feedback",
+        "collection_method": "interview",
+        "confidence_level": "high"
+      },
+      {
+        "quote": "So basically we're no, we're lacking a number of dimensions Yeah. In the exports that we, that are yeah. That are important for us to do the allocation and we suspect, well, we see that they are in open costs, otherwise those things have, because the labels have been given, but for some reason the di the the export doesn't give us Yeah. The possibility to, to have all the tags or the labels at once with, with the data.",
+        "citation": "DV_ProjectManager_ITOps",
+        "provenance": "interview_extraction",
+        "evidence_type": "stakeholder_feedback",
+        "collection_method": "interview",
+        "confidence_level": "high"
+      }
+    ],
+    "flow_ids": [],
+    "created_at": "2025-07-01T00:00:00Z"
+  },
+  {
+    "dux_schema_version": "9.4",
+    "object_type": "Behavior",
+    "id": "behavior_include_namespace_cost_in_exports",
+    "description": "The system includes namespace-level cost information in exports for finer-grained allocation.",
+    "behavior_type": "System",
+    "end_user": "Platform Engineer",
+    "related_problem_ids": [
+      {
+        "id": "P5-Problem-PrivateCloudAllocation",
+        "name": "Challenges with integrating diverse private cloud infrastructure data and allocating pre-purchased resources"
+      }
+    ],
+    "evidence_status": "observed",
+    "evidence": [
+      {
+        "quote": "I think a second problem that we have that's also somewhat related to it is that we can't get, for example, namespace information for the costs that we receive. And those namespace or projects in OpenShift are also an important dimension to get in the cost exports.",
+        "citation": "DV_SolutionArchitect_ITOps",
+        "provenance": "interview_extraction",
+        "evidence_type": "stakeholder_feedback",
+        "collection_method": "interview",
+        "confidence_level": "high"
+      }
+    ],
+    "flow_ids": [],
+    "created_at": "2025-07-01T00:00:00Z"
+  }
+]

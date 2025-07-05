@@ -1,0 +1,24 @@
+{
+  "object_type": "sample_object_type",
+  "id": "2e3b11ab-f29e-43d8-8e2c-59acbf988c45",
+  "description": "sample_description",
+  "behavior_type": "sample_behavior_type",
+  "flow_ids": [
+    "sample_flow_ids_item"
+  ],
+  "acceptance_criteria": [
+    "sample_acceptance_criteria_item"
+  ],
+  "signals": [
+    "sample_signals_item"
+  ],
+  "key": true,
+  "evidence_status": "sample_evidence_status",
+  "evidence": "sample_evidence",
+  "evidence_teaser": "sample_evidence_teaser",
+  "tags": [
+    "sample_tags_item"
+  ],
+  "created_at": "2025-07-02T00:49:22.486019",
+  "updated_at": "2025-07-02T00:49:22.486019"
+}

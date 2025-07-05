@@ -1,0 +1,47 @@
+{
+  "object_type": "sample_object_type",
+  "id": "cda1ad6a-8c5a-458f-8849-f7686b3e5150",
+  "user_scenario": "sample_user_scenario",
+  "outcome_statement": "sample_outcome_statement",
+  "target_impact_when_achieved": "sample_target_impact_when_achieved",
+  "priority": "sample_priority",
+  "related_problem_ids": [
+    "sample_related_problem_ids_item"
+  ],
+  "related_problem_ids_evidence_status": "sample_related_problem_ids_evidence_status",
+  "related_result_ids": [
+    "sample_related_result_ids_item"
+  ],
+  "related_result_ids_evidence_status": "sample_related_result_ids_evidence_status",
+  "related_flow_ids": [
+    "sample_related_flow_ids_item"
+  ],
+  "related_flow_ids_evidence_status": "sample_related_flow_ids_evidence_status",
+  "related_jira_urls": [
+    "sample_related_jira_urls_item"
+  ],
+  "spike_urls": [
+    "sample_spike_urls_item"
+  ],
+  "work_issue_urls": [
+    "sample_work_issue_urls_item"
+  ],
+  "key_signals": [
+    "sample_key_signals_item"
+  ],
+  "signal_source": "sample_signal_source",
+  "success_criteria": [
+    "sample_success_criteria_item"
+  ],
+  "target_metrics": {
+    "key": "sample_value"
+  },
+  "evidence_status": "sample_evidence_status",
+  "evidence": "sample_evidence",
+  "evidence_teaser": "sample_evidence_teaser",
+  "tags": [
+    "sample_tags_item"
+  ],
+  "created_at": "2025-07-02T00:49:22.485124",
+  "updated_at": "2025-07-02T00:49:22.485124"
+}

@@ -1,0 +1,15 @@
+{
+  "object_type": "Insight",
+  "insight_id": "insight_231",
+  "summary": "Disjointed governance structures slow multicloud rollout by delaying orchestration planning.",
+  "related_problem_ids": [
+    "problem_105"
+  ],
+  "related_behavior_ids": [
+    "behavior_203"
+  ],
+  "related_result_ids": [
+    "result_309"
+  ],
+  "evidence_status": "evidence_backed"
+}

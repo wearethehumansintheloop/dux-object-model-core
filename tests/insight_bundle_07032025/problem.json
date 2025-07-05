@@ -1,0 +1,16 @@
+{
+  "object_type": "Problem",
+  "problem_id": "problem_105",
+  "description": "When governance responsibilities are unclear across cloud environments, I can't confidently move critical workloads to multicloud, so our deployments stall or fail.",
+  "evidence": [
+    {
+      "source_filename": "IBM_MCMP_OM_TLV2.3_2020-1-8.pdf",
+      "participant_id": "doc_author_system",
+      "timestamp_in": "page_2",
+      "timestamp_out": "page_3",
+      "teaser": "MCMP outlines an operating model for multicloud orchestration.",
+      "quote": "MCMP provides an integrated suite of applications, along with federated orchestration...",
+      "citation": "IBM_MCMP_OM_TLV2.3_2020-1-8.pdf, page 2\u20133"
+    }
+  ]
+}

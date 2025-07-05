@@ -1,0 +1,35 @@
+{
+    "example_schema": {
+        "id": "test_behavior_001",
+        "description": "When I want to validate user engagement, I want to track meaningful interactions so I can optimize the user experience",
+        "behavior_type": "interaction_tracking",
+        "acceptance_criteria": [
+            "User interaction is recorded with timestamp",
+            "Interaction type is categorized",
+            "Data is stored in structured format"
+        ],
+        "signals": [
+            "click_through_rate",
+            "time_on_page",
+            "interaction_depth"
+        ],
+        "evidence": [
+            {
+                "quote": "Users spend 3x more time on pages with interactive elements",
+                "citation": "UX Research Study Q4 2024",
+                "provenance": {
+                    "report_slide": "slide_15",
+                    "report_date": "2024-12-15"
+                },
+                "evidence_type": "quantitative",
+                "collection_method": "survey",
+                "confidence_level": "high"
+            }
+        ],
+        "tags": [
+            "user_engagement",
+            "interaction",
+            "v9.5"
+        ]
+    }
+}

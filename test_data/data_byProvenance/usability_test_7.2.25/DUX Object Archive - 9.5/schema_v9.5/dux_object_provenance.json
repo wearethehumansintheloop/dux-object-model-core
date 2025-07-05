@@ -1,0 +1,49 @@
+{
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "type": "object",
+    "title": "DUX v9.5 Provenance Object",
+    "description": "Simple source attribution record for evidence traceability",
+    "properties": {
+        "object_type": {
+            "type": "string",
+            "const": "Provenance",
+            "description": "Object type discriminator - always 'Provenance'"
+        },
+        "id": {
+            "type": "string",
+            "description": "Unique identifier for this provenance record"
+        },
+        "source_filename": {
+            "type": "string",
+            "description": "Original source file name"
+        },
+        "timestamp_in": {
+            "type": "string",
+            "description": "Start time/location within source"
+        },
+        "timestamp_out": {
+            "type": "string",
+            "description": "End time/location within source"
+        },
+        "participant_id": {
+            "type": "string",
+            "description": "Anonymized participant identifier"
+        },
+        "created_at": {
+            "type": "string",
+            "format": "date-time"
+        },
+        "updated_at": {
+            "type": "string",
+            "format": "date-time"
+        }
+    },
+    "required": [
+        "object_type",
+        "id",
+        "source_filename",
+        "timestamp_in",
+        "timestamp_out"
+    ],
+    "additionalProperties": false
+}

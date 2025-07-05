@@ -1,0 +1,345 @@
+Here is the extraction of `UserOutcome`, `Flow`, and `Provenance` objects based on the provided sources, with validation of required fields and formatting as requested.
+
+### UserOutcome Objects
+
+The sources describe various desired states and results for both Bella (AI/ML practitioner) and Joel (Cluster Admin / Platform Engineer). These have been extracted as `UserOutcome` objects, ensuring the `outcome_statement` ends with a period, and all required fields are present. The `evidence_status` is marked as `evidence_present` as these are direct observations and stated needs from the document.
+
+```json
+[
+    {
+        "object_type": "UserOutcome",
+        "id": "useroutcome-bella-intuitive-env",
+        "outcome_statement": "Bella has launched interactive environments that feel intuitive, powerful, and low-friction, allowing her to focus on experimenting with models, fine-tuning large datasets, and accelerating her workflows, without worrying about the underlying infrastructure.",
+        "evidence_status": "evidence_present"
+    },
+    {
+        "object_type": "UserOutcome",
+        "id": "useroutcome-bella-easy-env-setup",
+        "outcome_statement": "Bella can easily set up her interactive AI/ML development environment by selecting from workspace templates, choosing size, and pre-installed applications.",
+        "evidence_status": "evidence_present"
+    },
+    {
+        "object_type": "UserOutcome",
+        "id": "useroutcome-bella-workspace-lifecycle-control",
+        "outcome_statement": "Bella can control her workspace lifecycle, including pausing, unpausing, restarting, or deleting it, with notifications for updates.",
+        "evidence_status": "evidence_present"
+    },
+    {
+        "object_type": "UserOutcome",
+        "id": "useroutcome-bella-customizability-post-launch",
+        "outcome_statement": "Bella can edit an existing workspace post-launch, changing resources, images, mounting volumes, or injecting secrets without starting over.",
+        "evidence_status": "evidence_present"
+    },
+    {
+        "object_type": "UserOutcome",
+        "id": "useroutcome-bella-workbench-status-visibility",
+        "outcome_statement": "Bella understands the status of her workspace during launch or failure, with direct feedback on pod status, probes, logs, and readiness.",
+        "evidence_status": "evidence_present"
+    },
+    {
+        "object_type": "UserOutcome",
+        "id": "useroutcome-bella-toolchain-flexibility",
+        "outcome_statement": "Bella has support for multiple web-based IDEs and expects new ones to be added without custom integrations.",
+        "evidence_status": "evidence_present"
+    },
+    {
+        "object_type": "UserOutcome",
+        "id": "useroutcome-bella-finetune-genai",
+        "outcome_statement": "Bella quickly sets up an interactive environment to fine-tune a Gen AI model.",
+        "evidence_status": "evidence_present"
+    },
+    {
+        "object_type": "UserOutcome",
+        "id": "useroutcome-bella-connect-seamlessly",
+        "outcome_statement": "Bella connects to her running workspace seamlessly through her web browser without manual configuration.",
+        "evidence_status": "evidence_present"
+    },
+    {
+        "object_type": "UserOutcome",
+        "id": "useroutcome-bella-manage-workspaces-efficiently",
+        "outcome_statement": "Bella manages multiple workspaces efficiently by pausing and scaling them up or down without recreation.",
+        "evidence_status": "evidence_present"
+    },
+    {
+        "object_type": "UserOutcome",
+        "id": "useroutcome-bella-complete-finetuning-with-upgrade",
+        "outcome_statement": "Bella successfully finishes fine-tuning her Deepseek-R1 model after upgrading her workspace resources.",
+        "evidence_status": "evidence_present"
+    },
+    {
+        "object_type": "UserOutcome",
+        "id": "useroutcome-bella-update-jplab-at-convenience",
+        "outcome_statement": "Bella updates her JupyterLab version at her convenience, triggering a controlled restart with the new environment.",
+        "evidence_status": "evidence_present"
+    },
+    {
+        "object_type": "UserOutcome",
+        "id": "useroutcome-bella-recover-from-launch-failures",
+        "outcome_statement": "Bella understands and can recover from workspace launch failures due to clear UI explanations and access to detailed logs.",
+        "evidence_status": "evidence_present"
+    },
+    {
+        "object_type": "UserOutcome",
+        "id": "useroutcome-bella-ssh-local-dev",
+        "outcome_statement": "Bella connects to her running workspace remotely via SSH from her local development environment, leveraging cluster resources.",
+        "evidence_status": "evidence_present"
+    },
+    {
+        "object_type": "UserOutcome",
+        "id": "useroutcome-joel-workspacekind-control-plane",
+        "outcome_statement": "Joel defines WorkspaceKind once as the single source of truth for all workspace aspects, versionable via GitOps or UI.",
+        "evidence_status": "evidence_present"
+    },
+    {
+        "object_type": "UserOutcome",
+        "id": "useroutcome-joel-safe-update-deprecation",
+        "outcome_statement": "Joel manages safe update and deprecation flows, redirecting users to new options and guiding upgrades without breaking running workspaces.",
+        "evidence_status": "evidence_present"
+    },
+    {
+        "object_type": "UserOutcome",
+        "id": "useroutcome-joel-bulk-fine-grained-admin",
+        "outcome_statement": "Joel performs bulk and fine-grained administration of workspaces from the UI, including listing, filtering, and triggering actions.",
+        "evidence_status": "evidence_present"
+    },
+    {
+        "object_type": "UserOutcome",
+        "id": "useroutcome-joel-builtin-secrets-volumes",
+        "outcome_statement": "Joel enables users to safely mount pre-defined secrets, storage volumes, and custom configs declaratively.",
+        "evidence_status": "evidence_present"
+    },
+    {
+        "object_type": "UserOutcome",
+        "id": "useroutcome-joel-scalable-governance",
+        "outcome_statement": "Joel has confidence that the workspace model and its administration will scale from a few to hundreds of workspace kinds and thousands of users without sprawl.",
+        "evidence_status": "evidence_present"
+    },
+    {
+        "object_type": "UserOutcome",
+        "id": "useroutcome-joel-resource-access-control",
+        "outcome_statement": "Joel scopes GPU-heavy or sensitive configurations to authorized users/namespaces via selectors, labels, or RBAC, and tracks them over time.",
+        "evidence_status": "evidence_present"
+    },
+    {
+        "object_type": "UserOutcome",
+        "id": "useroutcome-joel-forward-extensibility",
+        "outcome_statement": "Joel has future support for VMs, job-like workloads, and other functionalities.",
+        "evidence_status": "evidence_present"
+    },
+    {
+        "object_type": "UserOutcome",
+        "id": "useroutcome-joel-efficient-gpu-usage",
+        "outcome_statement": "Joel monitors GPU cluster usage and reclaims idle resources, ensuring efficient resource utilization across the cluster.",
+        "evidence_status": "evidence_present"
+    },
+    {
+        "object_type": "UserOutcome",
+        "id": "useroutcome-joel-support-new-resource-needs",
+        "outcome_statement": "Joel updates the system to support new resource needs by adding new node types and pod configurations to WorkspaceKind.",
+        "evidence_status": "evidence_present"
+    },
+    {
+        "object_type": "UserOutcome",
+        "id": "useroutcome-joel-support-updated-libraries",
+        "outcome_statement": "Joel adds new image options to support updated libraries, allowing users to select updated environments without disrupting existing workspaces.",
+        "evidence_status": "evidence_present"
+    },
+    {
+        "object_type": "UserOutcome",
+        "id": "useroutcome-joel-minimal-disruption-updates",
+        "outcome_statement": "Joel rolls out JupyterLab version updates with minimal user disruption, prompting users to apply updates at their convenience.",
+        "evidence_status": "evidence_present"
+    },
+    {
+        "object_type": "UserOutcome",
+        "id": "useroutcome-joel-urgently-patch-vulnerabilities",
+        "outcome_statement": "Joel urgently patches vulnerable workspaces after a security incident, ensuring the cluster is secure with minimal manual intervention.",
+        "evidence_status": "evidence_present"
+    }
+]
+```
+
+### Flow Objects
+
+The sources detail several user stories and administrative flows for Kubeflow Notebooks 2.0. These have been extracted as `Flow` objects.
+
+**Validation Notes:**
+*   All required fields (`object_type`, `id`, `title`, `behavior_sequence`, `evidence_status`) are present as per the DUX v9.5 schema.
+*   The `journey_type` field was requested in your query. However, the provided DUX v9.5 schema in the sources **does not list `journey_type` as a required field for `Flow` objects**. Therefore, this field is not included in the extracted JSON, as the response must be directly supported by the given sources.
+*   The `evidence_status` for all these flows is `evidence_present` because they are explicitly outlined scenarios or "user stories and flows" within the source document.
+
+```json
+[
+    {
+        "object_type": "Flow",
+        "id": "flow-joel-initial-setup-wk",
+        "title": "Joel: Initial setup of WorkspaceKind templates",
+        "behavior_sequence": [
+            "Joel uploads or fetches WorkspaceKind YAML definitions.",
+            "Joel customizes basic metadata (display name, description, icon)."
+        ],
+        "evidence_status": "evidence_present"
+    },
+    {
+        "object_type": "Flow",
+        "id": "flow-bella-setup-finetune-genai",
+        "title": "Bella: Setting up a workspace to fine-tune a Gen AI model",
+        "behavior_sequence": [
+            "Bella browses the list of available WorkspaceKinds, filtering by IDE type and supported frameworks.",
+            "Bella selects a suitable WorkspaceKind.",
+            "Bella chooses a pod configuration with sufficient GPU, CPU, and memory resources.",
+            "Bella selects a pre-built image with key libraries (CUDA, Hugging Face, InstructLab tools).",
+            "Bella creates a new secret to securely store access tokens.",
+            "Bella mounts a persistent volume to hold training datasets and model outputs.",
+            "Bella launches her environment with a few clicks."
+        ],
+        "evidence_status": "evidence_present"
+    },
+    {
+        "object_type": "Flow",
+        "id": "flow-bella-connect-running-workspace",
+        "title": "Bella: Connecting to a running workspace",
+        "behavior_sequence": [
+            "Bella clicks on her workspace from the dashboard workspace list.",
+            "Bella is automatically redirected to the running environment (e.g., JupyterLab, VSCode) over HTTP."
+        ],
+        "evidence_status": "evidence_present"
+    },
+    {
+        "object_type": "Flow",
+        "id": "flow-bella-manage-update-workspaces",
+        "title": "Bella: Managing and updating running workspaces",
+        "behavior_sequence": [
+            "Bella pauses workspaces she's not actively using.",
+            "Bella scales her active workspace up (increasing GPUs) to accelerate fine-tuning.",
+            "Bella scales her active workspace back down when less power is needed, without recreating or losing her environment."
+        ],
+        "evidence_status": "evidence_present"
+    },
+    {
+        "object_type": "Flow",
+        "id": "flow-joel-monitor-reclaim-gpu",
+        "title": "Joel: Monitoring GPU cluster usage and reclaiming idle resources",
+        "behavior_sequence": [
+            "Joel lists all active workspaces.",
+            "Joel filters workspaces by pod configuration to find those using high-end GPUs.",
+            "Joel views usage metrics like last activity and GPU load.",
+            "Joel identifies workspaces idle for a defined period using custom probes.",
+            "Joel performs bulk actions (e.g., pausing or reclaiming idle workspaces)."
+        ],
+        "evidence_status": "evidence_present"
+    },
+    {
+        "object_type": "Flow",
+        "id": "flow-joel-diagnose-resource-problem",
+        "title": "Joel: Diagnosing a user’s workspace resource problem",
+        "behavior_sequence": [
+            "Joel searches for Bella's workspace after she reports crashing.",
+            "Joel reviews logs and resource metrics for the workspace.",
+            "Joel identifies that the assigned instance size (2 GPUs) is insufficient for the workload (Deepseek-R1 fine-tuning)."
+        ],
+        "evidence_status": "evidence_present"
+    },
+    {
+        "object_type": "Flow",
+        "id": "flow-joel-update-wk-new-resources",
+        "title": "Joel: Updating WorkspaceKind options to meet new resource needs",
+        "behavior_sequence": [
+            "Joel sets up a new node type with 8 GPUs in the Kubernetes cluster.",
+            "Joel creates a new pod config referencing the larger instance type.",
+            "Joel adds the new pod config to the appropriate WorkspaceKind."
+        ],
+        "evidence_status": "evidence_present"
+    },
+    {
+        "object_type": "Flow",
+        "id": "flow-joel-add-new-image-option",
+        "title": "Joel: Adding a new image option to support updated libraries",
+        "behavior_sequence": [
+            "Joel builds an out-of-band new container image with updated PyTorch and vLLM libraries.",
+            "Joel creates a new image config pointing to this image.",
+            "Joel adds the new image config to the appropriate WorkspaceKind."
+        ],
+        "evidence_status": "evidence_present"
+    },
+    {
+        "object_type": "Flow",
+        "id": "flow-joel-rollout-jupyterlab-update",
+        "title": "Joel: Rolling out a JupyterLab version update with minimal user disruption",
+        "behavior_sequence": [
+            "Joel reviews which image options are in use.",
+            "Joel builds new container images that only update JupyterLab (keeping user SDKs unchanged).",
+            "Joel creates a corresponding new image config for each updated image.",
+            "Joel sets up a redirect from the old image option to the new one."
+        ],
+        "evidence_status": "evidence_present"
+    },
+    {
+        "object_type": "Flow",
+        "id": "flow-joel-patch-vulnerable-workspaces",
+        "title": "Joel: Urgently patching vulnerable workspaces after a security incident",
+        "behavior_sequence": [
+            "Joel builds a new container image that includes the security fix.",
+            "Joel creates a new image config.",
+            "Joel redirects all relevant old image options to the new, secure version.",
+            "Joel applies pending updates across impacted workspaces using bulk actions (filtering by namespace and other criteria)."
+        ],
+        "evidence_status": "evidence_present"
+    },
+    {
+        "object_type": "Flow",
+        "id": "flow-bella-upgrade-resources-finetuning",
+        "title": "Bella: Upgrading workspace resources to complete fine-tuning (GPU)",
+        "behavior_sequence": [
+            "Bella notices a warning that her workspace has a pending update (new, larger GPU configuration).",
+            "Bella reviews the update changelog.",
+            "Bella decides to apply the update immediately.",
+            "Her environment restarts with the expanded resources."
+        ],
+        "evidence_status": "evidence_present"
+    },
+    {
+        "object_type": "Flow",
+        "id": "flow-bella-upgrade-jupyterlab-deferred",
+        "title": "Bella: Upgrading workspace resources to complete fine-tuning (JupyterLab)",
+        "behavior_sequence": [
+            "Bella is notified that her workspace has a pending update to a newer JupyterLab version.",
+            "Bella opens the changelog and reviews the changes.",
+            "Bella decides to defer the update until she finishes her current experiment.",
+            "Bella applies the update from the UI later, triggering a controlled restart."
+        ],
+        "evidence_status": "evidence_present"
+    },
+    {
+        "object_type": "Flow",
+        "id": "flow-bella-understand-recover-launch-failures",
+        "title": "Bella: Understanding and recovering from workspace launch failures",
+        "behavior_sequence": [
+            "Bella encounters a launch failure caused by missing storage capacity.",
+            "The UI clearly explains the root cause (e.g., 'Insufficient storage available to create the requested volume').",
+            "Bella views detailed logs and status information directly from the workspace page.",
+            "Bella either retries with a smaller volume size, chooses a different storage, or contacts the platform admin with error details."
+        ],
+        "evidence_status": "evidence_present"
+    },
+    {
+        "object_type": "Flow",
+        "id": "flow-bella-connect-ssh-local-env",
+        "title": "Connecting to a workspace via SSH from a local environment",
+        "behavior_sequence": [
+            "Bella retrieves the SSH connection information (hostname, username, port) from the workspace details page.",
+            "Bella configures a remote SSH session in her VSCode setup.",
+            "Bella edits files, runs commands, and interacts with the workspace directly from her laptop."
+        ],
+        "evidence_status": "evidence_present"
+    }
+]
+```
+
+### Provenance Objects
+
+The sources emphasize the importance of "provenance tracking for all insights", extracting "direct quotes with precise citations", and maintaining "full citation chains". They also highlight that "citations are precise and verifiable" and "all insights can be traced back to specific data points".
+
+However, the provided `DUX v9.5 JSON Output Format` section, which details the object schemas, **does not define a standalone "Provenance object"** with specific required fields. Instead, the concept of provenance is integrated through `evidence_status` within other objects (`Problem`, `Behavior`, `Result`, `Flow`, `UserOutcome`) and general instructions on citation and evidence tracking.
+
+Therefore, I cannot extract `Provenance` objects as distinct JSON blocks with validated "source attribution fields" because the schema for such an object is not provided in the sources. The sources describe the *principles* and *requirements* for tracking provenance within the overall analysis process and *within* other defined DUX objects' evidence arrays and status, rather than as a separate top-level object type.

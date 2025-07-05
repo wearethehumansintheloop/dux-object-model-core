@@ -1,0 +1,36 @@
+{
+  "object_type": "sample_object_type",
+  "id": "1e011d19-cf95-4934-b4a2-94067e0004cf",
+  "title": "sample_title",
+  "user_scenario": "sample_user_scenario",
+  "behavior_sequence": [
+    "sample_behavior_sequence_item"
+  ],
+  "end_user": "sample_end_user",
+  "problem_ids": [
+    "sample_problem_ids_item"
+  ],
+  "problem_ids_evidence_status": "sample_problem_ids_evidence_status",
+  "protocol_url": "sample_protocol_url",
+  "pain_points": [
+    "sample_pain_points_item"
+  ],
+  "average_flow_time": 1.0,
+  "related_jira_urls": [
+    "sample_related_jira_urls_item"
+  ],
+  "spike_urls": [
+    "sample_spike_urls_item"
+  ],
+  "work_issue_urls": [
+    "sample_work_issue_urls_item"
+  ],
+  "evidence_status": "sample_evidence_status",
+  "evidence": "sample_evidence",
+  "evidence_teaser": "sample_evidence_teaser",
+  "tags": [
+    "sample_tags_item"
+  ],
+  "created_at": "2025-07-02T00:49:22.484704",
+  "updated_at": "2025-07-02T00:49:22.484704"
+}

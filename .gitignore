@@ -1,0 +1,68 @@
+# Working and generated files
+src/scripts/prompts_from_markdown/cognitive_sequencing_primer_with_schema_v9.5.md
+
+# Test data and interview files
+test_data/csv/ShakeAlert Content Library - Complete - Interviewee_ Renate.csv
+test_data/csv/TestData_ShakeAlert_AldonP1.csv
+test_data/data_byProvenance/evidence/
+
+# Python cache files
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+.Python
+
+# Virtual environments
+env/
+venv/
+ENV/
+env.bak/
+venv.bak/
+
+# IDE files
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# OS files
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+
+# Temporary files
+*.tmp
+*.temp
+*.log
+
+# Generated documentation
+docs/generated/
+
+# Test output
+test_output/
+coverage/
+.coverage
+.pytest_cache/
+
+# Node modules (if any)
+node_modules/
+
+# Archive files that might be generated
+*.zip
+*.tar.gz
+*.tgz
+
+# Ignore embedded repositories
+dux-object-model-v9.4_split/
+dux-research-platform/
+dux-white-label-ui/
+dux-etl-platform/
+
+# Keep the workspace file
+!dux-research-ecosystem.code-workspace

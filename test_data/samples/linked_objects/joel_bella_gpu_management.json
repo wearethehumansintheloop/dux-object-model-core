@@ -1,0 +1,132 @@
+{
+  "object1": {
+    "object_type": "Problem",
+    "id": "problem_joel_20250701_195236",
+    "evidence_status": "evidence_backed",
+    "protocol_url": "https://example.com/research-protocol",
+    "description": "When cluster administrators need to manage GPU resources efficiently, I want to monitor usage patterns and reclaim idle resources, so I can optimize cost and availability.",
+    "end_user": [
+      "Cluster Administrators",
+      "Platform Engineers"
+    ],
+    "what_is_at_stake": "Resource efficiency and cost optimization",
+    "result_ids": [
+      {
+        "id": "result_bella_20250701_195236",
+        "evidence_status": "evidence_present",
+        "description": "Data scientists can successfully launch and manage GPU-enabled workspaces for GenAI model training",
+        "reference_context": "Auto-linked: Objects share 4 concepts: ['gpu', 'resource', 'workspace']"
+      }
+    ],
+    "evidence": [
+      {
+        "teaser": "I use kubectl and custom scripts to check resource allocation but it's hard to see which workspaces ...",
+        "quote": "I use kubectl and custom scripts to check resource allocation but it's hard to see which workspaces are actually using their GPUs versus just requesting them.",
+        "citation": "Interview participant Joel_Admin, test_data/csv/kubeflow_interview.csv",
+        "provenance": {
+          "source_filename": "test_data/csv/kubeflow_interview.csv",
+          "timestamp_in": "00:05:30",
+          "timestamp_out": "00:05:30"
+        },
+        "evidence_type": "qualitative",
+        "collection_method": "interview"
+      },
+      {
+        "teaser": "The biggest issue is idle GPU workspaces consuming expensive resources. Users request 8 GPUs but onl...",
+        "quote": "The biggest issue is idle GPU workspaces consuming expensive resources. Users request 8 GPUs but only use 2 or leave workspaces running overnight.",
+        "citation": "Interview participant Joel_Admin, test_data/csv/kubeflow_interview.csv",
+        "provenance": {
+          "source_filename": "test_data/csv/kubeflow_interview.csv",
+          "timestamp_in": "00:12:45",
+          "timestamp_out": "00:12:45"
+        },
+        "evidence_type": "qualitative",
+        "collection_method": "interview"
+      },
+      {
+        "teaser": "Extremely important! I need reliable GPU allocation for fine-tuning large language models. Waiting f...",
+        "quote": "Extremely important! I need reliable GPU allocation for fine-tuning large language models. Waiting for resources blocks my entire workflow.",
+        "citation": "Interview participant Bella_DataScientist, test_data/csv/kubeflow_interview.csv",
+        "provenance": {
+          "source_filename": "test_data/csv/kubeflow_interview.csv",
+          "timestamp_in": "00:03:15",
+          "timestamp_out": "00:03:15"
+        },
+        "evidence_type": "qualitative",
+        "collection_method": "interview"
+      }
+    ],
+    "related_objects": []
+  },
+  "object2": {
+    "object_type": "Result",
+    "id": "result_bella_20250701_195236",
+    "evidence_status": "evidence_present",
+    "protocol_url": "https://example.com/research-protocol",
+    "description": "Data scientists can successfully launch and manage GPU-enabled workspaces for GenAI model training",
+    "result_type": "user_outcome",
+    "success_criteria": [
+      "Workspace launch time < 30 seconds",
+      "GPU utilization > 80%",
+      "Zero resource conflicts"
+    ],
+    "evidence": [
+      {
+        "teaser": "Extremely important! I need reliable GPU allocation for fine-tuning large language models. Waiting f...",
+        "quote": "Extremely important! I need reliable GPU allocation for fine-tuning large language models. Waiting for resources blocks my entire workflow.",
+        "citation": "Interview participant Bella_DataScientist, test_data/csv/kubeflow_interview.csv",
+        "provenance": {
+          "source_filename": "test_data/csv/kubeflow_interview.csv",
+          "timestamp_in": "00:03:15",
+          "timestamp_out": "00:03:15"
+        },
+        "evidence_type": "qualitative",
+        "collection_method": "interview"
+      },
+      {
+        "teaser": "Faster workspace launch times and better visibility into resource availability. I want to know if GP...",
+        "quote": "Faster workspace launch times and better visibility into resource availability. I want to know if GPUs are available before starting a big training job.",
+        "citation": "Interview participant Bella_DataScientist, test_data/csv/kubeflow_interview.csv",
+        "provenance": {
+          "source_filename": "test_data/csv/kubeflow_interview.csv",
+          "timestamp_in": "00:08:20",
+          "timestamp_out": "00:08:20"
+        },
+        "evidence_type": "qualitative",
+        "collection_method": "interview"
+      },
+      {
+        "teaser": "I need to pause idle workspaces in bulk and reallocate their GPUs to active users. Manual inspection...",
+        "quote": "I need to pause idle workspaces in bulk and reallocate their GPUs to active users. Manual inspection of each workspace takes too much time.",
+        "citation": "Interview participant Joel_Admin, test_data/csv/kubeflow_interview.csv",
+        "provenance": {
+          "source_filename": "test_data/csv/kubeflow_interview.csv",
+          "timestamp_in": "00:02:45",
+          "timestamp_out": "00:02:45"
+        },
+        "evidence_type": "qualitative",
+        "collection_method": "interview"
+      }
+    ],
+    "related_objects": []
+  },
+  "relationship_analysis": {
+    "relationship_detected": true,
+    "relationship_type": "problem_contributes_to_result",
+    "confidence": 0.8,
+    "reasoning": "Objects share 4 concepts: ['gpu', 'resource', 'workspace']",
+    "suggested_links": [
+      {
+        "from": "problem_joel_20250701_195236",
+        "to": "result_bella_20250701_195236",
+        "field": "result_ids"
+      },
+      {
+        "from": "result_bella_20250701_195236",
+        "to": "problem_joel_20250701_195236",
+        "field": "problem_ids"
+      }
+    ]
+  },
+  "linked": true
+}

@@ -1,0 +1,208 @@
+[
+  {
+    "dux_schema_version": "9.5",
+    "object_type": "Problem",
+    "id": "problem_a0eb5a38",
+    "description": "When engineering managers need to manage observability, I want streamlined workflows and reduced manual effort, so I can meet organizational goals and compliance requirements.",
+    "end_user": [
+      "Engineering Manager"
+    ],
+    "what_is_at_stake": "Organizational efficiency and observability effectiveness",
+    "evidence_status": "assumptive",
+    "evidence": [
+      {
+        "quote": "Security compliance requirements are difficult to maintain consistently.",
+        "citation": "P3_Site_Reliability, Interview Session",
+        "provenance_id": "synthetic_generation_20250702",
+        "evidence_type": "qualitative",
+        "confidence_level": "high"
+      }
+    ],
+    "result_ids": [],
+    "behavior_ids": [],
+    "created_at": "2025-07-02T02:10:09.714428",
+    "updated_at": "2025-07-02T02:10:09.714430"
+  },
+  {
+    "dux_schema_version": "9.5",
+    "object_type": "Behavior",
+    "id": "behavior_16ea61ec",
+    "description": "Security Engineer is able to configure and manage data management settings.",
+    "behavior_type": "Action",
+    "end_user": "Security Engineer",
+    "related_problem_ids": [
+      {
+        "id": "problem_143df388",
+        "name": "Sample Problem Reference"
+      }
+    ],
+    "evidence_status": "evidence_present",
+    "evidence": [
+      {
+        "quote": "We need better visibility into resource utilization and cost allocation.",
+        "citation": "P5_Security_Team, Interview Session",
+        "provenance_id": "synthetic_generation_20250702",
+        "evidence_type": "report_summary",
+        "confidence_level": "high"
+      }
+    ],
+    "flow_ids": [],
+    "acceptance_criteria": [
+      "System successfully implements: Security Engineer is able to configure and manage data management settings.",
+      "Implementation is measurable and observable",
+      "User can verify the behavior has occurred"
+    ],
+    "created_at": "2025-07-02T02:10:09.714446",
+    "updated_at": "2025-07-02T02:10:09.714447"
+  },
+  {
+    "dux_schema_version": "9.5",
+    "object_type": "Flow",
+    "id": "flow_684d18e6",
+    "title": "Cloud Architect Automation Workflow",
+    "user_scenario": "Managing automation through an end-to-end workflow that ensures efficiency and reliability",
+    "behavior_sequence": [
+      "behavior_initiate_automation",
+      "behavior_analyze_automation",
+      "behavior_optimize_automation",
+      "behavior_validate_automation"
+    ],
+    "end_user": "Cloud Architect",
+    "problem_ids": [
+      {
+        "id": "problem_987b864a",
+        "name": "Sample Problem Reference"
+      }
+    ],
+    "evidence_status": "assumptive",
+    "evidence": [
+      {
+        "quote": "We lack proper monitoring and alerting for critical infrastructure components.",
+        "citation": "P5_Security_Team, Interview Session",
+        "provenance_id": "synthetic_generation_20250702",
+        "evidence_type": "user_interview",
+        "confidence_level": "low"
+      }
+    ],
+    "created_at": "2025-07-02T02:10:09.714460",
+    "updated_at": "2025-07-02T02:10:09.714461"
+  },
+  {
+    "dux_schema_version": "9.5",
+    "object_type": "Result",
+    "id": "result_5dbe9ca5",
+    "description": "Measurable improvement in data management efficiency and effectiveness for site reliability engineers",
+    "end_user": "Site Reliability Engineer",
+    "key_signals": [
+      "Reduced time spent on data management tasks",
+      "Increased accuracy in data management operations",
+      "Improved user satisfaction with data management tools"
+    ],
+    "derived_from_behavior_signals": true,
+    "source_behavior_ids": [
+      {
+        "id": "behavior_6337a554",
+        "name": "Sample Behavior Reference"
+      }
+    ],
+    "signal_discovery_method": "user_behavior_analysis",
+    "success_criteria": [
+      "25% reduction in data management task completion time",
+      "90% user satisfaction score for data management tools",
+      "Zero critical data management incidents per month"
+    ],
+    "outcome_metrics": {
+      "efficiency_improvement": "25%",
+      "user_satisfaction": "90%",
+      "incident_reduction": "100%"
+    },
+    "evidence_status": "assumptive",
+    "evidence": [
+      {
+        "quote": "Data integration across multiple systems is challenging and time-consuming.",
+        "citation": "P1_DevOps_Team, Interview Session",
+        "provenance_id": "synthetic_generation_20250702",
+        "evidence_type": "user_interview",
+        "confidence_level": "medium"
+      },
+      {
+        "quote": "Security compliance requirements are difficult to maintain consistently.",
+        "citation": "P2_Platform_Engineer, Interview Session",
+        "provenance_id": "synthetic_generation_20250702",
+        "evidence_type": "quantitative",
+        "confidence_level": "low"
+      },
+      {
+        "quote": "The current process is too manual and error-prone for our scale.",
+        "citation": "P3_Site_Reliability, Interview Session",
+        "provenance_id": "synthetic_generation_20250702",
+        "evidence_type": "user_interview",
+        "confidence_level": "high"
+      }
+    ],
+    "created_at": "2025-07-02T02:10:09.714475",
+    "updated_at": "2025-07-02T02:10:09.714476"
+  },
+  {
+    "dux_schema_version": "9.5",
+    "object_type": "UserOutcome",
+    "id": "outcome_98f2145e",
+    "user_scenario": "As a Site Reliability Engineer, I need efficient data management capabilities to achieve organizational goals",
+    "outcome_statement": "Streamlined data management processes that enable site reliability engineers to work more effectively",
+    "target_impact_when_achieved": "Improved organizational efficiency and site reliability engineer productivity in data management",
+    "priority": "High",
+    "related_problem_ids": [
+      {
+        "id": "problem_4ef8c828",
+        "name": "Sample Problem Reference"
+      }
+    ],
+    "related_result_ids": [
+      {
+        "id": "result_9d31790d",
+        "name": "Sample Result Reference"
+      }
+    ],
+    "related_flow_ids": [
+      {
+        "id": "flow_7fe482f4",
+        "name": "Sample Flow Reference"
+      }
+    ],
+    "key_signals": [
+      "Positive feedback from site reliability engineers on data management tools",
+      "Increased adoption of data management best practices",
+      "Reduced escalations related to data management issues"
+    ],
+    "signal_source": "user_feedback_and_analytics",
+    "success_criteria": [
+      "80% of site reliability engineers report improved data management experience",
+      "50% reduction in data management-related support tickets",
+      "Consistent usage of data management automation tools"
+    ],
+    "target_metrics": {
+      "user_satisfaction": "80%",
+      "support_reduction": "50%",
+      "automation_adoption": "90%"
+    },
+    "evidence_status": "evidence_present",
+    "evidence": [
+      {
+        "quote": "We need better visibility into resource utilization and cost allocation.",
+        "citation": "P2_Platform_Engineer, Interview Session",
+        "provenance_id": "synthetic_generation_20250702",
+        "evidence_type": "user_interview",
+        "confidence_level": "medium"
+      },
+      {
+        "quote": "Data integration across multiple systems is challenging and time-consuming.",
+        "citation": "P4_Cloud_Architect, Interview Session",
+        "provenance_id": "synthetic_generation_20250702",
+        "evidence_type": "system_log",
+        "confidence_level": "high"
+      }
+    ],
+    "created_at": "2025-07-02T02:10:09.714493",
+    "updated_at": "2025-07-02T02:10:09.714494"
+  }
+]
