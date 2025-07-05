@@ -2,14 +2,29 @@
 Generator: generate_from_markdown.py v9.6
 Purpose: Extract prompt templates from DUX v9.6 object model guide markdown definitions.
 Schema-aware generation with version tracking.
+
+References:
+- docs/100_START_HERE/dux_object_template.md - Template structure and field descriptions
+- docs/infrastructure_as_code/GOVERNANCE_NAMING_CONVENTIONS.md - Naming conventions
+- src/dux_v9.6_split_schema/ - Schema definitions for validation
 """
 
 from pathlib import Path
 import re
 
+def load_template_structure():
+    """Load the standard DUX object template structure."""
+    template_path = Path("docs/100_START_HERE/dux_object_template.md")
+    if template_path.exists():
+        return template_path.read_text()
+    return None
+
 def extract_prompts_from_markdown(md_text, version="v9.6"):
     """Extract DUX object definitions and create prompt templates."""
     prompts = {}
+    
+    # Load template structure for consistency
+    template_structure = load_template_structure()
     
     # Extract core object definitions (Problem, Behavior, Result, Insight)
     core_object_pattern = r"^### (Problem|Behavior|Result|Insight)\s*\n(.+?)(?=^###|\Z)"
@@ -35,7 +50,7 @@ Create a {object_name} object that follows the DUX {version} specification:
 
 Please define the following core attributes:
 - object_type: "{object_name}"
-- id: Unique identifier
+- id: Unique identifier (follows naming convention: ^{object_name.lower()}_.*)
 - description: Clear, specific description following DUX {version} format
 - evidence: An array of evidence objects, each with 'source', 'type', and 'content'
 - evidence_status: "evidence_backed", "evidence_present", or "assumptive"
@@ -47,6 +62,7 @@ Ensure the {object_name.lower()} follows DUX {version} principles:
 - Atomicity: Each object serves a single, clear purpose
 - Traceability: Clear relationships to other objects
 - Evidence-backed: Supported by concrete evidence
+- Naming conventions: Follows governance standards (see GOVERNANCE_NAMING_CONVENTIONS.md)
 """
         
         prompts[object_name.lower()] = prompt_content
@@ -75,7 +91,7 @@ Create a {object_name} object (Junction Object) that follows the DUX {version} s
 
 Please define the following core attributes:
 - object_type: "{object_name}"
-- id: Unique identifier
+- id: Unique identifier (follows naming convention: ^{object_name.lower()}_.*)
 - Junction-specific relationships and orchestration fields
 
 {object_name}-specific attributes (refer to schema):
@@ -85,6 +101,7 @@ Junction Object principles:
 - Orchestration: Manages relationships between core objects
 - Experience flow: Defines user experience sequences  
 - Evidence aggregation: Inherits evidence from linked objects
+- Naming conventions: Follows governance standards (see GOVERNANCE_NAMING_CONVENTIONS.md)
 """
         
         prompts[object_name.lower()] = prompt_content

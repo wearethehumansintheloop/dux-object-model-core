@@ -1,10 +1,15 @@
 #!/usr/bin/env python3
 """
-Insight Object Validation Script for HITL Review Process
+Provenance Object Validation Script for HITL Review Process
 
 This script processes markdown files in the watch_folders/hitl_review directory,
-extracts Insight objects from JSON blocks, validates them against the schema,
+extracts Provenance objects from JSON blocks, validates them against the schema,
 and moves invalid files to hitl_failed with error details.
+
+References:
+- docs/100_START_HERE/dux_object_template.md - Template structure
+- docs/infrastructure_as_code/GOVERNANCE_NAMING_CONVENTIONS.md - Naming rules
+- src/dux_v9.6_split_schema/dux_object_provenance.json - Schema definition
 """
 
 import json
@@ -13,25 +18,24 @@ import shutil
 from datetime import datetime
 from pathlib import Path
 from typing import List, Dict, Any, Tuple
+from duplicate_handler import filter_duplicate_files, get_duplicate_summary
+from config import OBJECT_TYPE_PATTERNS, validate_documentation_files
 
-# Schema for Insight objects (v9.6)
-INSIGHT_SCHEMA = {
+# Schema for Provenance objects (v9.6)
+# Reference: src/dux_v9.6_split_schema/dux_object_provenance.json
+# Naming conventions: docs/infrastructure_as_code/GOVERNANCE_NAMING_CONVENTIONS.md
+PROVENANCE_SCHEMA = {
     "type": "object",
-    "required": ["object_type", "id", "insight_statement", "evidence"],
+    "required": ["object_type", "id", "evidence_block"],
     "properties": {
-        "object_type": {"type": "string", "enum": ["Insight"]},
-        "id": {"type": "string", "pattern": "^insight_.*"},
-        "insight_statement": {"type": "string", "minLength": 10},
-        "evidence": {
-            "type": "array",
-            "items": {"type": "string"},
-            "minItems": 1
-        },
-        "context": {"type": "string"},
-        "insight_type": {"type": "string"},
-        "related_problems": {"type": "array", "items": {"type": "string"}},
-        "related_behaviors": {"type": "array", "items": {"type": "string"}},
-        "related_results": {"type": "array", "items": {"type": "string"}},
+        "object_type": {"type": "string", "enum": ["Provenance"]},
+        "id": {"type": "string", "pattern": "^prov_.*"},
+        "evidence_block": {"type": "object"},
+        "source_type": {"type": "string"},
+        "source_url": {"type": "string"},
+        "collection_date": {"type": "string", "format": "date-time"},
+        "participant_count": {"type": "integer", "minimum": 1},
+        "methodology": {"type": "string"},
         "tags": {"type": "array", "items": {"type": "string"}},
         "confidence": {"type": "number", "minimum": 0, "maximum": 1},
         "created_at": {"type": "string", "format": "date-time"},
@@ -59,30 +63,30 @@ def extract_json_blocks(content: str) -> List[Dict[str, Any]]:
     return json_blocks
 
 
-def extract_insight_objects(json_blocks: List[Dict[str, Any]]) -> List[Dict[str, Any]]:
-    """Extract Insight objects from JSON blocks."""
-    insight_objects = []
+def extract_provenance_objects(json_blocks: List[Dict[str, Any]]) -> List[Dict[str, Any]]:
+    """Extract Provenance objects from JSON blocks."""
+    provenance_objects = []
     
     for block in json_blocks:
-        # Handle both direct Insight objects and nested structures
+        # Handle both direct Provenance objects and nested structures
         if isinstance(block, dict):
-            if block.get("object_type") == "Insight":
-                insight_objects.append(block)
-            # Check for nested insights in arrays or other structures
-            elif "insights" in block and isinstance(block["insights"], list):
-                for insight in block["insights"]:
-                    if isinstance(insight, dict) and insight.get("object_type") == "Insight":
-                        insight_objects.append(insight)
+            if block.get("object_type") == "Provenance":
+                provenance_objects.append(block)
+            # Check for nested provenance in arrays or other structures
+            elif "provenance" in block and isinstance(block["provenance"], list):
+                for prov in block["provenance"]:
+                    if isinstance(prov, dict) and prov.get("object_type") == "Provenance":
+                        provenance_objects.append(prov)
     
-    return insight_objects
+    return provenance_objects
 
 
-def validate_insight_object(obj: Dict[str, Any]) -> Tuple[bool, List[str]]:
-    """Validate a single Insight object against the schema."""
+def validate_provenance_object(obj: Dict[str, Any]) -> Tuple[bool, List[str]]:
+    """Validate a single Provenance object against the schema."""
     errors = []
     
     # Check required fields
-    required_fields = INSIGHT_SCHEMA["required"]
+    required_fields = PROVENANCE_SCHEMA["required"]
     for field in required_fields:
         if field not in obj:
             errors.append(f"Missing required field: {field}")
@@ -92,27 +96,25 @@ def validate_insight_object(obj: Dict[str, Any]) -> Tuple[bool, List[str]]:
             errors.append(f"Required field '{field}' cannot be empty")
     
     # Check object_type
-    if "object_type" in obj and obj["object_type"] != "Insight":
-        errors.append("object_type must be 'Insight'")
+    if "object_type" in obj and obj["object_type"] != "Provenance":
+        errors.append("object_type must be 'Provenance'")
     
     # Check ID pattern
-    if "id" in obj and not re.match(r'^insight_.*', obj["id"]):
-        errors.append("ID must start with 'insight_'")
+    if "id" in obj and not re.match(r'^prov_.*', obj["id"]):
+        errors.append("ID must start with 'prov_'")
     
-    # Check insight_statement length
-    if "insight_statement" in obj and len(obj["insight_statement"]) < 10:
-        errors.append("insight_statement must be at least 10 characters")
+    # Check evidence_block is an object
+    if "evidence_block" in obj and not isinstance(obj["evidence_block"], dict):
+        errors.append("evidence_block must be an object")
     
-    # Check evidence array
-    if "evidence" in obj:
-        if not isinstance(obj["evidence"], list):
-            errors.append("evidence must be an array")
-        elif len(obj["evidence"]) == 0:
-            errors.append("evidence array cannot be empty")
-        else:
-            for i, evidence in enumerate(obj["evidence"]):
-                if not isinstance(evidence, str):
-                    errors.append(f"evidence[{i}] must be a string, got {type(evidence)}")
+    # Check participant_count is positive integer
+    if "participant_count" in obj:
+        try:
+            count = int(obj["participant_count"])
+            if count < 1:
+                errors.append("participant_count must be at least 1")
+        except (ValueError, TypeError):
+            errors.append("participant_count must be an integer")
     
     # Check confidence range
     if "confidence" in obj:
@@ -128,7 +130,7 @@ def validate_insight_object(obj: Dict[str, Any]) -> Tuple[bool, List[str]]:
 
 def main():
     """Main validation process."""
-    print("🔍 Insight Object Validation Script")
+    print("🔍 Provenance Object Validation Script")
     print("=" * 60)
     
     # Setup paths
@@ -151,7 +153,7 @@ def main():
     
     valid_files = 0
     failed_files = 0
-    total_insights = 0
+    total_provenance = 0
     
     # Process each file
     for file_path in markdown_files:
@@ -169,28 +171,28 @@ def main():
             print("  ⚪ No JSON blocks found")
             continue
         
-        # Extract Insight objects
-        insight_objects = extract_insight_objects(json_blocks)
-        if not insight_objects:
-            print("  ⚪ No Insight objects found")
+        # Extract Provenance objects
+        provenance_objects = extract_provenance_objects(json_blocks)
+        if not provenance_objects:
+            print("  ⚪ No Provenance objects found")
             continue
         
-        # Validate each Insight object
+        # Validate each Provenance object
         all_valid = True
         all_errors = []
         
-        for i, insight in enumerate(insight_objects):
-            is_valid, errors = validate_insight_object(insight)
+        for i, provenance in enumerate(provenance_objects):
+            is_valid, errors = validate_provenance_object(provenance)
             if not is_valid:
                 all_valid = False
-                insight_id = insight.get("id", f"Insight[{i}]")
+                provenance_id = provenance.get("id", f"Provenance[{i}]")
                 for error in errors:
-                    all_errors.append(f"- {insight_id}: {error}")
+                    all_errors.append(f"- {provenance_id}: {error}")
         
         if all_valid:
-            print(f"  ✅ Insight: {len(insight_objects)} objects")
+            print(f"  ✅ Provenance: {len(provenance_objects)} objects")
             valid_files += 1
-            total_insights += len(insight_objects)
+            total_provenance += len(provenance_objects)
         else:
             print(f"  ❌ Invalid: {len(all_errors)} errors")
             
@@ -206,7 +208,7 @@ def main():
                 # Create error log
                 error_log_path = failed_dir / f"{timestamp}_{file_path.stem}_errors.txt"
                 with open(error_log_path, 'w') as f:
-                    f.write("Insight Object Validation Errors\n")
+                    f.write("Provenance Object Validation Errors\n")
                     f.write(f"File: {file_path.name}\n")
                     f.write(f"Timestamp: {datetime.now().isoformat()}\n")
                     f.write(f"Total Errors: {len(all_errors)}\n\n")
@@ -227,7 +229,7 @@ def main():
     print(f"  Valid files: {valid_files}")
     print(f"  Failed files: {failed_files}")
     print(f"\n📦 Objects by type:")
-    print(f"  Insight: {total_insights}")
+    print(f"  Provenance: {total_provenance}")
     
     if failed_files > 0:
         print(f"\n❌ {failed_files} files moved to watch_folders/hitl_failed/")

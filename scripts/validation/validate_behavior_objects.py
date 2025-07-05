@@ -1,10 +1,15 @@
 #!/usr/bin/env python3
 """
-Provenance Object Validation Script for HITL Review Process
+Behavior Object Validation Script for HITL Review Process
 
 This script processes markdown files in the watch_folders/hitl_review directory,
-extracts Provenance objects from JSON blocks, validates them against the schema,
+extracts Behavior objects from JSON blocks, validates them against the schema,
 and moves invalid files to hitl_failed with error details.
+
+References:
+- docs/100_START_HERE/dux_object_template.md - Template structure
+- docs/infrastructure_as_code/GOVERNANCE_NAMING_CONVENTIONS.md - Naming rules
+- src/dux_v9.6_split_schema/dux_object_behavior.json - Schema definition
 """
 
 import json
@@ -14,27 +19,36 @@ from datetime import datetime
 from pathlib import Path
 from typing import List, Dict, Any, Tuple
 from duplicate_handler import filter_duplicate_files, get_duplicate_summary
+from config import OBJECT_TYPE_PATTERNS, validate_documentation_files
 
-# Schema for Provenance objects (v9.6)
-PROVENANCE_SCHEMA = {
+# Schema for Behavior objects (v9.6)
+# Reference: src/dux_v9.6_split_schema/dux_object_behavior.json
+# Naming conventions: docs/infrastructure_as_code/GOVERNANCE_NAMING_CONVENTIONS.md
+BEHAVIOR_SCHEMA = {
     "type": "object",
-    "required": ["object_type", "id", "evidence_block"],
+    "required": ["object_type", "id", "behavior_statement", "evidence"],
     "properties": {
-        "object_type": {"type": "string", "enum": ["Provenance"]},
-        "id": {"type": "string", "pattern": "^prov_.*"},
-        "evidence_block": {"type": "object"},
-        "source_type": {"type": "string"},
-        "source_url": {"type": "string"},
-        "collection_date": {"type": "string", "format": "date-time"},
-        "participant_count": {"type": "integer", "minimum": 1},
-        "methodology": {"type": "string"},
+        "object_type": {"type": "string", "enum": ["Behavior"]},
+        "id": {"type": "string", "pattern": "^behavior_.*"},
+        "behavior_statement": {"type": "string", "minLength": 10},
+        "evidence": {
+            "type": "array",
+            "items": {"type": "string"},
+            "minItems": 1
+        },
+        "context": {"type": "string"},
+        "frequency": {"type": "string"},
+        "triggers": {"type": "array", "items": {"type": "string"}},
+        "barriers": {"type": "array", "items": {"type": "string"}},
+        "enablers": {"type": "array", "items": {"type": "string"}},
+        "related_problems": {"type": "array", "items": {"type": "string"}},
+        "related_results": {"type": "array", "items": {"type": "string"}},
         "tags": {"type": "array", "items": {"type": "string"}},
         "confidence": {"type": "number", "minimum": 0, "maximum": 1},
         "created_at": {"type": "string", "format": "date-time"},
         "updated_at": {"type": "string", "format": "date-time"}
     }
 }
-
 
 def extract_json_blocks(content: str) -> List[Dict[str, Any]]:
     """Extract JSON blocks from markdown content."""
@@ -54,31 +68,29 @@ def extract_json_blocks(content: str) -> List[Dict[str, Any]]:
     
     return json_blocks
 
-
-def extract_provenance_objects(json_blocks: List[Dict[str, Any]]) -> List[Dict[str, Any]]:
-    """Extract Provenance objects from JSON blocks."""
-    provenance_objects = []
+def extract_behavior_objects(json_blocks: List[Dict[str, Any]]) -> List[Dict[str, Any]]:
+    """Extract Behavior objects from JSON blocks."""
+    behavior_objects = []
     
     for block in json_blocks:
-        # Handle both direct Provenance objects and nested structures
+        # Handle both direct Behavior objects and nested structures
         if isinstance(block, dict):
-            if block.get("object_type") == "Provenance":
-                provenance_objects.append(block)
-            # Check for nested provenance in arrays or other structures
-            elif "provenance" in block and isinstance(block["provenance"], list):
-                for prov in block["provenance"]:
-                    if isinstance(prov, dict) and prov.get("object_type") == "Provenance":
-                        provenance_objects.append(prov)
+            if block.get("object_type") == "Behavior":
+                behavior_objects.append(block)
+            # Check for nested behaviors in arrays or other structures
+            elif "behaviors" in block and isinstance(block["behaviors"], list):
+                for behavior in block["behaviors"]:
+                    if isinstance(behavior, dict) and behavior.get("object_type") == "Behavior":
+                        behavior_objects.append(behavior)
     
-    return provenance_objects
+    return behavior_objects
 
-
-def validate_provenance_object(obj: Dict[str, Any]) -> Tuple[bool, List[str]]:
-    """Validate a single Provenance object against the schema."""
+def validate_behavior_object(obj: Dict[str, Any]) -> Tuple[bool, List[str]]:
+    """Validate a single Behavior object against the schema."""
     errors = []
     
     # Check required fields
-    required_fields = PROVENANCE_SCHEMA["required"]
+    required_fields = BEHAVIOR_SCHEMA["required"]
     for field in required_fields:
         if field not in obj:
             errors.append(f"Missing required field: {field}")
@@ -88,25 +100,27 @@ def validate_provenance_object(obj: Dict[str, Any]) -> Tuple[bool, List[str]]:
             errors.append(f"Required field '{field}' cannot be empty")
     
     # Check object_type
-    if "object_type" in obj and obj["object_type"] != "Provenance":
-        errors.append("object_type must be 'Provenance'")
+    if "object_type" in obj and obj["object_type"] != "Behavior":
+        errors.append("object_type must be 'Behavior'")
     
     # Check ID pattern
-    if "id" in obj and not re.match(r'^prov_.*', obj["id"]):
-        errors.append("ID must start with 'prov_'")
+    if "id" in obj and not re.match(r'^behavior_.*', obj["id"]):
+        errors.append("ID must start with 'behavior_'")
     
-    # Check evidence_block is an object
-    if "evidence_block" in obj and not isinstance(obj["evidence_block"], dict):
-        errors.append("evidence_block must be an object")
+    # Check behavior_statement length
+    if "behavior_statement" in obj and len(obj["behavior_statement"]) < 10:
+        errors.append("behavior_statement must be at least 10 characters")
     
-    # Check participant_count is positive integer
-    if "participant_count" in obj:
-        try:
-            count = int(obj["participant_count"])
-            if count < 1:
-                errors.append("participant_count must be at least 1")
-        except (ValueError, TypeError):
-            errors.append("participant_count must be an integer")
+    # Check evidence array
+    if "evidence" in obj:
+        if not isinstance(obj["evidence"], list):
+            errors.append("evidence must be an array")
+        elif len(obj["evidence"]) == 0:
+            errors.append("evidence array cannot be empty")
+        else:
+            for i, evidence in enumerate(obj["evidence"]):
+                if not isinstance(evidence, str):
+                    errors.append(f"evidence[{i}] must be a string, got {type(evidence)}")
     
     # Check confidence range
     if "confidence" in obj:
@@ -119,10 +133,9 @@ def validate_provenance_object(obj: Dict[str, Any]) -> Tuple[bool, List[str]]:
     
     return len(errors) == 0, errors
 
-
 def main():
     """Main validation process."""
-    print("🔍 Provenance Object Validation Script")
+    print("🔍 Behavior Object Validation Script")
     print("=" * 60)
     
     # Setup paths
@@ -145,7 +158,7 @@ def main():
     
     valid_files = 0
     failed_files = 0
-    total_provenance = 0
+    total_behaviors = 0
     
     # Process each file
     for file_path in markdown_files:
@@ -163,28 +176,28 @@ def main():
             print("  ⚪ No JSON blocks found")
             continue
         
-        # Extract Provenance objects
-        provenance_objects = extract_provenance_objects(json_blocks)
-        if not provenance_objects:
-            print("  ⚪ No Provenance objects found")
+        # Extract Behavior objects
+        behavior_objects = extract_behavior_objects(json_blocks)
+        if not behavior_objects:
+            print("  ⚪ No Behavior objects found")
             continue
         
-        # Validate each Provenance object
+        # Validate each Behavior object
         all_valid = True
         all_errors = []
         
-        for i, provenance in enumerate(provenance_objects):
-            is_valid, errors = validate_provenance_object(provenance)
+        for i, behavior in enumerate(behavior_objects):
+            is_valid, errors = validate_behavior_object(behavior)
             if not is_valid:
                 all_valid = False
-                provenance_id = provenance.get("id", f"Provenance[{i}]")
+                behavior_id = behavior.get("id", f"Behavior[{i}]")
                 for error in errors:
-                    all_errors.append(f"- {provenance_id}: {error}")
+                    all_errors.append(f"- {behavior_id}: {error}")
         
         if all_valid:
-            print(f"  ✅ Provenance: {len(provenance_objects)} objects")
+            print(f"  ✅ Behavior: {len(behavior_objects)} objects")
             valid_files += 1
-            total_provenance += len(provenance_objects)
+            total_behaviors += len(behavior_objects)
         else:
             print(f"  ❌ Invalid: {len(all_errors)} errors")
             
@@ -200,7 +213,7 @@ def main():
                 # Create error log
                 error_log_path = failed_dir / f"{timestamp}_{file_path.stem}_errors.txt"
                 with open(error_log_path, 'w') as f:
-                    f.write("Provenance Object Validation Errors\n")
+                    f.write(f"Behavior Object Validation Errors\n")
                     f.write(f"File: {file_path.name}\n")
                     f.write(f"Timestamp: {datetime.now().isoformat()}\n")
                     f.write(f"Total Errors: {len(all_errors)}\n\n")
@@ -221,11 +234,10 @@ def main():
     print(f"  Valid files: {valid_files}")
     print(f"  Failed files: {failed_files}")
     print(f"\n📦 Objects by type:")
-    print(f"  Provenance: {total_provenance}")
+    print(f"  Behavior: {total_behaviors}")
     
     if failed_files > 0:
         print(f"\n❌ {failed_files} files moved to watch_folders/hitl_failed/")
-
 
 if __name__ == "__main__":
     main() 

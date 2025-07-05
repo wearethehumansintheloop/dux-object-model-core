@@ -5,6 +5,11 @@ Problem Object Validation Script for HITL Review Process
 This script processes markdown files in the watch_folders/hitl_review directory,
 extracts Problem objects from JSON blocks, validates them against the schema,
 and moves invalid files to hitl_failed with error details.
+
+References:
+- docs/100_START_HERE/dux_object_template.md - Template structure
+- docs/infrastructure_as_code/GOVERNANCE_NAMING_CONVENTIONS.md - Naming rules
+- src/dux_v9.6_split_schema/dux_object_problem.json - Schema definition
 """
 
 import json
@@ -13,8 +18,12 @@ import shutil
 from datetime import datetime
 from pathlib import Path
 from typing import List, Dict, Any
+from duplicate_handler import filter_duplicate_files, get_duplicate_summary
+from config import OBJECT_TYPE_PATTERNS, validate_documentation_files
 
 # Schema for Problem objects (v9.6)
+# Reference: src/dux_v9.6_split_schema/dux_object_problem.json
+# Naming conventions: docs/infrastructure_as_code/GOVERNANCE_NAMING_CONVENTIONS.md
 PROBLEM_SCHEMA = {
     "type": "object",
     "required": ["object_type", "id", "job_statement", "evidence"],
@@ -196,12 +205,15 @@ def main():
         return
     
     # Find markdown files (recursively)
-    markdown_files = list(review_dir.rglob("*.md"))
-    if not markdown_files:
+    all_markdown_files = list(review_dir.rglob("*.md"))
+    if not all_markdown_files:
         print("📭 No markdown files found in review directory")
         return
     
-    print(f"📁 Found {len(markdown_files)} markdown files")
+    # Filter out duplicates, keeping only the most recent version of each object
+    markdown_files = filter_duplicate_files(all_markdown_files)
+    
+    print(get_duplicate_summary(all_markdown_files))
     print()
     
     # Process each file

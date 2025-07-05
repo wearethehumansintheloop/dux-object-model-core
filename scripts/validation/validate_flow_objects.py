@@ -1,10 +1,15 @@
 #!/usr/bin/env python3
 """
-Result Object Validation Script for HITL Review Process
+Flow Object Validation Script for HITL Review Process
 
 This script processes markdown files in the watch_folders/hitl_review directory,
-extracts Result objects from JSON blocks, validates them against the schema,
+extracts Flow objects from JSON blocks, validates them against the schema,
 and moves invalid files to hitl_failed with error details.
+
+References:
+- docs/100_START_HERE/dux_object_template.md - Template structure
+- docs/infrastructure_as_code/GOVERNANCE_NAMING_CONVENTIONS.md - Naming rules
+- src/dux_v9.6_split_schema/dux_object_flow.json - Schema definition
 """
 
 import json
@@ -13,26 +18,35 @@ import shutil
 from datetime import datetime
 from pathlib import Path
 from typing import List, Dict, Any, Tuple
+from duplicate_handler import filter_duplicate_files, get_duplicate_summary
+from config import OBJECT_TYPE_PATTERNS, validate_documentation_files
 
-# Schema for Result objects (v9.6)
-RESULT_SCHEMA = {
+# Schema for Flow objects (v9.6)
+# Reference: src/dux_v9.6_split_schema/dux_object_flow.json
+# Naming conventions: docs/infrastructure_as_code/GOVERNANCE_NAMING_CONVENTIONS.md
+FLOW_SCHEMA = {
     "type": "object",
-    "required": ["object_type", "id", "result_statement", "evidence"],
+    "required": ["object_type", "id", "flow_statement", "steps", "evidence"],
     "properties": {
-        "object_type": {"type": "string", "enum": ["Result"]},
-        "id": {"type": "string", "pattern": "^result_.*"},
-        "result_statement": {"type": "string", "minLength": 10},
+        "object_type": {"type": "string", "enum": ["Flow"]},
+        "id": {"type": "string", "pattern": "^flow_.*"},
+        "flow_statement": {"type": "string", "minLength": 10},
+        "steps": {
+            "type": "array",
+            "items": {"type": "object"},
+            "minItems": 1
+        },
         "evidence": {
             "type": "array",
             "items": {"type": "string"},
             "minItems": 1
         },
         "context": {"type": "string"},
-        "success_criteria": {"type": "array", "items": {"type": "string"}},
-        "metrics": {"type": "array", "items": {"type": "string"}},
-        "timeframe": {"type": "string"},
-        "related_behaviors": {"type": "array", "items": {"type": "string"}},
+        "triggers": {"type": "array", "items": {"type": "string"}},
+        "outcomes": {"type": "array", "items": {"type": "string"}},
         "related_problems": {"type": "array", "items": {"type": "string"}},
+        "related_behaviors": {"type": "array", "items": {"type": "string"}},
+        "related_results": {"type": "array", "items": {"type": "string"}},
         "tags": {"type": "array", "items": {"type": "string"}},
         "confidence": {"type": "number", "minimum": 0, "maximum": 1},
         "created_at": {"type": "string", "format": "date-time"},
@@ -60,30 +74,30 @@ def extract_json_blocks(content: str) -> List[Dict[str, Any]]:
     return json_blocks
 
 
-def extract_result_objects(json_blocks: List[Dict[str, Any]]) -> List[Dict[str, Any]]:
-    """Extract Result objects from JSON blocks."""
-    result_objects = []
+def extract_flow_objects(json_blocks: List[Dict[str, Any]]) -> List[Dict[str, Any]]:
+    """Extract Flow objects from JSON blocks."""
+    flow_objects = []
     
     for block in json_blocks:
-        # Handle both direct Result objects and nested structures
+        # Handle both direct Flow objects and nested structures
         if isinstance(block, dict):
-            if block.get("object_type") == "Result":
-                result_objects.append(block)
-            # Check for nested results in arrays or other structures
-            elif "results" in block and isinstance(block["results"], list):
-                for result in block["results"]:
-                    if isinstance(result, dict) and result.get("object_type") == "Result":
-                        result_objects.append(result)
+            if block.get("object_type") == "Flow":
+                flow_objects.append(block)
+            # Check for nested flows in arrays or other structures
+            elif "flows" in block and isinstance(block["flows"], list):
+                for flow in block["flows"]:
+                    if isinstance(flow, dict) and flow.get("object_type") == "Flow":
+                        flow_objects.append(flow)
     
-    return result_objects
+    return flow_objects
 
 
-def validate_result_object(obj: Dict[str, Any]) -> Tuple[bool, List[str]]:
-    """Validate a single Result object against the schema."""
+def validate_flow_object(obj: Dict[str, Any]) -> Tuple[bool, List[str]]:
+    """Validate a single Flow object against the schema."""
     errors = []
     
     # Check required fields
-    required_fields = RESULT_SCHEMA["required"]
+    required_fields = FLOW_SCHEMA["required"]
     for field in required_fields:
         if field not in obj:
             errors.append(f"Missing required field: {field}")
@@ -93,16 +107,27 @@ def validate_result_object(obj: Dict[str, Any]) -> Tuple[bool, List[str]]:
             errors.append(f"Required field '{field}' cannot be empty")
     
     # Check object_type
-    if "object_type" in obj and obj["object_type"] != "Result":
-        errors.append("object_type must be 'Result'")
+    if "object_type" in obj and obj["object_type"] != "Flow":
+        errors.append("object_type must be 'Flow'")
     
-    # Check ID pattern
-    if "id" in obj and not re.match(r'^result_.*', obj["id"]):
-        errors.append("ID must start with 'result_'")
+    # Check ID pattern using shared naming conventions
+    if "id" in obj and not re.match(OBJECT_TYPE_PATTERNS["Flow"], obj["id"]):
+        errors.append("ID must start with 'flow_'")
     
-    # Check result_statement length
-    if "result_statement" in obj and len(obj["result_statement"]) < 10:
-        errors.append("result_statement must be at least 10 characters")
+    # Check flow_statement length
+    if "flow_statement" in obj and len(obj["flow_statement"]) < 10:
+        errors.append("flow_statement must be at least 10 characters")
+    
+    # Check steps array
+    if "steps" in obj:
+        if not isinstance(obj["steps"], list):
+            errors.append("steps must be an array")
+        elif len(obj["steps"]) == 0:
+            errors.append("steps array cannot be empty")
+        else:
+            for i, step in enumerate(obj["steps"]):
+                if not isinstance(step, dict):
+                    errors.append(f"steps[{i}] must be an object, got {type(step)}")
     
     # Check evidence array
     if "evidence" in obj:
@@ -129,7 +154,7 @@ def validate_result_object(obj: Dict[str, Any]) -> Tuple[bool, List[str]]:
 
 def main():
     """Main validation process."""
-    print("🔍 Result Object Validation Script")
+    print("🔍 Flow Object Validation Script")
     print("=" * 60)
     
     # Setup paths
@@ -152,7 +177,7 @@ def main():
     
     valid_files = 0
     failed_files = 0
-    total_results = 0
+    total_flows = 0
     
     # Process each file
     for file_path in markdown_files:
@@ -170,28 +195,28 @@ def main():
             print("  ⚪ No JSON blocks found")
             continue
         
-        # Extract Result objects
-        result_objects = extract_result_objects(json_blocks)
-        if not result_objects:
-            print("  ⚪ No Result objects found")
+        # Extract Flow objects
+        flow_objects = extract_flow_objects(json_blocks)
+        if not flow_objects:
+            print("  ⚪ No Flow objects found")
             continue
         
-        # Validate each Result object
+        # Validate each Flow object
         all_valid = True
         all_errors = []
         
-        for i, result in enumerate(result_objects):
-            is_valid, errors = validate_result_object(result)
+        for i, flow in enumerate(flow_objects):
+            is_valid, errors = validate_flow_object(flow)
             if not is_valid:
                 all_valid = False
-                result_id = result.get("id", f"Result[{i}]")
+                flow_id = flow.get("id", f"Flow[{i}]")
                 for error in errors:
-                    all_errors.append(f"- {result_id}: {error}")
+                    all_errors.append(f"- {flow_id}: {error}")
         
         if all_valid:
-            print(f"  ✅ Result: {len(result_objects)} objects")
+            print(f"  ✅ Flow: {len(flow_objects)} objects")
             valid_files += 1
-            total_results += len(result_objects)
+            total_flows += len(flow_objects)
         else:
             print(f"  ❌ Invalid: {len(all_errors)} errors")
             
@@ -207,7 +232,7 @@ def main():
                 # Create error log
                 error_log_path = failed_dir / f"{timestamp}_{file_path.stem}_errors.txt"
                 with open(error_log_path, 'w') as f:
-                    f.write("Result Object Validation Errors\n")
+                    f.write("Flow Object Validation Errors\n")
                     f.write(f"File: {file_path.name}\n")
                     f.write(f"Timestamp: {datetime.now().isoformat()}\n")
                     f.write(f"Total Errors: {len(all_errors)}\n\n")
@@ -228,7 +253,7 @@ def main():
     print(f"  Valid files: {valid_files}")
     print(f"  Failed files: {failed_files}")
     print(f"\n📦 Objects by type:")
-    print(f"  Result: {total_results}")
+    print(f"  Flow: {total_flows}")
     
     if failed_files > 0:
         print(f"\n❌ {failed_files} files moved to watch_folders/hitl_failed/")

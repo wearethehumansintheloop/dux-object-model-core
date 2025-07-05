@@ -8,6 +8,11 @@ and moves invalid files to hitl_failed with error details.
 
 Handles conditional validation where key_signals are only required if there's a 
 related user_flow.
+
+References:
+- docs/100_START_HERE/dux_object_template.md - Template structure
+- docs/infrastructure_as_code/GOVERNANCE_NAMING_CONVENTIONS.md - Naming rules
+- src/dux_v9.6_split_schema/dux_object_useroutcome.json - Schema definition
 """
 
 import json
@@ -16,8 +21,12 @@ import shutil
 from datetime import datetime
 from pathlib import Path
 from typing import List, Dict, Any, Tuple
+from duplicate_handler import filter_duplicate_files, get_duplicate_summary
+from config import OBJECT_TYPE_PATTERNS, validate_documentation_files
 
 # Schema for User Outcome objects (v9.6) - matches actual schema
+# Reference: src/dux_v9.6_split_schema/dux_object_useroutcome.json
+# Naming conventions: docs/infrastructure_as_code/GOVERNANCE_NAMING_CONVENTIONS.md
 USEROUTCOME_SCHEMA = {
     "type": "object",
     "required": [
@@ -143,6 +152,9 @@ def has_related_user_flow(useroutcome: Dict[str, Any]) -> bool:
     return False
 
 
+
+
+
 def validate_useroutcome_object(obj: Dict[str, Any]) -> Tuple[bool, List[str]]:
     """Validate a single User Outcome object against the schema with conditional logic."""
     errors = []
@@ -240,12 +252,15 @@ def main():
     failed_dir.mkdir(exist_ok=True)
     
     # Find markdown files (recursively)
-    markdown_files = list(review_dir.rglob("*.md"))
-    if not markdown_files:
+    all_markdown_files = list(review_dir.rglob("*.md"))
+    if not all_markdown_files:
         print("📭 No markdown files found in review directory")
         return
     
-    print(f"📁 Found {len(markdown_files)} markdown files")
+    # Filter out duplicates, keeping only the most recent version of each object
+    markdown_files = filter_duplicate_files(all_markdown_files)
+    
+    print(get_duplicate_summary(all_markdown_files))
     
     valid_files = 0
     failed_files = 0
