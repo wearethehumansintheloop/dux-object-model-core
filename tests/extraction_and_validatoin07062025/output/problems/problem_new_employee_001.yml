@@ -1,0 +1,12 @@
+object_type: Problem
+id: problem_new_employee_001
+job_statement: When I'm joining a new company with limited guidance, I want to quickly
+  gain insight into the most important responsibilities and priorities, so I can confidently
+  take on my role and contribute to the team's success.
+evidence:
+- provenance_onboarding_interviews_employee_01
+- provenance_support_tickets_new_hire_disorientation
+end_user:
+- New employees in their first 30 days of employment
+what_is_at_stake: Frustration, wasted time, and potential underperformance due to
+  unclear expectations.

@@ -1,0 +1,14 @@
+object_type: Problem
+id: problem_datadriven_001
+job_statement: When I'm responsible for data-driven decision-making across multiple
+  teams and departments, I want to have instant access to relevant insights and metrics
+  that provide a unified view of our business performance, so I can make informed
+  decisions without having to manually combine disparate reports.
+evidence:
+- provenance_salesforce_reports_datadriven_01
+- provenance_tableau_visualizations_datadriven_02
+end_user:
+- Data-Driven Decision Maker
+- Business Intelligence Analyst
+what_is_at_stake: Delayed or incorrect decision-making, misaligned business strategies,
+  and potential revenue loss.
