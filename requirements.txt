@@ -5,3 +5,14 @@ langchain-openai
 langchain-ollama
 langchain-community
 neo4j
+jupyter
+langchain-core
+langchain-huggingface
+langchain_milvus
+python-dotenv
+scikit-learn
+numpy
+watchdog
+PyYAML
+py-cpuinfo
+ollama

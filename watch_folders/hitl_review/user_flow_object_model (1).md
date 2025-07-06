@@ -3,7 +3,7 @@
 ## 🎯 Purpose & Strategic Role
 A **User Flow** is a tactical junction object between a **Problem** and a **User Outcome**. It sequences a set of Behaviors to concretely represent the path a specific Problem is expected to follow to achieve a targeted outcome. It supports usability testing, PRD scoping, and demo storytelling across cross-functional teams.
 
-## 🧠 JTBD Example
+## 🧠 WHY WE HIRED USER FLOWS
 > When I need to communicate how our target customer expects to realize value, I want to demonstrate their preferred and expected golden path so I can accelerate our sprint velocity and reduce lead time.
 
 ## 💡 Why the User Flow Object Matters

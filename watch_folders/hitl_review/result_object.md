@@ -33,8 +33,12 @@ A Result object defines the measurable impact we're aiming to achieve, often exp
   "object_type": "Result",
   "id": "result_001",
   "target_impact": "Increase revenue by $1M in the first quarter",
-  "success_criteria": "Achieve at least 10% growth in new customer acquisition",
-  "success_metrics": ["revenue_growth", "customer_acquisition_rate"],
+  "success_criteria": [
+    "Idle GPU time allocation decreases by 20%",
+    "Resource utilization increases by 15%",
+    "Admin satisfaction score improves by 25%"
+  ],
+  "success_metrics": ["Time spent Idle", "% of Reserved Instance Spend unused, NPS score"],
   "evidence": ["provenance_005", "provenance_006"],
   "useroutcome_ids": ["useroutcome_001", "useroutcome_002"],
   "tags": ["revenue_growth", "customer_acquisition", "v9.5"],
@@ -50,4 +54,4 @@ A Result object defines the measurable impact we're aiming to achieve, often exp
 - Links to UserOutcome objects that measure progress toward the target impact.
 - Success criteria can be system-derived from stakeholder config or LLM-suggested.
 - Success metrics are LLM-suggested to help insight building find relevant behaviors.
-- The Result object is the business goal that UserOutcomes help achieve through Behavior + Result junctions. 
+- The Result object is the business goal that UserOutcomes help achieve through Behavior + Result junctions.

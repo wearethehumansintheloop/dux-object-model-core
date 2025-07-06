@@ -10,8 +10,6 @@ This script automates the full IaC-style, HITL-first governance workflow:
 - Summarizes results
 - (Optional) Generates prompt templates (stub)
 """
-
-import os
 from pathlib import Path
 import subprocess
 import sys
@@ -74,8 +72,18 @@ def extract_objects_from_markdown():
     generate_script = ROOT_DIR / "src/generate_from_markdown.py"
     if generate_script.exists():
         print(f"✅ Using existing extraction logic: {generate_script}")
-        # TODO: Call the existing generate_from_markdown.py script
-        # This uses your existing prompt templates and generation logic
+        result = subprocess.run(
+            [sys.executable, str(generate_script)],
+            capture_output=True,
+            text=True,
+            cwd=ROOT_DIR
+        )
+        if result.returncode == 0:
+            print("✅ Extraction script ran successfully.")
+            print(result.stdout)
+        else:
+            print("❌ Error running extraction script:")
+            print(result.stderr)
     else:
         print("⚠️  generate_from_markdown.py not found in src/")
     

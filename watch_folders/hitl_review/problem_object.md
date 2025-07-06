@@ -3,7 +3,7 @@
 ## 🎯 Purpose & Strategic Role
 A Problem object represents a job to be done (JTBD) worth solving, backed by evidence. It anchors strategic investment decisions and links to User Outcomes, Behaviors, and Results.
 
-## 🧠 JTBD Example
+WHY WE HIRED PROBLEMS
 > When I need to reallocate roadmap investments in response to low demand or rising acquisition costs, I want to evaluate enhancement and offering opportunities based on how important the underlying need is to both customers and non-customers, and assess how satisfied each group is with existing solutions in the market, so that I can make evidence-based strategic bets to find product–market fit as fast as possible.
 
 ## 💡 Why the Problem Object Matters
