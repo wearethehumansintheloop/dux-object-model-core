@@ -5,6 +5,7 @@ src/scripts/prompts_from_markdown/cognitive_sequencing_primer_with_schema_v9.5.m
 test_data/csv/ShakeAlert Content Library - Complete - Interviewee_ Renate.csv
 test_data/csv/TestData_ShakeAlert_AldonP1.csv
 test_data/data_byProvenance/evidence/
+tests/
 
 # Python cache files
 __pycache__/
