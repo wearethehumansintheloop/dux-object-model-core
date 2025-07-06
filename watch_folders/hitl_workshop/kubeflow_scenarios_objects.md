@@ -3,7 +3,7 @@
   {
     "id": "P_BELLA_001",
     "type": "Problem",
-    "description": "AI/ML practitioners need a low-friction way to set up and launch interactive development environments without needing to understand the underlying infrastructure.",
+    "job_statement": "When I need to experiment with models and fine-tune large datasets, I want to launch an interactive environment without worrying about the underlying infrastructure, so I can accelerate my workflows.",
     "severity": "High",
     "measurable_signal": "Time taken to launch a new environment; number of support requests related to environment configuration.",
     "evidence": [
@@ -42,7 +42,7 @@
   {
     "id": "P_JOEL_001",
     "type": "Problem",
-    "description": "Platform engineers need a centralized and version-controlled way to define and manage workspace configurations to ensure consistency, security, and scalability across a multi-tenant environment.",
+    "job_statement": "When managing multi-tenant, GPU-enabled clusters for many users, I want to define workspace configurations as code in a centralized and version-controlled way, so that I can ensure consistency, security, and scalability without micromanaging individual workloads.",
     "severity": "High",
     "measurable_signal": "Time spent onboarding new users/teams; number of unique, non-standard workspace configurations.",
     "evidence": [
@@ -55,13 +55,13 @@
   {
     "id": "B_JOEL_001",
     "type": "Behavior",
-    "description": "The platform engineer defines a 'WorkspaceKind' as a single, versionable source of truth that includes all metadata, pod templates, security policies, and user-selectable options, deploying it via GitOps or a UI.",
-    "frequency": "As needed",
-    "measurable_signal": "Creation/update events for WorkspaceKind definitions; commits to a GitOps repository for workspace configurations.",
+    "description": "The platform engineer defines a 'WorkspaceKind' as a declarative manifest (YAML), specifying container images, hardware resources, and security policies. This manifest is stored in a Git repository.",
+    "frequency": "Infrequent; when a new template is needed or an existing one is updated.",
+    "measurable_signal": "Git commits to the repository containing WorkspaceKind manifests.",
     "evidence": [
       {
         "source_id": "Kubeflow Scenarios.md",
-        "quote": "Joel wants to define a WorkspaceKind once and use it as the single source of truth for all aspects of a workspace... These definitions are versionable, reviewable, and deployable via GitOps or UI."
+        "quote": "Joel wants to define a WorkspaceKind once, as a declarative manifest (YAML) which specifies the container images, hardware resources (including GPUs), and policies which comprise a development environment. He wants to store these WorkspaceKinds in a Git repository, so they can be versioned and managed as code."
       }
     ]
   },
