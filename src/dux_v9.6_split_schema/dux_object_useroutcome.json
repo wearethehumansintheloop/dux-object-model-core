@@ -17,7 +17,7 @@
             "description": "Who is the user that achieves this outcome? Example: 'Joel, the cluster admin'"
         },
         "outcome_behavior": {
-            "type": "string", 
+            "type": "string",
             "description": "What behavior does the user perform? This should align with the key behaviors in the linked user flow. Example: 'is able to efficiently track and control GPU access and usage across the cluster'"
         },
         "degree_of_signal_change": {
@@ -139,7 +139,7 @@
         "object_type",
         "id",
         "outcome_who",
-        "outcome_behavior", 
+        "outcome_behavior",
         "degree_of_signal_change",
         "outcome_statement",
         "key_signals",

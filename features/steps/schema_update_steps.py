@@ -5,15 +5,16 @@ import subprocess
 import sys
 from pathlib import Path
 
-@given('I have the DUX v9.6 split schema files')
-def step_impl(context):
-    context.schema_root = os.path.join(context.workspace_root, "src", "dux_v9.6_split_schema")
-    assert os.path.exists(context.schema_root), f"Schema directory not found at {context.schema_root}"
-    context.schemas = {}
-    for schema_file in os.listdir(context.schema_root):
-        if schema_file.endswith('.json'):
-            with open(os.path.join(context.schema_root, schema_file), 'r') as f:
-                context.schemas[schema_file] = json.load(f)
+# This step is now defined in shared_steps.py
+# @given('I have the DUX v9.6 split schema files')
+# def step_impl(context):
+#     context.schema_root = os.path.join(context.workspace_root, "src", "dux_v9.6_split_schema")
+#     assert os.path.exists(context.schema_root), f"Schema directory not found at {context.schema_root}"
+#     context.schemas = {}
+#     for schema_file in os.listdir(context.schema_root):
+#         if schema_file.endswith('.json'):
+#             with open(os.path.join(context.schema_root, schema_file), 'r') as f:
+#                 context.schemas[schema_file] = json.load(f)
 
 @given('I have the markdown object model files')
 def step_impl(context):
