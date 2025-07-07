@@ -1,0 +1,6 @@
+Validation failed for: behavior_object.md
+Timestamp: 2025-07-07T11:04:16.202861
+Original location: watch_folders/hitl_review/behavior_object.md
+
+Errors:
+- Behavior[0] (behavior_001): Missing required field: behavior_type

@@ -1,0 +1,7 @@
+Validation failed for: problem_object_odi_update.md
+Timestamp: 2025-07-07T11:04:16.203422
+Original location: watch_folders/hitl_review/problem_object_odi_update.md
+
+Errors:
+- Problem[0] (problem_001): Evidence[0] must be a string, got <class 'dict'>
+- Problem[0] (problem_001): Evidence[1] must be a string, got <class 'dict'>

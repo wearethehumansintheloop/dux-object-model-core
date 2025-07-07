@@ -1,0 +1,6 @@
+Validation failed for: behavior_developer_resource_request_001.md
+Timestamp: 2025-07-07T11:04:16.205449
+Original location: watch_folders/hitl_review/behavior_developer_resource_request_001.md
+
+Errors:
+- Behavior[0] (behavior_developer_resource_request_001): Invalid behavior_type: Action
