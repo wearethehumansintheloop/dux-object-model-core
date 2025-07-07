@@ -1,6 +1,0 @@
-Validation failed for: insight_object.md
-Timestamp: 2025-07-07T10:43:29.211976
-Original location: watch_folders/hitl_review/insight_object.md
-
-Errors:
-- Insight[0] (insight_101): Invalid evidence_maturity: 03_emerging
