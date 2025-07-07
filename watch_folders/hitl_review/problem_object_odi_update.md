@@ -26,7 +26,7 @@ A Problem object represents a job to be done (JTBD) worth solving, backed by evi
 | result_ids        | [object]  | No       | Envisioned results from solving this problem (with id and reference_context)                 |
 | useroutcome_ids   | [object]  | No       | User outcomes that solve this problem (with id and reference_context)                        |
 | flow_ids          | [object]  | No       | Flows that address how this problem is solved (with id and reference_context)                |
-| opportunity_score | object    | No       | ODI opportunity score with value, importance, and satisfaction components                   |
+| opportunity_score | object    | No       | ODI opportunity score with value, importance, satisfaction, and source tracking (evidence/synthetic) |
 | tags              | [string]  | No       | System-derived tags                                                                          |
 | created_at        | string    | No       | Creation timestamp                                                                           |
 | updated_at        | string    | No       | Last update timestamp                                                                        |
@@ -52,7 +52,10 @@ A Problem object represents a job to be done (JTBD) worth solving, backed by evi
   "opportunity_score": {
     "value": 12.3,
     "importance": 8.2,
-    "satisfaction": 4.1
+    "satisfaction": 4.1,
+    "value_source": "evidence",
+    "importance_source": "evidence",
+    "satisfaction_source": "evidence"
   },
   "protocol_url": "https://company.com/onboarding-research"
 }
@@ -60,4 +63,5 @@ A Problem object represents a job to be done (JTBD) worth solving, backed by evi
 
 ## 🔗 Structural Role & Usage Notes
 - Anchors strategic investment decisions and links to User Outcomes, Behaviors, and Results.
-- Must always be evidence-backed (see Provenance object for details). 
+- Must always be evidence-backed (see Provenance object for details).
+- **ODI Source Tracking**: Each opportunity_score component (value, importance, satisfaction) requires a source field indicating "evidence" (derived from actual data) or "synthetic" (agent-generated hypothesis). This enables proper color coding and transparency in extraction scenarios. 
