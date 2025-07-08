@@ -212,3 +212,8 @@ python scripts/generate_notebooklm_prompts.py
   - Stage 1-2 fail → hitl_failed
   - Stage 3a-3b fail → hitl_workshop
   - All pass → hitl_promotion_candidates
+
+## Development Process Memories
+
+- We use BDD to scope workflows and validate workflows
+- We also use it to prevent regression and have a CI/CD hook to run the test suite when changes are made to the repo like pull / merge events
