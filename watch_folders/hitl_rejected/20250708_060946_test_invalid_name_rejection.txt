@@ -1,0 +1,10 @@
+HITL Rejection Report
+====================
+
+Timestamp: 2025-07-08T06:09:46.610330
+Original file: test_invalid_name.md
+Rejection reason: File name does not follow naming conventions
+
+Expected naming patterns:
+- File should contain one of: behavior, flow, insight, problem, provenance, result, useroutcome
+- Example: 20250707_problem_object_description.md

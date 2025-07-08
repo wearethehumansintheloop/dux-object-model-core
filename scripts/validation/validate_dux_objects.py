@@ -196,8 +196,18 @@ def validate_dux_object(obj: Dict[str, Any], obj_type: str) -> List[str]:
     if obj_type == "Problem":
         if "job_statement" in obj:
             job_stmt = obj["job_statement"]
-            if not isinstance(job_stmt, str) or len(job_stmt.strip()) < 10:
-                errors.append("Job statement must be a non-empty string")
+            if isinstance(job_stmt, dict):
+                # New decomposed format
+                required_parts = ["user_scenario", "user_enablement", "user_outcome"]
+                for part in required_parts:
+                    if part not in job_stmt or not isinstance(job_stmt[part], str):
+                        errors.append(f"Job statement missing required part: {part}")
+            elif isinstance(job_stmt, str):
+                # Legacy string format
+                if len(job_stmt.strip()) < 10:
+                    errors.append("Job statement must be a non-empty string")
+            else:
+                errors.append("Job statement must be either a string or decomposed object")
     
     elif obj_type == "Behavior":
         if "behavior_type" in obj:
