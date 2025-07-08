@@ -1,5 +1,5 @@
 Validation failed for: insight_object.md
-Timestamp: 2025-07-05T16:40:33.096199
+Timestamp: 2025-07-07T13:09:03.345642
 Original location: watch_folders/hitl_review/insight_object.md
 
 Errors:
