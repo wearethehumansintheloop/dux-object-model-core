@@ -35,14 +35,27 @@ Over the recent development cycle, we have made significant progress in building
 
 ## 3. Current State & Key Artifacts
 
-The project is composed of two main repositories: `dux-object-model-core` and `dux-research-platform`. The core logic resides in `dux-object-model-core`.
+The project is composed of two main repositories: `dux-object-model-core` and `dux-research-platform`.
 
-*   **`src/app/orchestrators/dux_processor.py`**: The main orchestrator containing the core pipeline logic described above.
+### Architectural Separation
+
+A key outcome of this work is a clearer definition of the architectural boundary between the two repositories:
+
+*   **`dux-object-model-core` (This Repository):** Governs the **"what."** It is the single source of truth for canonical object schemas (`object_definitions/`), prompt templates (`agent_prompts/`), and validation rules. It should not contain implementation-specific extraction logic.
+*   **`dux-research-platform`:** Governs the **"how."** It owns the implementation of the extraction pipeline, including orchestration, data processing chains, and other platform-specific code.
+
+### Core Artifacts
+
+*   **`src/app/orchestrators/dux_processor.py`**: The main orchestrator containing the core pipeline logic. **This has been handed off to the research platform team for integration.**
 *   **`scripts/test_pipeline.py`**: The primary script for executing an end-to-end run of the pipeline. **This is the main entry point for testing.**
 *   **`object_definitions/`**: Contains the canonical JSON schemas for all DUX objects.
 *   **`agent_prompts/`**: Contains the markdown-based prompt blueprints for each extraction agent.
 *   **`test_data/`**: Contains sample data, including the `fit_template_gpu_management.md` fit template and the `joel_bella_gpu_management.json` sample transcript.
 *   **`docs/DEV_BACKLOG.md`**: The official backlog for future development tasks.
+
+### Artifacts to be Migrated
+
+*   **`extraction_pipelines/`**: This directory contains implementation logic that rightfully belongs in the `dux-research-platform`. Per the handoff agreement, the research platform team is responsible for migrating this directory. **It will be deprecated and removed from this repository in a future release.**
 
 ---
 
