@@ -3,6 +3,10 @@
 Stage 3a: Problem Object Docling Markdown Conversion
 Natural Language First - Validate with JSON, Generate with MD
 
+⚠️  IMPORTANT: This stage MUST run on the host machine with docling installed.
+⚠️  Container environments may not have docling available.
+⚠️  See requirements.txt for docling dependencies.
+
 Converts Problem object markdown to Docling markdown format with:
 - Structured attribute table extraction
 - Embedded JSON schema generation from table

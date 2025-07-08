@@ -27,3 +27,14 @@ This file tracks development tasks, feature requests, and bug fixes for the DUX 
     - The script successfully extracts the example JSON block from the prompt.
     - The script validates the extracted JSON against the relevant schema file.
     - This validation check is integrated into the CI/CD pipeline to fail the build if a prompt contains an invalid example.
+
+- [ ] **Document Stage 3a Host Machine Requirement**
+  - **Description:** Ensure clear documentation that Stage 3a of the HITL pipeline requires docling to be installed on the host machine, as container environments may not have this dependency available.
+  - **Rationale:** Stage 3a processes Problem objects through docling markdown conversion, which requires specific Python dependencies that may not be available in containerized environments.
+  - **Acceptance Criteria:**
+    - Add warning comments to stage3a_problem_docling_md.py about host machine requirement
+    - Update HITL pipeline documentation to highlight this constraint
+    - Include docling dependencies in requirements.txt
+    - Create fallback handling for environments without docling
+  - **Priority:** High
+  - **Added:** 2025-07-08
