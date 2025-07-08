@@ -207,7 +207,10 @@ def validate_dux_object(obj: Dict[str, Any], obj_type: str) -> List[str]:
     
     elif obj_type == "Insight":
         if "evidence_maturity" in obj:
-            valid_maturity = ["01_raw", "02_processed", "03_analyzed", "04_synthesized", "05_triangulated"]
+            valid_maturity = [
+                "01_assumptive", "02_anecdotal", "03_early_signal", 
+                "04_balanced_signal", "05_triangulated"
+            ]
             if obj["evidence_maturity"] not in valid_maturity:
                 errors.append(f"Invalid evidence_maturity: {obj['evidence_maturity']}")
     
