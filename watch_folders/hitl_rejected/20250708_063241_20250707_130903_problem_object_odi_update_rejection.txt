@@ -1,0 +1,10 @@
+HITL Rejection Report
+====================
+
+Timestamp: 2025-07-08T06:32:41.935078
+Original file: 20250707_130903_problem_object_odi_update.md
+Rejection reason: Workshop folder already contains problem object: 20250707_130903_problem_object_odi_update.md
+
+Expected naming patterns:
+- File should contain one of: behavior, flow, insight, problem, provenance, result, useroutcome
+- Example: 20250707_problem_object_description.md
