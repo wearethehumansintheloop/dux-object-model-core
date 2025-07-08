@@ -31,13 +31,35 @@ PROBLEM_SCHEMA = {
         "object_type": {"type": "string", "enum": ["Problem"]},
         "id": {"type": "string"},
         "job_statement": {"type": "string"},
-        "evidence": {"type": "array", "items": {"type": "string"}},
+        "evidence": {
+            "type": "array", 
+            "items": {
+                "type": "object",
+                "properties": {
+                    "provenance_id": {"type": "string"},
+                    "supports_fields": {"type": "array", "items": {"type": "string"}}
+                },
+                "required": ["provenance_id", "supports_fields"]
+            }
+        },
         "end_user": {"type": "array", "items": {"type": "string"}},
         "what_is_at_stake": {"type": "string"},
         "protocol_url": {"type": "string"},
         "result_ids": {"type": "array", "items": {"type": "object"}},
         "useroutcome_ids": {"type": "array", "items": {"type": "object"}},
         "flow_ids": {"type": "array", "items": {"type": "object"}},
+        "opportunity_score": {
+            "type": "object",
+            "properties": {
+                "value": {"type": "number", "minimum": 1, "maximum": 20},
+                "importance": {"type": "number", "minimum": 1, "maximum": 10},
+                "satisfaction": {"type": "number", "minimum": 1, "maximum": 10},
+                "value_source": {"type": "string", "enum": ["evidence", "synthetic"]},
+                "importance_source": {"type": "string", "enum": ["evidence", "synthetic"]},
+                "satisfaction_source": {"type": "string", "enum": ["evidence", "synthetic"]}
+            },
+            "required": ["value", "importance", "satisfaction", "value_source", "importance_source", "satisfaction_source"]
+        },
         "tags": {"type": "array", "items": {"type": "string"}},
         "created_at": {"type": "string"},
         "updated_at": {"type": "string"}

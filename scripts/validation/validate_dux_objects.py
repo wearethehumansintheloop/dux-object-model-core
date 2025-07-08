@@ -24,13 +24,35 @@ DUX_SCHEMAS = {
             "object_type": {"type": "string", "enum": ["Problem"]},
             "id": {"type": "string"},
             "job_statement": {"type": "string"},
-            "evidence": {"type": "array", "items": {"type": "string"}},
+            "evidence": {
+                "type": "array", 
+                "items": {
+                    "type": "object",
+                    "properties": {
+                        "provenance_id": {"type": "string"},
+                        "supports_fields": {"type": "array", "items": {"type": "string"}}
+                    },
+                    "required": ["provenance_id", "supports_fields"]
+                }
+            },
             "end_user": {"type": "array", "items": {"type": "string"}},
             "what_is_at_stake": {"type": "string"},
             "protocol_url": {"type": "string"},
             "result_ids": {"type": "array", "items": {"type": "object"}},
             "useroutcome_ids": {"type": "array", "items": {"type": "object"}},
             "flow_ids": {"type": "array", "items": {"type": "object"}},
+            "opportunity_score": {
+                "type": "object",
+                "properties": {
+                    "value": {"type": "number", "minimum": 1, "maximum": 20},
+                    "importance": {"type": "number", "minimum": 1, "maximum": 10},
+                    "satisfaction": {"type": "number", "minimum": 1, "maximum": 10},
+                    "value_source": {"type": "string", "enum": ["evidence", "synthetic"]},
+                    "importance_source": {"type": "string", "enum": ["evidence", "synthetic"]},
+                    "satisfaction_source": {"type": "string", "enum": ["evidence", "synthetic"]}
+                },
+                "required": ["value", "importance", "satisfaction", "value_source", "importance_source", "satisfaction_source"]
+            },
             "tags": {"type": "array", "items": {"type": "string"}},
             "created_at": {"type": "string"},
             "updated_at": {"type": "string"}
@@ -183,21 +205,24 @@ def validate_dux_object(obj: Dict[str, Any], obj_type: str) -> List[str]:
     if "object_type" in obj and obj["object_type"] != obj_type:
         errors.append(f"Invalid object_type: {obj['object_type']}, must be '{obj_type}'")
     
-    # Check evidence is array of strings (for objects that have it)
-    if "evidence" in obj:
-        if not isinstance(obj["evidence"], list):
-            errors.append("Evidence must be an array")
-        else:
-            for i, evidence_id in enumerate(obj["evidence"]):
-                if not isinstance(evidence_id, str):
-                    errors.append(f"Evidence[{i}] must be a string, got {type(evidence_id)}")
+    # Evidence validation is now handled by individual object schemas
     
     # Type-specific validations
     if obj_type == "Problem":
         if "job_statement" in obj:
             job_stmt = obj["job_statement"]
-            if not isinstance(job_stmt, str) or len(job_stmt.strip()) < 10:
-                errors.append("Job statement must be a non-empty string")
+            if isinstance(job_stmt, dict):
+                # New decomposed format
+                required_parts = ["user_scenario", "user_enablement", "user_outcome"]
+                for part in required_parts:
+                    if part not in job_stmt or not isinstance(job_stmt[part], str):
+                        errors.append(f"Job statement missing required part: {part}")
+            elif isinstance(job_stmt, str):
+                # Legacy string format
+                if len(job_stmt.strip()) < 10:
+                    errors.append("Job statement must be a non-empty string")
+            else:
+                errors.append("Job statement must be either a string or decomposed object")
     
     elif obj_type == "Behavior":
         if "behavior_type" in obj:
@@ -278,9 +303,12 @@ def process_markdown_file(file_path: Path) -> Dict[str, Any]:
 
 
 def move_to_failed(file_path: Path, errors: List[str]):
-    """Move invalid file to hitl_failed folder with error details."""
+    """Move invalid file to hitl_failed folder with error details, then pull next from queue."""
     failed_dir = Path("watch_folders/hitl_failed")
     failed_dir.mkdir(exist_ok=True)
+    
+    # Clean up old failures for this object type (keep only latest)
+    cleanup_old_failures(failed_dir, file_path.name)
     
     # Create timestamped filename
     timestamp = datetime.now().strftime("%Y%m%d_%H%M%S")
@@ -289,6 +317,9 @@ def move_to_failed(file_path: Path, errors: List[str]):
     
     # Copy file to failed directory
     shutil.copy2(file_path, failed_path)
+    
+    # Delete from review folder
+    file_path.unlink()
     
     # Create error log
     error_log_path = failed_dir / f"{timestamp}_{file_path.stem}_errors.txt"
@@ -302,6 +333,84 @@ def move_to_failed(file_path: Path, errors: List[str]):
     
     print(f"  Moved to: {failed_path}")
     print(f"  Error log: {error_log_path}")
+    
+    # Auto-pull next from queue
+    pull_next_from_queue(file_path.name)
+
+
+def cleanup_old_failures(failed_dir: Path, current_filename: str):
+    """Remove old failure files for the same object type, keep only latest."""
+    # Extract base object name (remove any timestamps or prefixes)
+    if "problem" in current_filename.lower():
+        pattern = "*problem*.md"
+    elif "behavior" in current_filename.lower():
+        pattern = "*behavior*.md"
+    elif "result" in current_filename.lower():
+        pattern = "*result*.md"
+    elif "insight" in current_filename.lower():
+        pattern = "*insight*.md"
+    elif "provenance" in current_filename.lower():
+        pattern = "*provenance*.md"
+    elif "user_outcome" in current_filename.lower():
+        pattern = "*user_outcome*.md"
+    else:
+        pattern = f"*{current_filename.replace('.md', '')}*.md"
+    
+    # Find and remove old failures and their error logs
+    old_files = list(failed_dir.glob(pattern))
+    old_error_logs = list(failed_dir.glob(pattern.replace('.md', '_errors.txt')))
+    
+    for old_file in old_files + old_error_logs:
+        old_file.unlink()
+        print(f"    🗑️  Cleaned up old failure: {old_file.name}")
+
+
+def move_to_promotion_candidates(file_path: Path):
+    """Move valid file to promotion candidates folder, then pull next from queue."""
+    candidates_dir = Path("watch_folders/hitl_promotion_candidates")
+    candidates_dir.mkdir(exist_ok=True)
+    
+    # Create timestamped filename
+    timestamp = datetime.now().strftime("%Y%m%d_%H%M%S")
+    candidate_filename = f"{timestamp}_{file_path.name}"
+    candidate_path = candidates_dir / candidate_filename
+    
+    # Move file to candidates directory
+    shutil.move(file_path, candidate_path)
+    
+    print(f"  ✅ Promoted to: {candidate_path}")
+    
+    # Auto-pull next from queue
+    pull_next_from_queue(file_path.name)
+
+
+def pull_next_from_queue(processed_filename: str):
+    """Pull next object of same type from queue into review folder."""
+    # Determine object type from filename
+    if "problem" in processed_filename.lower():
+        queue_dir = Path("watch_folders/hitl_review_queue/problem_objects")
+    elif "behavior" in processed_filename.lower():
+        queue_dir = Path("watch_folders/hitl_review_queue/behavior_objects")
+    elif "result" in processed_filename.lower():
+        queue_dir = Path("watch_folders/hitl_review_queue/result_objects")
+    else:
+        queue_dir = Path("watch_folders/hitl_review_queue/other_objects")
+    
+    if not queue_dir.exists():
+        return
+    
+    # Get oldest file from queue (by timestamp in filename)
+    queue_files = sorted(queue_dir.glob("*.md"))
+    if queue_files:
+        next_file = queue_files[0]
+        review_dir = Path("watch_folders/hitl_review")
+        
+        # Move to review folder with clean name
+        clean_name = "_".join(next_file.name.split("_")[3:])  # Remove timestamp prefix
+        new_path = review_dir / clean_name
+        
+        shutil.move(next_file, new_path)
+        print(f"  🔄 Auto-queued from queue: {new_path.name}")
 
 
 def main():
@@ -342,6 +451,8 @@ def main():
                     if objects:
                         total_objects_by_type[obj_type] += len(objects)
                         print(f"  ✅ {obj_type}: {len(objects)} objects")
+                # Move to promotion candidates
+                move_to_promotion_candidates(file_path)
             else:
                 print(f"  ⚪ No DUX objects found")
         else:

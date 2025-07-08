@@ -1,0 +1,65 @@
+{
+  "file": "20250707_130903_problem_object_odi_update.md",
+  "timestamp": "2025-07-08T06:53:17.110291",
+  "stages_passed": [
+    "stage1",
+    "stage2",
+    "stage3a",
+    "stage3b",
+    "stage4"
+  ],
+  "validation_results": {
+    "valid": true,
+    "errors": [],
+    "objects_by_type": {
+      "Problem": [
+        {
+          "object_type": "Problem",
+          "id": "problem_001",
+          "job_statement": {
+            "user_scenario": "When onboarding to a new platform",
+            "user_enablement": "I want clear setup steps",
+            "user_outcome": "so I can become productive quickly"
+          },
+          "evidence": [
+            {
+              "provenance_id": "survey_001",
+              "supports_fields": [
+                "opportunity_score",
+                "end_user"
+              ]
+            },
+            {
+              "provenance_id": "interview_002",
+              "supports_fields": [
+                "job_statement",
+                "what_is_at_stake"
+              ]
+            }
+          ],
+          "end_user": [
+            "new_user",
+            "admin"
+          ],
+          "what_is_at_stake": "Delayed productivity and increased support tickets.",
+          "opportunity_score": {
+            "value": 12.3,
+            "importance": 8.2,
+            "satisfaction": 4.1,
+            "value_source": "evidence",
+            "importance_source": "evidence",
+            "satisfaction_source": "evidence"
+          },
+          "protocol_url": "https://company.com/onboarding-research"
+        }
+      ],
+      "Behavior": [],
+      "Result": [],
+      "UserOutcome": [],
+      "Flow": [],
+      "Insight": [],
+      "Provenance": []
+    },
+    "total_objects": 1
+  }
+}

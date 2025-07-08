@@ -1,0 +1,13 @@
+{
+  "attribute_name": "result_ids",
+  "type": "[object]",
+  "required": false,
+  "description": "Envisioned results from solving this problem (with id and reference_context)",
+  "source_document": "20250707_130903_problem_object_odi_update",
+  "extraction_method": "docling_structured",
+  "docling_metadata": {
+    "source_table": "docling_table_0_grid",
+    "total_attributes": 14,
+    "document_origin": "mimetype='text/markdown' binary_hash=12597956999787264075 filename='20250707_130903_problem_object_odi_update.md' uri=None"
+  }
+}
