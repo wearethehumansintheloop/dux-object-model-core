@@ -92,6 +92,32 @@ def check_folder_constraints(target_dir: Path, object_type: str) -> tuple[bool, 
     return True, ""
 
 
+def move_to_review_queue(file_path: Path, reason: str):
+    """Move file to review queue when folder has one-object constraint."""
+    queue_dir = Path("watch_folders/hitl_review_queue")
+    queue_dir.mkdir(exist_ok=True)
+    
+    timestamp = datetime.now().strftime("%Y%m%d_%H%M%S")
+    queue_filename = f"{timestamp}_{file_path.name}"
+    queue_path = queue_dir / queue_filename
+    
+    # Move file
+    shutil.move(file_path, queue_path)
+    
+    # Create queue note
+    queue_note_path = queue_dir / f"{timestamp}_{file_path.stem}_queue_note.txt"
+    with open(queue_note_path, 'w') as f:
+        f.write(f"HITL Review Queue Note\n")
+        f.write(f"=====================\n\n")
+        f.write(f"Timestamp: {datetime.now().isoformat()}\n")
+        f.write(f"Original file: {file_path.name}\n")
+        f.write(f"Queue reason: {reason}\n")
+        f.write(f"\nThis file is waiting for its turn in the HITL pipeline.\n")
+    
+    print(f"  ⏳ Queued: {queue_path.name}")
+    print(f"  📝 Queue note: {queue_note_path.name}")
+
+
 def move_to_failed(file_path: Path, stage: str, errors: list):
     """Move file to hitl_failed with error log."""
     failed_dir = Path("watch_folders/hitl_failed")
@@ -131,8 +157,8 @@ def move_to_workshop(file_path: Path, stage: str, errors: list, docling_path: Op
     can_add, existing_file = check_folder_constraints(workshop_dir, object_type)
     if not can_add:
         print(f"  ⚠️  Workshop already contains {object_type} object: {existing_file}")
-        print(f"  ⚠️  Moving to rejected instead")
-        move_to_rejected(file_path, f"Workshop folder already contains {object_type} object: {existing_file}")
+        print(f"  ⚠️  Moving to review queue instead")
+        move_to_review_queue(file_path, f"Workshop folder already contains {object_type} object: {existing_file}")
         if docling_path and docling_path.exists():
             docling_path.unlink()
         return
@@ -184,8 +210,8 @@ def move_to_candidates(file_path: Path, validation_results: Dict[str, Any]):
     can_add, existing_file = check_folder_constraints(candidates_dir, object_type)
     if not can_add:
         print(f"  ⚠️  Candidates already contains {object_type} object: {existing_file}")
-        print(f"  ⚠️  Moving to rejected instead")
-        move_to_rejected(file_path, f"Candidates folder already contains {object_type} object: {existing_file}")
+        print(f"  ⚠️  Moving to review queue instead")
+        move_to_review_queue(file_path, f"Candidates folder already contains {object_type} object: {existing_file}")
         cleanup_intermediate_files(file_path)
         return
     
@@ -316,7 +342,12 @@ def process_problem_object(file_path: Path):
     print(f"🔄 HITL Pipeline: {file_path.name}")
     print(f"{'='*60}")
     
-    # Check naming convention first
+    # Check file extension first
+    if not file_path.suffix.lower() == '.md':
+        move_to_rejected(file_path, "Only .md files are accepted")
+        return
+    
+    # Check naming convention
     is_valid_name, object_type = check_naming_convention(file_path)
     if not is_valid_name:
         move_to_rejected(file_path, "File name does not follow naming conventions")

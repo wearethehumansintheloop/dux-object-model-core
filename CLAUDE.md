@@ -193,3 +193,22 @@ python scripts/generate_notebooklm_prompts.py
 - **Neo4j**: Graph database for relationships (future)
 - **Milvus**: Vector embeddings (future)
 - **Watchdog**: File monitoring for HITL workflow
+
+## Project Memories
+
+- Remember to memorize complete folder structure and HITL workflow so it can travel to other parts of the ecosystem
+- The HITL workflow begins with a human dropping a .md in the review folder - we only accept .md in the review folder
+- Markdown is source code in this system - we must treat it like other code - source code management, ci/cd, governance etc.
+
+## HITL Workflow Memories
+
+- Accepts only .md files (rejects others)
+- Validates naming conventions
+- Enforces one-object-per-folder rule by moving to hitl_review_queue
+- Cleans up files by moving them out of hitl_review as soon as they enter the pipeline
+- Routes files appropriately:
+  - Bad format/naming → hitl_rejected
+  - Folder busy → hitl_review_queue
+  - Stage 1-2 fail → hitl_failed
+  - Stage 3a-3b fail → hitl_workshop
+  - All pass → hitl_promotion_candidates
