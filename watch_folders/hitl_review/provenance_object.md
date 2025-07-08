@@ -3,7 +3,7 @@
 ## 🎯 Purpose & Strategic Role
 Represents a traceable, timestamped, and participant-attributed molecule composed of evidence attributes (atoms) used to support DUX objects like Problem, Behavior, Result, and Insight.
 
-## 🧠 JTBD Example
+## 🧠 JTBD Exampled
 > When I need to validate the evidence behind a research claim, I want to trace back to the original source material and understand the context, so that I can assess the quality and reliability of the evidence supporting our insights.
 
 ## 💡 Why the Provenance Object Matters

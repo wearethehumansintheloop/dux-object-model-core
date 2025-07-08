@@ -16,3 +16,5 @@ watchdog
 PyYAML
 py-cpuinfo
 ollama
+docling
+requests

@@ -1,0 +1,71 @@
+{
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "title": "Provenance Object",
+    "description": "A schema for the DUX Provenance object.",
+    "type": "object",
+    "properties": {
+        "object_type": {
+            "description": "Must be 'Provenance'",
+            "type": "string",
+            "const": "Provenance"
+        },
+        "id": {
+            "description": "Unique identifier for the Provenance object.",
+            "type": "string"
+        },
+        "source_type": {
+            "description": "The type of the source material.",
+            "type": "string",
+            "enum": [
+                "transcript",
+                "document",
+                "observation",
+                "user_quote"
+            ]
+        },
+        "source_uri": {
+            "description": "URI of the source material.",
+            "type": "string",
+            "format": "uri"
+        },
+        "source_full_text": {
+            "description": "The full text of the source material.",
+            "type": "string"
+        },
+        "clip_text": {
+            "description": "A clipped or highlighted section of the source material.",
+            "type": "string"
+        },
+        "clip_start_time": {
+            "description": "Start time for a video or audio clip.",
+            "type": "string"
+        },
+        "clip_end_time": {
+            "description": "End time for a video or audio clip.",
+            "type": "string"
+        },
+        "tags": {
+            "description": "System-derived tags.",
+            "type": "array",
+            "items": {
+                "type": "string"
+            }
+        },
+        "created_at": {
+            "description": "Creation timestamp.",
+            "type": "string",
+            "format": "date-time"
+        },
+        "updated_at": {
+            "description": "Last update timestamp.",
+            "type": "string",
+            "format": "date-time"
+        }
+    },
+    "required": [
+        "object_type",
+        "id",
+        "source_type",
+        "source_uri"
+    ]
+}
