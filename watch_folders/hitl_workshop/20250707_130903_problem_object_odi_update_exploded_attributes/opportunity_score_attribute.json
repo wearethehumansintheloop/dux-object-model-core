@@ -1,0 +1,25 @@
+{
+  "attribute_name": "opportunity_score",
+  "type": "object",
+  "required": false,
+  "description": "ODI opportunity score with value, importance, satisfaction, and source tracking (evidence/synthetic)",
+  "source_document": "20250707_130903_problem_object_odi_update",
+  "extraction_method": "docling_structured",
+  "docling_metadata": {
+    "source_table": "docling_table_0_grid",
+    "total_attributes": 14,
+    "document_origin": "mimetype='text/markdown' binary_hash=12597956999787264075 filename='20250707_130903_problem_object_odi_update.md' uri=None"
+  },
+  "structure": "odi_scoring",
+  "components": [
+    "value",
+    "importance",
+    "satisfaction"
+  ],
+  "source_tracking": true,
+  "scoring_range": {
+    "value": "1-20",
+    "importance": "1-10",
+    "satisfaction": "1-10"
+  }
+}

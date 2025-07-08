@@ -1,0 +1,21 @@
+{
+  "total_attributes": 14,
+  "source_document": "20250707_130903_problem_object_odi_update",
+  "extraction_timestamp": "/Users/nicholasjayanty/Projects/shut-the-dux-up/dux-object-model-core/watch_folders/hitl_workshop",
+  "attributes": [
+    "object_type",
+    "id",
+    "job_statement",
+    "evidence",
+    "end_user",
+    "what_is_at_stake",
+    "protocol_url",
+    "result_ids",
+    "useroutcome_ids",
+    "flow_ids",
+    "opportunity_score",
+    "tags",
+    "created_at",
+    "updated_at"
+  ]
+}

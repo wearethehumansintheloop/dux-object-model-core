@@ -1,10 +1,10 @@
 # �� Problem Object
 
 ## 🎯 Purpose & Strategic Role
-A Problem object represents a job to be done (JTBD) worth solving, backed by evidence. It anchors strategic investment decisions and links to User Outcomes, Behaviors, and Results.
+A Problem object represents a job to be done (JTBD) worth solving, backed by evidence and evaluated by the ODI scoring metric, opportunity score. It anchors strategic investment decisions and links to User Outcomes, Behaviors, and Results.
 
-## 🧠 JTBD Example
-> When I need to reallocate roadmap investments in response to low demand or rising acquisition costs, I want to evaluate enhancement and offering opportunities based on how important the underlying need is to both customers and non-customers, and assess how satisfied each group is with existing solutions in the market, so that I can make evidence-based strategic bets to find product–market fit as fast as possible.
+## 🧠 "What would you say... you do here?"
+> When I need to reallocate roadmap investments in response to low demand or rising customer acquisition costs, I want to evaluate enhancement and offering opportunities based on how important the underlying need is to both customers and non-customers based on the problem's opportunity score, and assess how satisfied each group is with existing solutions in the market, so that I can make evidence-based strategic bets to find product–market fit as fast as possible.
 
 ## 💡 Why the Problem Object Matters
 - Frames opportunities at the right level of abstraction — tech-agnostic and future-proof.
@@ -19,13 +19,14 @@ A Problem object represents a job to be done (JTBD) worth solving, backed by evi
 | object_type       | string    | Yes      | Must be "Problem"                                                                            |
 | id                | string    | Yes      | Unique identifier                                                                            |
 | job_statement     | string    | Yes      | JTBD format: "When [situation], I want [motivation], so I can [outcome]."
-| evidence          | [string]  | Yes      | Array of Provenance object IDs                                                               |
+| evidence          | [object]  | Yes      | Array of evidence mappings with provenance_id and supported fields                          |
 | end_user          | [string]  | No       | User personas or roles who experience this problem                                           |
 | what_is_at_stake  | string    | No       | What users lose or risk if this problem isn't solved                                         |
 | protocol_url      | string    | No       | URL to protocol, methodology, or research documentation                                      |
 | result_ids        | [object]  | No       | Envisioned results from solving this problem (with id and reference_context)                 |
 | useroutcome_ids   | [object]  | No       | User outcomes that solve this problem (with id and reference_context)                        |
 | flow_ids          | [object]  | No       | Flows that address how this problem is solved (with id and reference_context)                |
+| opportunity_score | object    | No       | ODI opportunity score with value, importance, satisfaction, and source tracking (evidence/synthetic) |
 | tags              | [string]  | No       | System-derived tags                                                                          |
 | created_at        | string    | No       | Creation timestamp                                                                           |
 | updated_at        | string    | No       | Last update timestamp                                                                        |
@@ -36,13 +37,31 @@ A Problem object represents a job to be done (JTBD) worth solving, backed by evi
   "object_type": "Problem",
   "id": "problem_001",
   "job_statement": "When onboarding to a new platform, I want clear setup steps, so I can become productive quickly.",
-  "evidence": ["provenance_001", "provenance_002"],
+  "evidence": [
+    {
+      "provenance_id": "survey_001",
+      "supports_fields": ["opportunity_score", "end_user"]
+    },
+    {
+      "provenance_id": "interview_002", 
+      "supports_fields": ["job_statement", "what_is_at_stake"]
+    }
+  ],
   "end_user": ["new_user", "admin"],
   "what_is_at_stake": "Delayed productivity and increased support tickets.",
+  "opportunity_score": {
+    "value": 12.3,
+    "importance": 8.2,
+    "satisfaction": 4.1,
+    "value_source": "evidence",
+    "importance_source": "evidence",
+    "satisfaction_source": "evidence"
+  },
   "protocol_url": "https://company.com/onboarding-research"
 }
 ```
 
 ## 🔗 Structural Role & Usage Notes
 - Anchors strategic investment decisions and links to User Outcomes, Behaviors, and Results.
-- Must always be evidence-backed (see Provenance object for details). 
+- Must always be evidence-backed (see Provenance object for details).
+- **ODI Source Tracking**: Each opportunity_score component (value, importance, satisfaction) requires a source field indicating "evidence" (derived from actual data) or "synthetic" (agent-generated hypothesis). This enables proper color coding and transparency in extraction scenarios. 
