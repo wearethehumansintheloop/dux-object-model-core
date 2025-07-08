@@ -2,50 +2,34 @@
 
 This file provides guidance to Claude Code (claude.ai/code) when working with code in this repository.
 
-## Current Status (July 8, 2025)
+## Core Framework
 
-### Recent Work Completed
-- ✅ All branches pushed to remote (main, handoff-research-platform, handoff-folder-only)
-- ✅ Handoff folder committed to main branch
-- ✅ Created HANDOFF_DAY_SQUAD.md with detailed status
-- ✅ Consolidated prompts to src/prompts/ directory structure
+**Declarative UX (DUX)** is an AI-powered framework that transforms UX research into executable, testable code. The system decomposes all software artifacts into three molecular components: **Problems**, **Behaviors**, and **Results**.
 
-### Critical Branch Information
-**handoff-research-platform** branch:
-- Contains 20 commits ahead of main (now all pushed to remote)
-- Includes: HITL pipeline, BDD tests, schema consolidation, validation improvements
-- **RECOMMENDATION**: Cherry-pick commits one at a time to main to avoid code loss
-  ```bash
-  # Example approach:
-  git checkout main
-  git cherry-pick <commit-hash>  # Start from oldest commit
-  # Test after each cherry-pick
-  ```
-- This gradual approach allows testing each feature integration
+## Architecture Overview
 
-### Next Steps
-1. **Create PR from handoff-folder-only branch**
-   - URL: https://github.com/nicholasjayantylearns/dux-object-model-core/pull/new/handoff-folder-only
-   - Branch is already merged with main and pushed
+The framework consists of four main modules:
 
-2. **Integrate handoff-research-platform commits**
-   - Review 20 commits: `git log main..handoff-research-platform --oneline`
-   - Cherry-pick valuable commits individually
-   - Test after each integration
+### 1. dux-object-model-core (this repository)
+- **Schema Foundation**: JSON schemas for DUX objects (v9.6 current)
+- **Object Types**: Problem, Behavior, Result, Flow, UserOutcome, Provenance, Insight, Data, Evidence/Provenance/Insight Junctions, Frame, Report, Report Gallery, Session, Study
+- **Validation Pipeline**: Multi-layer validation with schema, quality, and integrity checks
+- **BDD Framework**: Behave-based testing using Gherkin syntax
 
-3. **Review dux-governance branch strategy**
-   - DO NOT merge directly (unrelated histories, 336 file conflicts)
-   - Consider cherry-picking specific governance features
-   - Or manually port governance system to new branch from main
+### 2. dux-research-platform
+- **Neo4j Knowledge Graph**: Stores and queries DUX objects
+- **Multi-Service Architecture**: Bot (8501), Loader (8502), PDF Bot (8503), API (8504), CSV Bot (8506)
+- **LLM Integration**: Supports Ollama, OpenAI, Claude, and other models
+- **RAG Pipeline**: Vector embeddings with semantic search
 
-### Handoff Materials
-- See /workspace/HANDOFF_DAY_SQUAD.md for detailed status
-- Handoff folder at /workspace/handoff-to-research-platform/
-- Stashed changes: `git stash list` (contains handoff doc)
+### 3. duckie
+- **CLI Orchestrator**: Converts user scenarios into BDD tests and GitHub issues
+- **Core Commands**: `teach-me-how-to-duckie`, `drop`, `check`, `push`, `remix`
+- **Dual Parsing**: Simple parsing and LLM-enabled parsing modes
 
-## Project Overview
-
-**DUX Object Model Core** is an open-source framework for transforming qualitative UX research data into structured, testable, and executable design specifications. It implements a declarative approach to UX design through seven core object types: Problem, Behavior, Result, User Outcome, Flow, Insight, and Provenance.
+### 4. dux-white-label-ui
+- **Frontend Interface**: Next.js/React UI connecting to API at port 8504
+- **Integration**: Connects to research platform backend
 
 ## Common Development Commands
 
@@ -54,32 +38,49 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 # Create and activate virtual environment
 python3 -m venv venv
 source venv/bin/activate  # On macOS/Linux
-# or
-venv\Scripts\activate  # On Windows
+venv\Scripts\activate     # On Windows
 
 # Install dependencies
 pip install -r requirements.txt
 ```
 
-### Testing
+### Testing Commands
 ```bash
 # Run all BDD tests
 behave features/
 
 # Run specific feature file
-behave features/dux_schema_validation.feature -f plain
+behave features/dux_schema_validation.feature
 
-# Run a single test scenario
-behave features/dux_schema_validation.feature -n "Scenario name"
+# Run a single test scenario by name
+behave features/dux_schema_validation.feature -n "Validate Problem object schema"
+
+# Run with specific format output
+behave features/ -f plain
+behave features/ -f progress
 ```
 
-### Validation and Governance
+### HITL Validation Pipeline
 ```bash
-# Run all governance validations (master script)
-python scripts/governance/run_all_governance.py
+# Run complete HITL orchestrator (all 4 stages)
+python scripts/validation/hitl_pipeline/hitl_orchestrator.py
+
+# Run individual validation stages
+python scripts/validation/stage1_structure_validation.py  # Markdown structure
+python scripts/validation/stage2_consistency_validation.py # Content consistency
+python scripts/validation/stage3a_problem_basic_docling.py # Docling processing
+
+# Run final object validation
+python scripts/validation/validate_dux_objects.py
 
 # Run bulk validation on JSON objects
 python scripts/validation/run_bulk_validation.py <input_json_path>
+```
+
+### Governance Commands
+```bash
+# Run all governance validations
+python scripts/governance/run_all_governance.py
 
 # Run individual object type validations
 python scripts/validation/validate_behavior_objects.py
@@ -99,8 +100,11 @@ python src/app/orchestrators/dux_processor.py <transcript_path> \
     --output-dir ./extraction_results \
     --llm llama3
 
-# Test the extraction pipeline with predefined test data
+# Test the extraction pipeline
 python scripts/test_pipeline.py
+
+# Run the test HITL pipeline
+./scripts/test_hitl_pipeline.sh
 ```
 
 ### Schema Management
@@ -108,16 +112,93 @@ python scripts/test_pipeline.py
 # Update schemas to new version
 python scripts/update_schemas.py
 
-# Generate prompts from updated schemas
-python scripts/update_prompts_with_schema.py
-python scripts/generate_notebooklm_prompts.py
+# Generate prompts from markdown schemas
+python src/generators/generate_from_markdown.py
+
+# Generate synthetic data from schemas
+python src/generators/generate_synthetic_data.py
 ```
+
+## Markdown-First Schema Governance
+
+**CRITICAL**: DUX uses a **markdown-first** approach where human-readable schema definitions are the canonical source of truth:
+
+- **Canonical Source**: `/DUX Object Model (Core)/src/dux_v9.6_split_schema/*.md` (markdown files)
+- **Generated Artifacts**: `/src/dux_v9.6_split_schema/*.json` (auto-generated JSON schemas)
+- **Philosophy**: Schemas evolve with research - markdown enables rapid iteration while maintaining validation
+
+### Problem Object Schema Updates (Critical)
+The Problem object now uses a **decomposed job_statement** structure:
+```json
+{
+  "job_statement": {
+    "user_scenario": {"value": "string", "source": "evidence|synthetic"},
+    "user_enablement": {"value": "string", "source": "evidence|synthetic"},
+    "user_outcome": {"value": "string", "source": "evidence|synthetic"}
+  }
+}
+```
+
+## HITL Development Pipeline
+
+### Four-Stage Validation Pipeline
+
+1. **Stage 1: Structure & Template Validation** (`stage1_structure_validation.py`)
+   - Validates markdown follows DUX object template format
+   - Checks required sections and Schema Attributes table
+   - Fail → `hitl_failed/`
+
+2. **Stage 2: Consistency Validation** (`stage2_consistency_validation.py`)
+   - Validates content consistency and completeness
+   - Checks field descriptions match types
+   - Fail → `hitl_failed/`
+
+3. **Stage 3: Docling Processing & Schema Generation** (`stage3a_problem_basic_docling.py`)
+   - Uses docling to parse markdown structure
+   - Extracts schema from tables
+   - Generates JSON schema from validated structure
+   - Fail → `hitl_workshop/`
+
+4. **Stage 4: Object Instance Validation** (`validate_dux_objects.py`)
+   - Validates against DUX v9.6 JSON schemas
+   - No monolithic structures - each object type has its own validation
+   - Pass → `hitl_promotion_candidates/`
+   - Fail → `hitl_failed/`
+
+### HITL Directory Structure
+```
+watch_folders/
+├── hitl_review/              # New objects for validation (ONE AT A TIME)
+├── hitl_review_queue/        # Queued objects by type
+│   ├── problem_objects/      
+│   ├── behavior_objects/     
+│   ├── result_objects/       
+│   └── other_objects/        
+├── hitl_promotion_candidates/ # Passed validation
+├── hitl_approved_for_production/ # Human-approved
+├── hitl_failed/              # Failed validation
+├── hitl_rejected/            # Failed naming convention
+└── hitl_workshop/            # Stage 3 failures for improvement
+```
+
+### Object Naming Convention (STRICT)
+Files MUST follow this pattern to enter the validation pipeline:
+```
+{object_type}_*_*_object_model_definition.md
+```
+Examples:
+- ✅ `problem_cost_optimization_v1_object_model_definition.md`
+- ✅ `behavior_resource_monitoring_v2_object_model_definition.md`
+- ❌ `platform_engineer_001.md` (wrong pattern)
+
+### Single Object Governance Rule
+**ONE canonical definition per object type** in the system. The queue management system ensures only one object of each type is processed at a time.
 
 ## High-Level Architecture
 
 ### Core Components
 
-1. **Object Model (v9.6)** - Seven interconnected object types:
+1. **Object Model (v9.6)** - Seven primary object types:
    - **Problem Objects**: Strategic jobs-to-be-done defining market opportunities
    - **Behavior Objects**: Atomic, testable user actions (instrumentation anchors)
    - **Result Objects**: Measurable outcomes users achieve
@@ -127,137 +208,142 @@ python scripts/generate_notebooklm_prompts.py
    - **Provenance Objects**: Evidence tracking and source attribution
 
 2. **Processing Pipeline**:
-   - **LLM Extraction**: Uses LangChain with Ollama/OpenAI to extract objects from transcripts
+   - **LLM Extraction**: Uses LangChain with Ollama/OpenAI to extract objects
    - **Fit Scoring**: Evaluates objects against project-specific fit templates
    - **Schema Validation**: JSON Schema-based validation for all objects
    - **HITL Workflow**: Human-in-the-loop review for quality assurance
 
 3. **Validation System**:
    - Pure governance layer that validates but doesn't auto-correct
-   - Schema compliance checking
-   - Evidence structure validation
-   - Duplicate handling
-   - Detailed error logging
+   - Four-stage pipeline with discrete validation scripts
+   - Detailed error logging with remediation guidance
+   - Queue management with auto-pull logic
 
 ### Key Design Principles
 
-1. **Schema-Driven**: All objects must pass JSON schema validation
+1. **Markdown-First**: Human-readable schemas are canonical source
 2. **Evidence-Based**: Every object requires supporting quotes and provenance
 3. **Atomic Operations**: Objects processed independently for fault tolerance
 4. **Governance-First**: Strict validation without auto-correction
-5. **Human-in-the-Loop**: Review workflow for quality assurance
+5. **Human-in-the-Loop**: Manual approval required for production changes
 
-### Directory Structure
+## Development Workflow
 
-```
-/workspace/
-├── object_schemas/           # Current v9.6 JSON schemas
-├── object_definitions/       # Markdown documentation for each object type
-├── src/prompts/             # Unified location for all prompts
-│   ├── agents/              # LLM prompts for object extraction
-│   ├── templates/           # Object template prompts
-│   └── library/             # Archived and experimental prompts
-├── scripts/
-│   ├── validation/          # Individual object validation scripts
-│   ├── governance/          # Master governance runner
-│   └── utilities/           # Shared utilities
-├── features/                # BDD test scenarios (Gherkin)
-│   └── steps/              # Step definitions for tests
-├── src/
-│   ├── app/orchestrators/   # Main processing pipeline
-│   └── generators/          # Schema and prompt generation tools
-├── extraction_pipelines/    # LLM-based extraction logic
-└── watch_folders/          # HITL review workflow
-    ├── hitl_review/        # Drop candidate objects here
-    ├── hitl_failed/        # Quarantined invalid objects
-    └── hitl_approved/      # Validated objects
-```
-
-### Development Workflow
-
-1. **Research Data Processing**:
-   - Upload transcript to extraction pipeline
-   - LLM extracts DUX objects with fit scoring
-   - Objects saved to `watch_folders/hitl_review/`
-
-2. **Validation Pipeline**:
-   - Run validation scripts on review folder
-   - Invalid objects → `hitl_failed/` with error logs
-   - Valid objects → ready for canonical storage
-
-3. **Evidence Requirements**:
-   - Every object needs a provenance_id
-   - Teaser quote object with attribution
-   - Source file reference
-
-### Error Handling Patterns
-
-- Validation scripts create timestamped backups
-- Failed objects quarantined with detailed error logs
-- Duplicate handling prevents reprocessing
-- Clear error messages guide corrections
+### Typical Development Flow
+1. **Research Input**: User scenarios, protocols, qualitative data
+2. **AI Processing**: LLM parsing and structuring
+3. **Object Generation**: Structured DUX objects with validation
+4. **HITL Review**: Four-stage validation pipeline
+5. **Human Approval**: Manual review for production deployment
+6. **Storage**: Neo4j knowledge graph with vector embeddings
 
 ### Testing Strategy
-
 - **BDD Features**: Business logic validation in Gherkin
 - **Schema Tests**: JSON schema compliance
 - **Relationship Tests**: Inter-object reference validation
 - **Evidence Tests**: Provenance tracking verification
 
-### Important Conventions from Cursor Rules
+## Triple Backlog System
 
-1. **File Naming**: 
-   - Validation scripts: `validate_<object_type>_objects.py`
-   - Object files: `<object_type>_<identifier>.json`
+The project maintains three documentation streams:
 
-2. **Schema Management**:
-   - Always create backups before updating
-   - Run BDD tests after schema changes
-   - Use semantic versioning
+### 1. INFRASTRUCTURE_INSIGHTS_BACKLOG.md
+- **Purpose**: Capture repeatable patterns, prompt evolution, infrastructure improvements
+- **Location**: `/docs/infrastructure_as_code/INFRASTRUCTURE_INSIGHTS_BACKLOG.md`
 
-3. **Evidence Array Structure**:
-   ```json
-   {
-     "quote": "Supporting statement from research",
-     "attribution": "Source or participant name",
-     "participant_id": "P001",
-     "source_file": "research/interviews/session.md"
-   }
-   ```
+### 2. COACHING_BACKLOG.md
+- **Purpose**: Capture teaching moments, craft improvement, redline guidance
+- **Location**: Root directory (when created)
 
-4. **Performance Considerations**:
-   - Process objects in batches
-   - Implement duplicate handling
-   - Cache frequently accessed schemas
+### 3. Architecture Documentation
+- **Purpose**: System boundaries, architectural decisions
+- **Location**: `/docs/` various subdirectories
 
-### Integration Points
+### Backlog Entry Format
+```markdown
+### [Insight Title]
+**Type**: Coaching | Encoding | Architecture
+**Timestamp**: YYYY-MM-DDTHH:MM:SSZ
+**Context**: [Triggering moment]
+**Description**: [Detailed explanation]
+**Next Step**: [Follow-up action]
+```
 
-- **LangChain**: LLM orchestration
-- **Ollama/OpenAI**: Object extraction
-- **Neo4j**: Graph database for relationships (future)
-- **Milvus**: Vector embeddings (future)
-- **Watchdog**: File monitoring for HITL workflow
+## Integration Points
+
+- **Duckie CLI** generates objects consumed by **Object Model Core**
+- **Research Platform** stores and queries objects in **Neo4j**
+- **Validation Pipeline** ensures quality across all modules
+- **Frontend** provides visual interface to research data
+- **GitHub Integration** for issue tracking and PR automation
+
+## Environment Configuration
+
+### Required Environment Variables
+```bash
+# LLM Configuration (for extraction)
+OLLAMA_BASE_URL=http://localhost:11434
+LLM=llama3
+EMBEDDING_MODEL=sentence_transformer
+
+# Output directories
+OUTPUT_DIR=./extraction_results
+```
+
+## Git Workflow Recommendations
+
+### Current Branch Status
+- **main**: Stable, up to date
+- **feature/hitl-docling-breakthrough**: Contains DoclingDocument processing fixes
+- **handoff-research-platform**: 20+ commits with HITL improvements (cherry-pick recommended)
+- **dux-governance**: DO NOT MERGE - unrelated history, 336 conflicts
+
+### Cherry-Pick Strategy
+```bash
+# Review commits to cherry-pick
+git log main..handoff-research-platform --oneline
+
+# Cherry-pick valuable commits individually
+git checkout main
+git cherry-pick <commit-hash>
+# Test after each cherry-pick
+```
+
+## Dev Manager Support
+
+When overwhelmed with complexity, summon Brid (the dev manager agent):
+- Helps prioritize tasks using Occam's razor
+- Identifies essential vs nice-to-have features
+- Provides clear next steps
+- Located at: `src/prompts/agents/dev_manager_agent_prompt.md`
+
+## Important Conventions
+
+### File Naming
+- Validation scripts: `validate_<object_type>_objects.py`
+- Object files: `<object_type>_<identifier>_object_model_definition.md`
+- Error logs: `<timestamp>_<filename>_errors.txt`
+
+### Evidence Array Structure
+```json
+{
+  "quote": "Supporting statement from research",
+  "attribution": "Source or participant name",
+  "participant_id": "P001",
+  "source_file": "research/interviews/session.md"
+}
+```
+
+### Queue Management
+- One object per type in review folder
+- Auto-pull from queue after processing
+- FIFO ordering within type queues
+- Manual approval required for production
 
 ## Project Memories
 
-- Remember to memorize complete folder structure and HITL workflow so it can travel to other parts of the ecosystem
-- The HITL workflow begins with a human dropping a .md in the review folder - we only accept .md in the review folder
-- Markdown is source code in this system - we must treat it like other code - source code management, ci/cd, governance etc.
-
-## HITL Workflow Memories
-
-- Accepts only .md files (rejects others)
-- Validates naming conventions
-- Enforces one-object-per-folder rule by moving to hitl_review_queue
-- Cleans up files by moving them out of hitl_review as soon as they enter the pipeline
-- Routes files appropriately:
-  - Bad format/naming → hitl_rejected
-  - Folder busy → hitl_review_queue
-  - Stage 1-2 fail → hitl_failed
-  - Stage 3a-3b fail → hitl_workshop
-  - All pass → hitl_promotion_candidates
-
-## Development Process Memories
-
-- We use BDD to scope workflows and validate workflows
-- We also use it to prevent regression and have a CI/CD hook to run the test suite when changes are made to the repo like pull / merge events
+- Markdown is source code - treat it with same rigor as other code
+- HITL workflow only accepts .md files in review folder
+- Validation pipeline has discrete stages with specific failure routing
+- Human approval is NEVER automated for production deployment
+- BDD tests prevent regression and validate workflows
