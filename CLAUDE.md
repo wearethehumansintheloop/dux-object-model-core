@@ -2,6 +2,47 @@
 
 This file provides guidance to Claude Code (claude.ai/code) when working with code in this repository.
 
+## Current Status (July 8, 2025)
+
+### Recent Work Completed
+- ✅ All branches pushed to remote (main, handoff-research-platform, handoff-folder-only)
+- ✅ Handoff folder committed to main branch
+- ✅ Created HANDOFF_DAY_SQUAD.md with detailed status
+- ✅ Consolidated prompts to src/prompts/ directory structure
+
+### Critical Branch Information
+**handoff-research-platform** branch:
+- Contains 20 commits ahead of main (now all pushed to remote)
+- Includes: HITL pipeline, BDD tests, schema consolidation, validation improvements
+- **RECOMMENDATION**: Cherry-pick commits one at a time to main to avoid code loss
+  ```bash
+  # Example approach:
+  git checkout main
+  git cherry-pick <commit-hash>  # Start from oldest commit
+  # Test after each cherry-pick
+  ```
+- This gradual approach allows testing each feature integration
+
+### Next Steps
+1. **Create PR from handoff-folder-only branch**
+   - URL: https://github.com/nicholasjayantylearns/dux-object-model-core/pull/new/handoff-folder-only
+   - Branch is already merged with main and pushed
+
+2. **Integrate handoff-research-platform commits**
+   - Review 20 commits: `git log main..handoff-research-platform --oneline`
+   - Cherry-pick valuable commits individually
+   - Test after each integration
+
+3. **Review dux-governance branch strategy**
+   - DO NOT merge directly (unrelated histories, 336 file conflicts)
+   - Consider cherry-picking specific governance features
+   - Or manually port governance system to new branch from main
+
+### Handoff Materials
+- See /workspace/HANDOFF_DAY_SQUAD.md for detailed status
+- Handoff folder at /workspace/handoff-to-research-platform/
+- Stashed changes: `git stash list` (contains handoff doc)
+
 ## Project Overview
 
 **DUX Object Model Core** is an open-source framework for transforming qualitative UX research data into structured, testable, and executable design specifications. It implements a declarative approach to UX design through seven core object types: Problem, Behavior, Result, User Outcome, Flow, Insight, and Provenance.
