@@ -18,7 +18,7 @@ A Problem object represents a job to be done (JTBD) worth solving, backed by evi
 |-------------------|-----------|----------|----------------------------------------------------------------------------------------------|
 | object_type       | string    | Yes      | Must be "Problem"                                                                            |
 | id                | string    | Yes      | Unique identifier                                                                            |
-| job_statement     | string    | Yes      | JTBD format: "When [situation], I want [motivation], so I can [outcome]."
+| job_statement     | object    | Yes      | JTBD decomposed into user_scenario, user_enablement, user_outcome with evidence tracking |
 | evidence          | [object]  | Yes      | Array of evidence mappings with provenance_id and supported fields                          |
 | end_user          | [string]  | No       | User personas or roles who experience this problem                                           |
 | what_is_at_stake  | string    | No       | What users lose or risk if this problem isn't solved                                         |
@@ -36,7 +36,20 @@ A Problem object represents a job to be done (JTBD) worth solving, backed by evi
 {
   "object_type": "Problem",
   "id": "problem_001",
-  "job_statement": "When onboarding to a new platform, I want clear setup steps, so I can become productive quickly.",
+  "job_statement": {
+    "user_scenario": {
+      "value": "When onboarding to a new platform",
+      "source": "evidence"
+    },
+    "user_enablement": {
+      "value": "I want clear setup steps",
+      "source": "evidence"
+    },
+    "user_outcome": {
+      "value": "so I can become productive quickly",
+      "source": "evidence"
+    }
+  },
   "evidence": [
     {
       "provenance_id": "survey_001",

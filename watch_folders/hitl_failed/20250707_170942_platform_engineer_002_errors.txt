@@ -1,0 +1,6 @@
+Validation failed for: platform_engineer_002.md
+Timestamp: 2025-07-07T17:09:42.796971
+Original location: watch_folders/hitl_review/platform_engineer_002.md
+
+Errors:
+- Problem[0] (problem_platform_engineer_002): Job statement must be an object with user_scenario, user_enablement, and user_outcome

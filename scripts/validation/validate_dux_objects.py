@@ -23,7 +23,36 @@ DUX_SCHEMAS = {
         "properties": {
             "object_type": {"type": "string", "enum": ["Problem"]},
             "id": {"type": "string"},
-            "job_statement": {"type": "string"},
+            "job_statement": {
+                "type": "object",
+                "properties": {
+                    "user_scenario": {
+                        "type": "object",
+                        "properties": {
+                            "value": {"type": "string"},
+                            "source": {"type": "string", "enum": ["evidence", "synthetic"]}
+                        },
+                        "required": ["value", "source"]
+                    },
+                    "user_enablement": {
+                        "type": "object", 
+                        "properties": {
+                            "value": {"type": "string"},
+                            "source": {"type": "string", "enum": ["evidence", "synthetic"]}
+                        },
+                        "required": ["value", "source"]
+                    },
+                    "user_outcome": {
+                        "type": "object",
+                        "properties": {
+                            "value": {"type": "string"},
+                            "source": {"type": "string", "enum": ["evidence", "synthetic"]}
+                        },
+                        "required": ["value", "source"]
+                    }
+                },
+                "required": ["user_scenario", "user_enablement", "user_outcome"]
+            },
             "evidence": {
                 "type": "array", 
                 "items": {
@@ -211,8 +240,25 @@ def validate_dux_object(obj: Dict[str, Any], obj_type: str) -> List[str]:
     if obj_type == "Problem":
         if "job_statement" in obj:
             job_stmt = obj["job_statement"]
-            if not isinstance(job_stmt, str) or len(job_stmt.strip()) < 10:
-                errors.append("Job statement must be a non-empty string")
+            if not isinstance(job_stmt, dict):
+                errors.append("Job statement must be an object with user_scenario, user_enablement, and user_outcome")
+            else:
+                # Validate decomposed structure
+                required_components = ["user_scenario", "user_enablement", "user_outcome"]
+                for component in required_components:
+                    if component not in job_stmt:
+                        errors.append(f"Job statement missing required component: {component}")
+                    elif not isinstance(job_stmt[component], dict):
+                        errors.append(f"Job statement {component} must be an object with 'value' and 'source'")
+                    else:
+                        if "value" not in job_stmt[component]:
+                            errors.append(f"Job statement {component} missing 'value'")
+                        elif not isinstance(job_stmt[component]["value"], str) or len(job_stmt[component]["value"].strip()) < 10:
+                            errors.append(f"Job statement {component} value must be a non-empty string")
+                        if "source" not in job_stmt[component]:
+                            errors.append(f"Job statement {component} missing 'source'")
+                        elif job_stmt[component]["source"] not in ["evidence", "synthetic"]:
+                            errors.append(f"Job statement {component} source must be 'evidence' or 'synthetic'")
     
     elif obj_type == "Behavior":
         if "behavior_type" in obj:
@@ -346,9 +392,12 @@ def cleanup_old_failures(failed_dir: Path, current_filename: str):
     else:
         pattern = f"*{current_filename.replace('.md', '')}*.md"
     
-    # Find and remove old failures and their error logs
-    old_files = list(failed_dir.glob(pattern))
-    old_error_logs = list(failed_dir.glob(pattern.replace('.md', '_errors.txt')))
+    # Find existing failures (but don't include the current one we're about to create)
+    current_timestamp = datetime.now().strftime("%Y%m%d_%H%M%S")
+    current_expected_name = f"{current_timestamp}_{current_filename}"
+    
+    old_files = [f for f in failed_dir.glob(pattern) if f.name != current_expected_name]
+    old_error_logs = [f for f in failed_dir.glob(pattern.replace('.md', '_errors.txt')) if not f.name.startswith(current_timestamp)]
     
     for old_file in old_files + old_error_logs:
         old_file.unlink()
@@ -401,6 +450,72 @@ def pull_next_from_queue(processed_filename: str):
         
         shutil.move(next_file, new_path)
         print(f"  🔄 Auto-queued from queue: {new_path.name}")
+
+
+def validate_filename_convention(filename: str) -> Tuple[bool, str, Optional[str]]:
+    """
+    Validate that filename follows object model definition convention.
+    
+    Returns:
+        Tuple of (is_valid, error_message, object_type)
+    """
+    # Expected pattern: {object_type}_*_*_object_model_definition.md
+    pattern = r'^(problem|behavior|result|flow|useroutcome|provenance|insight)_.*_.*_object_model_definition\.md$'
+    
+    if not re.match(pattern, filename.lower()):
+        return False, f"Filename must follow pattern: {{object_type}}_*_*_object_model_definition.md. Got: {filename}", None
+    
+    # Extract object type from filename
+    object_type = filename.split('_')[0].lower()
+    return True, "", object_type
+
+
+def check_existing_object_type(object_type: str) -> Optional[str]:
+    """
+    Check if an object of this type already exists in promotion candidates or approved.
+    
+    Returns:
+        Path to existing file if found, None otherwise
+    """
+    candidates_dir = Path("watch_folders/hitl_promotion_candidates")
+    approved_dir = Path("watch_folders/hitl_approved_for_production")
+    
+    # Check both directories
+    for directory in [candidates_dir, approved_dir]:
+        if directory.exists():
+            existing_files = list(directory.glob(f"{object_type}_*_object_model_definition.md"))
+            if existing_files:
+                return str(existing_files[0])
+    
+    return None
+
+
+def move_to_rejected(file_path: Path, reason: str):
+    """Move file to rejected folder with error log."""
+    rejected_dir = Path("watch_folders/hitl_rejected")
+    rejected_dir.mkdir(parents=True, exist_ok=True)
+    
+    timestamp = datetime.now().strftime("%Y%m%d_%H%M%S")
+    rejected_filename = f"{timestamp}_{file_path.name}"
+    rejected_path = rejected_dir / rejected_filename
+    
+    # Copy file to rejected directory
+    shutil.copy2(file_path, rejected_path)
+    
+    # Delete from review folder
+    file_path.unlink()
+    
+    # Create rejection log
+    error_log_path = rejected_dir / f"{timestamp}_{file_path.stem}_rejection.txt"
+    with open(error_log_path, 'w') as f:
+        f.write(f"Rejected file: {file_path.name}\n")
+        f.write(f"Timestamp: {datetime.now().isoformat()}\n")
+        f.write(f"Original location: {file_path}\n")
+        f.write(f"\nReason: {reason}\n")
+    
+    print(f"  🚫 Rejected: {rejected_path.name}")
+    print(f"  📝 Reason: {reason}")
+    print(f"  📄 Log: {error_log_path.name}")
 
 
 def main():
