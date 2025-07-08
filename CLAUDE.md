@@ -112,7 +112,10 @@ python scripts/generate_notebooklm_prompts.py
 /workspace/
 ├── object_schemas/           # Current v9.6 JSON schemas
 ├── object_definitions/       # Markdown documentation for each object type
-├── agent_prompts/           # LLM prompts for object extraction
+├── src/prompts/             # Unified location for all prompts
+│   ├── agents/              # LLM prompts for object extraction
+│   ├── templates/           # Object template prompts
+│   └── library/             # Archived and experimental prompts
 ├── scripts/
 │   ├── validation/          # Individual object validation scripts
 │   ├── governance/          # Master governance runner
@@ -121,7 +124,7 @@ python scripts/generate_notebooklm_prompts.py
 │   └── steps/              # Step definitions for tests
 ├── src/
 │   ├── app/orchestrators/   # Main processing pipeline
-│   └── prompt_templates/    # Schema-based prompt generation
+│   └── generators/          # Schema and prompt generation tools
 ├── extraction_pipelines/    # LLM-based extraction logic
 └── watch_folders/          # HITL review workflow
     ├── hitl_review/        # Drop candidate objects here
