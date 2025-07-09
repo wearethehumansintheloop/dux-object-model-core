@@ -1,0 +1,7 @@
+HITL Validation Failed at Stage: Stage 1
+Timestamp: 2025-07-08T09:59:41.665798
+Original file: 20250707_130903_provenance_object.md
+
+Errors:
+- Missing required section: What would you say
+- Schema Attributes section missing proper table structure

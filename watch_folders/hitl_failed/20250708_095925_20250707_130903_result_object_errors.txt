@@ -1,0 +1,6 @@
+HITL Validation Failed at Stage: Stage 1
+Timestamp: 2025-07-08T09:59:25.438152
+Original file: 20250707_130903_result_object.md
+
+Errors:
+- Missing required section: What would you say
