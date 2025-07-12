@@ -52,12 +52,18 @@ behave features/
 # Run specific feature file
 behave features/dux_schema_validation.feature
 
+# Run research platform validation tests
+behave features/dux_research_platform_validation.feature
+
 # Run a single test scenario by name
 behave features/dux_schema_validation.feature -n "Validate Problem object schema"
 
 # Run with specific format output
 behave features/ -f plain
 behave features/ -f progress
+
+# Run HITL pipeline tests
+./scripts/test_hitl_pipeline.sh
 ```
 
 ### HITL Validation Pipeline
@@ -66,9 +72,9 @@ behave features/ -f progress
 python scripts/validation/hitl_pipeline/hitl_orchestrator.py
 
 # Run individual validation stages
-python scripts/validation/stage1_structure_validation.py  # Markdown structure
-python scripts/validation/stage2_consistency_validation.py # Content consistency
-python scripts/validation/stage3a_problem_basic_docling.py # Docling processing
+python scripts/validation/hitl_pipeline/stage1_structure_validation.py  # Markdown structure
+python scripts/validation/hitl_pipeline/stage2_consistency_validation.py # Content consistency
+python scripts/validation/hitl_pipeline/stage3a_problem_basic_docling.py # Docling processing
 
 # Run final object validation
 python scripts/validation/validate_dux_objects.py
@@ -79,9 +85,6 @@ python scripts/validation/run_bulk_validation.py <input_json_path>
 
 ### Governance Commands
 ```bash
-# Run all governance validations
-python scripts/governance/run_all_governance.py
-
 # Run individual object type validations
 python scripts/validation/validate_behavior_objects.py
 python scripts/validation/validate_flow_objects.py
@@ -102,16 +105,10 @@ python src/app/orchestrators/dux_processor.py <transcript_path> \
 
 # Test the extraction pipeline
 python scripts/test_pipeline.py
-
-# Run the test HITL pipeline
-./scripts/test_hitl_pipeline.sh
 ```
 
 ### Schema Management
 ```bash
-# Update schemas to new version
-python scripts/update_schemas.py
-
 # Generate prompts from markdown schemas
 python src/generators/generate_from_markdown.py
 
@@ -123,8 +120,8 @@ python src/generators/generate_synthetic_data.py
 
 **CRITICAL**: DUX uses a **markdown-first** approach where human-readable schema definitions are the canonical source of truth:
 
-- **Canonical Source**: `/DUX Object Model (Core)/src/dux_v9.6_split_schema/*.md` (markdown files)
-- **Generated Artifacts**: `/src/dux_v9.6_split_schema/*.json` (auto-generated JSON schemas)
+- **Canonical Source**: Markdown files in approved locations (see documentation)
+- **Generated Artifacts**: JSON schemas are auto-generated from markdown
 - **Philosophy**: Schemas evolve with research - markdown enables rapid iteration while maintaining validation
 
 ### Problem Object Schema Updates (Critical)
@@ -153,9 +150,9 @@ The Problem object now uses a **decomposed job_statement** structure:
    - Checks field descriptions match types
    - Fail → `hitl_failed/`
 
-3. **Stage 3: Docling Processing & Schema Generation** (`stage3a_problem_basic_docling.py`)
-   - Uses docling to parse markdown structure
-   - Extracts schema from tables
+3. **Stage 3: Docling Processing & Schema Generation** (`stage3a_*_basic_docling.py`)
+   - Uses docling to parse markdown structure (requires host machine installation)
+   - Extracts schema from tables using `table.data.grid` approach
    - Generates JSON schema from validated structure
    - Fail → `hitl_workshop/`
 
@@ -168,17 +165,17 @@ The Problem object now uses a **decomposed job_statement** structure:
 ### HITL Directory Structure
 ```
 watch_folders/
-├── hitl_review/              # New objects for validation (ONE AT A TIME)
-├── hitl_review_queue/        # Queued objects by type
-│   ├── problem_objects/      
-│   ├── behavior_objects/     
-│   ├── result_objects/       
-│   └── other_objects/        
-├── hitl_promotion_candidates/ # Passed validation
-├── hitl_approved_for_production/ # Human-approved
-├── hitl_failed/              # Failed validation
-├── hitl_rejected/            # Failed naming convention
-└── hitl_workshop/            # Stage 3 failures for improvement
+├── hitl_review/                    # Current validation target (ONE AT A TIME)
+├── hitl_review_queue/              # Queued objects by type
+│   ├── problem_objects/
+│   ├── behavior_objects/
+│   ├── result_objects/
+│   └── other_objects/
+├── hitl_promotion_candidates/      # Passed validation
+├── hitl_approved_for_production/   # Human-approved
+├── hitl_failed/                    # Failed validation
+├── hitl_rejected/                  # Failed naming convention
+└── hitl_workshop/                  # Stage 3 failures for improvement
 ```
 
 ### Object Naming Convention (STRICT)
@@ -242,6 +239,15 @@ Examples:
 - **Schema Tests**: JSON schema compliance
 - **Relationship Tests**: Inter-object reference validation
 - **Evidence Tests**: Provenance tracking verification
+
+### Slow Bullet Mode (Required)
+**Take one atomic unit of work at a time. Don't jump steps or assume context.**
+
+Core principles:
+- **One atomic unit per interaction** - Focus on a single Problem, Behavior, or Result
+- **Confirm alignment before continuing** - Get explicit confirmation before proceeding
+- **Show structure before content** - Present outlines before generating full implementations
+- **Ask clarifying questions first** - Understand intent before producing output
 
 ## Triple Backlog System
 
@@ -340,6 +346,35 @@ When overwhelmed with complexity, summon Brid (the dev manager agent):
 - FIFO ordering within type queues
 - Manual approval required for production
 
+## DoclingDocument Processing Breakthrough
+
+**CRITICAL FIX**: The DoclingDocument processing now correctly uses `table.data.grid` to extract structured data from markdown tables, replacing the broken regex-based approach.
+
+### Key Discovery
+- DoclingDocument stores tables as `table.data.grid` containing TableCell objects
+- Successfully extracts Schema Attributes table using structured access
+- Generates exploded attribute objects (14 from Problem object)
+- Fixed parser at: `watch_folders/hitl_workshop/fixed_docling_parser.py`
+
+### Integration Status
+- ✅ HITL Activity 1 Complete - Workshop parser proven
+- 🔄 Activity 2 Pending - Canonical workflow decisions needed
+- 📋 P0.3 Audit Complete - 5+ scattered prompt locations documented
+- 🚀 Feature Branch Ready - `fix/docling-document-processing`
+
+## Prompt Consolidation (P0.3)
+
+**DISCOVERED: 5+ scattered prompt locations requiring consolidation**
+
+1. `docs/97_prompt_library/` - User handling solution in progress
+2. `scripts/prompts_from_markdown/` - Most complete set
+3. `src/prompt_templates/` - Current target referenced by generators
+4. `src/generators/scripts/prompts_from_markdown/` - Partial set
+5. Embedded in Python files - Significant logic in generator scripts
+6. `test_data/` - Test data, not active prompts
+
+**Consolidation Strategy**: Create unified `src/prompts/` directory structure
+
 ## Project Memories
 
 - Markdown is source code - treat it with same rigor as other code
@@ -347,5 +382,7 @@ When overwhelmed with complexity, summon Brid (the dev manager agent):
 - Validation pipeline has discrete stages with specific failure routing
 - Human approval is NEVER automated for production deployment
 - BDD tests prevent regression and validate workflows
+- Stage 3a requires docling installed on host machine (not just container)
+- DoclingDocument `table.data.grid` is the key to structured data extraction
+- Research platform validation tests moved from "DUX Object Model (Core)" folder to main features/
 - Coauthored by imstilllearning (noreply@duckie.ernt) and claudette xoxo
-```
