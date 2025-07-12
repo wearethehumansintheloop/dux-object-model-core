@@ -1,0 +1,17 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(find:*)",
+      "Bash(echo $VIRTUAL_ENV)",
+      "Bash(ls:*)",
+      "Bash(source:*)",
+      "Bash(./venv/bin/python:*)",
+      "Bash(./venv/bin/pip list)",
+      "Bash(cat:*)",
+      "Bash(git add:*)",
+      "Bash(grep:*)",
+      "Bash(cp:*)"
+    ],
+    "deny": []
+  }
+}

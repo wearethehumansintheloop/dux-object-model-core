@@ -1,0 +1,14 @@
+object_type: Problem
+action: create
+id: problem_software_developer_001
+job_statement: When I'm struggling to maintain a legacy codebase with outdated frameworks
+  and insufficient documentation, I want to refactor the architecture without rewriting
+  everything from scratch, so I can focus on adding new features and delivering value
+  to my users.
+evidence:
+- provenance_interview_developer_01
+- provenance_ticket_software_issue_02
+end_user:
+- Software developers working with legacy codebases
+what_is_at_stake: Extended project timelines, increased risk of errors and bugs, and
+  reduced confidence in the maintainability of the codebase.

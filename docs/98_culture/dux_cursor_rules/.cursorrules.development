@@ -6,7 +6,7 @@ include: .cursorrules.base
 ## Development Architecture
 - **API-First**: Design APIs before implementation
 - **Schema-Driven**: Use JSON schemas to validate all data structures
-- **Test-Driven**: Write tests for all DUX object validations
+- **Behavior-Driven**: Write Behavior Tests to scope outcome focused work
 - **Containerized**: Docker-based development environment
 
 ## Code Quality Standards

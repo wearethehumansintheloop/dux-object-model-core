@@ -1,3 +1,20 @@
+### Containerize DUX Core for Cross-Platform Integration
+**Type**: Infrastructure
+**Context**: Demo needs to connect from localhost:8504 to core services. Currently core is NOT containerized, making integration challenging.
+**Description**:
+The DUX Object Model Core needs containerization to:
+- Enable consistent deployment across environments
+- Simplify integration with platform services (running on different ports)
+- Support both local development (localhost:8504) and production deployments
+- Allow proper network isolation and service discovery
+- Facilitate CI/CD pipelines
+
+**Next Step**:
+1. Create Dockerfile for core services
+2. Add docker-compose.yml for local development stack
+3. Configure network bridges for platform<->core communication
+4. Document container networking for demos (e.g., platform on :8504 reaching core API)
+
 ### Codify Persona-Driven Prompting ("Erin Brockovich" Model)
 **Type**: Encoding
 **Context**: Emerged from the discussion on how to ensure the strategic intent behind a `Problem` object is understood by the LLM during object extraction.

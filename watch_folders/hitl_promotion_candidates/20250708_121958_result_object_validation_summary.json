@@ -1,0 +1,55 @@
+{
+  "file": "result_object.md",
+  "timestamp": "2025-07-08T12:19:58.154397",
+  "stages_passed": [
+    "stage1",
+    "stage2",
+    "stage3a",
+    "stage3b",
+    "stage4"
+  ],
+  "validation_results": {
+    "valid": true,
+    "errors": [],
+    "objects_by_type": {
+      "Problem": [],
+      "Behavior": [],
+      "Result": [
+        {
+          "object_type": "Result",
+          "id": "result_001",
+          "target_impact": "Increase revenue by $1M in the first quarter",
+          "success_criteria": [
+            "Idle GPU time allocation decreases by 20%",
+            "Resource utilization increases by 15%",
+            "Admin satisfaction score improves by 25%"
+          ],
+          "success_metrics": [
+            "Time spent Idle",
+            "% of Reserved Instance Spend unused, NPS score"
+          ],
+          "evidence": [
+            "provenance_005",
+            "provenance_006"
+          ],
+          "useroutcome_ids": [
+            "useroutcome_001",
+            "useroutcome_002"
+          ],
+          "tags": [
+            "revenue_growth",
+            "customer_acquisition",
+            "v9.5"
+          ],
+          "created_at": "2025-01-07T10:30:00Z",
+          "updated_at": "2025-01-07T10:30:00Z"
+        }
+      ],
+      "UserOutcome": [],
+      "Flow": [],
+      "Insight": [],
+      "Provenance": []
+    },
+    "total_objects": 1
+  }
+}

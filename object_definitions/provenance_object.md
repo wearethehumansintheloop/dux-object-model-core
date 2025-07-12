@@ -1,0 +1,25 @@
+### 🧬 Object Type: `Provenance`
+
+Represents a traceable, timestamped, and participant-attributed molecule composed of evidence attributes (atoms) used to support DUX objects like Problem, Behavior, Result, and Insight.
+
+---
+
+### 🔐 Required Fields
+
+| Field               | Type                           | Description                                                                                                                                                                                                                                                                                                                                                                                                                                                                 |   |   |
+| ------------------- | ------------------------------ | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | - | - |
+| `object_type`       | `string` (const: `Provenance`) | Object type discriminator                                                                                                                                                                                                                                                                                                                                                                                                                                                   |   |   |
+| `id`                | `string`                       | Unique identifier for this provenance record                                                                                                                                                                                                                                                                                                                                                                                                                                |   |   |
+| `source_filename`   | `string`                       | Name of the source file (e.g., transcript or dataset)                                                                                                                                                                                                                                                                                                                                                                                                                       |   |   |
+| `timestamp_in`      | `string`                       | Start time or location within source                                                                                                                                                                                                                                                                                                                                                                                                                                        |   |   |
+| `timestamp_out`     | `string`                       | End time or location within source                                                                                                                                                                                                                                                                                                                                                                                                                                          |   |   |
+| `evidence_maturity` | `string` (enum)                | System-derived evidence quality tier:  - Tiered signal of evidence maturity based on quantity and diversity of linked provenance: - `01_assumptive`: inferred or phase-recommended with no direct support - `02_anecdotal`: 1–2 qualitative signals, low pattern confidence - `03_early_signal`: recurring signal, no quant support - `04_balanced_signal`: blend of qualitative and quantitative support - `05_triangulated`: strong pattern with cross-method validation  |   |   |
+| `evidence_block`    | `array`                        | Required array of grouped evidence units — minimum 1 entry to instantiate Provenance object                                                                                                                                                                                                                                                                                                                                                                                 |   |   |
+
+---
+
+### 🔬 Evidence Array (Grouped Attributes)
+
+**Field:** `evidence_block` (array of objects)
+
+Each object includes:

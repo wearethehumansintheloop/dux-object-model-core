@@ -1,0 +1,9 @@
+# Canonical vault protection
+# Track structure but not temporary files
+*.tmp
+*.swp
+.DS_Store
+
+# Ensure backups are tracked
+!_backups/
+!_backups/**/*.md

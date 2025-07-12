@@ -23,7 +23,7 @@ An **Insight** is a FLTR (Filter) junction object that emerges when Behavior con
 | related_objects     | [object]  | Yes      | Array of DUX objects with id, object_type, job_statement, evidence_maturity, and provenance  |
 | insight_story_block | [string]  | Yes      | Human-readable, editable prose blocks that tell the story                                    |
 
-| evidence_maturity   | string    | Yes      | Calculated maturity level based on supporting evidence (01_assumptive to 05_complete)        |
+| evidence_maturity   | string    | Yes      | Calculated maturity level based on supporting evidence (01_assumptive to 05_triangulated)     |
 | annotation          | string    | No       | Reasoning for overrides or additional context                                                |
 | evidence            | [string]  | Yes      | Array of Provenance object IDs                                                               |
 | tags                | [string]  | No       | System-derived tags                                                                          |
@@ -45,14 +45,14 @@ An **Insight** is a FLTR (Filter) junction object that emerges when Behavior con
       "id": "problem_4391",
       "object_type": "Problem",
       "job_statement": "When managing shared infrastructure for AI workloads, platform admins want to detect and reclaim idle GPU resources proactively, so that quota allocation remains in SLA.",
-      "evidence_maturity": "04_balanced",
+      "evidence_maturity": "04_balanced_signal",
       "provenance": ["provenance_001", "provenance_002"]
     },
     {
       "id": "behavior_2201",
       "object_type": "Behavior",
       "job_statement": "Admin reviews GPU utilization metrics for underperforming workloads.",
-      "evidence_maturity": "03_emerging",
+      "evidence_maturity": "03_early_signal",
       "provenance": ["provenance_003", "provenance_004"]
     }
   ],
@@ -61,7 +61,7 @@ An **Insight** is a FLTR (Filter) junction object that emerges when Behavior con
     "To counter this, they review GPU utilization metrics for underperforming workloads.",
     "This behavior helps address the infrastructure management problem."
   ],
-  "evidence_maturity": "03_emerging",
+  "evidence_maturity": "03_early_signal",
   "evidence": ["provenance_005", "provenance_006"],
   "tags": ["admin_fatigue", "gpu_management", "v9.5"],
   "created_at": "2025-01-07T10:30:00Z",
@@ -208,9 +208,9 @@ You are a research assistant. Given a set of atomized DUX v9.5 objects (Problem,
 - `evidence_maturity` levels:
   - 01\_assumptive
   - 02\_anecdotal
-  - 03\_emerging
-  - 04\_balanced
-  - 05\_complete
+  - 03\_early_signal
+  - 04\_balanced_signal
+  - 05\_triangulated
 - Supports future weighting models for insight reliability and automated triage
 - Added NotebookLM-compatible prompt for local HITL analysis workflows
 - All prompt workflows now support `.md` readout format for clarity

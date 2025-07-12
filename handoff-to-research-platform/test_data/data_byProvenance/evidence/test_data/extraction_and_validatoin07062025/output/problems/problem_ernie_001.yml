@@ -1,0 +1,14 @@
+object_type: Problem
+id: problem_ernie_001
+job_statement: When I'm in the midst of planning a critical project milestone and
+  need to quickly identify relevant resources, people, or data, I want to discover
+  actionable insights from my organization's knowledge repository without sacrificing
+  precious time and attention, so I can make informed decisions and drive project
+  forward.
+evidence:
+- provenance_interviews_ernie_project_planning_01
+- provenance_support_tickets_ernie_knowledge_management_02
+end_user:
+- Ernie, the project planner
+what_is_at_stake: Delays in critical decisions, missed opportunities for innovation,
+  and increased stress due to inadequate information access.
