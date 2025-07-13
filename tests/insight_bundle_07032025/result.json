@@ -1,0 +1,20 @@
+{
+  "object_type": "Result",
+  "result_id": "result_309",
+  "description": "Federated governance spans integration and orchestration to unify control points.",
+  "signals": [
+    "pre-deployment role alignment",
+    "orchestration readiness audits"
+  ],
+  "evidence": [
+    {
+      "source_filename": "IBM_MCMP_OM_TLV2.3_2020-1-8.pdf",
+      "participant_id": "doc_author_system",
+      "timestamp_in": "page_2",
+      "timestamp_out": "page_3",
+      "teaser": "MCMP outlines an operating model for multicloud orchestration.",
+      "quote": "MCMP provides an integrated suite of applications, along with federated orchestration...",
+      "citation": "IBM_MCMP_OM_TLV2.3_2020-1-8.pdf, page 2\u20133"
+    }
+  ]
+}

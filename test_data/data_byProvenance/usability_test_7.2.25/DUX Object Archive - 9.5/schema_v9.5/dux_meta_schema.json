@@ -1,0 +1,134 @@
+{
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "$id": "https://github.com/nicholasjayantylearns/shut-the-dux-up/dux-object-model-v9.5/schema",
+    "title": "DUX v9.5 Universal Object Model Schema",
+    "description": "The definitive schema for Declarative UX v9.5 Object Model - evidence-driven, tool-agnostic, infrastructure-as-code. Each DUX object IS a structured evidence unit with direct source attribution. Aligned with dux_object_model_guide_v9.5.md as source of truth.",
+    "version": "9.5.0",
+    "type": "object",
+    "properties": {
+        "objects": {
+            "type": "array",
+            "items": {
+                "oneOf": [
+                    {
+                        "$ref": "#/$defs/Problem"
+                    },
+                    {
+                        "$ref": "#/$defs/Behavior"
+                    },
+                    {
+                        "$ref": "#/$defs/Result"
+                    },
+                    {
+                        "$ref": "#/$defs/Flow"
+                    },
+                    {
+                        "$ref": "#/$defs/UserOutcome"
+                    },
+                    {
+                        "$ref": "#/$defs/Provenance"
+                    }
+                ]
+            }
+        }
+    },
+    "$defs": {
+        "Problem": {
+            "$ref": "dux_object_problem.json"
+        },
+        "Behavior": {
+            "$ref": "dux_object_behavior.json"
+        },
+        "Result": {
+            "$ref": "dux_object_result.json"
+        },
+        "Flow": {
+            "$ref": "dux_object_flow.json"
+        },
+        "UserOutcome": {
+            "$ref": "dux_object_useroutcome.json"
+        },
+        "Provenance": {
+            "$ref": "dux_object_provenance.json"
+        },
+        "RelatedObjectReference": {
+            "type": "object",
+            "properties": {
+                "id": {
+                    "type": "string",
+                    "description": "The unique ID of the referenced object."
+                },
+                "evidence_status": {
+                    "type": "string",
+                    "enum": [
+                        "evidence_present",
+                        "assumptive"
+                    ],
+                    "description": "Evidence strength of the referenced object - v.000001 simplified for triangulation"
+                },
+                "description": {
+                    "type": "string",
+                    "description": "Canonical description from the referenced object."
+                },
+                "reference_context": {
+                    "type": "string",
+                    "description": "Why this object is related — shared user, phase, behavior, or problem context."
+                }
+            },
+            "required": [
+                "id",
+                "evidence_status"
+            ]
+        },
+        "EvidenceBlock": {
+            "type": "array",
+            "items": {
+                "type": "object",
+                "properties": {
+                    "teaser": {
+                        "type": "string",
+                        "description": "Brief summary or hook that captures the essence of this evidence"
+                    },
+                    "quote": {
+                        "type": "string",
+                        "description": "Direct quote or summary from source material"
+                    },
+                    "citation": {
+                        "type": "string",
+                        "description": "Who said it, when, and where (e.g. 'Participant 7, timestamp 00:12:45, interview_transcript_p7.md')"
+                    },
+                    "provenance_id": {
+                        "type": "string",
+                        "description": "Reference to a Provenance object that contains detailed source attribution"
+                    },
+                    "evidence_type": {
+                        "type": "string",
+                        "enum": [
+                            "pull_quote",
+                            "business_directive",
+                            "user_research_finding",
+                            "trend_insight"
+                        ],
+                        "description": "Type of evidence collected - v.000001 constrained to bounded, traceable data points"
+                    },
+                    "confidence_level": {
+                        "type": "string",
+                        "enum": [
+                            "high",
+                            "medium"
+                        ],
+                        "description": "Confidence level in this evidence - v.000001 excludes low confidence data"
+                    }
+                },
+                "required": [
+                    "quote",
+                    "citation",
+                    "provenance_id",
+                    "evidence_type",
+                    "confidence_level"
+                ]
+            },
+            "description": "Supporting materials that justify the importance or validity of this object"
+        }
+    }
+}

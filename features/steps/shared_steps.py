@@ -2,7 +2,6 @@ from behave import given
 import os
 import json
 
-
 @given('I have the DUX v9.6 split schema files')
 def step_impl(context):
     context.schema_root = os.path.join(context.workspace_root, "src", "dux_v9.6_split_schema")

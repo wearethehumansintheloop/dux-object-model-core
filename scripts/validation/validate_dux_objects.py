@@ -354,9 +354,6 @@ def move_to_failed(file_path: Path, errors: List[str]):
     # Copy file to failed directory
     shutil.copy2(file_path, failed_path)
     
-    # Delete from review folder
-    file_path.unlink()
-    
     # Create error log
     error_log_path = failed_dir / f"{timestamp}_{file_path.stem}_errors.txt"
     with open(error_log_path, 'w') as f:
@@ -556,6 +553,7 @@ def main():
                     if objects:
                         total_objects_by_type[obj_type] += len(objects)
                         print(f"  ✅ {obj_type}: {len(objects)} objects")
+
                 # Move to promotion candidates
                 move_to_promotion_candidates(file_path)
             else:

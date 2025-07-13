@@ -1,0 +1,25 @@
+{
+  "object_type": "FitTemplate",
+  "fit_id": "fit_mcmp_operating_model",
+  "name": "IBM Multicloud Operating Model",
+  "description": "Defines a federated orchestration model across hybrid multicloud environments.",
+  "purpose": "To guide enterprises in implementing a unified cloud operations model.",
+  "key_capabilities": [
+    "Federation and integration",
+    "Optimization of governance layers",
+    "Continuous governance checkpoints",
+    "Integrated suite of cloud apps"
+  ],
+  "delivery_model": "Hybrid / Multicloud",
+  "evidence": [
+    {
+      "source_filename": "IBM_MCMP_OM_TLV2.3_2020-1-8.pdf",
+      "participant_id": "doc_author_system",
+      "timestamp_in": "page_2",
+      "timestamp_out": "page_3",
+      "teaser": "MCMP outlines an operating model for multicloud orchestration.",
+      "quote": "MCMP provides an integrated suite of applications, along with federated orchestration...",
+      "citation": "IBM_MCMP_OM_TLV2.3_2020-1-8.pdf, page 2\u20133"
+    }
+  ]
+}
