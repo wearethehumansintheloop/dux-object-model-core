@@ -1,0 +1,12 @@
+HITL Validation Failed at Stage: Stage 1
+Timestamp: 2025-07-13T12:55:52.040950
+Original file: 20250707_143001_behavior_platform_engineer_manual_optimization_001.md
+
+Errors:
+- Missing required section: Purpose & Strategic Role
+- Missing required section: What would you say
+- Missing required section: Why the Object Matters
+- Missing required section: Schema Attributes
+- Missing required section: Canonical Example
+- Missing required section: Structural Role
+- Title must specify object type (Problem, Behavior, Result, etc.)

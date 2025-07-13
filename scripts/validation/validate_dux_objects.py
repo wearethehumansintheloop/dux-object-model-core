@@ -14,7 +14,7 @@ import re
 import shutil
 from datetime import datetime
 from pathlib import Path
-from typing import List, Dict, Any, Tuple
+from typing import List, Dict, Any, Tuple, Optional
 
 # DUX Object Schemas (v9.6)
 DUX_SCHEMAS = {
@@ -240,7 +240,6 @@ def validate_dux_object(obj: Dict[str, Any], obj_type: str) -> List[str]:
     if obj_type == "Problem":
         if "job_statement" in obj:
             job_stmt = obj["job_statement"]
-<<<<<<< HEAD
             if not isinstance(job_stmt, dict):
                 errors.append("Job statement must be an object with user_scenario, user_enablement, and user_outcome")
             else:
@@ -260,20 +259,6 @@ def validate_dux_object(obj: Dict[str, Any], obj_type: str) -> List[str]:
                             errors.append(f"Job statement {component} missing 'source'")
                         elif job_stmt[component]["source"] not in ["evidence", "synthetic"]:
                             errors.append(f"Job statement {component} source must be 'evidence' or 'synthetic'")
-=======
-            if isinstance(job_stmt, dict):
-                # New decomposed format
-                required_parts = ["user_scenario", "user_enablement", "user_outcome"]
-                for part in required_parts:
-                    if part not in job_stmt or not isinstance(job_stmt[part], str):
-                        errors.append(f"Job statement missing required part: {part}")
-            elif isinstance(job_stmt, str):
-                # Legacy string format
-                if len(job_stmt.strip()) < 10:
-                    errors.append("Job statement must be a non-empty string")
-            else:
-                errors.append("Job statement must be either a string or decomposed object")
->>>>>>> main
     
     elif obj_type == "Behavior":
         if "behavior_type" in obj:
