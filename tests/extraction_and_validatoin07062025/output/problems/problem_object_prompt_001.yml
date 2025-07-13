@@ -1,0 +1,13 @@
+object_type: Problem
+id: problem_object_prompt_001
+job_statement: When I'm an advocate for user-centered product strategy, I want to
+  identify the underlying strategic problem that's not being met, so I can build a
+  compelling case and drive meaningful changes.
+evidence:
+- provenance_object_prompt_research_bella_01
+- provenance_object_prompt_interviews_john_02
+end_user:
+- Bella, the UX researcher
+- John, the product manager
+what_is_at_stake: Frustration from unclear problem statements, wasted time on non-essential
+  features, and risk of building solutions that don't meet users' needs.

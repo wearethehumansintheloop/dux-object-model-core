@@ -1,0 +1,107 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "Study Object Schema",
+  "description": "Schema for Study objects representing collections of Session objects",
+  "type": "object",
+  "version": "9.6.0",
+  "required": ["object_type", "id", "study_name", "study_description", "research_objective", "study_type", "target_participants", "planned_sessions", "completed_sessions", "study_status", "start_date", "researcher_ids"],
+  "properties": {
+    "object_type": {
+      "type": "string",
+      "enum": ["Study"],
+      "description": "Object type discriminator"
+    },
+    "id": {
+      "type": "string",
+      "pattern": "^study_.*",
+      "description": "Unique identifier for this study"
+    },
+    "study_name": {
+      "type": "string",
+      "description": "Human-readable name for this research study"
+    },
+    "study_description": {
+      "type": "string",
+      "description": "Clear description of the research objective and scope"
+    },
+    "research_objective": {
+      "type": "string",
+      "description": "The primary research question or objective this study addresses"
+    },
+    "study_type": {
+      "type": "string",
+      "description": "Type of study (exploratory, validation, usability, etc.)"
+    },
+    "target_participants": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "minItems": 1,
+      "description": "Types of participants or user segments being studied"
+    },
+    "planned_sessions": {
+      "type": "integer",
+      "minimum": 1,
+      "description": "Total number of sessions planned for this study"
+    },
+    "completed_sessions": {
+      "type": "integer",
+      "minimum": 0,
+      "description": "Number of sessions completed to date"
+    },
+    "study_status": {
+      "type": "string",
+      "enum": ["planning", "in_progress", "completed", "on_hold"],
+      "description": "Current status of the study"
+    },
+    "start_date": {
+      "type": "string",
+      "format": "date-time",
+      "description": "Planned or actual start date of the study"
+    },
+    "end_date": {
+      "type": "string",
+      "format": "date-time",
+      "description": "Planned or actual end date of the study"
+    },
+    "session_ids": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "pattern": "^session_.*"
+      },
+      "description": "Array of Session object IDs that belong to this study"
+    },
+    "researcher_ids": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "minItems": 1,
+      "description": "Array of researcher IDs involved in this study"
+    },
+    "study_notes": {
+      "type": "string",
+      "description": "High-level notes about study context, methodology, or findings"
+    },
+    "tags": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "description": "System-derived tags from DUX scan (not manually added)"
+    },
+    "created_at": {
+      "type": "string",
+      "format": "date-time",
+      "description": "Creation timestamp"
+    },
+    "updated_at": {
+      "type": "string",
+      "format": "date-time",
+      "description": "Last update timestamp"
+    }
+  },
+  "additionalProperties": false
+} 

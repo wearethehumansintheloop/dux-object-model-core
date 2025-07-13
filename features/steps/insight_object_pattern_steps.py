@@ -460,6 +460,7 @@ def step_verify_behavior_sequence_logical_order(context):
         assert any(b['id'] == behavior_id for b in context.flow_behaviors), f"Behavior {behavior_id} should exist"
 
 
+<<<<<<< HEAD
 @then('each Behavior in the sequence should have defined signals')
 def step_verify_behaviors_in_sequence_have_signals(context):
     """Verify each Behavior in sequence has defined signals."""
@@ -469,6 +470,8 @@ def step_verify_behaviors_in_sequence_have_signals(context):
         assert len(behavior['signals']) > 0, f"Behavior {behavior_id} should have signals"
 
 
+=======
+>>>>>>> main
 @then('the sequence should represent a complete user journey')
 def step_verify_sequence_complete_user_journey(context):
     """Verify sequence represents a complete user journey."""
@@ -532,12 +535,15 @@ def step_verify_useroutcome_criteria_from_behaviors(context):
         assert criterion in context.flow_useroutcome['acceptance_criteria'], f"UserOutcome should have criterion from behaviors: {criterion}"
 
 
+<<<<<<< HEAD
 @then('the UserOutcome should reference the UserFlow via user_flow_id')
 def step_verify_useroutcome_references_userflow(context):
     """Verify UserOutcome references the UserFlow."""
     assert context.flow_useroutcome['user_flow_id'] == context.userflow['user_flow_id'], "UserOutcome should reference UserFlow"
 
 
+=======
+>>>>>>> main
 @then('the inherited signals should be traceable to specific behaviors')
 def step_verify_signals_traceable_to_behaviors(context):
     """Verify inherited signals are traceable to specific behaviors."""

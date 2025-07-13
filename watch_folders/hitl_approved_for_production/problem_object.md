@@ -1,10 +1,10 @@
 # �� Problem Object
 
 ## 🎯 Purpose & Strategic Role
-A Problem object represents a job to be done (JTBD) worth solving, backed by evidence. It anchors strategic investment decisions and links to User Outcomes, Behaviors, and Results.
+A Problem object represents a job to be done (JTBD) worth solving, backed by evidence and evaluated by the ODI scoring metric, opportunity score. It anchors strategic investment decisions and links to User Outcomes, Behaviors, and Results.
 
-## 🧠 JTBD Example
-> When I need to reallocate roadmap investments in response to low demand or rising acquisition costs, I want to evaluate enhancement and offering opportunities based on how important the underlying need is to both customers and non-customers, and assess how satisfied each group is with existing solutions in the market, so that I can make evidence-based strategic bets to find product–market fit as fast as possible.
+## 🧠 Why we hired Problem.
+> When I need to reallocate roadmap investments in response to low demand or rising customer acquisition costs, I want to evaluate enhancement and offering opportunities based on how important the underlying need is to both customers and non-customers based on the problem's opportunity score, and assess how satisfied each group is with existing solutions in the market, so that I can make evidence-based strategic bets to find product–market fit as fast as possible.
 
 ## 💡 Why the Problem Object Matters
 - Frames opportunities at the right level of abstraction — tech-agnostic and future-proof.
@@ -23,6 +23,7 @@ A Problem object represents a job to be done (JTBD) worth solving, backed by evi
 | end_user          | [string]  | No       | User personas or roles who experience this problem                                           |
 | what_is_at_stake  | string    | No       | What users lose or risk if this problem isn't solved                                         |
 | protocol_url      | string    | No       | URL to protocol, methodology, or research documentation                                      |
+| result_ids        | [object]  | No       | Envisioned results from solving this problem (with id and reference_context)                 |
 | useroutcome_ids   | [object]  | No       | User outcomes that solve this problem (with id and reference_context)                        |
 | flow_ids          | [object]  | No       | Flows that address how this problem is solved (with id and reference_context)                |
 | tags              | [string]  | No       | System-derived tags                                                                          |

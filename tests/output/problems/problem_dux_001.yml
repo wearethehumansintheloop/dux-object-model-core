@@ -1,0 +1,13 @@
+object_type: Problem
+id: problem_dux_001
+job_statement: When I'm trying to optimize my product strategy by identifying high-impact
+  opportunities for user-centric innovation, I want a clear and actionable understanding
+  of the unmet needs and pain points that drive frustration, so I can prioritize investments
+  in solutions that drive meaningful value and competitive advantage.
+evidence:
+- provenance_interviews_dux_v9_01
+- provenance_surveys_dux_v9_02
+end_user:
+- Product Strategists and Innovation Leaders
+what_is_at_stake: Inefficient prioritization, poor product-market fit, and delayed
+  time-to-market, ultimately leading to reduced revenue growth and market share erosion.

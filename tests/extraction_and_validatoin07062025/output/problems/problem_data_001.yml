@@ -1,0 +1,12 @@
+object_type: Problem
+id: problem_data_001
+job_statement: When I need to quickly find and analyze relevant data for my team's
+  project, I want to get instant access to a centralized hub with filtered and curated
+  datasets, so I can accelerate our understanding of the market trends.
+evidence:
+- provenance_interviews_data_scientist_01
+- provenance_support_tickets_data_requests_02
+end_user:
+- Data Scientist, Market Analyst
+what_is_at_stake: Delayed project timelines, decreased team productivity, and increased
+  reliance on manual data gathering.

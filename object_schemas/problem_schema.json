@@ -1,0 +1,129 @@
+{
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "title": "Problem Object",
+    "description": "A schema for the DUX Problem object.",
+    "type": "object",
+    "properties": {
+        "object_type": {
+            "description": "Must be 'Problem'",
+            "type": "string",
+            "const": "Problem"
+        },
+        "id": {
+            "description": "Unique identifier for the Problem object.",
+            "type": "string"
+        },
+        "job_statement": {
+            "description": "JTBD format: \"When [situation], I want [motivation], so I can [outcome].\"",
+            "type": "string"
+        },
+        "opportunity_score": {
+            "description": "Importance + max(Importance - Satisfaction, 0) = Opportunity Score.",
+            "type": "string"
+        },
+        "evidence": {
+            "description": "Array of Provenance object IDs.",
+            "type": "array",
+            "items": {
+                "type": "string"
+            }
+        },
+        "end_user": {
+            "description": "User personas or roles who experience this problem.",
+            "type": "array",
+            "items": {
+                "type": "string"
+            }
+        },
+        "what_is_at_stake": {
+            "description": "What users lose or risk if this problem isn't solved.",
+            "type": "string"
+        },
+        "protocol_url": {
+            "description": "URL to protocol, methodology, or research documentation.",
+            "type": "string",
+            "format": "uri"
+        },
+        "result_ids": {
+            "description": "Envisioned results from solving this problem.",
+            "type": "array",
+            "items": {
+                "type": "object",
+                "properties": {
+                    "id": {
+                        "type": "string"
+                    },
+                    "reference_context": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "id",
+                    "reference_context"
+                ]
+            }
+        },
+        "useroutcome_ids": {
+            "description": "User outcomes that solve this problem.",
+            "type": "array",
+            "items": {
+                "type": "object",
+                "properties": {
+                    "id": {
+                        "type": "string"
+                    },
+                    "reference_context": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "id",
+                    "reference_context"
+                ]
+            }
+        },
+        "flow_ids": {
+            "description": "Flows that address how this problem is solved.",
+            "type": "array",
+            "items": {
+                "type": "object",
+                "properties": {
+                    "id": {
+                        "type": "string"
+                    },
+                    "reference_context": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "id",
+                    "reference_context"
+                ]
+            }
+        },
+        "tags": {
+            "description": "System-derived tags.",
+            "type": "array",
+            "items": {
+                "type": "string"
+            }
+        },
+        "created_at": {
+            "description": "Creation timestamp.",
+            "type": "string",
+            "format": "date-time"
+        },
+        "updated_at": {
+            "description": "Last update timestamp.",
+            "type": "string",
+            "format": "date-time"
+        }
+    },
+    "required": [
+        "object_type",
+        "id",
+        "job_statement",
+        "opportunity_score",
+        "evidence"
+    ]
+}

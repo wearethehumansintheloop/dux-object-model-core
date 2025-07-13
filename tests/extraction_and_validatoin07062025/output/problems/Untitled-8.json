@@ -1,0 +1,10 @@
+{
+    "object_type": "Problem",
+    "id": "problem_developer_guidance_001",
+    "name": "Developers lack data-driven guidance for right-sizing container requests",
+    "description": "Developers, accustomed to large VMs, are defaulting to oversized resource requests in the new containerized platform. This happens because they lack clear, data-backed guidance on how to determine appropriate CPU and memory limits, leading to systemic waste and undermining the platform's efficiency goals.",
+    "evidence": [
+        "So the problem is that the developers don't know what to ask for. They're used to getting a VM, it has 4 vCPU and 16 gigs of RAM, so they ask for 4 vCPU and 16 gigs of RAM.",
+        "We need to give them some sort of guidance, right? Some sort of data that says, 'Hey, your application is using this much, you should probably ask for this much.'"
+    ]
+}

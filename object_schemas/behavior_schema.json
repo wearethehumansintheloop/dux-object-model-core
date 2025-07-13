@@ -1,0 +1,62 @@
+{
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "title": "DUX Behavior Object",
+    "description": "A DUX object representing a specific, observable action or set of actions taken by a user or system. Behaviors are the 'what happened' in a user journey.",
+    "type": "object",
+    "properties": {
+        "dux_id": {
+            "description": "Unique identifier for the DUX object, following the format DUX-B-[timestamp]-[uuid]",
+            "type": "string"
+        },
+        "dux_type": {
+            "description": "The type of DUX object.",
+            "type": "string",
+            "const": "Behavior"
+        },
+        "dux_version": {
+            "description": "The version of the DUX schema.",
+            "type": "string",
+            "const": "9.5"
+        },
+        "name": {
+            "description": "A concise, descriptive name for the behavior.",
+            "type": "string"
+        },
+        "description": {
+            "description": "A detailed, narrative description of the behavior, explaining what happened, who was involved, and the context in which it occurred.",
+            "type": "string"
+        },
+        "actors": {
+            "description": "The individuals or systems performing the behavior.",
+            "type": "array",
+            "items": {
+                "type": "string"
+            }
+        },
+        "context": {
+            "description": "The situational context in which the behavior occurred.",
+            "type": "string"
+        },
+        "evidence": {
+            "description": "A list of direct quotes or references from the source transcript that support the existence and description of this behavior.",
+            "type": "array",
+            "items": {
+                "type": "string"
+            }
+        },
+        "provenance_id": {
+            "description": "The DUX ID of the Provenance object that sources this Behavior.",
+            "type": "string"
+        }
+    },
+    "required": [
+        "dux_id",
+        "dux_type",
+        "dux_version",
+        "name",
+        "description",
+        "actors",
+        "evidence",
+        "provenance_id"
+    ]
+}

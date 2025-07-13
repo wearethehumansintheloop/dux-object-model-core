@@ -1,0 +1,12 @@
+object_type: Problem
+id: problem_retail_manager_001
+job_statement: When I'm managing a limited store budget and need to optimize inventory
+  allocation to maximize revenue while minimizing stockouts, I want to access reliable
+  product demand forecasts with minimal effort, so I can make informed purchasing
+  decisions and avoid costly mistakes.
+evidence:
+- provenance_interviews_retail_manager_01
+- provenance_support_tickets_inventory_management_02
+end_user:
+- Retail Managers and Store Owners
+what_is_at_stake: Stockouts, overstocking, and missed revenue opportunities

@@ -1,0 +1,95 @@
+{
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "title": "DUX Insight Object",
+    "description": "A DUX Insight object, which represents a coherent, human-readable story linking a Problem, a Key Behavior, and a Result.",
+    "type": "object",
+    "properties": {
+        "id": {
+            "type": "string",
+            "description": "Unique identifier for the Insight object."
+        },
+        "object_type": {
+            "type": "string",
+            "const": "Insight"
+        },
+        "insight_teaser": {
+            "type": "string",
+            "description": "A concise summary of the insight."
+        },
+        "insight_chain": {
+            "type": "object",
+            "properties": {
+                "problem_id": {
+                    "type": "string"
+                },
+                "behavior_id": {
+                    "type": "string"
+                },
+                "result_id": {
+                    "type": "string"
+                }
+            },
+            "required": [
+                "problem_id",
+                "behavior_id",
+                "result_id"
+            ]
+        },
+        "related_objects": {
+            "type": "array",
+            "items": {
+                "type": "object",
+                "properties": {
+                    "id": {
+                        "type": "string"
+                    },
+                    "object_type": {
+                        "type": "string"
+                    },
+                    "evidence_maturity": {
+                        "type": "string"
+                    },
+                    "job_statement": {
+                        "type": "string"
+                    },
+                    "provenance": {
+                        "type": "array",
+                        "items": {
+                            "type": "string"
+                        }
+                    }
+                },
+                "required": [
+                    "id",
+                    "object_type",
+                    "evidence_maturity",
+                    "job_statement",
+                    "provenance"
+                ]
+            }
+        },
+        "insight_story_block": {
+            "type": "array",
+            "items": {
+                "type": "string"
+            },
+            "description": "A human-readable, editable prose that tells the story of the insight."
+        },
+        "fit_score": {
+            "type": "number",
+            "description": "Optional, system-generated score reflecting how well the chain meets 'fit to purpose' criteria."
+        },
+        "annotation": {
+            "type": "string",
+            "description": "Optional field for documenting reasoning for overrides or providing additional context."
+        }
+    },
+    "required": [
+        "id",
+        "object_type",
+        "insight_teaser",
+        "insight_chain",
+        "related_objects",
+        "insight_story_block"
+    ]
+}
