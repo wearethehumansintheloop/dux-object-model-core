@@ -3,7 +3,7 @@
 ## 1. Purpose & Strategic Role
 A Behavior object is a discrete, observable action that can be tested, tracked, and taught. It is foundational to tracking user adoption and forecasting demand, and is always evidence-backed.
 
-## 2. JTBD Example
+## 🧠 "What would you say... you do here?"
 > When I need to evaluate the success of a new product enhancement, I need a way to monitor specific actions that signal people are using it, so that I can measure adoption rates and project future capacity based on demand.
 
 ## 3. Why the Behavior Object Matters
