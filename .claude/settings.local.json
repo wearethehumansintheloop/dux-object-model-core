@@ -8,7 +8,7 @@
       "Bash(./venv/bin/python:*)",
       "Bash(./venv/bin/pip list)",
       "Bash(cat:*)",
-      "Bash(git add:*)"
+      "Bash(git ls-tree:*)"
     ],
     "deny": []
   }
