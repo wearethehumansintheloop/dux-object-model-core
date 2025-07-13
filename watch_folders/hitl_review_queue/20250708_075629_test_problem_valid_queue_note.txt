@@ -1,8 +1,0 @@
-HITL Review Queue Note
-=====================
-
-Timestamp: 2025-07-08T07:56:29.047240
-Original file: test_problem_valid.md
-Queue reason: Candidates folder already contains problem object: 20250707_130903_problem_object_odi_update.md
-
-This file is waiting for its turn in the HITL pipeline.

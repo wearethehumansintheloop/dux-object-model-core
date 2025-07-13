@@ -1,6 +1,0 @@
-Validation failed for: resource_efficiency_001.md
-Timestamp: 2025-07-07T14:59:47.593338
-Original location: watch_folders/hitl_review/resource_efficiency_001.md
-
-Errors:
-- Result[0] (result_resource_efficiency_001): Missing required field: success_criteria

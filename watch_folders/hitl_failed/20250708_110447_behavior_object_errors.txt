@@ -1,6 +1,0 @@
-HITL Validation Failed at Stage: Stage 4
-Timestamp: 2025-07-08T11:04:47.855460
-Original file: behavior_object.md
-
-Errors:
-- Behavior[0] (behavior_001): Invalid behavior_type: Task
