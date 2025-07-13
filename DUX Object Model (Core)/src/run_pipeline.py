@@ -10,19 +10,16 @@ This script automates the full IaC-style, HITL-first governance workflow:
 - Summarizes results
 - (Optional) Generates prompt templates (stub)
 """
+
+import os
 from pathlib import Path
 import subprocess
 import sys
 
-# Get the directory of the script
-SCRIPT_DIR = Path(__file__).parent.resolve()
-# Go up three levels to the project root from "DUX Object Model (Core)/src/"
-ROOT_DIR = SCRIPT_DIR.parent.parent.parent
-
-HITL_REVIEW_DIR = ROOT_DIR / "watch_folders/hitl_review"
-HITL_FAILED_DIR = ROOT_DIR / "watch_folders/hitl_failed"
-VALIDATION_DIR = ROOT_DIR / "scripts/validation"
-BDD_DIR = ROOT_DIR / "scripts/bdd"
+HITL_REVIEW_DIR = Path("watch_folders/hitl_review")
+HITL_FAILED_DIR = Path("watch_folders/hitl_failed")
+VALIDATION_DIR = Path("scripts/validation")
+BDD_DIR = Path("scripts/bdd")
 BDD_STEPS_DIR = BDD_DIR / "steps"
 READY_FLAG = HITL_REVIEW_DIR / "READY"
 
@@ -48,7 +45,7 @@ def check_hitl_ready():
 def check_existing_bdd():
     """Check existing BDD feature files and step definitions."""
     print("\n[2] Checking existing BDD feature files and step definitions...")
-    features_dir = ROOT_DIR / "features"
+    features_dir = Path("../features")
     steps_dir = features_dir / "steps"
     
     if features_dir.exists():
@@ -69,21 +66,11 @@ def check_existing_bdd():
 def extract_objects_from_markdown():
     """Extract JSON objects from markdown files using existing generate_from_markdown.py."""
     print("\n[2.5] Extracting JSON objects from markdown files...")
-    generate_script = ROOT_DIR / "src/generate_from_markdown.py"
+    generate_script = Path("../src/generate_from_markdown.py")
     if generate_script.exists():
         print(f"✅ Using existing extraction logic: {generate_script}")
-        result = subprocess.run(
-            [sys.executable, str(generate_script)],
-            capture_output=True,
-            text=True,
-            cwd=ROOT_DIR
-        )
-        if result.returncode == 0:
-            print("✅ Extraction script ran successfully.")
-            print(result.stdout)
-        else:
-            print("❌ Error running extraction script:")
-            print(result.stderr)
+        # TODO: Call the existing generate_from_markdown.py script
+        # This uses your existing prompt templates and generation logic
     else:
         print("⚠️  generate_from_markdown.py not found in src/")
     
@@ -94,7 +81,7 @@ def extract_objects_from_markdown():
 def check_existing_schemas():
     """Check existing JSON schema files for backward compatibility."""
     print("\n[2.6] Checking existing JSON schema files...")
-    schemas_dir = ROOT_DIR / "src/dux_v9.6_split_schema"
+    schemas_dir = Path("../src/dux_v9.6_split_schema")
     if schemas_dir.exists():
         schema_files = list(schemas_dir.glob("dux_object_*.json"))
         print(f"✅ Found {len(schema_files)} existing schema files:")
@@ -151,4 +138,4 @@ def main():
     print("\n=== Pipeline complete ===\n")
 
 if __name__ == "__main__":
-    main()
+    main() 

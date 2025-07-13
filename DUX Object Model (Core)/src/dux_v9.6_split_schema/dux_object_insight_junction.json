@@ -1,0 +1,98 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "Insight Junction Object Schema",
+  "description": "Schema for Insight Junction objects connecting Evidence and Frame objects with fit scores",
+  "type": "object",
+  "version": "9.6.0",
+  "required": ["object_type", "id", "evidence_id", "frame_id", "fit_score", "insight_teaser", "insight_story_block", "strategic_impact", "confidence_level", "actionability_score", "priority_level"],
+  "properties": {
+    "object_type": {
+      "type": "string",
+      "enum": ["InsightJunction"],
+      "description": "Object type discriminator"
+    },
+    "id": {
+      "type": "string",
+      "pattern": "^insight_junction_.*",
+      "description": "Unique identifier for this insight junction"
+    },
+    "evidence_id": {
+      "type": "string",
+      "pattern": "^evidence_junction_.*",
+      "description": "ID of the Evidence object being evaluated"
+    },
+    "frame_id": {
+      "type": "string",
+      "pattern": "^frame_.*",
+      "description": "ID of the Frame being applied to the evidence"
+    },
+    "fit_score": {
+      "type": "number",
+      "minimum": 0.0,
+      "maximum": 1.0,
+      "description": "How well the evidence fits the frame - measures strategic alignment"
+    },
+    "insight_teaser": {
+      "type": "string",
+      "description": "Concise summary of the key insight from this evidence-frame combination"
+    },
+    "insight_story_block": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "minItems": 1,
+      "description": "Human-readable prose blocks that tell the story of this insight"
+    },
+    "strategic_impact": {
+      "type": "string",
+      "description": "Description of the business impact or strategic implications of this insight"
+    },
+    "confidence_level": {
+      "type": "string",
+      "enum": ["low", "medium", "high"],
+      "description": "Confidence in the insight based on evidence quality and fit"
+    },
+    "actionability_score": {
+      "type": "number",
+      "minimum": 0.0,
+      "maximum": 1.0,
+      "description": "How actionable this insight is - measures potential for implementation"
+    },
+    "priority_level": {
+      "type": "string",
+      "enum": ["high", "medium", "low"],
+      "description": "Strategic priority of this insight based on fit and impact"
+    },
+    "related_insights": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "pattern": "^insight_junction_.*"
+      },
+      "description": "IDs of related insight junctions that complement or contrast with this one"
+    },
+    "implementation_notes": {
+      "type": "string",
+      "description": "Notes about how this insight could be implemented or acted upon"
+    },
+    "tags": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "description": "System-derived tags from DUX scan (not manually added)"
+    },
+    "created_at": {
+      "type": "string",
+      "format": "date-time",
+      "description": "Creation timestamp"
+    },
+    "updated_at": {
+      "type": "string",
+      "format": "date-time",
+      "description": "Last update timestamp"
+    }
+  },
+  "additionalProperties": false
+} 

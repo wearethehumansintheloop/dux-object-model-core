@@ -3,7 +3,7 @@
 ## 🎯 Purpose & Strategic Role
 A Result object defines the measurable impact we're aiming to achieve, often expressed as revenue, cost, retention, satisfaction, or mission outcomes. It anchors investment and strategic decisions in business logic and is always evidence-backed.
 
-## 🧠 WHY WE HIRE THE RESULT
+## 🧠 JTBD Example
 > When I need to decide whether to continue investing in a product or service, I need to assess whether it is producing measurable impact toward our business goals, so that I can prioritize future work based on actual impact — not just activity or effort.
 
 ## 💡 Why the Result Object Matters
@@ -19,10 +19,10 @@ A Result object defines the measurable impact we're aiming to achieve, often exp
 | object_type         | string    | Yes      | Must be "Result"                                                                             |
 | id                  | string    | Yes      | Unique identifier                                                                            |
 | target_impact       | string    | Yes      | Clear description of the business' desired impact, revenue targets, cost reduction target     |
-| success_criteria    | string    | No       | System-derived or LLM-suggested target threshold for related outcomes' key signals               |
-| success_metrics     | [string]  | No       | LLM-suggested metrics to help insight building find relevant behaviors                           |
+| success_criteria    | string    | No       | Aggregate target threshold set by stakeholder - required delta in related outcomes' key signals to meet success criteria |
+| success_metrics     | [string]  | No       | Aggregate metrics used to measure success criteria, derived from key signals of related outcome objects |
 | evidence            | [string]  | Yes      | Array of Provenance object IDs                                                               |
-| useroutcome_ids     | [string]  | No       | Array of UserOutcome object IDs that measure progress toward this result                        |
+| useroutcome_ids     | [object]  | No       | User outcomes that measure progress toward this result (with id and reference_context)        |
 | tags                | [string]  | No       | System-derived tags                                                                          |
 | created_at          | string    | No       | Creation timestamp                                                                           |
 | updated_at          | string    | No       | Last update timestamp                                                                        |
@@ -33,25 +33,16 @@ A Result object defines the measurable impact we're aiming to achieve, often exp
   "object_type": "Result",
   "id": "result_001",
   "target_impact": "Increase revenue by $1M in the first quarter",
-  "success_criteria": [
-    "Idle GPU time allocation decreases by 20%",
-    "Resource utilization increases by 15%",
-    "Admin satisfaction score improves by 25%"
-  ],
-  "success_metrics": ["Time spent Idle", "% of Reserved Instance Spend unused, NPS score"],
+  "success_criteria": "Achieve at least 10% growth in new customer acquisition.",
+  "success_metrics": ["revenue_growth", "customer_acquisition_rate"],
   "evidence": ["provenance_005", "provenance_006"],
-  "useroutcome_ids": ["useroutcome_001", "useroutcome_002"],
-  "tags": ["revenue_growth", "customer_acquisition", "v9.5"],
-  "created_at": "2025-01-07T10:30:00Z",
-  "updated_at": "2025-01-07T10:30:00Z"
+  "useroutcome_ids": [
+    {"id": "useroutcome_001", "reference_context": "Measures progress toward revenue growth."}
+  ]
 }
 ```
 
 ## 🔗 Structural Role & Usage Notes
 - Anchors investment and strategic decisions in business logic.
 - Represents the north star for measurement and impact assessment.
-- Must always be evidence-backed (see Provenance object for details).
-- Links to UserOutcome objects that measure progress toward the target impact.
-- Success criteria can be system-derived from stakeholder config or LLM-suggested.
-- Success metrics are LLM-suggested to help insight building find relevant behaviors.
-- The Result object is the business goal that UserOutcomes help achieve through Behavior + Result junctions.
+- Must always be evidence-backed (see Provenance object for details). 

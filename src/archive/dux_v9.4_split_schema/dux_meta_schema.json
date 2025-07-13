@@ -1,0 +1,140 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://github.com/nicholasjayantylearns/shut-the-dux-up/dux-object-model-v9.5/schema",
+  "title": "DUX v9.5 Universal Object Model Schema",
+  "description": "The definitive schema for Declarative UX v9.5 Object Model - evidence-driven, tool-agnostic, infrastructure-as-code. Each DUX object IS a structured evidence unit with direct source attribution. Aligned with dux_object_model_guide_v9.5.md as source of truth.",
+  "version": "9.5.0",
+  "type": "object",
+  "properties": {
+    "objects": {
+      "type": "array",
+      "items": {
+        "oneOf": [
+          {
+            "$ref": "#/$defs/Problem"
+          },
+          {
+            "$ref": "#/$defs/Behavior"
+          },
+          {
+            "$ref": "#/$defs/Result"
+          },
+          {
+            "$ref": "#/$defs/Flow"
+          },
+          {
+            "$ref": "#/$defs/UserOutcome"
+          }
+        ]
+      }
+    }
+  },
+  "$defs": {
+    "RelatedObjectReference": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string",
+          "description": "The unique ID of the referenced object."
+        },
+        "evidence_status": {
+          "type": "string",
+          "enum": [
+            "evidence_backed",
+            "evidence_present",
+            "assumptive"
+          ],
+          "description": "Evidence strength of the referenced object."
+        },
+        "description": {
+          "type": "string",
+          "description": "Canonical description from the referenced object."
+        },
+        "reference_context": {
+          "type": "string",
+          "description": "Why this object is related — shared user, phase, behavior, or problem context."
+        }
+      },
+      "required": [
+        "id",
+        "evidence_status"
+      ]
+    },
+    "EvidenceBlock": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "teaser": {
+            "type": "string",
+            "description": "Brief summary or hook that captures the essence of this evidence"
+          },
+          "quote": {
+            "type": "string",
+            "description": "Direct quote or summary from source material"
+          },
+          "citation": {
+            "type": "string",
+            "description": "Who said it, when, and where (e.g. 'Participant 7, timestamp 00:12:45, interview_transcript_p7.md')"
+          },
+          "provenance": {
+            "type": "object",
+            "properties": {
+              "source_filename": {
+                "type": "string"
+              },
+              "timestamp_in": {
+                "type": "string"
+              },
+              "timestamp_out": {
+                "type": "string"
+              }
+            },
+            "required": [
+              "source_filename",
+              "timestamp_in",
+              "timestamp_out"
+            ]
+          },
+          "evidence_type": {
+            "type": "string",
+            "enum": [
+              "qualitative",
+              "quantitative",
+              "system_log",
+              "user_interview",
+              "report_summary"
+            ],
+            "description": "Type of evidence collected"
+          },
+          "collection_method": {
+            "type": "string",
+            "enum": [
+              "interview",
+              "survey"
+            ],
+            "description": "How this evidence was gathered"
+          },
+          "confidence_level": {
+            "type": "string",
+            "enum": [
+              "high",
+              "medium",
+              "low"
+            ],
+            "description": "Confidence level in this evidence"
+          }
+        },
+        "required": [
+          "quote",
+          "citation",
+          "provenance",
+          "evidence_type",
+          "collection_method",
+          "confidence_level"
+        ]
+      },
+      "description": "Supporting materials that justify the importance or validity of this object"
+    }
+  }
+}

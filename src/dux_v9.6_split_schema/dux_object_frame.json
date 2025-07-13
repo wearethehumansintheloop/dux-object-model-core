@@ -1,0 +1,94 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "Frame Object Schema",
+  "description": "Schema for Frame objects representing atomic units of strategy and research focus",
+  "type": "object",
+  "version": "9.6.0",
+  "required": ["object_type", "id", "frame_name", "frame_description", "strategic_context", "analysis_questions", "frame_type", "priority_level"],
+  "properties": {
+    "object_type": {
+      "type": "string",
+      "enum": ["Frame"],
+      "description": "Object type discriminator"
+    },
+    "id": {
+      "type": "string",
+      "pattern": "^frame_.*",
+      "description": "Unique identifier for this frame"
+    },
+    "frame_name": {
+      "type": "string",
+      "description": "Human-readable name for this strategic frame"
+    },
+    "frame_description": {
+      "type": "string",
+      "description": "Clear description of what this frame represents and how it shapes analysis"
+    },
+    "strategic_context": {
+      "type": "string",
+      "description": "The business context or strategic objective this frame addresses"
+    },
+    "analysis_questions": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "minItems": 1,
+      "description": "Key questions this frame asks of the evidence"
+    },
+    "frame_type": {
+      "type": "string",
+      "description": "Type of frame (user_experience, business_impact, technical_feasibility, etc.)"
+    },
+    "priority_level": {
+      "type": "string",
+      "enum": ["high", "medium", "low"],
+      "description": "Strategic priority level"
+    },
+    "stakeholder_audience": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "description": "Target audience for insights generated through this frame"
+    },
+    "success_criteria": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "description": "Criteria for determining if this frame has been successfully applied"
+    },
+    "gallery_id": {
+      "type": "string",
+      "pattern": "^gallery_.*",
+      "description": "ID of the Report Gallery collection this frame belongs to"
+    },
+    "related_frames": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "pattern": "^frame_.*"
+      },
+      "description": "IDs of related frames that complement or contrast with this one"
+    },
+    "tags": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "description": "System-derived tags from DUX scan (not manually added)"
+    },
+    "created_at": {
+      "type": "string",
+      "format": "date-time",
+      "description": "Creation timestamp"
+    },
+    "updated_at": {
+      "type": "string",
+      "format": "date-time",
+      "description": "Last update timestamp"
+    }
+  },
+  "additionalProperties": false
+} 
