@@ -1,0 +1,56 @@
+{
+  "timestamp": "2025-07-13T13:42:41.126581",
+  "cleanup_actions": [],
+  "file_counts": {
+    "hitl_workshop": {
+      "markdown": 15,
+      "python": 8,
+      "json": 2,
+      "text": 0,
+      "total": 25
+    },
+    "hitl_promotion_candidates": {
+      "markdown": 5,
+      "python": 0,
+      "json": 3,
+      "text": 0,
+      "total": 8
+    },
+    "hitl_review_queue": {
+      "markdown": 3,
+      "python": 0,
+      "json": 0,
+      "text": 1,
+      "total": 4
+    },
+    "hitl_failed": {
+      "markdown": 12,
+      "python": 0,
+      "json": 1,
+      "text": 1,
+      "total": 14
+    },
+    "hitl_review": {
+      "markdown": 5,
+      "python": 0,
+      "json": 0,
+      "text": 0,
+      "total": 5
+    },
+    "hitl_archive": {
+      "markdown": 0,
+      "python": 1,
+      "json": 1,
+      "text": 0,
+      "total": 2
+    }
+  },
+  "conflicts": [],
+  "cleanup_results": {
+    "archived_scripts": 5,
+    "conflicts_found": 1,
+    "stuck_items_cleared": 1,
+    "summaries_organized": 3,
+    "temp_files_cleaned": 8
+  }
+}

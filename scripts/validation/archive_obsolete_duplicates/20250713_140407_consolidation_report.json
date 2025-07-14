@@ -1,0 +1,89 @@
+{
+  "consolidation_timestamp": "2025-07-13T14:04:07.669416",
+  "strategy": "hitl_pipeline_primary_with_standalone_validators",
+  "primary_location": "scripts/validation/hitl_pipeline/",
+  "archived_files": [
+    "stage1_structure_validation.py -> 20250713_140407_stage1_structure_validation.py",
+    "stage2_consistency_validation.py -> 20250713_140407_stage2_consistency_validation.py",
+    "stage3a_problem_basic_docling.py -> 20250713_140407_stage3a_problem_basic_docling.py"
+  ],
+  "files_kept": [
+    "validate_behavior_objects.py",
+    "validate_dux_objects.py",
+    "validate_flow_objects.py",
+    "validate_insight_objects.py",
+    "validate_problem_objects.py",
+    "validate_provenance_objects.py",
+    "validate_result_objects.py",
+    "validate_useroutcome_objects.py",
+    "run_bulk_validation.py",
+    "config.py"
+  ],
+  "analysis": {
+    "older_structure": {
+      "path": "scripts/validation",
+      "files": [
+        "validate_dux_objects.py",
+        "stage3a_problem_basic_docling.py",
+        "config.py",
+        "validate_behavior_objects.py",
+        "stage1_structure_validation.py",
+        "run_bulk_validation.py",
+        "validate_useroutcome_objects.py",
+        "validate_flow_objects.py",
+        "stage2_consistency_validation.py",
+        "validate_problem_objects.py",
+        "validate_provenance_objects.py",
+        "validate_insight_objects.py",
+        "validate_result_objects.py"
+      ],
+      "unique_files": [
+        "validate_dux_objects.py",
+        "config.py",
+        "validate_behavior_objects.py",
+        "run_bulk_validation.py",
+        "validate_useroutcome_objects.py",
+        "validate_flow_objects.py",
+        "validate_problem_objects.py",
+        "validate_provenance_objects.py",
+        "validate_insight_objects.py",
+        "validate_result_objects.py"
+      ],
+      "duplicates": [
+        "stage3a_problem_basic_docling.py",
+        "stage1_structure_validation.py",
+        "stage2_consistency_validation.py"
+      ]
+    },
+    "newer_structure": {
+      "path": "scripts/validation/hitl_pipeline",
+      "files": [
+        "stage3a_problem_basic_docling.py",
+        "stage3a_problem_docling_md.py",
+        "stage1_structure_validation.py",
+        "stage3a_behavior_basic_docling.py",
+        "stage3b_behavior_schema_validation.py",
+        "stage3a_result_basic_docling.py",
+        "stage2_consistency_validation.py",
+        "stage3b_result_schema_validation.py",
+        "hitl_orchestrator.py",
+        "stage3b_problem_schema_validation.py"
+      ],
+      "unique_files": [
+        "stage3a_problem_docling_md.py",
+        "stage3a_behavior_basic_docling.py",
+        "stage3b_behavior_schema_validation.py",
+        "stage3a_result_basic_docling.py",
+        "stage3b_result_schema_validation.py",
+        "hitl_orchestrator.py",
+        "stage3b_problem_schema_validation.py"
+      ],
+      "duplicates": [
+        "stage3a_problem_basic_docling.py",
+        "stage1_structure_validation.py",
+        "stage2_consistency_validation.py"
+      ]
+    },
+    "consolidation_plan": []
+  }
+}

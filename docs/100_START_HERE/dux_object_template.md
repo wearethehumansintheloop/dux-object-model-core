@@ -13,7 +13,7 @@
 - [Key benefit or value proposition #4]
 
 ## 📋 Schema Attributes
-| Field               | Type                           | Required | Description                                                                                  |
+| Attribute               | Type                           | Required | Description                                                                                  |
 |---------------------|--------------------------------|----------|----------------------------------------------------------------------------------------------|
 | object_type         | string (const: "[ObjectType]") | Yes      | Object type discriminator                                                                    |
 | id                  | string                         | Yes      | Unique identifier for this object                                                            |

@@ -1,0 +1,8 @@
+HITL Review Queue Note
+=====================
+
+Timestamp: 2025-07-13T18:14:39.595176
+Original file: 20250713_181251_problem_platform_onboarding_v1_object_model_definition.md
+Queue reason: Candidates folder already contains problem object: 20250707_170942_problem_object_w_job_statement_decomposition.md
+
+This file is waiting for its turn in the HITL pipeline.

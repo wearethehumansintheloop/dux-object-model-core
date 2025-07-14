@@ -166,7 +166,7 @@ def main():
     base_dir = script_dir.parent.parent  # Assuming script is in src/generators
     
     schema_dir = base_dir / 'src' / 'dux_v9.5_split_schema'
-    prompt_dir = base_dir / 'src' / 'prompt_templates'
+    prompt_dir = base_dir / 'src' / 'prompts' / 'templates'
 
     # Mapping of object types to their schema and prompt files
     object_map = {
