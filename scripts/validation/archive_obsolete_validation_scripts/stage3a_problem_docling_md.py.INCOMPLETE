@@ -94,32 +94,20 @@ def generate_json_schema_from_table(schema_data: Dict[str, Any]) -> Dict[str, An
             "type": "object",
             "properties": {
                 "user_scenario": {
-                    "type": "object",
-                    "properties": {
-                        "value": {"type": "string", "description": "When [situation]..."},
-                        "source": {"type": "string", "enum": ["evidence", "synthetic"]}
-                    },
-                    "required": ["value", "source"]
+                    "type": "string",
+                    "description": "When [situation]..."
                 },
                 "user_enablement": {
-                    "type": "object",
-                    "properties": {
-                        "value": {"type": "string", "description": "I want [motivation]..."},
-                        "source": {"type": "string", "enum": ["evidence", "synthetic"]}
-                    },
-                    "required": ["value", "source"]
+                    "type": "string", 
+                    "description": "I want [motivation]..."
                 },
                 "user_outcome": {
-                    "type": "object",
-                    "properties": {
-                        "value": {"type": "string", "description": "so I can [outcome]"},
-                        "source": {"type": "string", "enum": ["evidence", "synthetic"]}
-                    },
-                    "required": ["value", "source"]
+                    "type": "string",
+                    "description": "so I can [outcome]"
                 }
             },
             "required": ["user_scenario", "user_enablement", "user_outcome"],
-            "description": "JTBD decomposed into three components with evidence tracking"
+            "description": "JTBD decomposed into three components"
         },
         "evidence": {
             "type": "array",

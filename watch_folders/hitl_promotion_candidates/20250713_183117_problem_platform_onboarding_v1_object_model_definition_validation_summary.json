@@ -1,0 +1,71 @@
+{
+  "original_file": "problem_platform_onboarding_v1_object_model_definition.md",
+  "docling_file": "20250713_183117_problem_platform_onboarding_v1_object_model_definition_docling.md",
+  "validation_script": "20250713_183117_validate_problem_generated.py",
+  "timestamp": "2025-07-13T18:31:17.471641",
+  "stages_passed": [
+    "stage1",
+    "stage2",
+    "stage3a",
+    "stage3b",
+    "stage4"
+  ],
+  "validation_results": {
+    "passed": true,
+    "errors": [],
+    "stage": "completed",
+    "validation_result": {
+      "valid": true,
+      "errors": [],
+      "instance": {
+        "object_type": "Problem",
+        "id": "problem_001",
+        "job_statement": {
+          "user_scenario": {
+            "value": "When onboarding to a new platform",
+            "source": "evidence"
+          },
+          "user_enablement": {
+            "value": "I want clear setup steps",
+            "source": "evidence"
+          },
+          "user_outcome": {
+            "value": "so I can become productive quickly",
+            "source": "evidence"
+          }
+        },
+        "evidence": [
+          {
+            "provenance_id": "survey_001",
+            "supports_fields": [
+              "opportunity_score",
+              "end_user"
+            ]
+          },
+          {
+            "provenance_id": "interview_002",
+            "supports_fields": [
+              "job_statement",
+              "what_is_at_stake"
+            ]
+          }
+        ],
+        "end_user": [
+          "new_user",
+          "admin"
+        ],
+        "what_is_at_stake": "Delayed productivity and increased support tickets.",
+        "opportunity_score": {
+          "value": 12.3,
+          "importance": 8.2,
+          "satisfaction": 4.1,
+          "value_source": "evidence",
+          "importance_source": "evidence",
+          "satisfaction_source": "evidence"
+        },
+        "protocol_url": "https://company.com/onboarding-research"
+      }
+    },
+    "validation_script": "watch_folders/hitl_review/validate_problem_generated.py"
+  }
+}

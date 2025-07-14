@@ -1,0 +1,7 @@
+HITL Validation Failed at Stage: Stage 4
+Timestamp: 2025-07-13T18:18:41.429414
+Original file: 20250707_130903_problem_object_odi_update.md
+
+Errors:
+- Schema validation error: 'When onboarding to a new platform, I want clear setup steps, so I can become productive quickly.' is not of type 'object'
+- job_statement must be an object

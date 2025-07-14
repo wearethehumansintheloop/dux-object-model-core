@@ -26,11 +26,12 @@ from stage2_consistency_validation import validate_consistency
 from stage3a_problem_docling_md import process_problem_to_docling_md
 from stage3b_problem_schema_validation import process_stage3b_validation
 
-from stage3a_result_basic_docling import process_stage3a_result
-from stage3b_result_schema_validation import process_stage3b_result
+# TODO: Implement stage3a/3b for Result and Behavior
+# from stage3a_result_basic_docling import process_stage3a_result
+# from stage3b_result_schema_validation import process_stage3b_result
 
-from stage3a_behavior_basic_docling import process_stage3a_behavior
-from stage3b_behavior_schema_validation import process_stage3b_behavior
+# from stage3a_behavior_basic_docling import process_stage3a_behavior
+# from stage3b_behavior_schema_validation import process_stage3b_behavior
 
 
 def check_naming_convention(file_path: Path) -> tuple[bool, str]:
@@ -238,7 +239,7 @@ def cleanup_old_object_versions(target_dir: Path, object_type: str, keep_filenam
 
 
 def move_to_candidates(file_path: Path, validation_results: Dict[str, Any]):
-    """Move validated file to promotion candidates."""
+    """Move validated DOCLING markdown to promotion candidates."""
     candidates_dir = Path("watch_folders/hitl_promotion_candidates")
     candidates_dir.mkdir(exist_ok=True)
     
@@ -253,30 +254,54 @@ def move_to_candidates(file_path: Path, validation_results: Dict[str, Any]):
         return
     
     timestamp = datetime.now().strftime("%Y%m%d_%H%M%S")
-    candidate_filename = f"{timestamp}_{file_path.name}"
-    candidate_path = candidates_dir / candidate_filename
     
-    # Move file
-    shutil.move(file_path, candidate_path)
+    # IMPORTANT: Move the DOCLING markdown (canonical format), not the original
+    docling_path = file_path.parent / f"{file_path.stem}_docling.md"
+    if not docling_path.exists():
+        print(f"  ❌ Error: Docling markdown not found: {docling_path.name}")
+        return
+    
+    # Move docling markdown to candidates
+    docling_filename = f"{timestamp}_{docling_path.stem}.md"
+    docling_target = candidates_dir / docling_filename
+    shutil.move(docling_path, docling_target)
+    
+    # Move generated validation script if it exists
+    validation_script = file_path.parent / f"validate_{object_type}_generated.py"
+    script_filename = None
+    if validation_script.exists():
+        script_filename = f"{timestamp}_validate_{object_type}_generated.py"
+        script_target = candidates_dir / script_filename
+        shutil.move(validation_script, script_target)
+        print(f"  📜 Moved validation script: {script_filename}")
     
     # Create validation summary
     summary_path = candidates_dir / f"{timestamp}_{file_path.stem}_validation_summary.json"
     with open(summary_path, 'w') as f:
         import json
         json.dump({
-            "file": file_path.name,
+            "original_file": file_path.name,
+            "docling_file": docling_filename,
+            "validation_script": script_filename,
             "timestamp": datetime.now().isoformat(),
             "stages_passed": ["stage1", "stage2", "stage3a", "stage3b", "stage4"],
             "validation_results": validation_results
         }, f, indent=2)
     
-    print(f"  ✅ Promoted to candidates: {candidate_path.name}")
+    print(f"  ✅ Promoted docling to candidates: {docling_target.name}")
+    
+    # Archive the original markdown (keep for reference)
+    archive_dir = Path("watch_folders/hitl_archive/original_sources")
+    archive_dir.mkdir(parents=True, exist_ok=True)
+    archive_filename = f"{timestamp}_{file_path.name}"
+    archive_path = archive_dir / archive_filename
+    shutil.move(file_path, archive_path)
+    print(f"  📁 Archived original source: {archive_filename}")
     
     # Clean up old versions to maintain one-object-per-type rule
-    cleanup_old_object_versions(candidates_dir, object_type, candidate_filename)
+    cleanup_old_object_versions(candidates_dir, object_type, docling_filename)
     
-    # Clean up intermediate files
-    cleanup_intermediate_files(file_path)
+    # Do NOT cleanup intermediate files - docling is now in candidates!
 
 
 def cleanup_intermediate_files(original_path: Path):
@@ -393,19 +418,24 @@ def run_stage3b_validation(docling_path: Path, object_type: str) -> Dict[str, An
 
 def run_stage4_validation(file_path: Path, json_schema: Dict[str, Any]) -> Dict[str, Any]:
     """Run Stage 4 explosion and final validation."""
-    print(f"\n▶️  Stage 4: Explosion & Final Validation")
+    print(f"\n▶️  Stage 4: Generation-First Validation")
     
-    # For now, we'll import the existing validation
-    sys.path.append(str(Path(__file__).parent.parent))
-    from validate_dux_objects import process_markdown_file, validate_dux_object
+    # Import the new Generation-First Stage 4 validator
+    from stage4_object_validation import process_stage4_validation
     
-    result = process_markdown_file(file_path)
+    # Find the docling markdown file
+    docling_path = file_path.parent / f"{file_path.stem}_docling.md"
+    if not docling_path.exists():
+        return {"passed": False, "errors": ["Docling markdown not found"]}
     
-    if not result['valid']:
+    # Run Generation-First validation
+    result = process_stage4_validation(docling_path)
+    
+    if not result['passed']:
         print(f"  ❌ Stage 4 Failed: {len(result['errors'])} errors")
         return {"passed": False, "errors": result['errors']}
     
-    print(f"  ✅ Stage 4 Passed")
+    print(f"  ✅ Stage 4 Passed - Generated validation from docling schema")
     return {"passed": True, "errors": [], "validation_result": result}
 
 

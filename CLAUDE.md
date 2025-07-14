@@ -124,6 +124,13 @@ python src/generators/generate_synthetic_data.py
 - **Generated Artifacts**: JSON schemas are auto-generated from markdown
 - **Philosophy**: Schemas evolve with research - markdown enables rapid iteration while maintaining validation
 
+### Generation-First Principle (CRITICAL)
+- **NEVER manually create or edit**: JSON schemas, validation scripts, prompts
+- **ALWAYS generate from**: Approved docling markdown files
+- **Flow**: Markdown → Docling → Generated Artifacts
+- **If something is wrong**: Fix the markdown source, regenerate
+- **If you find outdated files**: Archive them, don't fix them
+
 ### Problem Object Schema Updates (Critical)
 The Problem object now uses a **decomposed job_statement** structure:
 ```json
@@ -150,15 +157,18 @@ The Problem object now uses a **decomposed job_statement** structure:
    - Checks field descriptions match types
    - Fail → `hitl_failed/`
 
-3. **Stage 3: Docling Processing & Schema Generation** (`stage3a_*_basic_docling.py`)
+3. **Stage 3: Docling Processing & Schema Generation**
+   - **Stage 3a**: Creates docling markdown (canonical source)
+   - **Stage 3b**: Validates schema definition against canonical requirements
    - Uses docling to parse markdown structure (requires host machine installation)
    - Extracts schema from tables using `table.data.grid` approach
-   - Generates JSON schema from validated structure
    - Fail → `hitl_workshop/`
 
-4. **Stage 4: Object Instance Validation** (`validate_dux_objects.py`)
-   - Validates against DUX v9.6 JSON schemas
-   - No monolithic structures - each object type has its own validation
+4. **Stage 4: Generation & Final Validation**
+   - **GENERATES validation scripts FROM docling markdown**
+   - **GENERATES JSON schemas FROM docling markdown**
+   - **GENERATES prompts FROM approved schemas**
+   - All artifacts are OUTPUT, not INPUT
    - Pass → `hitl_promotion_candidates/`
    - Fail → `hitl_failed/`
 
@@ -231,8 +241,16 @@ Examples:
 2. **AI Processing**: LLM parsing and structuring
 3. **Object Generation**: Structured DUX objects with validation
 4. **HITL Review**: Four-stage validation pipeline
-5. **Human Approval**: Manual review for production deployment
-6. **Storage**: Neo4j knowledge graph with vector embeddings
+5. **Artifact Generation**: AUTO-GENERATE schemas, validators, prompts from docling
+6. **Human Approval**: Manual review for production deployment
+7. **Storage**: Neo4j knowledge graph with vector embeddings
+
+### Generation Flow (Required)
+1. Markdown object definition (human-edited)
+2. → Docling processing (Stage 3a)
+3. → Schema validation (Stage 3b)
+4. → AUTO-GENERATE: JSON schemas, validation scripts, prompts
+5. → NEVER hand-edit generated artifacts
 
 ### Testing Strategy
 - **BDD Features**: Business logic validation in Gherkin
@@ -326,9 +344,17 @@ When overwhelmed with complexity, summon Brid (the dev manager agent):
 ## Important Conventions
 
 ### File Naming
-- Validation scripts: `validate_<object_type>_objects.py`
+- Validation scripts: `validate_<object_type>_objects.py` (GENERATED, not hand-written)
 - Object files: `<object_type>_<identifier>_object_model_definition.md`
 - Error logs: `<timestamp>_<filename>_errors.txt`
+
+## ❌ Common Mistakes to Avoid
+
+1. **Manually fixing validation scripts** - Archive and regenerate from docling
+2. **Editing JSON schemas directly** - Edit markdown source, regenerate
+3. **Creating prompts by hand** - Generate from approved schemas
+4. **Assuming existing files are correct** - Check if generated from current docling
+5. **Trying to "fix" outdated code** - Archive it, generate fresh
 
 ### Evidence Array Structure
 ```json
@@ -385,4 +411,7 @@ When overwhelmed with complexity, summon Brid (the dev manager agent):
 - Stage 3a requires docling installed on host machine (not just container)
 - DoclingDocument `table.data.grid` is the key to structured data extraction
 - Research platform validation tests moved from "DUX Object Model (Core)" folder to main features/
+- **ALL validation scripts are GENERATED from docling - NEVER manually created**
+- **If validation script has wrong schema - archive it and regenerate**
+- **Generation-first principle: If it can be generated, it MUST be generated**
 - Coauthored by imstilllearning (noreply@duckie.ernt) and claudette xoxo
