@@ -1,236 +1,310 @@
-# HITL Development Pipeline Documentation
+# HITL Development Pipeline - Complete Documentation
 
-## Overview
+## Executive Summary
 
-The Human-in-the-Loop (HITL) development pipeline implements **markdown-as-source-code** philosophy for DUX schema governance. This system eliminates manual weekend schema checking across 100+ files by establishing markdown schemas as the canonical source with automated validation and propagation.
+The Human-in-the-Loop (HITL) development pipeline is a critical 4-stage validation system that implements **markdown-as-source-code** philosophy for DUX schema governance. This documentation identifies current gaps, risks, and provides comprehensive workflow guidance.
 
-## Core Philosophy
+## 🚨 Critical Gaps & Risks Identified
 
-- **Markdown schemas are canonical** (not JSON)
-- **Natural language centricity** with JSON as backward compatibility
-- **Agent prompts require .md format** for LLM processing
-- **Four-stage validation** with manual control points
-- **One object per folder** queue management logic
+### Testing Gaps
 
-## Four-Stage Validation Pipeline
+1. **No BDD Test Coverage for HITL Pipeline**
+   - **Risk**: Pipeline changes could break validation flow without detection
+   - **Impact**: Inconsistent object validation, failed deployments
+   - **Recommendation**: Implement `features/hitl_pipeline_validation.feature` immediately
 
-### Stage 1: Structure & Template Validation
-**Script**: `scripts/validation/stage1_structure_validation.py`
-**Purpose**: Validates markdown template structure (markdown-only)
+2. **Missing Stage 2 Implementation**
+   - **Risk**: Content consistency validation is referenced but script doesn't exist
+   - **Impact**: Objects with inconsistent content pass to Stage 3
+   - **Status**: Currently integrated into other stages (unclear where)
 
-**Validations**:
-- Required sections present (Purpose & Strategic Role, Schema Attributes, etc.)
-- Schema Attributes table structure
-- Canonical Example JSON block exists
-- Object type in title matches template
+3. **Missing Stage 3b Script**
+   - **Risk**: Schema generation validation step lacks implementation
+   - **Impact**: Invalid schemas could be generated from valid markdown
 
-**Output**: Pass → Stage 2 | Fail → `hitl_failed/`
+4. **No Integration Tests**
+   - **Risk**: Individual stages may work but fail when integrated
+   - **Impact**: Queue management and file routing failures
 
-### Stage 2: Consistency Validation
-**Script**: Integrated validation (no separate script found)
-**Purpose**: Content consistency and quality checks (markdown-only)
+5. **No Prompt Validation Pipeline**
+   - **Risk**: Agent prompts may contain invalid example JSON
+   - **Impact**: LLM extraction produces invalid objects
 
-**Validations**:
-- Cross-reference validation
-- Content quality metrics
-- Structural integrity checks
+### Output Consistency Risks
 
-**Output**: Pass → Stage 3a | Fail → `hitl_workshop/`
+1. **Docling Host Machine Dependency**
+   - **Risk**: Stage 3a requires docling on host machine (not in container)
+   - **Impact**: Pipeline fails in containerized environments
+   - **Mitigation**: Document requirement, add fallback handling
 
-### Stage 3a: Lightweight Docling Integration
-**Script**: `stage3a_problem_basic_docling.py` (referenced)
-**Purpose**: Parse markdown into Docling document structure
+2. **Partial Object Type Coverage**
+   - **Risk**: Only Problem, Behavior, Result have Stage 3 scripts
+   - **Impact**: Other object types (Flow, Insight, etc.) can't be processed
 
-**Process**:
-- Efficient processing - no wasted cycles on bad markdown
-- Parse markdown file into Docling DocumentConverter format
-- Extract attribute table and embedded JSON schema
-- Create Docling markdown object with embedded JSON
+3. **Manual Queue Management**
+   - **Risk**: Auto-pull logic exists but no monitoring
+   - **Impact**: Queue backlogs, processing delays
 
-**Output**: Pass → Stage 3b | Fail → `hitl_workshop/`
+4. **No Rollback Mechanism**
+   - **Risk**: Bad objects promoted to production
+   - **Impact**: System-wide schema corruption
 
-### Stage 3b: Schema Generation & Validation
-**Purpose**: Validate against canonical governance schema
+## Complete Workflow Documentation
 
-**Process**:
-- Validate Docling object against governance schema definition
-- Check DUX object template structure compliance
-- Ensure relationship fields present for cross-object references
-- Natural language first validation with JSON backward compatibility
+### Overview
 
-**Output**: Pass → Stage 4 | Fail → `hitl_workshop/`
+The HITL pipeline ensures schema quality through progressive validation stages with human oversight at critical points.
 
-### Stage 4: JSON Schema Validation & Queue Management
-**Script**: `scripts/validation/validate_dux_objects.py`
-**Purpose**: Production-ready validation with queue management
-
-**Process**:
-- Take promotion candidate in Docling markdown form
-- Explode object into Docling objects for each attribute
-- Validate against 'doclingified' canonical governance JSON schema
-- Cut JSON files as required
-- Manage queue system with auto-pull logic
-
-**Queue Management Logic**:
-```python
-def pull_next_from_queue(processed_filename: str):
-    # Determine object type from filename
-    if "problem" in processed_filename.lower():
-        queue_dir = Path("watch_folders/hitl_review_queue/problem_objects")
-    elif "behavior" in processed_filename.lower():
-        queue_dir = Path("watch_folders/hitl_review_queue/behavior_objects")
-    # ... etc for each object type
-    
-    # Get oldest file from queue (by timestamp)
-    queue_files = sorted(queue_dir.glob("*.md"))
-    if queue_files:
-        # Move to review folder with clean name
-        # Auto-queue next object of same type
+```mermaid
+graph TD
+    A[Markdown File] --> B{Naming Check}
+    B -->|Fail| C[hitl_rejected/]
+    B -->|Pass| D[Stage 1: Structure]
+    D -->|Fail| E[hitl_failed/]
+    D -->|Pass| F[Stage 2: Consistency]
+    F -->|Fail| E
+    F -->|Pass| G[Stage 3a: Docling Parse]
+    G -->|Fail| H[hitl_workshop/]
+    G -->|Pass| I[Stage 3b: Schema Gen]
+    I -->|Fail| H
+    I -->|Pass| J[Stage 4: JSON Validation]
+    J -->|Fail| E
+    J -->|Pass| K[hitl_promotion_candidates/]
+    K -->|Human Approval| L[hitl_approved_for_production/]
+    K -->|Human Reject| M[hitl_rejected/]
 ```
 
-**Output**: Pass → `hitl_promotion_candidates/` | Fail → `hitl_failed/`
+### Detailed Stage Specifications
 
-## Watch Folder Workflow
+#### Pre-Stage: Naming Convention Check
+- **Purpose**: Enforce consistent file naming
+- **Pattern**: `{object_type}_*_*_object_model_definition.md`
+- **Implementation**: ✅ Exists in `hitl_orchestrator.py`
+- **Test Coverage**: ❌ No BDD tests
 
-### Directory Structure
+#### Stage 1: Structure & Template Validation
+- **Script**: `scripts/validation/hitl_pipeline/stage1_structure_validation.py`
+- **Purpose**: Validate markdown follows DUX template
+- **Checks**:
+  - Required sections present
+  - Schema Attributes table exists
+  - Canonical Example JSON block present
+  - Object type matches filename
+- **Implementation**: ✅ Exists
+- **Test Coverage**: ❌ No BDD tests
+
+#### Stage 2: Consistency Validation
+- **Script**: ❌ **MISSING** - Referenced but not found
+- **Purpose**: Validate content consistency
+- **Planned Checks**:
+  - Field descriptions match types
+  - Cross-references valid
+  - Evidence arrays structured correctly
+- **Implementation**: ❌ Missing
+- **Test Coverage**: ❌ No tests
+
+#### Stage 3a: Docling Processing
+- **Scripts**: 
+  - `stage3a_problem_docling_md.py` ✅
+  - `stage3a_behavior_basic_docling.py` ✅
+  - `stage3a_result_basic_docling.py` ✅
+  - Others: ❌ **MISSING**
+- **Purpose**: Parse markdown to Docling structure
+- **Process**:
+  - Extract Schema Attributes table
+  - Parse using `table.data.grid` method
+  - Generate structured document
+- **Implementation**: ⚠️ Partial (3 of 7 object types)
+- **Test Coverage**: ❌ No BDD tests
+- **Critical Issue**: Requires host machine docling installation
+
+#### Stage 3b: Schema Generation & Validation
+- **Scripts**: 
+  - `stage3b_problem_schema_validation.py` ✅
+  - `stage3b_behavior_schema_validation.py` ✅
+  - `stage3b_result_schema_validation.py` ✅
+  - Others: ❌ **MISSING**
+- **Purpose**: Generate and validate JSON schemas
+- **Implementation**: ⚠️ Partial (3 of 7 object types)
+- **Test Coverage**: ❌ No BDD tests
+
+#### Stage 4: JSON Schema Validation
+- **Script**: `scripts/validation/validate_dux_objects.py`
+- **Purpose**: Final validation against v9.6 schemas
+- **Features**:
+  - Queue management
+  - Auto-pull next object
+  - Error logging
+- **Implementation**: ✅ Exists
+- **Test Coverage**: ❌ No integration tests
+
+### Queue Management System
+
 ```
 watch_folders/
-├── hitl_review/                    # Current validation target (one object max)
-├── hitl_review_queue/              # Queued objects by type
-│   ├── problem_objects/
-│   ├── behavior_objects/
-│   ├── result_objects/
-│   └── other_objects/
-├── hitl_workshop/                  # LLM collaboration for improvements
-├── hitl_failed/                    # Validation failures with error logs
-├── hitl_promotion_candidates/      # Passed validation, awaiting approval
-├── hitl_approved_for_production/   # Human-approved (NEVER automated)
-└── hitl_rejected/                  # Human-rejected with reasons
+├── hitl_review/                    # ONE object at a time
+├── hitl_review_queue/              # Type-specific queues
+│   ├── problem_objects/            # FIFO processing
+│   ├── behavior_objects/           
+│   ├── result_objects/             
+│   └── other_objects/              
+├── hitl_workshop/                  # Stage 3 failures
+├── hitl_failed/                    # Stage 1,2,4 failures
+├── hitl_promotion_candidates/      # Awaiting human approval
+├── hitl_approved_for_production/   # Production ready
+└── hitl_rejected/                  # Human rejected
 ```
 
-### One Object Per Folder Logic
+### Critical Control Points
 
-**Rule**: Review folder can only contain **one object of each type** at a time
+1. **Entry**: One object per type in `hitl_review/`
+2. **Stage Transitions**: Automated based on validation results
+3. **Human Approval**: Required for production deployment
+4. **Queue Auto-Pull**: After any completion (pass/fail)
 
-**Implementation**:
-1. When object completes validation (pass/fail), system checks queue
-2. Auto-pulls oldest queued object of same type 
-3. Prevents queue backup and ensures orderly processing
-4. Timestamp-based FIFO ordering within type queues
+## Implementation Priorities
 
-### Queue Management Features
+### Immediate (P0)
+1. Create Stage 2 consistency validation script
+2. Document docling host requirement in all Stage 3a scripts
+3. Create BDD test for basic HITL flow
 
-**Auto-Pull Trigger Points**:
-- Object passes validation → move to promotion candidates → pull next
-- Object fails validation → move to failed → pull next
-- Human approval → move to approved → pull next
+### Short-term (P1)
+1. Implement remaining Stage 3a/3b scripts for all object types
+2. Create integration test suite
+3. Add queue monitoring and metrics
 
-**Cleanup Logic**:
+### Medium-term (P2)
+1. Implement prompt validation pipeline
+2. Add rollback mechanism
+3. Create automated recovery procedures
+
+## Monitoring & Success Metrics
+
+### Key Performance Indicators
+- **Queue Depth**: Objects waiting per type
+- **Stage Failure Rates**: Identify validation bottlenecks
+- **Time to Production**: Markdown submission to approval
+- **Rollback Frequency**: Production issues requiring reversion
+
+### Health Checks
 ```python
-def cleanup_old_failures(failed_dir: Path, current_filename: str):
-    # Remove old failure files for same object type
-    # Keep only latest failure per object type
-    # Prevent accumulation of failed attempts
+# Queue health check
+def check_queue_health():
+    metrics = {}
+    for queue_type in ['problem', 'behavior', 'result', 'other']:
+        queue_dir = Path(f"hitl_review_queue/{queue_type}_objects")
+        metrics[queue_type] = len(list(queue_dir.glob("*.md")))
+    return metrics
+
+# Stage success rates
+def calculate_stage_success():
+    # Track files moving through each stage
+    # Calculate pass/fail percentages
+    pass
 ```
 
-## Manual Control Points
+## Risk Mitigation Strategies
 
-### Stage 4 → Approved: NEVER Automated
-**Reason**: Massive system impact requires human oversight
-**Process**: 
-- Promotion candidates await human review
-- Manual approval required for production deployment
-- Human can reject back to queue with feedback
+### For Testing Gaps
+1. **Immediate**: Create minimal BDD test for happy path
+2. **Progressive**: Add edge cases and error scenarios
+3. **Continuous**: Run tests on every commit
 
-### Human Review Criteria
-- Content quality and strategic alignment
-- Cross-object relationship validation
-- Production readiness assessment
-- System impact evaluation
+### For Output Consistency
+1. **Standardize**: Create templates for all object types
+2. **Validate**: Add pre-flight checks before Stage 1
+3. **Monitor**: Track validation failure patterns
 
-## Integration with Schema Governance
+### For Missing Components
+1. **Prioritize**: Focus on most-used object types first
+2. **Document**: Clear specs before implementation
+3. **Test**: BDD-first development approach
 
-### Canonical Source Flow
-1. **Edit**: Markdown schemas in `src/dux_v9.6_split_schema/`
-2. **Submit**: Copy to HITL review queue
-3. **Validate**: 4-stage pipeline processing
-4. **Approve**: Human validation for production
-5. **Deploy**: Automated JSON generation and system updates
+## Emergency Procedures
 
-### Agent Prompt Integration
-- All agent prompts consume markdown schemas
-- Docling integration enables structured parsing
-- Natural language priority with JSON fallback
-- Global collaboration through plain language
+### Pipeline Failure Recovery
+```bash
+# 1. Check current state
+ls -la watch_folders/hitl_review/
+ls -la watch_folders/hitl_failed/
 
-## Discrete Validation Scripts
+# 2. Review error logs
+cat watch_folders/hitl_failed/*_errors.txt
 
-### Current Implementation
-- **Stage 1**: `stage1_structure_validation.py` - Template validation
-- **Stage 2**: Integrated (needs separate script)
-- **Stage 3a**: `stage3a_problem_basic_docling.py` - Docling parsing  
-- **Stage 4**: `validate_dux_objects.py` - Full validation + queue management
+# 3. Manual queue management if needed
+mv watch_folders/hitl_review_queue/problem_objects/oldest_file.md \
+   watch_folders/hitl_review/
 
-### Missing Components
-- Standalone Stage 2 consistency validation script
-- Stage 3b governance schema validation script
-- Integration orchestrator for full pipeline
+# 4. Restart orchestrator
+python scripts/validation/hitl_pipeline/hitl_orchestrator.py
+```
 
-## Error Handling & Recovery
+### Rollback Procedure
+```bash
+# 1. Identify problematic object
+grep -r "problem_identifier" watch_folders/
 
-### Validation Failures
-- Timestamped error logs with specific validation failures
-- Automatic cleanup of old failures per object type
-- Clear remediation guidance for resubmission
+# 2. Move from production to rejected
+mv watch_folders/hitl_approved_for_production/problem_object.md \
+   watch_folders/hitl_rejected/
 
-### Queue Recovery
-- System maintains queue state across restarts
-- Timestamp-based ordering ensures FIFO processing
-- Manual queue manipulation possible for urgent changes
+# 3. Document reason
+echo "Rollback reason: [description]" > \
+   watch_folders/hitl_rejected/problem_object_rejection.txt
 
-## Benefits of This System
+# 4. Restore previous version from git
+git checkout HEAD~1 src/dux_v9.6_split_schema/problem_object.json
+```
 
-### For Development Team
-- Eliminates manual weekend schema checking
-- Automated validation catches issues early
-- Clear workflow for schema changes
-- Natural language collaboration with global teams
+## Appendix: Missing Test Scenarios
 
-### For System Integrity
-- Four-stage validation ensures quality
-- Manual approval prevents massive system changes
-- Queue management prevents processing conflicts
-- Complete audit trail for all changes
+### Required BDD Features
 
-## Usage Examples
+1. **hitl_pipeline_validation.feature**
+```gherkin
+Feature: HITL Pipeline Validation
+  As a schema developer
+  I want the HITL pipeline to validate my markdown objects
+  So that only valid schemas reach production
 
-### Adding New Schema Field
-1. Edit `problem_object.md` in canonical source
-2. Copy to `hitl_review_queue/problem_objects/`
-3. System auto-processes through 4 stages
-4. Human approves for production deployment
-5. Automated JSON generation and propagation
+  Scenario: Valid object passes all stages
+    Given a valid Problem object markdown file
+    When I submit it to the HITL pipeline
+    Then it should pass Stage 1 structure validation
+    And it should pass Stage 2 consistency validation
+    And it should pass Stage 3a docling processing
+    And it should pass Stage 3b schema generation
+    And it should pass Stage 4 JSON validation
+    And it should be moved to promotion candidates
 
-### Workflow Recovery
-1. Check `hitl_failed/` for validation errors
-2. Review error logs for specific issues
-3. Fix markdown and resubmit to queue
-4. System auto-processes corrected version
+  Scenario: Invalid structure fails at Stage 1
+    Given a Problem object missing Schema Attributes table
+    When I submit it to the HITL pipeline
+    Then it should fail Stage 1 validation
+    And it should be moved to hitl_failed
+    And an error log should be created
 
-## Monitoring & Maintenance
+  Scenario: Queue management processes objects in order
+    Given multiple objects in the review queue
+    When an object completes processing
+    Then the oldest queued object should be pulled
+    And it should maintain FIFO ordering
+```
 
-### Key Metrics
-- Queue depth by object type
-- Validation failure rates by stage
-- Time to approval for changes
-- System propagation success rates
+2. **prompt_validation.feature**
+3. **schema_propagation.feature**
+4. **rollback_procedures.feature**
 
-### Regular Tasks
-- Monitor queue depths for bottlenecks
-- Review failed validation patterns
-- Update validation rules as schemas evolve
-- Clean up old processed files
+## Next Steps
+
+1. **Implement Stage 2 Script** (Critical)
+2. **Create BDD Test Suite** (Critical)
+3. **Document Docling Requirements** (High)
+4. **Complete Object Type Coverage** (High)
+5. **Add Monitoring Dashboard** (Medium)
 
 ---
 
-**Next Steps**: Reference this documentation in CLAUDE.md for DUX core platform team development workflow.
+**Last Updated**: 2025-07-12
+**Status**: GAPS IDENTIFIED - ACTION REQUIRED
