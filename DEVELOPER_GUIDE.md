@@ -138,7 +138,7 @@ We're cracking open a cold one to the future of software. Just like PBR (Problem
 
 No more waiting for engineering to "groom your tickets." No more death by process. No more "but our methodology requires..." 
 
-Ship it in 3 weeks and shut the dux up.
+Ship it in 3 weeks or shut the dux up.
 
 ---
 *"Natural language is the ultimate programming language. Tastes great, ships fast."* - DUX Team 🦆
