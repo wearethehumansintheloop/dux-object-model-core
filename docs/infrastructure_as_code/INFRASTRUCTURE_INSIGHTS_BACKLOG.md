@@ -23,3 +23,24 @@ Instead of just providing a schema and instructions, we cast the LLM into a spec
 
 **Next Step (optional)**:
 Apply this persona-driven model to the prompts for other DUX objects (`Behavior`, `Result`, etc.) to create a consistent "cast of characters" for the extraction pipeline.
+
+### Schema Version Mismatch Technical Debt
+**Type**: Infrastructure
+**Timestamp**: 2025-07-16T00:00:00Z
+**Context**: While fixing the dux-white-label-ui Problems detail page, discovered widespread v9.5 vs v9.6 schema mismatches
+**Description**: 
+The frontend application is importing from outdated v9.5 schemas while the core system has moved to v9.6 with breaking changes (decomposed job_statement structure). This causes:
+- TypeScript build errors when types don't match runtime data
+- Runtime errors when accessing properties that have changed structure
+- Wasted development time debugging and fixing individual instances instead of systemic issues
+- Mock data out of sync with actual schema expectations
+
+Time wasted: ~30 minutes per occurrence tracking down schema version issues, understanding the changes, and implementing fixes. This multiplies across all components using DUX objects.
+
+**Root Cause**: No automated schema version enforcement or migration tooling. Developers must manually update imports and data structures.
+
+**Next Step**: 
+1. Create automated schema migration scripts that update imports from v9.5 to v9.6
+2. Add CI/CD checks to prevent importing from deprecated schema versions
+3. Create a schema version compatibility matrix documentation
+4. Consider implementing a schema versioning strategy with proper deprecation warnings

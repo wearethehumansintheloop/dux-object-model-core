@@ -11,7 +11,7 @@ The schema foundation and governance system for Declarative UX (DUX) - transform
 
 ## 🚀 Quick Start
 
-### For Schema Authors
+### For Object Definition Authors
 1. Create your object definition in markdown following the [DUX object template](docs/100_START_HERE/dux_object_template.md)
 2. Place it in `watch_folders/hitl_review/` with proper naming: `{object_type}_*_*_object_model_definition.md`
 3. Run validation: `./scripts/test_hitl_pipeline.sh`
@@ -138,7 +138,7 @@ We're cracking open a cold one to the future of software. Just like PBR (Problem
 
 No more waiting for engineering to "groom your tickets." No more death by process. No more "but our methodology requires..." 
 
-Ship it in 3 weeks or shut the dux up.
+Ship it in 3 weeks and shut the dux up. 🦆
 
 ---
 *"Natural language is the ultimate programming language. Tastes great, ships fast."* - DUX Team 🦆
