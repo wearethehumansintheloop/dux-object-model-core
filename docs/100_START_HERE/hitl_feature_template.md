@@ -2,7 +2,7 @@
 
 ## Purpose
 
-A `.feature` file is the **PR-ready composition** of the DUX object graph. It assembles a Flow, its Behaviors, the Problem it solves, the Result it targets, the UserOutcome junction, and all supporting Evidence into a single file that serves as:
+A `.feature` file is the **PR-ready composition** of the HITL object graph. It assembles a Flow, its Behaviors, the Problem it solves, the Result it targets, the UserOutcome junction, and all supporting Evidence into a single file that serves as:
 
 1. **The issue** — tracked in GitHub, Linear, and/or Jira
 2. **The PR body** — the feature file IS the pull request content
@@ -188,7 +188,7 @@ step file        →  service account presents SVID to Vault, Vault verifies aga
 
 ### Front Matter = Complete Object Graph
 
-The yaml front matter above the `Feature:` keyword contains the full DUX object graph:
+The yaml front matter above the `Feature:` keyword contains the full HITL object graph:
 
 | Section | Object Type | What It Provides |
 |---------|-------------|------------------|
@@ -230,9 +230,153 @@ A feature file linter should validate:
 - [ ] Usable: domain language, realistic names, no technical jargon in Scenario names
 - [ ] Delightful: maps to JTBD, outcome statement present
 
+## Relationship to HITL Repo Structure Standard
+
+This template aligns with the [HITL Repo Structure Standard](https://github.com/wearethehumansintheloop/hitl-core/blob/main/governance/repo-structure-standard.md), which defines the canonical architecture using a Helm/Kubernetes analogy.
+
+### The Helm Analogy
+
+| Helm/K8s | HITL Location | HITL Feature Template |
+|---|---|---|
+| **CRD** | `hitl-core/governance/object_definitions/` (git) | Same — object definitions are schema authority |
+| **etcd** | **Neo4j graph database** | Instances extracted from `.feature` front matter live here at runtime |
+| **values.yaml** | Instances queried from Neo4j via API | `# object_type:` blocks in front matter (seed data / authoring format) |
+| **Chart** | `hitl/charts/*/feature.feature` (product repos) | The `Feature:` + `Scenario:` gherkin |
+| **Chart.md** | `hitl/charts/*/Chart.md` | yaml front matter in the `.feature` file |
+| **`helm install`** | `behave` | `behave` (unchanged — the renderer) |
+| **Tiller/Operator** | ARB agents (case, hugh, sophia, chaya, jorge) | Schema creation + continuous monitoring |
+
+### Two Directions, One Architecture
+
+The `.feature` file and the Neo4j graph are two representations of the same object graph. Data flows in two directions depending on the lifecycle phase:
+
+```
+DIRECTION 1 — AUTHORING (human writes, pipeline extracts)
+
+  Human writes .feature file (natural language first)
+       ↓
+  PR review (the .feature IS the PR)
+       ↓
+  Merge to main
+       ↓
+  Extraction pipeline parses front matter + behavior comments
+       ↓
+  Neo4j graph (instances loaded as nodes + relationships)
+       ↓
+  Dashboard, cross-project queries, aggregation
+
+DIRECTION 2 — STEADY STATE (graph generates, human validates)
+
+  Neo4j graph (source of truth for instances)
+       ↓
+  Generation pipeline renders instances into .feature files
+       ↓
+  hitl/charts/*/feature.feature (in product repos)
+       ↓
+  behave runs it → pass/fail
+```
+
+**This template serves Direction 1** — the authoring phase. Humans write `.feature` files with the full object graph inlined as front matter. The extraction pipeline loads these into Neo4j. After that, the graph is the source of truth.
+
+The `.md` instance files that seed the graph (and the front matter in `.feature` files) become **historical records** — like database migration files. They document what was authored and when, but the graph is what gets queried at runtime.
+
+### PII and Local-First Runtime
+
+Object instances frequently contain PII — real user names, real personas, real research quotes, real behavioral data. This means the entire pipeline must run locally with zero cloud dependency:
+
+```
+LOCAL RUNTIME STACK
+
+  Llama (via Ollama)          ← local inference for extraction + ARB agents
+       ↓
+  Neo4j (local instance)      ← graph database, instances never leave machine
+       ↓
+  behave (local execution)    ← test runner, reads from local graph
+       ↓
+  .feature files (git)        ← committed artifacts (PII-scrubbed or private repo)
+```
+
+**What this means for the architecture:**
+
+| Component | Cloud Option | Local Option (PII) |
+|---|---|---|
+| Extraction pipeline | Claude API | Llama via Ollama |
+| ARB agents | Claude API | Llama via Ollama |
+| Graph database | Neo4j Aura | Neo4j Community (local) |
+| Test execution | CI/CD | `behave` (local) |
+| Instance storage | Cloud Neo4j | Local Neo4j only |
+
+The local-first workflow is not just a bootstrap phase — it is the **permanent operating mode** for any product where instances contain PII. The seed data `.md` files, the `.feature` front matter, and the local Neo4j graph all stay on the machine. Git receives the `.feature` files (which may themselves contain PII and require private repos), but the graph never syncs to cloud.
+
+This also means the `.feature` file as authoring surface (Direction 1) is not a transitional pattern. For PII workloads, humans always author locally, extract locally, and the local graph is the runtime. Direction 2 (graph generates `.feature` files) also happens locally — Llama + local Neo4j + local `behave`.
+
+### Why Natural Language First?
+
+The `.feature` file is the natural unit of human communication:
+
+- PRs contain user enablement narratives, not YAML diffs
+- Reviewers read "Bella is able to...", not schema-compliant objects
+- The thing humans care about (the user flow) reads top-to-bottom as a story
+
+The graph is the natural unit of machine querying. Each serves its audience.
+
+For PII workloads, "natural language first" also means **human-readable first** — the `.feature` file is auditable by the humans whose data it contains. A graph node is not.
+
+### Where the Template Fits in the Org
+
+```
+wearethehumansintheloop/                    ← org repo
+├── hitl-core/                              ← kernel (submodule)
+│   └── governance/
+│       ├── object_definitions/             ← CRDs (what types CAN exist)
+│       ├── repo-structure-standard.md      ← architecture spec
+│       └── instances/                      ← seed data (historical)
+│
+├── hitl-agents/                            ← ARB agents (schema authority)
+│   └── ARB creates Neo4j schema from object_definitions/
+│       loads seed data from instances/ (one-time)
+│       signal-archaeology monitors continuously
+│
+└── my-product/                             ← product repo (submodule)
+    ├── hitl/charts/                        ← .feature files (generated from graph)
+    │   └── bella-gets-config-fix/
+    │       ├── Chart.md                    ← which instances compose this chart
+    │       └── feature.feature             ← executable spec
+    ├── hitl/fixtures/                      ← domain test data (local)
+    └── steps/                              ← step definitions (the renderer)
+```
+
+### How `behave` Works as `helm install`
+
+Step definitions are the renderer. They query Neo4j for HITL instances (problems, behaviors) to know WHAT to test and load local fixtures (workspaces, service-accounts) to know HOW to test it.
+
+```python
+# This step reads from local fixtures
+@given('Bella has a workspace template for fraud analysis')
+def step_impl(context):
+    context.workspace = load_fixture('hitl/fixtures/workspaces/bellas-fraud-workspace.md')
+
+# This step validates against instance data from Neo4j
+@then('Bella can start fraud analysis same-day')
+def step_impl(context):
+    behavior = hitl_api.get_instance('BEH-001', product='discrete_connection')
+    assert context.provisioning_time < behavior['measurable_criteria']['time_limit']
+```
+
+### Extraction Pipeline Responsibilities
+
+The extraction pipeline (runs on merge to main) must:
+
+1. **Parse front matter** — extract Flow, Problem, Result, UserOutcome objects
+2. **Parse behavior comments** — extract Behavior objects from each Scenario block
+3. **Validate schema compliance** — each extracted object must match its definition in `hitl-core/governance/object_definitions/`
+4. **Load into Neo4j** — create/update graph nodes and relationships
+5. **Update Chart.md** — regenerate from the Flow's `behavior_sequence` and references
+6. **Detect drift** — if graph was manually edited, flag for reconciliation (`.feature` is the authoring source)
+
 ## Canonical Example
 
-See: `discrete_connection/features/svid_transaction_flow.feature`
+See: `biscuits/features/biscuits.features/bella_gets_config_fix_from_collaborator.feature`
 
 This feature file demonstrates the full template with:
 - 1 UserFlow (6 behaviors sequenced)
@@ -254,7 +398,7 @@ cp hitl_feature_template.md /path/to/project/features/FEATURE_TEMPLATE.md
 
 ### Option 2: Reference from dux-object-model-core (recommended)
 
-Projects that use the DUX object model should reference this template from the canonical vault:
+Projects that use the HITL object model should reference this template from the canonical vault:
 
 ```
 dux-object-model-core/docs/100_START_HERE/hitl_feature_template.md
