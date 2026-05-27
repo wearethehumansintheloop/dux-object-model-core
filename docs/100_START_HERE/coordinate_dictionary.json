@@ -1,0 +1,249 @@
+{
+  "total_dimensions": 61,
+  "coordinate_mapping": {
+    "0": {
+      "word": "actions",
+      "coordinate": 0
+    },
+    "1": {
+      "word": "actions reward",
+      "coordinate": 1
+    },
+    "2": {
+      "word": "algorithms",
+      "coordinate": 2
+    },
+    "3": {
+      "word": "algorithms include",
+      "coordinate": 3
+    },
+    "4": {
+      "word": "classification",
+      "coordinate": 4
+    },
+    "5": {
+      "word": "complex",
+      "coordinate": 5
+    },
+    "6": {
+      "word": "complex patterns",
+      "coordinate": 6
+    },
+    "7": {
+      "word": "data",
+      "coordinate": 7
+    },
+    "8": {
+      "word": "data classification",
+      "coordinate": 8
+    },
+    "9": {
+      "word": "decision",
+      "coordinate": 9
+    },
+    "10": {
+      "word": "decision trees",
+      "coordinate": 10
+    },
+    "11": {
+      "word": "deep",
+      "coordinate": 11
+    },
+    "12": {
+      "word": "deep learning",
+      "coordinate": 12
+    },
+    "13": {
+      "word": "discovers",
+      "coordinate": 13
+    },
+    "14": {
+      "word": "discovers hidden",
+      "coordinate": 14
+    },
+    "15": {
+      "word": "hidden",
+      "coordinate": 15
+    },
+    "16": {
+      "word": "hidden patterns",
+      "coordinate": 16
+    },
+    "17": {
+      "word": "include",
+      "coordinate": 17
+    },
+    "18": {
+      "word": "include neural",
+      "coordinate": 18
+    },
+    "19": {
+      "word": "labeled",
+      "coordinate": 19
+    },
+    "20": {
+      "word": "labeled training",
+      "coordinate": 20
+    },
+    "21": {
+      "word": "layers",
+      "coordinate": 21
+    },
+    "22": {
+      "word": "layers neurons",
+      "coordinate": 22
+    },
+    "23": {
+      "word": "learning",
+      "coordinate": 23
+    },
+    "24": {
+      "word": "learning algorithms",
+      "coordinate": 24
+    },
+    "25": {
+      "word": "learning discovers",
+      "coordinate": 25
+    },
+    "26": {
+      "word": "learning optimizes",
+      "coordinate": 26
+    },
+    "27": {
+      "word": "learning requires",
+      "coordinate": 27
+    },
+    "28": {
+      "word": "learning uses",
+      "coordinate": 28
+    },
+    "29": {
+      "word": "machine",
+      "coordinate": 29
+    },
+    "30": {
+      "word": "machine learning",
+      "coordinate": 30
+    },
+    "31": {
+      "word": "multiple",
+      "coordinate": 31
+    },
+    "32": {
+      "word": "multiple layers",
+      "coordinate": 32
+    },
+    "33": {
+      "word": "networks",
+      "coordinate": 33
+    },
+    "34": {
+      "word": "networks decision",
+      "coordinate": 34
+    },
+    "35": {
+      "word": "neural",
+      "coordinate": 35
+    },
+    "36": {
+      "word": "neural networks",
+      "coordinate": 36
+    },
+    "37": {
+      "word": "neurons",
+      "coordinate": 37
+    },
+    "38": {
+      "word": "neurons complex",
+      "coordinate": 38
+    },
+    "39": {
+      "word": "optimizes",
+      "coordinate": 39
+    },
+    "40": {
+      "word": "optimizes actions",
+      "coordinate": 40
+    },
+    "41": {
+      "word": "patterns",
+      "coordinate": 41
+    },
+    "42": {
+      "word": "patterns unlabeled",
+      "coordinate": 42
+    },
+    "43": {
+      "word": "reinforcement",
+      "coordinate": 43
+    },
+    "44": {
+      "word": "reinforcement learning",
+      "coordinate": 44
+    },
+    "45": {
+      "word": "requires",
+      "coordinate": 45
+    },
+    "46": {
+      "word": "requires labeled",
+      "coordinate": 46
+    },
+    "47": {
+      "word": "reward",
+      "coordinate": 47
+    },
+    "48": {
+      "word": "reward signals",
+      "coordinate": 48
+    },
+    "49": {
+      "word": "signals",
+      "coordinate": 49
+    },
+    "50": {
+      "word": "supervised",
+      "coordinate": 50
+    },
+    "51": {
+      "word": "supervised learning",
+      "coordinate": 51
+    },
+    "52": {
+      "word": "training",
+      "coordinate": 52
+    },
+    "53": {
+      "word": "training data",
+      "coordinate": 53
+    },
+    "54": {
+      "word": "trees",
+      "coordinate": 54
+    },
+    "55": {
+      "word": "unlabeled",
+      "coordinate": 55
+    },
+    "56": {
+      "word": "unlabeled data",
+      "coordinate": 56
+    },
+    "57": {
+      "word": "unsupervised",
+      "coordinate": 57
+    },
+    "58": {
+      "word": "unsupervised learning",
+      "coordinate": 58
+    },
+    "59": {
+      "word": "uses",
+      "coordinate": 59
+    },
+    "60": {
+      "word": "uses multiple",
+      "coordinate": 60
+    }
+  }
+}

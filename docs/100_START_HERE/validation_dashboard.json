@@ -1,0 +1,8126 @@
+{
+  "summary": {
+    "total_highlights": 12,
+    "status_breakdown": {
+      "FAIL": 8,
+      "PASS": 3,
+      "INVALID_SLIDE_NUMBER": 1
+    },
+    "overall_accuracy": 0.25,
+    "category_stats": {
+      "Method": {
+        "total": 1,
+        "passed": 0
+      },
+      "Concept": {
+        "total": 2,
+        "passed": 2
+      },
+      "Technique": {
+        "total": 2,
+        "passed": 0
+      },
+      "Metric": {
+        "total": 2,
+        "passed": 1
+      },
+      "Algorithm": {
+        "total": 2,
+        "passed": 0
+      },
+      "Architecture": {
+        "total": 1,
+        "passed": 0
+      },
+      "Validation": {
+        "total": 1,
+        "passed": 0
+      },
+      "Application": {
+        "total": 1,
+        "passed": 0
+      }
+    }
+  },
+  "detailed_results": [
+    {
+      "highlight": "Neural networks use backpropagation and gradient descent for optimization",
+      "category": "Method",
+      "claimed_slide": 3,
+      "claimed_similarity": 0.24818420484819984,
+      "best_match_slide": 1,
+      "best_match_similarity": 0.2802550679642034,
+      "validation_status": "FAIL",
+      "explanation": "Weak match (similarity: 0.248). Only 3 common terms. Consider reviewing the citation.",
+      "term_overlap": {
+        "common_terms": [
+          "neural",
+          "optimization",
+          "networks"
+        ],
+        "common_term_count": 3,
+        "test_unique_terms": [
+          "neural networks"
+        ],
+        "chunk_unique_terms": [
+          "optimization convolutional",
+          "network",
+          "output",
+          "network architecture",
+          "neurons",
+          "layer",
+          "neurons key",
+          "uses multiple",
+          "neural network",
+          "tasks"
+        ],
+        "weighted_overlap": 0.24818420484819997
+      },
+      "top_highlight_terms": [
+        {
+          "term": "neural networks",
+          "weight": 0.550329132396832,
+          "coordinate": 35
+        },
+        {
+          "term": "optimization",
+          "weight": 0.550329132396832,
+          "coordinate": 40
+        },
+        {
+          "term": "networks",
+          "weight": 0.4440020788637709,
+          "coordinate": 30
+        },
+        {
+          "term": "neural",
+          "weight": 0.4440020788637709,
+          "coordinate": 33
+        }
+      ]
+    },
+    {
+      "highlight": "Supervised learning includes classification and regression tasks",
+      "category": "Concept",
+      "claimed_slide": 2,
+      "claimed_similarity": 0.6286373820226261,
+      "best_match_slide": 2,
+      "best_match_similarity": 0.6286373820226261,
+      "validation_status": "PASS",
+      "explanation": "Moderate match (similarity: 0.629). Found 5 common terms. Highlight contains unique terms: tasks",
+      "term_overlap": {
+        "common_terms": [
+          "supervised learning",
+          "learning",
+          "regression",
+          "supervised",
+          "classification"
+        ],
+        "common_term_count": 5,
+        "test_unique_terms": [
+          "tasks"
+        ],
+        "chunk_unique_terms": [
+          "support",
+          "support vector",
+          "methods",
+          "random",
+          "training requires",
+          "include",
+          "types supervised",
+          "random forests",
+          "training",
+          "data"
+        ],
+        "weighted_overlap": 0.6286373820226261
+      },
+      "top_highlight_terms": [
+        {
+          "term": "classification",
+          "weight": 0.4192568104779834,
+          "coordinate": 3
+        },
+        {
+          "term": "regression",
+          "weight": 0.4192568104779834,
+          "coordinate": 68
+        },
+        {
+          "term": "supervised",
+          "weight": 0.4192568104779834,
+          "coordinate": 73
+        },
+        {
+          "term": "supervised learning",
+          "weight": 0.4192568104779834,
+          "coordinate": 74
+        },
+        {
+          "term": "tasks",
+          "weight": 0.4192568104779834,
+          "coordinate": 77
+        }
+      ]
+    },
+    {
+      "highlight": "Feature scaling and normalization are critical preprocessing steps",
+      "category": "Technique",
+      "claimed_slide": 4,
+      "claimed_similarity": 0.42732022194539954,
+      "best_match_slide": 4,
+      "best_match_similarity": 0.42732022194539954,
+      "validation_status": "FAIL",
+      "explanation": "Weak match (similarity: 0.427). Only 3 common terms. Consider reviewing the citation.",
+      "term_overlap": {
+        "common_terms": [
+          "feature",
+          "normalization",
+          "preprocessing"
+        ],
+        "common_term_count": 3,
+        "test_unique_terms": [],
+        "chunk_unique_terms": [
+          "variables",
+          "techniques",
+          "using pca",
+          "pca data",
+          "performance",
+          "accuracy",
+          "model performance",
+          "missing",
+          "pca",
+          "normalization handling"
+        ],
+        "weighted_overlap": 0.4273202219453996
+      },
+      "top_highlight_terms": [
+        {
+          "term": "feature",
+          "weight": 0.5773502691896258,
+          "coordinate": 6
+        },
+        {
+          "term": "normalization",
+          "weight": 0.5773502691896258,
+          "coordinate": 38
+        },
+        {
+          "term": "preprocessing",
+          "weight": 0.5773502691896258,
+          "coordinate": 53
+        }
+      ]
+    },
+    {
+      "highlight": "Confusion matrix helps evaluate classification performance",
+      "category": "Metric",
+      "claimed_slide": 5,
+      "claimed_similarity": 0.1791627549409177,
+      "best_match_slide": 5,
+      "best_match_similarity": 0.1791627549409177,
+      "validation_status": "FAIL",
+      "explanation": "Weak match (similarity: 0.179). Only 2 common terms. Consider reviewing the citation.",
+      "term_overlap": {
+        "common_terms": [
+          "classification",
+          "performance"
+        ],
+        "common_term_count": 2,
+        "test_unique_terms": [],
+        "chunk_unique_terms": [
+          "metrics",
+          "mean absolute",
+          "recall",
+          "matrix provides",
+          "techniques prevent",
+          "accuracy",
+          "squared regression",
+          "validation techniques",
+          "squared error",
+          "squared"
+        ],
+        "weighted_overlap": 0.17916275494091774
+      },
+      "top_highlight_terms": [
+        {
+          "term": "classification",
+          "weight": 0.7071067811865476,
+          "coordinate": 3
+        },
+        {
+          "term": "performance",
+          "weight": 0.7071067811865476,
+          "coordinate": 48
+        }
+      ]
+    },
+    {
+      "highlight": "Random forests are ensemble learning methods",
+      "category": "Algorithm",
+      "claimed_slide": 2,
+      "claimed_similarity": 0.4158724991624074,
+      "best_match_slide": 2,
+      "best_match_similarity": 0.4158724991624074,
+      "validation_status": "FAIL",
+      "explanation": "Weak match (similarity: 0.416). Only 4 common terms. Consider reviewing the citation.",
+      "term_overlap": {
+        "common_terms": [
+          "random",
+          "random forests",
+          "learning",
+          "methods"
+        ],
+        "common_term_count": 4,
+        "test_unique_terms": [],
+        "chunk_unique_terms": [
+          "support",
+          "supervised learning",
+          "support vector",
+          "methods classification",
+          "training requires",
+          "include",
+          "types supervised",
+          "training",
+          "supervised",
+          "regression"
+        ],
+        "weighted_overlap": 0.41587249916240754
+      },
+      "top_highlight_terms": [
+        {
+          "term": "methods",
+          "weight": 0.5384979101064753,
+          "coordinate": 15
+        },
+        {
+          "term": "random",
+          "weight": 0.5384979101064753,
+          "coordinate": 64
+        },
+        {
+          "term": "random forests",
+          "weight": 0.5384979101064753,
+          "coordinate": 65
+        },
+        {
+          "term": "learning",
+          "weight": 0.36063832635048015,
+          "coordinate": 10
+        }
+      ]
+    },
+    {
+      "highlight": "Deep learning requires multiple hidden layers",
+      "category": "Architecture",
+      "claimed_slide": 3,
+      "claimed_similarity": 0.43177616826824033,
+      "best_match_slide": 3,
+      "best_match_similarity": 0.43177616826824033,
+      "validation_status": "FAIL",
+      "explanation": "Weak match (similarity: 0.432). Only 3 common terms. Consider reviewing the citation.",
+      "term_overlap": {
+        "common_terms": [
+          "layers",
+          "multiple",
+          "learning"
+        ],
+        "common_term_count": 3,
+        "test_unique_terms": [],
+        "chunk_unique_terms": [
+          "optimization convolutional",
+          "network",
+          "neural",
+          "output",
+          "network architecture",
+          "neurons",
+          "layer",
+          "neurons key",
+          "uses multiple",
+          "neural network"
+        ],
+        "weighted_overlap": 0.4317761682682405
+      },
+      "top_highlight_terms": [
+        {
+          "term": "layers",
+          "weight": 0.6390704413963749,
+          "coordinate": 9
+        },
+        {
+          "term": "multiple",
+          "weight": 0.6390704413963749,
+          "coordinate": 26
+        },
+        {
+          "term": "learning",
+          "weight": 0.42799292268317357,
+          "coordinate": 10
+        }
+      ]
+    },
+    {
+      "highlight": "Cross-validation prevents model overfitting",
+      "category": "Validation",
+      "claimed_slide": 5,
+      "claimed_similarity": 0.2556632018636483,
+      "best_match_slide": 5,
+      "best_match_similarity": 0.2556632018636483,
+      "validation_status": "FAIL",
+      "explanation": "Weak match (similarity: 0.256). Only 3 common terms. Consider reviewing the citation.",
+      "term_overlap": {
+        "common_terms": [
+          "overfitting",
+          "validation",
+          "model"
+        ],
+        "common_term_count": 3,
+        "test_unique_terms": [],
+        "chunk_unique_terms": [
+          "metrics",
+          "mean absolute",
+          "recall",
+          "performance",
+          "matrix provides",
+          "techniques prevent",
+          "accuracy",
+          "squared regression",
+          "validation techniques",
+          "squared error"
+        ],
+        "weighted_overlap": 0.2556632018636483
+      },
+      "top_highlight_terms": [
+        {
+          "term": "overfitting",
+          "weight": 0.6141889663426562,
+          "coordinate": 44
+        },
+        {
+          "term": "validation",
+          "weight": 0.6141889663426562,
+          "coordinate": 94
+        },
+        {
+          "term": "model",
+          "weight": 0.49552379079705033,
+          "coordinate": 23
+        }
+      ]
+    },
+    {
+      "highlight": "PCA is used for dimensionality reduction",
+      "category": "Technique",
+      "claimed_slide": 4,
+      "claimed_similarity": 0.18503508387776027,
+      "best_match_slide": 4,
+      "best_match_similarity": 0.18503508387776027,
+      "validation_status": "FAIL",
+      "explanation": "Weak match (similarity: 0.185). Only 1 common terms. Consider reviewing the citation.",
+      "term_overlap": {
+        "common_terms": [
+          "pca"
+        ],
+        "common_term_count": 1,
+        "test_unique_terms": [],
+        "chunk_unique_terms": [
+          "variables",
+          "techniques",
+          "using pca",
+          "pca data",
+          "performance",
+          "feature",
+          "accuracy",
+          "model performance",
+          "normalization",
+          "missing"
+        ],
+        "weighted_overlap": 0.1850350838777603
+      },
+      "top_highlight_terms": [
+        {
+          "term": "pca",
+          "weight": 1.0,
+          "coordinate": 46
+        }
+      ]
+    },
+    {
+      "highlight": "Unsupervised learning includes clustering algorithms",
+      "category": "Concept",
+      "claimed_slide": 1,
+      "claimed_similarity": 0.5585799431057906,
+      "best_match_slide": 1,
+      "best_match_similarity": 0.5585799431057906,
+      "validation_status": "PASS",
+      "explanation": "Moderate match (similarity: 0.559). Found 4 common terms. ",
+      "term_overlap": {
+        "common_terms": [
+          "algorithms",
+          "unsupervised",
+          "learning",
+          "unsupervised learning"
+        ],
+        "common_term_count": 4,
+        "test_unique_terms": [],
+        "chunk_unique_terms": [
+          "supervised learning",
+          "ml",
+          "presentation covers",
+          "trees clustering",
+          "neural networks",
+          "networks decision",
+          "networks",
+          "neural",
+          "ml including",
+          "trees"
+        ],
+        "weighted_overlap": 0.5585799431057906
+      },
+      "top_highlight_terms": [
+        {
+          "term": "unsupervised",
+          "weight": 0.5680140774328015,
+          "coordinate": 88
+        },
+        {
+          "term": "unsupervised learning",
+          "weight": 0.5680140774328015,
+          "coordinate": 89
+        },
+        {
+          "term": "algorithms",
+          "weight": 0.45827018116532225,
+          "coordinate": 2
+        },
+        {
+          "term": "learning",
+          "weight": 0.38040564760664297,
+          "coordinate": 10
+        }
+      ]
+    },
+    {
+      "highlight": "Mean squared error measures regression performance",
+      "category": "Metric",
+      "claimed_slide": 5,
+      "claimed_similarity": 0.5818423340217304,
+      "best_match_slide": 5,
+      "best_match_similarity": 0.5818423340217304,
+      "validation_status": "PASS",
+      "explanation": "Moderate match (similarity: 0.582). Found 7 common terms. ",
+      "term_overlap": {
+        "common_terms": [
+          "squared",
+          "error",
+          "performance",
+          "mean",
+          "regression",
+          "mean squared",
+          "squared error"
+        ],
+        "common_term_count": 7,
+        "test_unique_terms": [],
+        "chunk_unique_terms": [
+          "metrics",
+          "mean absolute",
+          "recall",
+          "matrix provides",
+          "techniques prevent",
+          "accuracy",
+          "squared regression",
+          "validation techniques",
+          "provides detailed",
+          "tasks"
+        ],
+        "weighted_overlap": 0.5818423340217305
+      },
+      "top_highlight_terms": [
+        {
+          "term": "error",
+          "weight": 0.3983516165374428,
+          "coordinate": 5
+        },
+        {
+          "term": "mean",
+          "weight": 0.3983516165374428,
+          "coordinate": 12
+        },
+        {
+          "term": "mean squared",
+          "weight": 0.3983516165374428,
+          "coordinate": 14
+        },
+        {
+          "term": "squared",
+          "weight": 0.3983516165374428,
+          "coordinate": 70
+        },
+        {
+          "term": "squared error",
+          "weight": 0.3983516165374428,
+          "coordinate": 71
+        }
+      ]
+    },
+    {
+      "highlight": "Support vector machines can handle non-linear data",
+      "category": "Algorithm",
+      "claimed_slide": 7,
+      "validation_status": "INVALID_SLIDE_NUMBER",
+      "explanation": "Slide 7 does not exist (document has 5 slides)"
+    },
+    {
+      "highlight": "Convolutional networks are designed for image processing",
+      "category": "Application",
+      "claimed_slide": 3,
+      "claimed_similarity": 0.15806673460698184,
+      "best_match_slide": 1,
+      "best_match_similarity": 0.17849243660471698,
+      "validation_status": "FAIL",
+      "explanation": "Weak match (similarity: 0.158). Only 1 common terms. Consider reviewing the citation.",
+      "term_overlap": {
+        "common_terms": [
+          "networks"
+        ],
+        "common_term_count": 1,
+        "test_unique_terms": [],
+        "chunk_unique_terms": [
+          "optimization convolutional",
+          "network",
+          "neural",
+          "output",
+          "network architecture",
+          "neurons",
+          "layer",
+          "neurons key",
+          "uses multiple",
+          "neural network"
+        ],
+        "weighted_overlap": 0.15806673460698192
+      },
+      "top_highlight_terms": [
+        {
+          "term": "networks",
+          "weight": 1.0,
+          "coordinate": 30
+        }
+      ]
+    }
+  ],
+  "vector_explanations": [
+    {
+      "highlight": "Neural networks use backpropagation and gradient descent for optimization",
+      "validation_status": "FAIL",
+      "coordinate_map": [
+        {
+          "coordinate": 0,
+          "value": 0,
+          "term": null,
+          "is_active": false
+        },
+        {
+          "coordinate": 1,
+          "value": 0,
+          "term": null,
+          "is_active": false
+        },
+        {
+          "coordinate": 2,
+          "value": 0,
+          "term": null,
+          "is_active": false
+        },
+        {
+          "coordinate": 3,
+          "value": 0,
+          "term": null,
+          "is_active": false
+        },
+        {
+          "coordinate": 4,
+          "value": 0,
+          "term": null,
+          "is_active": false
+        },
+        {
+          "coordinate": 5,
+          "value": 0,
+          "term": null,
+          "is_active": false
+        },
+        {
+          "coordinate": 6,
+          "value": 0,
+          "term": null,
+          "is_active": false
+        },
+        {
+          "coordinate": 7,
+          "value": 0,
+          "term": null,
+          "is_active": false
+        },
+        {
+          "coordinate": 8,
+          "value": 0,
+          "term": null,
+          "is_active": false
+        },
+        {
+          "coordinate": 9,
+          "value": 0,
+          "term": null,
+          "is_active": false
+        },
+        {
+          "coordinate": 10,
+          "value": 0,
+          "term": null,
+          "is_active": false
+        },
+        {
+          "coordinate": 11,
+          "value": 0,
+          "term": null,
+          "is_active": false
+        },
+        {
+          "coordinate": 12,
+          "value": 0,
+          "term": null,
+          "is_active": false
+        },
+        {
+          "coordinate": 13,
+          "value": 0,
+          "term": null,
+          "is_active": false
+        },
+        {
+          "coordinate": 14,
+          "value": 0,
+          "term": null,
+          "is_active": false
+        },
+        {
+          "coordinate": 15,
+          "value": 0,
+          "term": null,
+          "is_active": false
+        },
+        {
+          "coordinate": 16,
+          "value": 0,
+          "term": null,
+          "is_active": false
+        },
+        {
+          "coordinate": 17,
+          "value": 0,
+          "term": null,
+          "is_active": false
+        },
+        {
+          "coordinate": 18,
+          "value": 0,
+          "term": null,
+          "is_active": false
+        },
+        {
+          "coordinate": 19,
+          "value": 0,
+          "term": null,
+          "is_active": false
+        },
+        {
+          "coordinate": 20,
+          "value": 0,
+          "term": null,
+          "is_active": false
+        },
+        {
+          "coordinate": 21,
+          "value": 0,
+          "term": null,
+          "is_active": false
+        },
+        {
+          "coordinate": 22,
+          "value": 0,
+          "term": null,
+          "is_active": false
+        },
+        {
+          "coordinate": 23,
+          "value": 0,
+          "term": null,
+          "is_active": false
+        },
+        {
+          "coordinate": 24,
+          "value": 0,
+          "term": null,
+          "is_active": false
+        },
+        {
+          "coordinate": 25,
+          "value": 0,
+          "term": null,
+          "is_active": false
+        },
+        {
+          "coordinate": 26,
+          "value": 0,
+          "term": null,
+          "is_active": false
+        },
+        {
+          "coordinate": 27,
+          "value": 0,
+          "term": null,
+          "is_active": false
+        },
+        {
+          "coordinate": 28,
+          "value": 0,
+          "term": null,
+          "is_active": false
+        },
+        {
+          "coordinate": 29,
+          "value": 0,
+          "term": null,
+          "is_active": false
+        },
+        {
+          "coordinate": 30,
+          "value": 0.4440020788637709,
+          "term": "networks",
+          "is_active": true
+        },
+        {
+          "coordinate": 31,
+          "value": 0,
+          "term": null,
+          "is_active": false
+        },
+        {
+          "coordinate": 32,
+          "value": 0,
+          "term": null,
+          "is_active": false
+        },
+        {
+          "coordinate": 33,
+          "value": 0.4440020788637709,
+          "term": "neural",
+          "is_active": true
+        },
+        {
+          "coordinate": 34,
+          "value": 0,
+          "term": null,
+          "is_active": false
+        },
+        {
+          "coordinate": 35,
+          "value": 0.550329132396832,
+          "term": "neural networks",
+          "is_active": true
+        },
+        {
+          "coordinate": 36,
+          "value": 0,
+          "term": null,
+          "is_active": false
+        },
+        {
+          "coordinate": 37,
+          "value": 0,
+          "term": null,
+          "is_active": false
+        },
+        {
+          "coordinate": 38,
+          "value": 0,
+          "term": null,
+          "is_active": false
+        },
+        {
+          "coordinate": 39,
+          "value": 0,
+          "term": null,
+          "is_active": false
+        },
+        {
+          "coordinate": 40,
+          "value": 0.550329132396832,
+          "term": "optimization",
+          "is_active": true
+        },
+        {
+          "coordinate": 41,
+          "value": 0,
+          "term": null,
+          "is_active": false
+        },
+        {
+          "coordinate": 42,
+          "value": 0,
+          "term": null,
+          "is_active": false
+        },
+        {
+          "coordinate": 43,
+          "value": 0,
+          "term": null,
+          "is_active": false
+        },
+        {
+          "coordinate": 44,
+          "value": 0,
+          "term": null,
+          "is_active": false
+        },
+        {
+          "coordinate": 45,
+          "value": 0,
+          "term": null,
+          "is_active": false
+        },
+        {
+          "coordinate": 46,
+          "value": 0,
+          "term": null,
+          "is_active": false
+        },
+        {
+          "coordinate": 47,
+          "value": 0,
+          "term": null,
+          "is_active": false
+        },
+        {
+          "coordinate": 48,
+          "value": 0,
+          "term": null,
+          "is_active": false
+        },
+        {
+          "coordinate": 49,
+          "value": 0,
+          "term": null,
+          "is_active": false
+        },
+        {
+          "coordinate": 50,
+          "value": 0,
+          "term": null,
+          "is_active": false
+        },
+        {
+          "coordinate": 51,
+          "value": 0,
+          "term": null,
+          "is_active": false
+        },
+        {
+          "coordinate": 52,
+          "value": 0,
+          "term": null,
+          "is_active": false
+        },
+        {
+          "coordinate": 53,
+          "value": 0,
+          "term": null,
+          "is_active": false
+        },
+        {
+          "coordinate": 54,
+          "value": 0,
+          "term": null,
+          "is_active": false
+        },
+        {
+          "coordinate": 55,
+          "value": 0,
+          "term": null,
+          "is_active": false
+        },
+        {
+          "coordinate": 56,
+          "value": 0,
+          "term": null,
+          "is_active": false
+        },
+        {
+          "coordinate": 57,
+          "value": 0,
+          "term": null,
+          "is_active": false
+        },
+        {
+          "coordinate": 58,
+          "value": 0,
+          "term": null,
+          "is_active": false
+        },
+        {
+          "coordinate": 59,
+          "value": 0,
+          "term": null,
+          "is_active": false
+        },
+        {
+          "coordinate": 60,
+          "value": 0,
+          "term": null,
+          "is_active": false
+        },
+        {
+          "coordinate": 61,
+          "value": 0,
+          "term": null,
+          "is_active": false
+        },
+        {
+          "coordinate": 62,
+          "value": 0,
+          "term": null,
+          "is_active": false
+        },
+        {
+          "coordinate": 63,
+          "value": 0,
+          "term": null,
+          "is_active": false
+        },
+        {
+          "coordinate": 64,
+          "value": 0,
+          "term": null,
+          "is_active": false
+        },
+        {
+          "coordinate": 65,
+          "value": 0,
+          "term": null,
+          "is_active": false
+        },
+        {
+          "coordinate": 66,
+          "value": 0,
+          "term": null,
+          "is_active": false
+        },
+        {
+          "coordinate": 67,
+          "value": 0,
+          "term": null,
+          "is_active": false
+        },
+        {
+          "coordinate": 68,
+          "value": 0,
+          "term": null,
+          "is_active": false
+        },
+        {
+          "coordinate": 69,
+          "value": 0,
+          "term": null,
+          "is_active": false
+        },
+        {
+          "coordinate": 70,
+          "value": 0,
+          "term": null,
+          "is_active": false
+        },
+        {
+          "coordinate": 71,
+          "value": 0,
+          "term": null,
+          "is_active": false
+        },
+        {
+          "coordinate": 72,
+          "value": 0,
+          "term": null,
+          "is_active": false
+        },
+        {
+          "coordinate": 73,
+          "value": 0,
+          "term": null,
+          "is_active": false
+        },
+        {
+          "coordinate": 74,
+          "value": 0,
+          "term": null,
+          "is_active": false
+        },
+        {
+          "coordinate": 75,
+          "value": 0,
+          "term": null,
+          "is_active": false
+        },
+        {
+          "coordinate": 76,
+          "value": 0,
+          "term": null,
+          "is_active": false
+        },
+        {
+          "coordinate": 77,
+          "value": 0,
+          "term": null,
+          "is_active": false
+        },
+        {
+          "coordinate": 78,
+          "value": 0,
+          "term": null,
+          "is_active": false
+        },
+        {
+          "coordinate": 79,
+          "value": 0,
+          "term": null,
+          "is_active": false
+        },
+        {
+          "coordinate": 80,
+          "value": 0,
+          "term": null,
+          "is_active": false
+        },
+        {
+          "coordinate": 81,
+          "value": 0,
+          "term": null,
+          "is_active": false
+        },
+        {
+          "coordinate": 82,
+          "value": 0,
+          "term": null,
+          "is_active": false
+        },
+        {
+          "coordinate": 83,
+          "value": 0,
+          "term": null,
+          "is_active": false
+        },
+        {
+          "coordinate": 84,
+          "value": 0,
+          "term": null,
+          "is_active": false
+        },
+        {
+          "coordinate": 85,
+          "value": 0,
+          "term": null,
+          "is_active": false
+        },
+        {
+          "coordinate": 86,
+          "value": 0,
+          "term": null,
+          "is_active": false
+        },
+        {
+          "coordinate": 87,
+          "value": 0,
+          "term": null,
+          "is_active": false
+        },
+        {
+          "coordinate": 88,
+          "value": 0,
+          "term": null,
+          "is_active": false
+        },
+        {
+          "coordinate": 89,
+          "value": 0,
+          "term": null,
+          "is_active": false
+        },
+        {
+          "coordinate": 90,
+          "value": 0,
+          "term": null,
+          "is_active": false
+        },
+        {
+          "coordinate": 91,
+          "value": 0,
+          "term": null,
+          "is_active": false
+        },
+        {
+          "coordinate": 92,
+          "value": 0,
+          "term": null,
+          "is_active": false
+        },
+        {
+          "coordinate": 93,
+          "value": 0,
+          "term": null,
+          "is_active": false
+        },
+        {
+          "coordinate": 94,
+          "value": 0,
+          "term": null,
+          "is_active": false
+        },
+        {
+          "coordinate": 95,
+          "value": 0,
+          "term": null,
+          "is_active": false
+        },
+        {
+          "coordinate": 96,
+          "value": 0,
+          "term": null,
+          "is_active": false
+        },
+        {
+          "coordinate": 97,
+          "value": 0,
+          "term": null,
+          "is_active": false
+        },
+        {
+          "coordinate": 98,
+          "value": 0,
+          "term": null,
+          "is_active": false
+        },
+        {
+          "coordinate": 99,
+          "value": 0,
+          "term": null,
+          "is_active": false
+        }
+      ],
+      "top_terms": [
+        {
+          "term": "neural networks",
+          "weight": 0.550329132396832,
+          "coordinate": 35
+        },
+        {
+          "term": "optimization",
+          "weight": 0.550329132396832,
+          "coordinate": 40
+        },
+        {
+          "term": "networks",
+          "weight": 0.4440020788637709,
+          "coordinate": 30
+        },
+        {
+          "term": "neural",
+          "weight": 0.4440020788637709,
+          "coordinate": 33
+        }
+      ]
+    },
+    {
+      "highlight": "Supervised learning includes classification and regression tasks",
+      "validation_status": "PASS",
+      "coordinate_map": [
+        {
+          "coordinate": 0,
+          "value": 0,
+          "term": null,
+          "is_active": false
+        },
+        {
+          "coordinate": 1,
+          "value": 0,
+          "term": null,
+          "is_active": false
+        },
+        {
+          "coordinate": 2,
+          "value": 0,
+          "term": null,
+          "is_active": false
+        },
+        {
+          "coordinate": 3,
+          "value": 0.4192568104779834,
+          "term": "classification",
+          "is_active": true
+        },
+        {
+          "coordinate": 4,
+          "value": 0,
+          "term": null,
+          "is_active": false
+        },
+        {
+          "coordinate": 5,
+          "value": 0,
+          "term": null,
+          "is_active": false
+        },
+        {
+          "coordinate": 6,
+          "value": 0,
+          "term": null,
+          "is_active": false
+        },
+        {
+          "coordinate": 7,
+          "value": 0,
+          "term": null,
+          "is_active": false
+        },
+        {
+          "coordinate": 8,
+          "value": 0,
+          "term": null,
+          "is_active": false
+        },
+        {
+          "coordinate": 9,
+          "value": 0,
+          "term": null,
+          "is_active": false
+        },
+        {
+          "coordinate": 10,
+          "value": 0.3480210257141676,
+          "term": "learning",
+          "is_active": true
+        },
+        {
+          "coordinate": 11,
+          "value": 0,
+          "term": null,
+          "is_active": false
+        },
+        {
+          "coordinate": 12,
+          "value": 0,
+          "term": null,
+          "is_active": false
+        },
+        {
+          "coordinate": 13,
+          "value": 0,
+          "term": null,
+          "is_active": false
+        },
+        {
+          "coordinate": 14,
+          "value": 0,
+          "term": null,
+          "is_active": false
+        },
+        {
+          "coordinate": 15,
+          "value": 0,
+          "term": null,
+          "is_active": false
+        },
+        {
+          "coordinate": 16,
+          "value": 0,
+          "term": null,
+          "is_active": false
+        },
+        {
+          "coordinate": 17,
+          "value": 0,
+          "term": null,
+          "is_active": false
+        },
+        {
+          "coordinate": 18,
+          "value": 0,
+          "term": null,
+          "is_active": false
+        },
+        {
+          "coordinate": 19,
+          "value": 0,
+          "term": null,
+          "is_active": false
+        },
+        {
+          "coordinate": 20,
+          "value": 0,
+          "term": null,
+          "is_active": false
+        },
+        {
+          "coordinate": 21,
+          "value": 0,
+          "term": null,
+          "is_active": false
+        },
+        {
+          "coordinate": 22,
+          "value": 0,
+          "term": null,
+          "is_active": false
+        },
+        {
+          "coordinate": 23,
+          "value": 0,
+          "term": null,
+          "is_active": false
+        },
+        {
+          "coordinate": 24,
+          "value": 0,
+          "term": null,
+          "is_active": false
+        },
+        {
+          "coordinate": 25,
+          "value": 0,
+          "term": null,
+          "is_active": false
+        },
+        {
+          "coordinate": 26,
+          "value": 0,
+          "term": null,
+          "is_active": false
+        },
+        {
+          "coordinate": 27,
+          "value": 0,
+          "term": null,
+          "is_active": false
+        },
+        {
+          "coordinate": 28,
+          "value": 0,
+          "term": null,
+          "is_active": false
+        },
+        {
+          "coordinate": 29,
+          "value": 0,
+          "term": null,
+          "is_active": false
+        },
+        {
+          "coordinate": 30,
+          "value": 0,
+          "term": null,
+          "is_active": false
+        },
+        {
+          "coordinate": 31,
+          "value": 0,
+          "term": null,
+          "is_active": false
+        },
+        {
+          "coordinate": 32,
+          "value": 0,
+          "term": null,
+          "is_active": false
+        },
+        {
+          "coordinate": 33,
+          "value": 0,
+          "term": null,
+          "is_active": false
+        },
+        {
+          "coordinate": 34,
+          "value": 0,
+          "term": null,
+          "is_active": false
+        },
+        {
+          "coordinate": 35,
+          "value": 0,
+          "term": null,
+          "is_active": false
+        },
+        {
+          "coordinate": 36,
+          "value": 0,
+          "term": null,
+          "is_active": false
+        },
+        {
+          "coordinate": 37,
+          "value": 0,
+          "term": null,
+          "is_active": false
+        },
+        {
+          "coordinate": 38,
+          "value": 0,
+          "term": null,
+          "is_active": false
+        },
+        {
+          "coordinate": 39,
+          "value": 0,
+          "term": null,
+          "is_active": false
+        },
+        {
+          "coordinate": 40,
+          "value": 0,
+          "term": null,
+          "is_active": false
+        },
+        {
+          "coordinate": 41,
+          "value": 0,
+          "term": null,
+          "is_active": false
+        },
+        {
+          "coordinate": 42,
+          "value": 0,
+          "term": null,
+          "is_active": false
+        },
+        {
+          "coordinate": 43,
+          "value": 0,
+          "term": null,
+          "is_active": false
+        },
+        {
+          "coordinate": 44,
+          "value": 0,
+          "term": null,
+          "is_active": false
+        },
+        {
+          "coordinate": 45,
+          "value": 0,
+          "term": null,
+          "is_active": false
+        },
+        {
+          "coordinate": 46,
+          "value": 0,
+          "term": null,
+          "is_active": false
+        },
+        {
+          "coordinate": 47,
+          "value": 0,
+          "term": null,
+          "is_active": false
+        },
+        {
+          "coordinate": 48,
+          "value": 0,
+          "term": null,
+          "is_active": false
+        },
+        {
+          "coordinate": 49,
+          "value": 0,
+          "term": null,
+          "is_active": false
+        },
+        {
+          "coordinate": 50,
+          "value": 0,
+          "term": null,
+          "is_active": false
+        },
+        {
+          "coordinate": 51,
+          "value": 0,
+          "term": null,
+          "is_active": false
+        },
+        {
+          "coordinate": 52,
+          "value": 0,
+          "term": null,
+          "is_active": false
+        },
+        {
+          "coordinate": 53,
+          "value": 0,
+          "term": null,
+          "is_active": false
+        },
+        {
+          "coordinate": 54,
+          "value": 0,
+          "term": null,
+          "is_active": false
+        },
+        {
+          "coordinate": 55,
+          "value": 0,
+          "term": null,
+          "is_active": false
+        },
+        {
+          "coordinate": 56,
+          "value": 0,
+          "term": null,
+          "is_active": false
+        },
+        {
+          "coordinate": 57,
+          "value": 0,
+          "term": null,
+          "is_active": false
+        },
+        {
+          "coordinate": 58,
+          "value": 0,
+          "term": null,
+          "is_active": false
+        },
+        {
+          "coordinate": 59,
+          "value": 0,
+          "term": null,
+          "is_active": false
+        },
+        {
+          "coordinate": 60,
+          "value": 0,
+          "term": null,
+          "is_active": false
+        },
+        {
+          "coordinate": 61,
+          "value": 0,
+          "term": null,
+          "is_active": false
+        },
+        {
+          "coordinate": 62,
+          "value": 0,
+          "term": null,
+          "is_active": false
+        },
+        {
+          "coordinate": 63,
+          "value": 0,
+          "term": null,
+          "is_active": false
+        },
+        {
+          "coordinate": 64,
+          "value": 0,
+          "term": null,
+          "is_active": false
+        },
+        {
+          "coordinate": 65,
+          "value": 0,
+          "term": null,
+          "is_active": false
+        },
+        {
+          "coordinate": 66,
+          "value": 0,
+          "term": null,
+          "is_active": false
+        },
+        {
+          "coordinate": 67,
+          "value": 0,
+          "term": null,
+          "is_active": false
+        },
+        {
+          "coordinate": 68,
+          "value": 0.4192568104779834,
+          "term": "regression",
+          "is_active": true
+        },
+        {
+          "coordinate": 69,
+          "value": 0,
+          "term": null,
+          "is_active": false
+        },
+        {
+          "coordinate": 70,
+          "value": 0,
+          "term": null,
+          "is_active": false
+        },
+        {
+          "coordinate": 71,
+          "value": 0,
+          "term": null,
+          "is_active": false
+        },
+        {
+          "coordinate": 72,
+          "value": 0,
+          "term": null,
+          "is_active": false
+        },
+        {
+          "coordinate": 73,
+          "value": 0.4192568104779834,
+          "term": "supervised",
+          "is_active": true
+        },
+        {
+          "coordinate": 74,
+          "value": 0.4192568104779834,
+          "term": "supervised learning",
+          "is_active": true
+        },
+        {
+          "coordinate": 75,
+          "value": 0,
+          "term": null,
+          "is_active": false
+        },
+        {
+          "coordinate": 76,
+          "value": 0,
+          "term": null,
+          "is_active": false
+        },
+        {
+          "coordinate": 77,
+          "value": 0.4192568104779834,
+          "term": "tasks",
+          "is_active": true
+        },
+        {
+          "coordinate": 78,
+          "value": 0,
+          "term": null,
+          "is_active": false
+        },
+        {
+          "coordinate": 79,
+          "value": 0,
+          "term": null,
+          "is_active": false
+        },
+        {
+          "coordinate": 80,
+          "value": 0,
+          "term": null,
+          "is_active": false
+        },
+        {
+          "coordinate": 81,
+          "value": 0,
+          "term": null,
+          "is_active": false
+        },
+        {
+          "coordinate": 82,
+          "value": 0,
+          "term": null,
+          "is_active": false
+        },
+        {
+          "coordinate": 83,
+          "value": 0,
+          "term": null,
+          "is_active": false
+        },
+        {
+          "coordinate": 84,
+          "value": 0,
+          "term": null,
+          "is_active": false
+        },
+        {
+          "coordinate": 85,
+          "value": 0,
+          "term": null,
+          "is_active": false
+        },
+        {
+          "coordinate": 86,
+          "value": 0,
+          "term": null,
+          "is_active": false
+        },
+        {
+          "coordinate": 87,
+          "value": 0,
+          "term": null,
+          "is_active": false
+        },
+        {
+          "coordinate": 88,
+          "value": 0,
+          "term": null,
+          "is_active": false
+        },
+        {
+          "coordinate": 89,
+          "value": 0,
+          "term": null,
+          "is_active": false
+        },
+        {
+          "coordinate": 90,
+          "value": 0,
+          "term": null,
+          "is_active": false
+        },
+        {
+          "coordinate": 91,
+          "value": 0,
+          "term": null,
+          "is_active": false
+        },
+        {
+          "coordinate": 92,
+          "value": 0,
+          "term": null,
+          "is_active": false
+        },
+        {
+          "coordinate": 93,
+          "value": 0,
+          "term": null,
+          "is_active": false
+        },
+        {
+          "coordinate": 94,
+          "value": 0,
+          "term": null,
+          "is_active": false
+        },
+        {
+          "coordinate": 95,
+          "value": 0,
+          "term": null,
+          "is_active": false
+        },
+        {
+          "coordinate": 96,
+          "value": 0,
+          "term": null,
+          "is_active": false
+        },
+        {
+          "coordinate": 97,
+          "value": 0,
+          "term": null,
+          "is_active": false
+        },
+        {
+          "coordinate": 98,
+          "value": 0,
+          "term": null,
+          "is_active": false
+        },
+        {
+          "coordinate": 99,
+          "value": 0,
+          "term": null,
+          "is_active": false
+        }
+      ],
+      "top_terms": [
+        {
+          "term": "classification",
+          "weight": 0.4192568104779834,
+          "coordinate": 3
+        },
+        {
+          "term": "regression",
+          "weight": 0.4192568104779834,
+          "coordinate": 68
+        },
+        {
+          "term": "supervised",
+          "weight": 0.4192568104779834,
+          "coordinate": 73
+        },
+        {
+          "term": "supervised learning",
+          "weight": 0.4192568104779834,
+          "coordinate": 74
+        },
+        {
+          "term": "tasks",
+          "weight": 0.4192568104779834,
+          "coordinate": 77
+        },
+        {
+          "term": "learning",
+          "weight": 0.3480210257141676,
+          "coordinate": 10
+        }
+      ]
+    },
+    {
+      "highlight": "Feature scaling and normalization are critical preprocessing steps",
+      "validation_status": "FAIL",
+      "coordinate_map": [
+        {
+          "coordinate": 0,
+          "value": 0,
+          "term": null,
+          "is_active": false
+        },
+        {
+          "coordinate": 1,
+          "value": 0,
+          "term": null,
+          "is_active": false
+        },
+        {
+          "coordinate": 2,
+          "value": 0,
+          "term": null,
+          "is_active": false
+        },
+        {
+          "coordinate": 3,
+          "value": 0,
+          "term": null,
+          "is_active": false
+        },
+        {
+          "coordinate": 4,
+          "value": 0,
+          "term": null,
+          "is_active": false
+        },
+        {
+          "coordinate": 5,
+          "value": 0,
+          "term": null,
+          "is_active": false
+        },
+        {
+          "coordinate": 6,
+          "value": 0.5773502691896258,
+          "term": "feature",
+          "is_active": true
+        },
+        {
+          "coordinate": 7,
+          "value": 0,
+          "term": null,
+          "is_active": false
+        },
+        {
+          "coordinate": 8,
+          "value": 0,
+          "term": null,
+          "is_active": false
+        },
+        {
+          "coordinate": 9,
+          "value": 0,
+          "term": null,
+          "is_active": false
+        },
+        {
+          "coordinate": 10,
+          "value": 0,
+          "term": null,
+          "is_active": false
+        },
+        {
+          "coordinate": 11,
+          "value": 0,
+          "term": null,
+          "is_active": false
+        },
+        {
+          "coordinate": 12,
+          "value": 0,
+          "term": null,
+          "is_active": false
+        },
+        {
+          "coordinate": 13,
+          "value": 0,
+          "term": null,
+          "is_active": false
+        },
+        {
+          "coordinate": 14,
+          "value": 0,
+          "term": null,
+          "is_active": false
+        },
+        {
+          "coordinate": 15,
+          "value": 0,
+          "term": null,
+          "is_active": false
+        },
+        {
+          "coordinate": 16,
+          "value": 0,
+          "term": null,
+          "is_active": false
+        },
+        {
+          "coordinate": 17,
+          "value": 0,
+          "term": null,
+          "is_active": false
+        },
+        {
+          "coordinate": 18,
+          "value": 0,
+          "term": null,
+          "is_active": false
+        },
+        {
+          "coordinate": 19,
+          "value": 0,
+          "term": null,
+          "is_active": false
+        },
+        {
+          "coordinate": 20,
+          "value": 0,
+          "term": null,
+          "is_active": false
+        },
+        {
+          "coordinate": 21,
+          "value": 0,
+          "term": null,
+          "is_active": false
+        },
+        {
+          "coordinate": 22,
+          "value": 0,
+          "term": null,
+          "is_active": false
+        },
+        {
+          "coordinate": 23,
+          "value": 0,
+          "term": null,
+          "is_active": false
+        },
+        {
+          "coordinate": 24,
+          "value": 0,
+          "term": null,
+          "is_active": false
+        },
+        {
+          "coordinate": 25,
+          "value": 0,
+          "term": null,
+          "is_active": false
+        },
+        {
+          "coordinate": 26,
+          "value": 0,
+          "term": null,
+          "is_active": false
+        },
+        {
+          "coordinate": 27,
+          "value": 0,
+          "term": null,
+          "is_active": false
+        },
+        {
+          "coordinate": 28,
+          "value": 0,
+          "term": null,
+          "is_active": false
+        },
+        {
+          "coordinate": 29,
+          "value": 0,
+          "term": null,
+          "is_active": false
+        },
+        {
+          "coordinate": 30,
+          "value": 0,
+          "term": null,
+          "is_active": false
+        },
+        {
+          "coordinate": 31,
+          "value": 0,
+          "term": null,
+          "is_active": false
+        },
+        {
+          "coordinate": 32,
+          "value": 0,
+          "term": null,
+          "is_active": false
+        },
+        {
+          "coordinate": 33,
+          "value": 0,
+          "term": null,
+          "is_active": false
+        },
+        {
+          "coordinate": 34,
+          "value": 0,
+          "term": null,
+          "is_active": false
+        },
+        {
+          "coordinate": 35,
+          "value": 0,
+          "term": null,
+          "is_active": false
+        },
+        {
+          "coordinate": 36,
+          "value": 0,
+          "term": null,
+          "is_active": false
+        },
+        {
+          "coordinate": 37,
+          "value": 0,
+          "term": null,
+          "is_active": false
+        },
+        {
+          "coordinate": 38,
+          "value": 0.5773502691896258,
+          "term": "normalization",
+          "is_active": true
+        },
+        {
+          "coordinate": 39,
+          "value": 0,
+          "term": null,
+          "is_active": false
+        },
+        {
+          "coordinate": 40,
+          "value": 0,
+          "term": null,
+          "is_active": false
+        },
+        {
+          "coordinate": 41,
+          "value": 0,
+          "term": null,
+          "is_active": false
+        },
+        {
+          "coordinate": 42,
+          "value": 0,
+          "term": null,
+          "is_active": false
+        },
+        {
+          "coordinate": 43,
+          "value": 0,
+          "term": null,
+          "is_active": false
+        },
+        {
+          "coordinate": 44,
+          "value": 0,
+          "term": null,
+          "is_active": false
+        },
+        {
+          "coordinate": 45,
+          "value": 0,
+          "term": null,
+          "is_active": false
+        },
+        {
+          "coordinate": 46,
+          "value": 0,
+          "term": null,
+          "is_active": false
+        },
+        {
+          "coordinate": 47,
+          "value": 0,
+          "term": null,
+          "is_active": false
+        },
+        {
+          "coordinate": 48,
+          "value": 0,
+          "term": null,
+          "is_active": false
+        },
+        {
+          "coordinate": 49,
+          "value": 0,
+          "term": null,
+          "is_active": false
+        },
+        {
+          "coordinate": 50,
+          "value": 0,
+          "term": null,
+          "is_active": false
+        },
+        {
+          "coordinate": 51,
+          "value": 0,
+          "term": null,
+          "is_active": false
+        },
+        {
+          "coordinate": 52,
+          "value": 0,
+          "term": null,
+          "is_active": false
+        },
+        {
+          "coordinate": 53,
+          "value": 0.5773502691896258,
+          "term": "preprocessing",
+          "is_active": true
+        },
+        {
+          "coordinate": 54,
+          "value": 0,
+          "term": null,
+          "is_active": false
+        },
+        {
+          "coordinate": 55,
+          "value": 0,
+          "term": null,
+          "is_active": false
+        },
+        {
+          "coordinate": 56,
+          "value": 0,
+          "term": null,
+          "is_active": false
+        },
+        {
+          "coordinate": 57,
+          "value": 0,
+          "term": null,
+          "is_active": false
+        },
+        {
+          "coordinate": 58,
+          "value": 0,
+          "term": null,
+          "is_active": false
+        },
+        {
+          "coordinate": 59,
+          "value": 0,
+          "term": null,
+          "is_active": false
+        },
+        {
+          "coordinate": 60,
+          "value": 0,
+          "term": null,
+          "is_active": false
+        },
+        {
+          "coordinate": 61,
+          "value": 0,
+          "term": null,
+          "is_active": false
+        },
+        {
+          "coordinate": 62,
+          "value": 0,
+          "term": null,
+          "is_active": false
+        },
+        {
+          "coordinate": 63,
+          "value": 0,
+          "term": null,
+          "is_active": false
+        },
+        {
+          "coordinate": 64,
+          "value": 0,
+          "term": null,
+          "is_active": false
+        },
+        {
+          "coordinate": 65,
+          "value": 0,
+          "term": null,
+          "is_active": false
+        },
+        {
+          "coordinate": 66,
+          "value": 0,
+          "term": null,
+          "is_active": false
+        },
+        {
+          "coordinate": 67,
+          "value": 0,
+          "term": null,
+          "is_active": false
+        },
+        {
+          "coordinate": 68,
+          "value": 0,
+          "term": null,
+          "is_active": false
+        },
+        {
+          "coordinate": 69,
+          "value": 0,
+          "term": null,
+          "is_active": false
+        },
+        {
+          "coordinate": 70,
+          "value": 0,
+          "term": null,
+          "is_active": false
+        },
+        {
+          "coordinate": 71,
+          "value": 0,
+          "term": null,
+          "is_active": false
+        },
+        {
+          "coordinate": 72,
+          "value": 0,
+          "term": null,
+          "is_active": false
+        },
+        {
+          "coordinate": 73,
+          "value": 0,
+          "term": null,
+          "is_active": false
+        },
+        {
+          "coordinate": 74,
+          "value": 0,
+          "term": null,
+          "is_active": false
+        },
+        {
+          "coordinate": 75,
+          "value": 0,
+          "term": null,
+          "is_active": false
+        },
+        {
+          "coordinate": 76,
+          "value": 0,
+          "term": null,
+          "is_active": false
+        },
+        {
+          "coordinate": 77,
+          "value": 0,
+          "term": null,
+          "is_active": false
+        },
+        {
+          "coordinate": 78,
+          "value": 0,
+          "term": null,
+          "is_active": false
+        },
+        {
+          "coordinate": 79,
+          "value": 0,
+          "term": null,
+          "is_active": false
+        },
+        {
+          "coordinate": 80,
+          "value": 0,
+          "term": null,
+          "is_active": false
+        },
+        {
+          "coordinate": 81,
+          "value": 0,
+          "term": null,
+          "is_active": false
+        },
+        {
+          "coordinate": 82,
+          "value": 0,
+          "term": null,
+          "is_active": false
+        },
+        {
+          "coordinate": 83,
+          "value": 0,
+          "term": null,
+          "is_active": false
+        },
+        {
+          "coordinate": 84,
+          "value": 0,
+          "term": null,
+          "is_active": false
+        },
+        {
+          "coordinate": 85,
+          "value": 0,
+          "term": null,
+          "is_active": false
+        },
+        {
+          "coordinate": 86,
+          "value": 0,
+          "term": null,
+          "is_active": false
+        },
+        {
+          "coordinate": 87,
+          "value": 0,
+          "term": null,
+          "is_active": false
+        },
+        {
+          "coordinate": 88,
+          "value": 0,
+          "term": null,
+          "is_active": false
+        },
+        {
+          "coordinate": 89,
+          "value": 0,
+          "term": null,
+          "is_active": false
+        },
+        {
+          "coordinate": 90,
+          "value": 0,
+          "term": null,
+          "is_active": false
+        },
+        {
+          "coordinate": 91,
+          "value": 0,
+          "term": null,
+          "is_active": false
+        },
+        {
+          "coordinate": 92,
+          "value": 0,
+          "term": null,
+          "is_active": false
+        },
+        {
+          "coordinate": 93,
+          "value": 0,
+          "term": null,
+          "is_active": false
+        },
+        {
+          "coordinate": 94,
+          "value": 0,
+          "term": null,
+          "is_active": false
+        },
+        {
+          "coordinate": 95,
+          "value": 0,
+          "term": null,
+          "is_active": false
+        },
+        {
+          "coordinate": 96,
+          "value": 0,
+          "term": null,
+          "is_active": false
+        },
+        {
+          "coordinate": 97,
+          "value": 0,
+          "term": null,
+          "is_active": false
+        },
+        {
+          "coordinate": 98,
+          "value": 0,
+          "term": null,
+          "is_active": false
+        },
+        {
+          "coordinate": 99,
+          "value": 0,
+          "term": null,
+          "is_active": false
+        }
+      ],
+      "top_terms": [
+        {
+          "term": "feature",
+          "weight": 0.5773502691896258,
+          "coordinate": 6
+        },
+        {
+          "term": "normalization",
+          "weight": 0.5773502691896258,
+          "coordinate": 38
+        },
+        {
+          "term": "preprocessing",
+          "weight": 0.5773502691896258,
+          "coordinate": 53
+        }
+      ]
+    },
+    {
+      "highlight": "Confusion matrix helps evaluate classification performance",
+      "validation_status": "FAIL",
+      "coordinate_map": [
+        {
+          "coordinate": 0,
+          "value": 0,
+          "term": null,
+          "is_active": false
+        },
+        {
+          "coordinate": 1,
+          "value": 0,
+          "term": null,
+          "is_active": false
+        },
+        {
+          "coordinate": 2,
+          "value": 0,
+          "term": null,
+          "is_active": false
+        },
+        {
+          "coordinate": 3,
+          "value": 0.7071067811865476,
+          "term": "classification",
+          "is_active": true
+        },
+        {
+          "coordinate": 4,
+          "value": 0,
+          "term": null,
+          "is_active": false
+        },
+        {
+          "coordinate": 5,
+          "value": 0,
+          "term": null,
+          "is_active": false
+        },
+        {
+          "coordinate": 6,
+          "value": 0,
+          "term": null,
+          "is_active": false
+        },
+        {
+          "coordinate": 7,
+          "value": 0,
+          "term": null,
+          "is_active": false
+        },
+        {
+          "coordinate": 8,
+          "value": 0,
+          "term": null,
+          "is_active": false
+        },
+        {
+          "coordinate": 9,
+          "value": 0,
+          "term": null,
+          "is_active": false
+        },
+        {
+          "coordinate": 10,
+          "value": 0,
+          "term": null,
+          "is_active": false
+        },
+        {
+          "coordinate": 11,
+          "value": 0,
+          "term": null,
+          "is_active": false
+        },
+        {
+          "coordinate": 12,
+          "value": 0,
+          "term": null,
+          "is_active": false
+        },
+        {
+          "coordinate": 13,
+          "value": 0,
+          "term": null,
+          "is_active": false
+        },
+        {
+          "coordinate": 14,
+          "value": 0,
+          "term": null,
+          "is_active": false
+        },
+        {
+          "coordinate": 15,
+          "value": 0,
+          "term": null,
+          "is_active": false
+        },
+        {
+          "coordinate": 16,
+          "value": 0,
+          "term": null,
+          "is_active": false
+        },
+        {
+          "coordinate": 17,
+          "value": 0,
+          "term": null,
+          "is_active": false
+        },
+        {
+          "coordinate": 18,
+          "value": 0,
+          "term": null,
+          "is_active": false
+        },
+        {
+          "coordinate": 19,
+          "value": 0,
+          "term": null,
+          "is_active": false
+        },
+        {
+          "coordinate": 20,
+          "value": 0,
+          "term": null,
+          "is_active": false
+        },
+        {
+          "coordinate": 21,
+          "value": 0,
+          "term": null,
+          "is_active": false
+        },
+        {
+          "coordinate": 22,
+          "value": 0,
+          "term": null,
+          "is_active": false
+        },
+        {
+          "coordinate": 23,
+          "value": 0,
+          "term": null,
+          "is_active": false
+        },
+        {
+          "coordinate": 24,
+          "value": 0,
+          "term": null,
+          "is_active": false
+        },
+        {
+          "coordinate": 25,
+          "value": 0,
+          "term": null,
+          "is_active": false
+        },
+        {
+          "coordinate": 26,
+          "value": 0,
+          "term": null,
+          "is_active": false
+        },
+        {
+          "coordinate": 27,
+          "value": 0,
+          "term": null,
+          "is_active": false
+        },
+        {
+          "coordinate": 28,
+          "value": 0,
+          "term": null,
+          "is_active": false
+        },
+        {
+          "coordinate": 29,
+          "value": 0,
+          "term": null,
+          "is_active": false
+        },
+        {
+          "coordinate": 30,
+          "value": 0,
+          "term": null,
+          "is_active": false
+        },
+        {
+          "coordinate": 31,
+          "value": 0,
+          "term": null,
+          "is_active": false
+        },
+        {
+          "coordinate": 32,
+          "value": 0,
+          "term": null,
+          "is_active": false
+        },
+        {
+          "coordinate": 33,
+          "value": 0,
+          "term": null,
+          "is_active": false
+        },
+        {
+          "coordinate": 34,
+          "value": 0,
+          "term": null,
+          "is_active": false
+        },
+        {
+          "coordinate": 35,
+          "value": 0,
+          "term": null,
+          "is_active": false
+        },
+        {
+          "coordinate": 36,
+          "value": 0,
+          "term": null,
+          "is_active": false
+        },
+        {
+          "coordinate": 37,
+          "value": 0,
+          "term": null,
+          "is_active": false
+        },
+        {
+          "coordinate": 38,
+          "value": 0,
+          "term": null,
+          "is_active": false
+        },
+        {
+          "coordinate": 39,
+          "value": 0,
+          "term": null,
+          "is_active": false
+        },
+        {
+          "coordinate": 40,
+          "value": 0,
+          "term": null,
+          "is_active": false
+        },
+        {
+          "coordinate": 41,
+          "value": 0,
+          "term": null,
+          "is_active": false
+        },
+        {
+          "coordinate": 42,
+          "value": 0,
+          "term": null,
+          "is_active": false
+        },
+        {
+          "coordinate": 43,
+          "value": 0,
+          "term": null,
+          "is_active": false
+        },
+        {
+          "coordinate": 44,
+          "value": 0,
+          "term": null,
+          "is_active": false
+        },
+        {
+          "coordinate": 45,
+          "value": 0,
+          "term": null,
+          "is_active": false
+        },
+        {
+          "coordinate": 46,
+          "value": 0,
+          "term": null,
+          "is_active": false
+        },
+        {
+          "coordinate": 47,
+          "value": 0,
+          "term": null,
+          "is_active": false
+        },
+        {
+          "coordinate": 48,
+          "value": 0.7071067811865476,
+          "term": "performance",
+          "is_active": true
+        },
+        {
+          "coordinate": 49,
+          "value": 0,
+          "term": null,
+          "is_active": false
+        },
+        {
+          "coordinate": 50,
+          "value": 0,
+          "term": null,
+          "is_active": false
+        },
+        {
+          "coordinate": 51,
+          "value": 0,
+          "term": null,
+          "is_active": false
+        },
+        {
+          "coordinate": 52,
+          "value": 0,
+          "term": null,
+          "is_active": false
+        },
+        {
+          "coordinate": 53,
+          "value": 0,
+          "term": null,
+          "is_active": false
+        },
+        {
+          "coordinate": 54,
+          "value": 0,
+          "term": null,
+          "is_active": false
+        },
+        {
+          "coordinate": 55,
+          "value": 0,
+          "term": null,
+          "is_active": false
+        },
+        {
+          "coordinate": 56,
+          "value": 0,
+          "term": null,
+          "is_active": false
+        },
+        {
+          "coordinate": 57,
+          "value": 0,
+          "term": null,
+          "is_active": false
+        },
+        {
+          "coordinate": 58,
+          "value": 0,
+          "term": null,
+          "is_active": false
+        },
+        {
+          "coordinate": 59,
+          "value": 0,
+          "term": null,
+          "is_active": false
+        },
+        {
+          "coordinate": 60,
+          "value": 0,
+          "term": null,
+          "is_active": false
+        },
+        {
+          "coordinate": 61,
+          "value": 0,
+          "term": null,
+          "is_active": false
+        },
+        {
+          "coordinate": 62,
+          "value": 0,
+          "term": null,
+          "is_active": false
+        },
+        {
+          "coordinate": 63,
+          "value": 0,
+          "term": null,
+          "is_active": false
+        },
+        {
+          "coordinate": 64,
+          "value": 0,
+          "term": null,
+          "is_active": false
+        },
+        {
+          "coordinate": 65,
+          "value": 0,
+          "term": null,
+          "is_active": false
+        },
+        {
+          "coordinate": 66,
+          "value": 0,
+          "term": null,
+          "is_active": false
+        },
+        {
+          "coordinate": 67,
+          "value": 0,
+          "term": null,
+          "is_active": false
+        },
+        {
+          "coordinate": 68,
+          "value": 0,
+          "term": null,
+          "is_active": false
+        },
+        {
+          "coordinate": 69,
+          "value": 0,
+          "term": null,
+          "is_active": false
+        },
+        {
+          "coordinate": 70,
+          "value": 0,
+          "term": null,
+          "is_active": false
+        },
+        {
+          "coordinate": 71,
+          "value": 0,
+          "term": null,
+          "is_active": false
+        },
+        {
+          "coordinate": 72,
+          "value": 0,
+          "term": null,
+          "is_active": false
+        },
+        {
+          "coordinate": 73,
+          "value": 0,
+          "term": null,
+          "is_active": false
+        },
+        {
+          "coordinate": 74,
+          "value": 0,
+          "term": null,
+          "is_active": false
+        },
+        {
+          "coordinate": 75,
+          "value": 0,
+          "term": null,
+          "is_active": false
+        },
+        {
+          "coordinate": 76,
+          "value": 0,
+          "term": null,
+          "is_active": false
+        },
+        {
+          "coordinate": 77,
+          "value": 0,
+          "term": null,
+          "is_active": false
+        },
+        {
+          "coordinate": 78,
+          "value": 0,
+          "term": null,
+          "is_active": false
+        },
+        {
+          "coordinate": 79,
+          "value": 0,
+          "term": null,
+          "is_active": false
+        },
+        {
+          "coordinate": 80,
+          "value": 0,
+          "term": null,
+          "is_active": false
+        },
+        {
+          "coordinate": 81,
+          "value": 0,
+          "term": null,
+          "is_active": false
+        },
+        {
+          "coordinate": 82,
+          "value": 0,
+          "term": null,
+          "is_active": false
+        },
+        {
+          "coordinate": 83,
+          "value": 0,
+          "term": null,
+          "is_active": false
+        },
+        {
+          "coordinate": 84,
+          "value": 0,
+          "term": null,
+          "is_active": false
+        },
+        {
+          "coordinate": 85,
+          "value": 0,
+          "term": null,
+          "is_active": false
+        },
+        {
+          "coordinate": 86,
+          "value": 0,
+          "term": null,
+          "is_active": false
+        },
+        {
+          "coordinate": 87,
+          "value": 0,
+          "term": null,
+          "is_active": false
+        },
+        {
+          "coordinate": 88,
+          "value": 0,
+          "term": null,
+          "is_active": false
+        },
+        {
+          "coordinate": 89,
+          "value": 0,
+          "term": null,
+          "is_active": false
+        },
+        {
+          "coordinate": 90,
+          "value": 0,
+          "term": null,
+          "is_active": false
+        },
+        {
+          "coordinate": 91,
+          "value": 0,
+          "term": null,
+          "is_active": false
+        },
+        {
+          "coordinate": 92,
+          "value": 0,
+          "term": null,
+          "is_active": false
+        },
+        {
+          "coordinate": 93,
+          "value": 0,
+          "term": null,
+          "is_active": false
+        },
+        {
+          "coordinate": 94,
+          "value": 0,
+          "term": null,
+          "is_active": false
+        },
+        {
+          "coordinate": 95,
+          "value": 0,
+          "term": null,
+          "is_active": false
+        },
+        {
+          "coordinate": 96,
+          "value": 0,
+          "term": null,
+          "is_active": false
+        },
+        {
+          "coordinate": 97,
+          "value": 0,
+          "term": null,
+          "is_active": false
+        },
+        {
+          "coordinate": 98,
+          "value": 0,
+          "term": null,
+          "is_active": false
+        },
+        {
+          "coordinate": 99,
+          "value": 0,
+          "term": null,
+          "is_active": false
+        }
+      ],
+      "top_terms": [
+        {
+          "term": "classification",
+          "weight": 0.7071067811865476,
+          "coordinate": 3
+        },
+        {
+          "term": "performance",
+          "weight": 0.7071067811865476,
+          "coordinate": 48
+        }
+      ]
+    },
+    {
+      "highlight": "Random forests are ensemble learning methods",
+      "validation_status": "FAIL",
+      "coordinate_map": [
+        {
+          "coordinate": 0,
+          "value": 0,
+          "term": null,
+          "is_active": false
+        },
+        {
+          "coordinate": 1,
+          "value": 0,
+          "term": null,
+          "is_active": false
+        },
+        {
+          "coordinate": 2,
+          "value": 0,
+          "term": null,
+          "is_active": false
+        },
+        {
+          "coordinate": 3,
+          "value": 0,
+          "term": null,
+          "is_active": false
+        },
+        {
+          "coordinate": 4,
+          "value": 0,
+          "term": null,
+          "is_active": false
+        },
+        {
+          "coordinate": 5,
+          "value": 0,
+          "term": null,
+          "is_active": false
+        },
+        {
+          "coordinate": 6,
+          "value": 0,
+          "term": null,
+          "is_active": false
+        },
+        {
+          "coordinate": 7,
+          "value": 0,
+          "term": null,
+          "is_active": false
+        },
+        {
+          "coordinate": 8,
+          "value": 0,
+          "term": null,
+          "is_active": false
+        },
+        {
+          "coordinate": 9,
+          "value": 0,
+          "term": null,
+          "is_active": false
+        },
+        {
+          "coordinate": 10,
+          "value": 0.36063832635048015,
+          "term": "learning",
+          "is_active": true
+        },
+        {
+          "coordinate": 11,
+          "value": 0,
+          "term": null,
+          "is_active": false
+        },
+        {
+          "coordinate": 12,
+          "value": 0,
+          "term": null,
+          "is_active": false
+        },
+        {
+          "coordinate": 13,
+          "value": 0,
+          "term": null,
+          "is_active": false
+        },
+        {
+          "coordinate": 14,
+          "value": 0,
+          "term": null,
+          "is_active": false
+        },
+        {
+          "coordinate": 15,
+          "value": 0.5384979101064753,
+          "term": "methods",
+          "is_active": true
+        },
+        {
+          "coordinate": 16,
+          "value": 0,
+          "term": null,
+          "is_active": false
+        },
+        {
+          "coordinate": 17,
+          "value": 0,
+          "term": null,
+          "is_active": false
+        },
+        {
+          "coordinate": 18,
+          "value": 0,
+          "term": null,
+          "is_active": false
+        },
+        {
+          "coordinate": 19,
+          "value": 0,
+          "term": null,
+          "is_active": false
+        },
+        {
+          "coordinate": 20,
+          "value": 0,
+          "term": null,
+          "is_active": false
+        },
+        {
+          "coordinate": 21,
+          "value": 0,
+          "term": null,
+          "is_active": false
+        },
+        {
+          "coordinate": 22,
+          "value": 0,
+          "term": null,
+          "is_active": false
+        },
+        {
+          "coordinate": 23,
+          "value": 0,
+          "term": null,
+          "is_active": false
+        },
+        {
+          "coordinate": 24,
+          "value": 0,
+          "term": null,
+          "is_active": false
+        },
+        {
+          "coordinate": 25,
+          "value": 0,
+          "term": null,
+          "is_active": false
+        },
+        {
+          "coordinate": 26,
+          "value": 0,
+          "term": null,
+          "is_active": false
+        },
+        {
+          "coordinate": 27,
+          "value": 0,
+          "term": null,
+          "is_active": false
+        },
+        {
+          "coordinate": 28,
+          "value": 0,
+          "term": null,
+          "is_active": false
+        },
+        {
+          "coordinate": 29,
+          "value": 0,
+          "term": null,
+          "is_active": false
+        },
+        {
+          "coordinate": 30,
+          "value": 0,
+          "term": null,
+          "is_active": false
+        },
+        {
+          "coordinate": 31,
+          "value": 0,
+          "term": null,
+          "is_active": false
+        },
+        {
+          "coordinate": 32,
+          "value": 0,
+          "term": null,
+          "is_active": false
+        },
+        {
+          "coordinate": 33,
+          "value": 0,
+          "term": null,
+          "is_active": false
+        },
+        {
+          "coordinate": 34,
+          "value": 0,
+          "term": null,
+          "is_active": false
+        },
+        {
+          "coordinate": 35,
+          "value": 0,
+          "term": null,
+          "is_active": false
+        },
+        {
+          "coordinate": 36,
+          "value": 0,
+          "term": null,
+          "is_active": false
+        },
+        {
+          "coordinate": 37,
+          "value": 0,
+          "term": null,
+          "is_active": false
+        },
+        {
+          "coordinate": 38,
+          "value": 0,
+          "term": null,
+          "is_active": false
+        },
+        {
+          "coordinate": 39,
+          "value": 0,
+          "term": null,
+          "is_active": false
+        },
+        {
+          "coordinate": 40,
+          "value": 0,
+          "term": null,
+          "is_active": false
+        },
+        {
+          "coordinate": 41,
+          "value": 0,
+          "term": null,
+          "is_active": false
+        },
+        {
+          "coordinate": 42,
+          "value": 0,
+          "term": null,
+          "is_active": false
+        },
+        {
+          "coordinate": 43,
+          "value": 0,
+          "term": null,
+          "is_active": false
+        },
+        {
+          "coordinate": 44,
+          "value": 0,
+          "term": null,
+          "is_active": false
+        },
+        {
+          "coordinate": 45,
+          "value": 0,
+          "term": null,
+          "is_active": false
+        },
+        {
+          "coordinate": 46,
+          "value": 0,
+          "term": null,
+          "is_active": false
+        },
+        {
+          "coordinate": 47,
+          "value": 0,
+          "term": null,
+          "is_active": false
+        },
+        {
+          "coordinate": 48,
+          "value": 0,
+          "term": null,
+          "is_active": false
+        },
+        {
+          "coordinate": 49,
+          "value": 0,
+          "term": null,
+          "is_active": false
+        },
+        {
+          "coordinate": 50,
+          "value": 0,
+          "term": null,
+          "is_active": false
+        },
+        {
+          "coordinate": 51,
+          "value": 0,
+          "term": null,
+          "is_active": false
+        },
+        {
+          "coordinate": 52,
+          "value": 0,
+          "term": null,
+          "is_active": false
+        },
+        {
+          "coordinate": 53,
+          "value": 0,
+          "term": null,
+          "is_active": false
+        },
+        {
+          "coordinate": 54,
+          "value": 0,
+          "term": null,
+          "is_active": false
+        },
+        {
+          "coordinate": 55,
+          "value": 0,
+          "term": null,
+          "is_active": false
+        },
+        {
+          "coordinate": 56,
+          "value": 0,
+          "term": null,
+          "is_active": false
+        },
+        {
+          "coordinate": 57,
+          "value": 0,
+          "term": null,
+          "is_active": false
+        },
+        {
+          "coordinate": 58,
+          "value": 0,
+          "term": null,
+          "is_active": false
+        },
+        {
+          "coordinate": 59,
+          "value": 0,
+          "term": null,
+          "is_active": false
+        },
+        {
+          "coordinate": 60,
+          "value": 0,
+          "term": null,
+          "is_active": false
+        },
+        {
+          "coordinate": 61,
+          "value": 0,
+          "term": null,
+          "is_active": false
+        },
+        {
+          "coordinate": 62,
+          "value": 0,
+          "term": null,
+          "is_active": false
+        },
+        {
+          "coordinate": 63,
+          "value": 0,
+          "term": null,
+          "is_active": false
+        },
+        {
+          "coordinate": 64,
+          "value": 0.5384979101064753,
+          "term": "random",
+          "is_active": true
+        },
+        {
+          "coordinate": 65,
+          "value": 0.5384979101064753,
+          "term": "random forests",
+          "is_active": true
+        },
+        {
+          "coordinate": 66,
+          "value": 0,
+          "term": null,
+          "is_active": false
+        },
+        {
+          "coordinate": 67,
+          "value": 0,
+          "term": null,
+          "is_active": false
+        },
+        {
+          "coordinate": 68,
+          "value": 0,
+          "term": null,
+          "is_active": false
+        },
+        {
+          "coordinate": 69,
+          "value": 0,
+          "term": null,
+          "is_active": false
+        },
+        {
+          "coordinate": 70,
+          "value": 0,
+          "term": null,
+          "is_active": false
+        },
+        {
+          "coordinate": 71,
+          "value": 0,
+          "term": null,
+          "is_active": false
+        },
+        {
+          "coordinate": 72,
+          "value": 0,
+          "term": null,
+          "is_active": false
+        },
+        {
+          "coordinate": 73,
+          "value": 0,
+          "term": null,
+          "is_active": false
+        },
+        {
+          "coordinate": 74,
+          "value": 0,
+          "term": null,
+          "is_active": false
+        },
+        {
+          "coordinate": 75,
+          "value": 0,
+          "term": null,
+          "is_active": false
+        },
+        {
+          "coordinate": 76,
+          "value": 0,
+          "term": null,
+          "is_active": false
+        },
+        {
+          "coordinate": 77,
+          "value": 0,
+          "term": null,
+          "is_active": false
+        },
+        {
+          "coordinate": 78,
+          "value": 0,
+          "term": null,
+          "is_active": false
+        },
+        {
+          "coordinate": 79,
+          "value": 0,
+          "term": null,
+          "is_active": false
+        },
+        {
+          "coordinate": 80,
+          "value": 0,
+          "term": null,
+          "is_active": false
+        },
+        {
+          "coordinate": 81,
+          "value": 0,
+          "term": null,
+          "is_active": false
+        },
+        {
+          "coordinate": 82,
+          "value": 0,
+          "term": null,
+          "is_active": false
+        },
+        {
+          "coordinate": 83,
+          "value": 0,
+          "term": null,
+          "is_active": false
+        },
+        {
+          "coordinate": 84,
+          "value": 0,
+          "term": null,
+          "is_active": false
+        },
+        {
+          "coordinate": 85,
+          "value": 0,
+          "term": null,
+          "is_active": false
+        },
+        {
+          "coordinate": 86,
+          "value": 0,
+          "term": null,
+          "is_active": false
+        },
+        {
+          "coordinate": 87,
+          "value": 0,
+          "term": null,
+          "is_active": false
+        },
+        {
+          "coordinate": 88,
+          "value": 0,
+          "term": null,
+          "is_active": false
+        },
+        {
+          "coordinate": 89,
+          "value": 0,
+          "term": null,
+          "is_active": false
+        },
+        {
+          "coordinate": 90,
+          "value": 0,
+          "term": null,
+          "is_active": false
+        },
+        {
+          "coordinate": 91,
+          "value": 0,
+          "term": null,
+          "is_active": false
+        },
+        {
+          "coordinate": 92,
+          "value": 0,
+          "term": null,
+          "is_active": false
+        },
+        {
+          "coordinate": 93,
+          "value": 0,
+          "term": null,
+          "is_active": false
+        },
+        {
+          "coordinate": 94,
+          "value": 0,
+          "term": null,
+          "is_active": false
+        },
+        {
+          "coordinate": 95,
+          "value": 0,
+          "term": null,
+          "is_active": false
+        },
+        {
+          "coordinate": 96,
+          "value": 0,
+          "term": null,
+          "is_active": false
+        },
+        {
+          "coordinate": 97,
+          "value": 0,
+          "term": null,
+          "is_active": false
+        },
+        {
+          "coordinate": 98,
+          "value": 0,
+          "term": null,
+          "is_active": false
+        },
+        {
+          "coordinate": 99,
+          "value": 0,
+          "term": null,
+          "is_active": false
+        }
+      ],
+      "top_terms": [
+        {
+          "term": "methods",
+          "weight": 0.5384979101064753,
+          "coordinate": 15
+        },
+        {
+          "term": "random",
+          "weight": 0.5384979101064753,
+          "coordinate": 64
+        },
+        {
+          "term": "random forests",
+          "weight": 0.5384979101064753,
+          "coordinate": 65
+        },
+        {
+          "term": "learning",
+          "weight": 0.36063832635048015,
+          "coordinate": 10
+        }
+      ]
+    },
+    {
+      "highlight": "Deep learning requires multiple hidden layers",
+      "validation_status": "FAIL",
+      "coordinate_map": [
+        {
+          "coordinate": 0,
+          "value": 0,
+          "term": null,
+          "is_active": false
+        },
+        {
+          "coordinate": 1,
+          "value": 0,
+          "term": null,
+          "is_active": false
+        },
+        {
+          "coordinate": 2,
+          "value": 0,
+          "term": null,
+          "is_active": false
+        },
+        {
+          "coordinate": 3,
+          "value": 0,
+          "term": null,
+          "is_active": false
+        },
+        {
+          "coordinate": 4,
+          "value": 0,
+          "term": null,
+          "is_active": false
+        },
+        {
+          "coordinate": 5,
+          "value": 0,
+          "term": null,
+          "is_active": false
+        },
+        {
+          "coordinate": 6,
+          "value": 0,
+          "term": null,
+          "is_active": false
+        },
+        {
+          "coordinate": 7,
+          "value": 0,
+          "term": null,
+          "is_active": false
+        },
+        {
+          "coordinate": 8,
+          "value": 0,
+          "term": null,
+          "is_active": false
+        },
+        {
+          "coordinate": 9,
+          "value": 0.6390704413963749,
+          "term": "layers",
+          "is_active": true
+        },
+        {
+          "coordinate": 10,
+          "value": 0.42799292268317357,
+          "term": "learning",
+          "is_active": true
+        },
+        {
+          "coordinate": 11,
+          "value": 0,
+          "term": null,
+          "is_active": false
+        },
+        {
+          "coordinate": 12,
+          "value": 0,
+          "term": null,
+          "is_active": false
+        },
+        {
+          "coordinate": 13,
+          "value": 0,
+          "term": null,
+          "is_active": false
+        },
+        {
+          "coordinate": 14,
+          "value": 0,
+          "term": null,
+          "is_active": false
+        },
+        {
+          "coordinate": 15,
+          "value": 0,
+          "term": null,
+          "is_active": false
+        },
+        {
+          "coordinate": 16,
+          "value": 0,
+          "term": null,
+          "is_active": false
+        },
+        {
+          "coordinate": 17,
+          "value": 0,
+          "term": null,
+          "is_active": false
+        },
+        {
+          "coordinate": 18,
+          "value": 0,
+          "term": null,
+          "is_active": false
+        },
+        {
+          "coordinate": 19,
+          "value": 0,
+          "term": null,
+          "is_active": false
+        },
+        {
+          "coordinate": 20,
+          "value": 0,
+          "term": null,
+          "is_active": false
+        },
+        {
+          "coordinate": 21,
+          "value": 0,
+          "term": null,
+          "is_active": false
+        },
+        {
+          "coordinate": 22,
+          "value": 0,
+          "term": null,
+          "is_active": false
+        },
+        {
+          "coordinate": 23,
+          "value": 0,
+          "term": null,
+          "is_active": false
+        },
+        {
+          "coordinate": 24,
+          "value": 0,
+          "term": null,
+          "is_active": false
+        },
+        {
+          "coordinate": 25,
+          "value": 0,
+          "term": null,
+          "is_active": false
+        },
+        {
+          "coordinate": 26,
+          "value": 0.6390704413963749,
+          "term": "multiple",
+          "is_active": true
+        },
+        {
+          "coordinate": 27,
+          "value": 0,
+          "term": null,
+          "is_active": false
+        },
+        {
+          "coordinate": 28,
+          "value": 0,
+          "term": null,
+          "is_active": false
+        },
+        {
+          "coordinate": 29,
+          "value": 0,
+          "term": null,
+          "is_active": false
+        },
+        {
+          "coordinate": 30,
+          "value": 0,
+          "term": null,
+          "is_active": false
+        },
+        {
+          "coordinate": 31,
+          "value": 0,
+          "term": null,
+          "is_active": false
+        },
+        {
+          "coordinate": 32,
+          "value": 0,
+          "term": null,
+          "is_active": false
+        },
+        {
+          "coordinate": 33,
+          "value": 0,
+          "term": null,
+          "is_active": false
+        },
+        {
+          "coordinate": 34,
+          "value": 0,
+          "term": null,
+          "is_active": false
+        },
+        {
+          "coordinate": 35,
+          "value": 0,
+          "term": null,
+          "is_active": false
+        },
+        {
+          "coordinate": 36,
+          "value": 0,
+          "term": null,
+          "is_active": false
+        },
+        {
+          "coordinate": 37,
+          "value": 0,
+          "term": null,
+          "is_active": false
+        },
+        {
+          "coordinate": 38,
+          "value": 0,
+          "term": null,
+          "is_active": false
+        },
+        {
+          "coordinate": 39,
+          "value": 0,
+          "term": null,
+          "is_active": false
+        },
+        {
+          "coordinate": 40,
+          "value": 0,
+          "term": null,
+          "is_active": false
+        },
+        {
+          "coordinate": 41,
+          "value": 0,
+          "term": null,
+          "is_active": false
+        },
+        {
+          "coordinate": 42,
+          "value": 0,
+          "term": null,
+          "is_active": false
+        },
+        {
+          "coordinate": 43,
+          "value": 0,
+          "term": null,
+          "is_active": false
+        },
+        {
+          "coordinate": 44,
+          "value": 0,
+          "term": null,
+          "is_active": false
+        },
+        {
+          "coordinate": 45,
+          "value": 0,
+          "term": null,
+          "is_active": false
+        },
+        {
+          "coordinate": 46,
+          "value": 0,
+          "term": null,
+          "is_active": false
+        },
+        {
+          "coordinate": 47,
+          "value": 0,
+          "term": null,
+          "is_active": false
+        },
+        {
+          "coordinate": 48,
+          "value": 0,
+          "term": null,
+          "is_active": false
+        },
+        {
+          "coordinate": 49,
+          "value": 0,
+          "term": null,
+          "is_active": false
+        },
+        {
+          "coordinate": 50,
+          "value": 0,
+          "term": null,
+          "is_active": false
+        },
+        {
+          "coordinate": 51,
+          "value": 0,
+          "term": null,
+          "is_active": false
+        },
+        {
+          "coordinate": 52,
+          "value": 0,
+          "term": null,
+          "is_active": false
+        },
+        {
+          "coordinate": 53,
+          "value": 0,
+          "term": null,
+          "is_active": false
+        },
+        {
+          "coordinate": 54,
+          "value": 0,
+          "term": null,
+          "is_active": false
+        },
+        {
+          "coordinate": 55,
+          "value": 0,
+          "term": null,
+          "is_active": false
+        },
+        {
+          "coordinate": 56,
+          "value": 0,
+          "term": null,
+          "is_active": false
+        },
+        {
+          "coordinate": 57,
+          "value": 0,
+          "term": null,
+          "is_active": false
+        },
+        {
+          "coordinate": 58,
+          "value": 0,
+          "term": null,
+          "is_active": false
+        },
+        {
+          "coordinate": 59,
+          "value": 0,
+          "term": null,
+          "is_active": false
+        },
+        {
+          "coordinate": 60,
+          "value": 0,
+          "term": null,
+          "is_active": false
+        },
+        {
+          "coordinate": 61,
+          "value": 0,
+          "term": null,
+          "is_active": false
+        },
+        {
+          "coordinate": 62,
+          "value": 0,
+          "term": null,
+          "is_active": false
+        },
+        {
+          "coordinate": 63,
+          "value": 0,
+          "term": null,
+          "is_active": false
+        },
+        {
+          "coordinate": 64,
+          "value": 0,
+          "term": null,
+          "is_active": false
+        },
+        {
+          "coordinate": 65,
+          "value": 0,
+          "term": null,
+          "is_active": false
+        },
+        {
+          "coordinate": 66,
+          "value": 0,
+          "term": null,
+          "is_active": false
+        },
+        {
+          "coordinate": 67,
+          "value": 0,
+          "term": null,
+          "is_active": false
+        },
+        {
+          "coordinate": 68,
+          "value": 0,
+          "term": null,
+          "is_active": false
+        },
+        {
+          "coordinate": 69,
+          "value": 0,
+          "term": null,
+          "is_active": false
+        },
+        {
+          "coordinate": 70,
+          "value": 0,
+          "term": null,
+          "is_active": false
+        },
+        {
+          "coordinate": 71,
+          "value": 0,
+          "term": null,
+          "is_active": false
+        },
+        {
+          "coordinate": 72,
+          "value": 0,
+          "term": null,
+          "is_active": false
+        },
+        {
+          "coordinate": 73,
+          "value": 0,
+          "term": null,
+          "is_active": false
+        },
+        {
+          "coordinate": 74,
+          "value": 0,
+          "term": null,
+          "is_active": false
+        },
+        {
+          "coordinate": 75,
+          "value": 0,
+          "term": null,
+          "is_active": false
+        },
+        {
+          "coordinate": 76,
+          "value": 0,
+          "term": null,
+          "is_active": false
+        },
+        {
+          "coordinate": 77,
+          "value": 0,
+          "term": null,
+          "is_active": false
+        },
+        {
+          "coordinate": 78,
+          "value": 0,
+          "term": null,
+          "is_active": false
+        },
+        {
+          "coordinate": 79,
+          "value": 0,
+          "term": null,
+          "is_active": false
+        },
+        {
+          "coordinate": 80,
+          "value": 0,
+          "term": null,
+          "is_active": false
+        },
+        {
+          "coordinate": 81,
+          "value": 0,
+          "term": null,
+          "is_active": false
+        },
+        {
+          "coordinate": 82,
+          "value": 0,
+          "term": null,
+          "is_active": false
+        },
+        {
+          "coordinate": 83,
+          "value": 0,
+          "term": null,
+          "is_active": false
+        },
+        {
+          "coordinate": 84,
+          "value": 0,
+          "term": null,
+          "is_active": false
+        },
+        {
+          "coordinate": 85,
+          "value": 0,
+          "term": null,
+          "is_active": false
+        },
+        {
+          "coordinate": 86,
+          "value": 0,
+          "term": null,
+          "is_active": false
+        },
+        {
+          "coordinate": 87,
+          "value": 0,
+          "term": null,
+          "is_active": false
+        },
+        {
+          "coordinate": 88,
+          "value": 0,
+          "term": null,
+          "is_active": false
+        },
+        {
+          "coordinate": 89,
+          "value": 0,
+          "term": null,
+          "is_active": false
+        },
+        {
+          "coordinate": 90,
+          "value": 0,
+          "term": null,
+          "is_active": false
+        },
+        {
+          "coordinate": 91,
+          "value": 0,
+          "term": null,
+          "is_active": false
+        },
+        {
+          "coordinate": 92,
+          "value": 0,
+          "term": null,
+          "is_active": false
+        },
+        {
+          "coordinate": 93,
+          "value": 0,
+          "term": null,
+          "is_active": false
+        },
+        {
+          "coordinate": 94,
+          "value": 0,
+          "term": null,
+          "is_active": false
+        },
+        {
+          "coordinate": 95,
+          "value": 0,
+          "term": null,
+          "is_active": false
+        },
+        {
+          "coordinate": 96,
+          "value": 0,
+          "term": null,
+          "is_active": false
+        },
+        {
+          "coordinate": 97,
+          "value": 0,
+          "term": null,
+          "is_active": false
+        },
+        {
+          "coordinate": 98,
+          "value": 0,
+          "term": null,
+          "is_active": false
+        },
+        {
+          "coordinate": 99,
+          "value": 0,
+          "term": null,
+          "is_active": false
+        }
+      ],
+      "top_terms": [
+        {
+          "term": "layers",
+          "weight": 0.6390704413963749,
+          "coordinate": 9
+        },
+        {
+          "term": "multiple",
+          "weight": 0.6390704413963749,
+          "coordinate": 26
+        },
+        {
+          "term": "learning",
+          "weight": 0.42799292268317357,
+          "coordinate": 10
+        }
+      ]
+    },
+    {
+      "highlight": "Cross-validation prevents model overfitting",
+      "validation_status": "FAIL",
+      "coordinate_map": [
+        {
+          "coordinate": 0,
+          "value": 0,
+          "term": null,
+          "is_active": false
+        },
+        {
+          "coordinate": 1,
+          "value": 0,
+          "term": null,
+          "is_active": false
+        },
+        {
+          "coordinate": 2,
+          "value": 0,
+          "term": null,
+          "is_active": false
+        },
+        {
+          "coordinate": 3,
+          "value": 0,
+          "term": null,
+          "is_active": false
+        },
+        {
+          "coordinate": 4,
+          "value": 0,
+          "term": null,
+          "is_active": false
+        },
+        {
+          "coordinate": 5,
+          "value": 0,
+          "term": null,
+          "is_active": false
+        },
+        {
+          "coordinate": 6,
+          "value": 0,
+          "term": null,
+          "is_active": false
+        },
+        {
+          "coordinate": 7,
+          "value": 0,
+          "term": null,
+          "is_active": false
+        },
+        {
+          "coordinate": 8,
+          "value": 0,
+          "term": null,
+          "is_active": false
+        },
+        {
+          "coordinate": 9,
+          "value": 0,
+          "term": null,
+          "is_active": false
+        },
+        {
+          "coordinate": 10,
+          "value": 0,
+          "term": null,
+          "is_active": false
+        },
+        {
+          "coordinate": 11,
+          "value": 0,
+          "term": null,
+          "is_active": false
+        },
+        {
+          "coordinate": 12,
+          "value": 0,
+          "term": null,
+          "is_active": false
+        },
+        {
+          "coordinate": 13,
+          "value": 0,
+          "term": null,
+          "is_active": false
+        },
+        {
+          "coordinate": 14,
+          "value": 0,
+          "term": null,
+          "is_active": false
+        },
+        {
+          "coordinate": 15,
+          "value": 0,
+          "term": null,
+          "is_active": false
+        },
+        {
+          "coordinate": 16,
+          "value": 0,
+          "term": null,
+          "is_active": false
+        },
+        {
+          "coordinate": 17,
+          "value": 0,
+          "term": null,
+          "is_active": false
+        },
+        {
+          "coordinate": 18,
+          "value": 0,
+          "term": null,
+          "is_active": false
+        },
+        {
+          "coordinate": 19,
+          "value": 0,
+          "term": null,
+          "is_active": false
+        },
+        {
+          "coordinate": 20,
+          "value": 0,
+          "term": null,
+          "is_active": false
+        },
+        {
+          "coordinate": 21,
+          "value": 0,
+          "term": null,
+          "is_active": false
+        },
+        {
+          "coordinate": 22,
+          "value": 0,
+          "term": null,
+          "is_active": false
+        },
+        {
+          "coordinate": 23,
+          "value": 0.49552379079705033,
+          "term": "model",
+          "is_active": true
+        },
+        {
+          "coordinate": 24,
+          "value": 0,
+          "term": null,
+          "is_active": false
+        },
+        {
+          "coordinate": 25,
+          "value": 0,
+          "term": null,
+          "is_active": false
+        },
+        {
+          "coordinate": 26,
+          "value": 0,
+          "term": null,
+          "is_active": false
+        },
+        {
+          "coordinate": 27,
+          "value": 0,
+          "term": null,
+          "is_active": false
+        },
+        {
+          "coordinate": 28,
+          "value": 0,
+          "term": null,
+          "is_active": false
+        },
+        {
+          "coordinate": 29,
+          "value": 0,
+          "term": null,
+          "is_active": false
+        },
+        {
+          "coordinate": 30,
+          "value": 0,
+          "term": null,
+          "is_active": false
+        },
+        {
+          "coordinate": 31,
+          "value": 0,
+          "term": null,
+          "is_active": false
+        },
+        {
+          "coordinate": 32,
+          "value": 0,
+          "term": null,
+          "is_active": false
+        },
+        {
+          "coordinate": 33,
+          "value": 0,
+          "term": null,
+          "is_active": false
+        },
+        {
+          "coordinate": 34,
+          "value": 0,
+          "term": null,
+          "is_active": false
+        },
+        {
+          "coordinate": 35,
+          "value": 0,
+          "term": null,
+          "is_active": false
+        },
+        {
+          "coordinate": 36,
+          "value": 0,
+          "term": null,
+          "is_active": false
+        },
+        {
+          "coordinate": 37,
+          "value": 0,
+          "term": null,
+          "is_active": false
+        },
+        {
+          "coordinate": 38,
+          "value": 0,
+          "term": null,
+          "is_active": false
+        },
+        {
+          "coordinate": 39,
+          "value": 0,
+          "term": null,
+          "is_active": false
+        },
+        {
+          "coordinate": 40,
+          "value": 0,
+          "term": null,
+          "is_active": false
+        },
+        {
+          "coordinate": 41,
+          "value": 0,
+          "term": null,
+          "is_active": false
+        },
+        {
+          "coordinate": 42,
+          "value": 0,
+          "term": null,
+          "is_active": false
+        },
+        {
+          "coordinate": 43,
+          "value": 0,
+          "term": null,
+          "is_active": false
+        },
+        {
+          "coordinate": 44,
+          "value": 0.6141889663426562,
+          "term": "overfitting",
+          "is_active": true
+        },
+        {
+          "coordinate": 45,
+          "value": 0,
+          "term": null,
+          "is_active": false
+        },
+        {
+          "coordinate": 46,
+          "value": 0,
+          "term": null,
+          "is_active": false
+        },
+        {
+          "coordinate": 47,
+          "value": 0,
+          "term": null,
+          "is_active": false
+        },
+        {
+          "coordinate": 48,
+          "value": 0,
+          "term": null,
+          "is_active": false
+        },
+        {
+          "coordinate": 49,
+          "value": 0,
+          "term": null,
+          "is_active": false
+        },
+        {
+          "coordinate": 50,
+          "value": 0,
+          "term": null,
+          "is_active": false
+        },
+        {
+          "coordinate": 51,
+          "value": 0,
+          "term": null,
+          "is_active": false
+        },
+        {
+          "coordinate": 52,
+          "value": 0,
+          "term": null,
+          "is_active": false
+        },
+        {
+          "coordinate": 53,
+          "value": 0,
+          "term": null,
+          "is_active": false
+        },
+        {
+          "coordinate": 54,
+          "value": 0,
+          "term": null,
+          "is_active": false
+        },
+        {
+          "coordinate": 55,
+          "value": 0,
+          "term": null,
+          "is_active": false
+        },
+        {
+          "coordinate": 56,
+          "value": 0,
+          "term": null,
+          "is_active": false
+        },
+        {
+          "coordinate": 57,
+          "value": 0,
+          "term": null,
+          "is_active": false
+        },
+        {
+          "coordinate": 58,
+          "value": 0,
+          "term": null,
+          "is_active": false
+        },
+        {
+          "coordinate": 59,
+          "value": 0,
+          "term": null,
+          "is_active": false
+        },
+        {
+          "coordinate": 60,
+          "value": 0,
+          "term": null,
+          "is_active": false
+        },
+        {
+          "coordinate": 61,
+          "value": 0,
+          "term": null,
+          "is_active": false
+        },
+        {
+          "coordinate": 62,
+          "value": 0,
+          "term": null,
+          "is_active": false
+        },
+        {
+          "coordinate": 63,
+          "value": 0,
+          "term": null,
+          "is_active": false
+        },
+        {
+          "coordinate": 64,
+          "value": 0,
+          "term": null,
+          "is_active": false
+        },
+        {
+          "coordinate": 65,
+          "value": 0,
+          "term": null,
+          "is_active": false
+        },
+        {
+          "coordinate": 66,
+          "value": 0,
+          "term": null,
+          "is_active": false
+        },
+        {
+          "coordinate": 67,
+          "value": 0,
+          "term": null,
+          "is_active": false
+        },
+        {
+          "coordinate": 68,
+          "value": 0,
+          "term": null,
+          "is_active": false
+        },
+        {
+          "coordinate": 69,
+          "value": 0,
+          "term": null,
+          "is_active": false
+        },
+        {
+          "coordinate": 70,
+          "value": 0,
+          "term": null,
+          "is_active": false
+        },
+        {
+          "coordinate": 71,
+          "value": 0,
+          "term": null,
+          "is_active": false
+        },
+        {
+          "coordinate": 72,
+          "value": 0,
+          "term": null,
+          "is_active": false
+        },
+        {
+          "coordinate": 73,
+          "value": 0,
+          "term": null,
+          "is_active": false
+        },
+        {
+          "coordinate": 74,
+          "value": 0,
+          "term": null,
+          "is_active": false
+        },
+        {
+          "coordinate": 75,
+          "value": 0,
+          "term": null,
+          "is_active": false
+        },
+        {
+          "coordinate": 76,
+          "value": 0,
+          "term": null,
+          "is_active": false
+        },
+        {
+          "coordinate": 77,
+          "value": 0,
+          "term": null,
+          "is_active": false
+        },
+        {
+          "coordinate": 78,
+          "value": 0,
+          "term": null,
+          "is_active": false
+        },
+        {
+          "coordinate": 79,
+          "value": 0,
+          "term": null,
+          "is_active": false
+        },
+        {
+          "coordinate": 80,
+          "value": 0,
+          "term": null,
+          "is_active": false
+        },
+        {
+          "coordinate": 81,
+          "value": 0,
+          "term": null,
+          "is_active": false
+        },
+        {
+          "coordinate": 82,
+          "value": 0,
+          "term": null,
+          "is_active": false
+        },
+        {
+          "coordinate": 83,
+          "value": 0,
+          "term": null,
+          "is_active": false
+        },
+        {
+          "coordinate": 84,
+          "value": 0,
+          "term": null,
+          "is_active": false
+        },
+        {
+          "coordinate": 85,
+          "value": 0,
+          "term": null,
+          "is_active": false
+        },
+        {
+          "coordinate": 86,
+          "value": 0,
+          "term": null,
+          "is_active": false
+        },
+        {
+          "coordinate": 87,
+          "value": 0,
+          "term": null,
+          "is_active": false
+        },
+        {
+          "coordinate": 88,
+          "value": 0,
+          "term": null,
+          "is_active": false
+        },
+        {
+          "coordinate": 89,
+          "value": 0,
+          "term": null,
+          "is_active": false
+        },
+        {
+          "coordinate": 90,
+          "value": 0,
+          "term": null,
+          "is_active": false
+        },
+        {
+          "coordinate": 91,
+          "value": 0,
+          "term": null,
+          "is_active": false
+        },
+        {
+          "coordinate": 92,
+          "value": 0,
+          "term": null,
+          "is_active": false
+        },
+        {
+          "coordinate": 93,
+          "value": 0,
+          "term": null,
+          "is_active": false
+        },
+        {
+          "coordinate": 94,
+          "value": 0.6141889663426562,
+          "term": "validation",
+          "is_active": true
+        },
+        {
+          "coordinate": 95,
+          "value": 0,
+          "term": null,
+          "is_active": false
+        },
+        {
+          "coordinate": 96,
+          "value": 0,
+          "term": null,
+          "is_active": false
+        },
+        {
+          "coordinate": 97,
+          "value": 0,
+          "term": null,
+          "is_active": false
+        },
+        {
+          "coordinate": 98,
+          "value": 0,
+          "term": null,
+          "is_active": false
+        },
+        {
+          "coordinate": 99,
+          "value": 0,
+          "term": null,
+          "is_active": false
+        }
+      ],
+      "top_terms": [
+        {
+          "term": "overfitting",
+          "weight": 0.6141889663426562,
+          "coordinate": 44
+        },
+        {
+          "term": "validation",
+          "weight": 0.6141889663426562,
+          "coordinate": 94
+        },
+        {
+          "term": "model",
+          "weight": 0.49552379079705033,
+          "coordinate": 23
+        }
+      ]
+    },
+    {
+      "highlight": "PCA is used for dimensionality reduction",
+      "validation_status": "FAIL",
+      "coordinate_map": [
+        {
+          "coordinate": 0,
+          "value": 0,
+          "term": null,
+          "is_active": false
+        },
+        {
+          "coordinate": 1,
+          "value": 0,
+          "term": null,
+          "is_active": false
+        },
+        {
+          "coordinate": 2,
+          "value": 0,
+          "term": null,
+          "is_active": false
+        },
+        {
+          "coordinate": 3,
+          "value": 0,
+          "term": null,
+          "is_active": false
+        },
+        {
+          "coordinate": 4,
+          "value": 0,
+          "term": null,
+          "is_active": false
+        },
+        {
+          "coordinate": 5,
+          "value": 0,
+          "term": null,
+          "is_active": false
+        },
+        {
+          "coordinate": 6,
+          "value": 0,
+          "term": null,
+          "is_active": false
+        },
+        {
+          "coordinate": 7,
+          "value": 0,
+          "term": null,
+          "is_active": false
+        },
+        {
+          "coordinate": 8,
+          "value": 0,
+          "term": null,
+          "is_active": false
+        },
+        {
+          "coordinate": 9,
+          "value": 0,
+          "term": null,
+          "is_active": false
+        },
+        {
+          "coordinate": 10,
+          "value": 0,
+          "term": null,
+          "is_active": false
+        },
+        {
+          "coordinate": 11,
+          "value": 0,
+          "term": null,
+          "is_active": false
+        },
+        {
+          "coordinate": 12,
+          "value": 0,
+          "term": null,
+          "is_active": false
+        },
+        {
+          "coordinate": 13,
+          "value": 0,
+          "term": null,
+          "is_active": false
+        },
+        {
+          "coordinate": 14,
+          "value": 0,
+          "term": null,
+          "is_active": false
+        },
+        {
+          "coordinate": 15,
+          "value": 0,
+          "term": null,
+          "is_active": false
+        },
+        {
+          "coordinate": 16,
+          "value": 0,
+          "term": null,
+          "is_active": false
+        },
+        {
+          "coordinate": 17,
+          "value": 0,
+          "term": null,
+          "is_active": false
+        },
+        {
+          "coordinate": 18,
+          "value": 0,
+          "term": null,
+          "is_active": false
+        },
+        {
+          "coordinate": 19,
+          "value": 0,
+          "term": null,
+          "is_active": false
+        },
+        {
+          "coordinate": 20,
+          "value": 0,
+          "term": null,
+          "is_active": false
+        },
+        {
+          "coordinate": 21,
+          "value": 0,
+          "term": null,
+          "is_active": false
+        },
+        {
+          "coordinate": 22,
+          "value": 0,
+          "term": null,
+          "is_active": false
+        },
+        {
+          "coordinate": 23,
+          "value": 0,
+          "term": null,
+          "is_active": false
+        },
+        {
+          "coordinate": 24,
+          "value": 0,
+          "term": null,
+          "is_active": false
+        },
+        {
+          "coordinate": 25,
+          "value": 0,
+          "term": null,
+          "is_active": false
+        },
+        {
+          "coordinate": 26,
+          "value": 0,
+          "term": null,
+          "is_active": false
+        },
+        {
+          "coordinate": 27,
+          "value": 0,
+          "term": null,
+          "is_active": false
+        },
+        {
+          "coordinate": 28,
+          "value": 0,
+          "term": null,
+          "is_active": false
+        },
+        {
+          "coordinate": 29,
+          "value": 0,
+          "term": null,
+          "is_active": false
+        },
+        {
+          "coordinate": 30,
+          "value": 0,
+          "term": null,
+          "is_active": false
+        },
+        {
+          "coordinate": 31,
+          "value": 0,
+          "term": null,
+          "is_active": false
+        },
+        {
+          "coordinate": 32,
+          "value": 0,
+          "term": null,
+          "is_active": false
+        },
+        {
+          "coordinate": 33,
+          "value": 0,
+          "term": null,
+          "is_active": false
+        },
+        {
+          "coordinate": 34,
+          "value": 0,
+          "term": null,
+          "is_active": false
+        },
+        {
+          "coordinate": 35,
+          "value": 0,
+          "term": null,
+          "is_active": false
+        },
+        {
+          "coordinate": 36,
+          "value": 0,
+          "term": null,
+          "is_active": false
+        },
+        {
+          "coordinate": 37,
+          "value": 0,
+          "term": null,
+          "is_active": false
+        },
+        {
+          "coordinate": 38,
+          "value": 0,
+          "term": null,
+          "is_active": false
+        },
+        {
+          "coordinate": 39,
+          "value": 0,
+          "term": null,
+          "is_active": false
+        },
+        {
+          "coordinate": 40,
+          "value": 0,
+          "term": null,
+          "is_active": false
+        },
+        {
+          "coordinate": 41,
+          "value": 0,
+          "term": null,
+          "is_active": false
+        },
+        {
+          "coordinate": 42,
+          "value": 0,
+          "term": null,
+          "is_active": false
+        },
+        {
+          "coordinate": 43,
+          "value": 0,
+          "term": null,
+          "is_active": false
+        },
+        {
+          "coordinate": 44,
+          "value": 0,
+          "term": null,
+          "is_active": false
+        },
+        {
+          "coordinate": 45,
+          "value": 0,
+          "term": null,
+          "is_active": false
+        },
+        {
+          "coordinate": 46,
+          "value": 1.0,
+          "term": "pca",
+          "is_active": true
+        },
+        {
+          "coordinate": 47,
+          "value": 0,
+          "term": null,
+          "is_active": false
+        },
+        {
+          "coordinate": 48,
+          "value": 0,
+          "term": null,
+          "is_active": false
+        },
+        {
+          "coordinate": 49,
+          "value": 0,
+          "term": null,
+          "is_active": false
+        },
+        {
+          "coordinate": 50,
+          "value": 0,
+          "term": null,
+          "is_active": false
+        },
+        {
+          "coordinate": 51,
+          "value": 0,
+          "term": null,
+          "is_active": false
+        },
+        {
+          "coordinate": 52,
+          "value": 0,
+          "term": null,
+          "is_active": false
+        },
+        {
+          "coordinate": 53,
+          "value": 0,
+          "term": null,
+          "is_active": false
+        },
+        {
+          "coordinate": 54,
+          "value": 0,
+          "term": null,
+          "is_active": false
+        },
+        {
+          "coordinate": 55,
+          "value": 0,
+          "term": null,
+          "is_active": false
+        },
+        {
+          "coordinate": 56,
+          "value": 0,
+          "term": null,
+          "is_active": false
+        },
+        {
+          "coordinate": 57,
+          "value": 0,
+          "term": null,
+          "is_active": false
+        },
+        {
+          "coordinate": 58,
+          "value": 0,
+          "term": null,
+          "is_active": false
+        },
+        {
+          "coordinate": 59,
+          "value": 0,
+          "term": null,
+          "is_active": false
+        },
+        {
+          "coordinate": 60,
+          "value": 0,
+          "term": null,
+          "is_active": false
+        },
+        {
+          "coordinate": 61,
+          "value": 0,
+          "term": null,
+          "is_active": false
+        },
+        {
+          "coordinate": 62,
+          "value": 0,
+          "term": null,
+          "is_active": false
+        },
+        {
+          "coordinate": 63,
+          "value": 0,
+          "term": null,
+          "is_active": false
+        },
+        {
+          "coordinate": 64,
+          "value": 0,
+          "term": null,
+          "is_active": false
+        },
+        {
+          "coordinate": 65,
+          "value": 0,
+          "term": null,
+          "is_active": false
+        },
+        {
+          "coordinate": 66,
+          "value": 0,
+          "term": null,
+          "is_active": false
+        },
+        {
+          "coordinate": 67,
+          "value": 0,
+          "term": null,
+          "is_active": false
+        },
+        {
+          "coordinate": 68,
+          "value": 0,
+          "term": null,
+          "is_active": false
+        },
+        {
+          "coordinate": 69,
+          "value": 0,
+          "term": null,
+          "is_active": false
+        },
+        {
+          "coordinate": 70,
+          "value": 0,
+          "term": null,
+          "is_active": false
+        },
+        {
+          "coordinate": 71,
+          "value": 0,
+          "term": null,
+          "is_active": false
+        },
+        {
+          "coordinate": 72,
+          "value": 0,
+          "term": null,
+          "is_active": false
+        },
+        {
+          "coordinate": 73,
+          "value": 0,
+          "term": null,
+          "is_active": false
+        },
+        {
+          "coordinate": 74,
+          "value": 0,
+          "term": null,
+          "is_active": false
+        },
+        {
+          "coordinate": 75,
+          "value": 0,
+          "term": null,
+          "is_active": false
+        },
+        {
+          "coordinate": 76,
+          "value": 0,
+          "term": null,
+          "is_active": false
+        },
+        {
+          "coordinate": 77,
+          "value": 0,
+          "term": null,
+          "is_active": false
+        },
+        {
+          "coordinate": 78,
+          "value": 0,
+          "term": null,
+          "is_active": false
+        },
+        {
+          "coordinate": 79,
+          "value": 0,
+          "term": null,
+          "is_active": false
+        },
+        {
+          "coordinate": 80,
+          "value": 0,
+          "term": null,
+          "is_active": false
+        },
+        {
+          "coordinate": 81,
+          "value": 0,
+          "term": null,
+          "is_active": false
+        },
+        {
+          "coordinate": 82,
+          "value": 0,
+          "term": null,
+          "is_active": false
+        },
+        {
+          "coordinate": 83,
+          "value": 0,
+          "term": null,
+          "is_active": false
+        },
+        {
+          "coordinate": 84,
+          "value": 0,
+          "term": null,
+          "is_active": false
+        },
+        {
+          "coordinate": 85,
+          "value": 0,
+          "term": null,
+          "is_active": false
+        },
+        {
+          "coordinate": 86,
+          "value": 0,
+          "term": null,
+          "is_active": false
+        },
+        {
+          "coordinate": 87,
+          "value": 0,
+          "term": null,
+          "is_active": false
+        },
+        {
+          "coordinate": 88,
+          "value": 0,
+          "term": null,
+          "is_active": false
+        },
+        {
+          "coordinate": 89,
+          "value": 0,
+          "term": null,
+          "is_active": false
+        },
+        {
+          "coordinate": 90,
+          "value": 0,
+          "term": null,
+          "is_active": false
+        },
+        {
+          "coordinate": 91,
+          "value": 0,
+          "term": null,
+          "is_active": false
+        },
+        {
+          "coordinate": 92,
+          "value": 0,
+          "term": null,
+          "is_active": false
+        },
+        {
+          "coordinate": 93,
+          "value": 0,
+          "term": null,
+          "is_active": false
+        },
+        {
+          "coordinate": 94,
+          "value": 0,
+          "term": null,
+          "is_active": false
+        },
+        {
+          "coordinate": 95,
+          "value": 0,
+          "term": null,
+          "is_active": false
+        },
+        {
+          "coordinate": 96,
+          "value": 0,
+          "term": null,
+          "is_active": false
+        },
+        {
+          "coordinate": 97,
+          "value": 0,
+          "term": null,
+          "is_active": false
+        },
+        {
+          "coordinate": 98,
+          "value": 0,
+          "term": null,
+          "is_active": false
+        },
+        {
+          "coordinate": 99,
+          "value": 0,
+          "term": null,
+          "is_active": false
+        }
+      ],
+      "top_terms": [
+        {
+          "term": "pca",
+          "weight": 1.0,
+          "coordinate": 46
+        }
+      ]
+    },
+    {
+      "highlight": "Unsupervised learning includes clustering algorithms",
+      "validation_status": "PASS",
+      "coordinate_map": [
+        {
+          "coordinate": 0,
+          "value": 0,
+          "term": null,
+          "is_active": false
+        },
+        {
+          "coordinate": 1,
+          "value": 0,
+          "term": null,
+          "is_active": false
+        },
+        {
+          "coordinate": 2,
+          "value": 0.45827018116532225,
+          "term": "algorithms",
+          "is_active": true
+        },
+        {
+          "coordinate": 3,
+          "value": 0,
+          "term": null,
+          "is_active": false
+        },
+        {
+          "coordinate": 4,
+          "value": 0,
+          "term": null,
+          "is_active": false
+        },
+        {
+          "coordinate": 5,
+          "value": 0,
+          "term": null,
+          "is_active": false
+        },
+        {
+          "coordinate": 6,
+          "value": 0,
+          "term": null,
+          "is_active": false
+        },
+        {
+          "coordinate": 7,
+          "value": 0,
+          "term": null,
+          "is_active": false
+        },
+        {
+          "coordinate": 8,
+          "value": 0,
+          "term": null,
+          "is_active": false
+        },
+        {
+          "coordinate": 9,
+          "value": 0,
+          "term": null,
+          "is_active": false
+        },
+        {
+          "coordinate": 10,
+          "value": 0.38040564760664297,
+          "term": "learning",
+          "is_active": true
+        },
+        {
+          "coordinate": 11,
+          "value": 0,
+          "term": null,
+          "is_active": false
+        },
+        {
+          "coordinate": 12,
+          "value": 0,
+          "term": null,
+          "is_active": false
+        },
+        {
+          "coordinate": 13,
+          "value": 0,
+          "term": null,
+          "is_active": false
+        },
+        {
+          "coordinate": 14,
+          "value": 0,
+          "term": null,
+          "is_active": false
+        },
+        {
+          "coordinate": 15,
+          "value": 0,
+          "term": null,
+          "is_active": false
+        },
+        {
+          "coordinate": 16,
+          "value": 0,
+          "term": null,
+          "is_active": false
+        },
+        {
+          "coordinate": 17,
+          "value": 0,
+          "term": null,
+          "is_active": false
+        },
+        {
+          "coordinate": 18,
+          "value": 0,
+          "term": null,
+          "is_active": false
+        },
+        {
+          "coordinate": 19,
+          "value": 0,
+          "term": null,
+          "is_active": false
+        },
+        {
+          "coordinate": 20,
+          "value": 0,
+          "term": null,
+          "is_active": false
+        },
+        {
+          "coordinate": 21,
+          "value": 0,
+          "term": null,
+          "is_active": false
+        },
+        {
+          "coordinate": 22,
+          "value": 0,
+          "term": null,
+          "is_active": false
+        },
+        {
+          "coordinate": 23,
+          "value": 0,
+          "term": null,
+          "is_active": false
+        },
+        {
+          "coordinate": 24,
+          "value": 0,
+          "term": null,
+          "is_active": false
+        },
+        {
+          "coordinate": 25,
+          "value": 0,
+          "term": null,
+          "is_active": false
+        },
+        {
+          "coordinate": 26,
+          "value": 0,
+          "term": null,
+          "is_active": false
+        },
+        {
+          "coordinate": 27,
+          "value": 0,
+          "term": null,
+          "is_active": false
+        },
+        {
+          "coordinate": 28,
+          "value": 0,
+          "term": null,
+          "is_active": false
+        },
+        {
+          "coordinate": 29,
+          "value": 0,
+          "term": null,
+          "is_active": false
+        },
+        {
+          "coordinate": 30,
+          "value": 0,
+          "term": null,
+          "is_active": false
+        },
+        {
+          "coordinate": 31,
+          "value": 0,
+          "term": null,
+          "is_active": false
+        },
+        {
+          "coordinate": 32,
+          "value": 0,
+          "term": null,
+          "is_active": false
+        },
+        {
+          "coordinate": 33,
+          "value": 0,
+          "term": null,
+          "is_active": false
+        },
+        {
+          "coordinate": 34,
+          "value": 0,
+          "term": null,
+          "is_active": false
+        },
+        {
+          "coordinate": 35,
+          "value": 0,
+          "term": null,
+          "is_active": false
+        },
+        {
+          "coordinate": 36,
+          "value": 0,
+          "term": null,
+          "is_active": false
+        },
+        {
+          "coordinate": 37,
+          "value": 0,
+          "term": null,
+          "is_active": false
+        },
+        {
+          "coordinate": 38,
+          "value": 0,
+          "term": null,
+          "is_active": false
+        },
+        {
+          "coordinate": 39,
+          "value": 0,
+          "term": null,
+          "is_active": false
+        },
+        {
+          "coordinate": 40,
+          "value": 0,
+          "term": null,
+          "is_active": false
+        },
+        {
+          "coordinate": 41,
+          "value": 0,
+          "term": null,
+          "is_active": false
+        },
+        {
+          "coordinate": 42,
+          "value": 0,
+          "term": null,
+          "is_active": false
+        },
+        {
+          "coordinate": 43,
+          "value": 0,
+          "term": null,
+          "is_active": false
+        },
+        {
+          "coordinate": 44,
+          "value": 0,
+          "term": null,
+          "is_active": false
+        },
+        {
+          "coordinate": 45,
+          "value": 0,
+          "term": null,
+          "is_active": false
+        },
+        {
+          "coordinate": 46,
+          "value": 0,
+          "term": null,
+          "is_active": false
+        },
+        {
+          "coordinate": 47,
+          "value": 0,
+          "term": null,
+          "is_active": false
+        },
+        {
+          "coordinate": 48,
+          "value": 0,
+          "term": null,
+          "is_active": false
+        },
+        {
+          "coordinate": 49,
+          "value": 0,
+          "term": null,
+          "is_active": false
+        },
+        {
+          "coordinate": 50,
+          "value": 0,
+          "term": null,
+          "is_active": false
+        },
+        {
+          "coordinate": 51,
+          "value": 0,
+          "term": null,
+          "is_active": false
+        },
+        {
+          "coordinate": 52,
+          "value": 0,
+          "term": null,
+          "is_active": false
+        },
+        {
+          "coordinate": 53,
+          "value": 0,
+          "term": null,
+          "is_active": false
+        },
+        {
+          "coordinate": 54,
+          "value": 0,
+          "term": null,
+          "is_active": false
+        },
+        {
+          "coordinate": 55,
+          "value": 0,
+          "term": null,
+          "is_active": false
+        },
+        {
+          "coordinate": 56,
+          "value": 0,
+          "term": null,
+          "is_active": false
+        },
+        {
+          "coordinate": 57,
+          "value": 0,
+          "term": null,
+          "is_active": false
+        },
+        {
+          "coordinate": 58,
+          "value": 0,
+          "term": null,
+          "is_active": false
+        },
+        {
+          "coordinate": 59,
+          "value": 0,
+          "term": null,
+          "is_active": false
+        },
+        {
+          "coordinate": 60,
+          "value": 0,
+          "term": null,
+          "is_active": false
+        },
+        {
+          "coordinate": 61,
+          "value": 0,
+          "term": null,
+          "is_active": false
+        },
+        {
+          "coordinate": 62,
+          "value": 0,
+          "term": null,
+          "is_active": false
+        },
+        {
+          "coordinate": 63,
+          "value": 0,
+          "term": null,
+          "is_active": false
+        },
+        {
+          "coordinate": 64,
+          "value": 0,
+          "term": null,
+          "is_active": false
+        },
+        {
+          "coordinate": 65,
+          "value": 0,
+          "term": null,
+          "is_active": false
+        },
+        {
+          "coordinate": 66,
+          "value": 0,
+          "term": null,
+          "is_active": false
+        },
+        {
+          "coordinate": 67,
+          "value": 0,
+          "term": null,
+          "is_active": false
+        },
+        {
+          "coordinate": 68,
+          "value": 0,
+          "term": null,
+          "is_active": false
+        },
+        {
+          "coordinate": 69,
+          "value": 0,
+          "term": null,
+          "is_active": false
+        },
+        {
+          "coordinate": 70,
+          "value": 0,
+          "term": null,
+          "is_active": false
+        },
+        {
+          "coordinate": 71,
+          "value": 0,
+          "term": null,
+          "is_active": false
+        },
+        {
+          "coordinate": 72,
+          "value": 0,
+          "term": null,
+          "is_active": false
+        },
+        {
+          "coordinate": 73,
+          "value": 0,
+          "term": null,
+          "is_active": false
+        },
+        {
+          "coordinate": 74,
+          "value": 0,
+          "term": null,
+          "is_active": false
+        },
+        {
+          "coordinate": 75,
+          "value": 0,
+          "term": null,
+          "is_active": false
+        },
+        {
+          "coordinate": 76,
+          "value": 0,
+          "term": null,
+          "is_active": false
+        },
+        {
+          "coordinate": 77,
+          "value": 0,
+          "term": null,
+          "is_active": false
+        },
+        {
+          "coordinate": 78,
+          "value": 0,
+          "term": null,
+          "is_active": false
+        },
+        {
+          "coordinate": 79,
+          "value": 0,
+          "term": null,
+          "is_active": false
+        },
+        {
+          "coordinate": 80,
+          "value": 0,
+          "term": null,
+          "is_active": false
+        },
+        {
+          "coordinate": 81,
+          "value": 0,
+          "term": null,
+          "is_active": false
+        },
+        {
+          "coordinate": 82,
+          "value": 0,
+          "term": null,
+          "is_active": false
+        },
+        {
+          "coordinate": 83,
+          "value": 0,
+          "term": null,
+          "is_active": false
+        },
+        {
+          "coordinate": 84,
+          "value": 0,
+          "term": null,
+          "is_active": false
+        },
+        {
+          "coordinate": 85,
+          "value": 0,
+          "term": null,
+          "is_active": false
+        },
+        {
+          "coordinate": 86,
+          "value": 0,
+          "term": null,
+          "is_active": false
+        },
+        {
+          "coordinate": 87,
+          "value": 0,
+          "term": null,
+          "is_active": false
+        },
+        {
+          "coordinate": 88,
+          "value": 0.5680140774328015,
+          "term": "unsupervised",
+          "is_active": true
+        },
+        {
+          "coordinate": 89,
+          "value": 0.5680140774328015,
+          "term": "unsupervised learning",
+          "is_active": true
+        },
+        {
+          "coordinate": 90,
+          "value": 0,
+          "term": null,
+          "is_active": false
+        },
+        {
+          "coordinate": 91,
+          "value": 0,
+          "term": null,
+          "is_active": false
+        },
+        {
+          "coordinate": 92,
+          "value": 0,
+          "term": null,
+          "is_active": false
+        },
+        {
+          "coordinate": 93,
+          "value": 0,
+          "term": null,
+          "is_active": false
+        },
+        {
+          "coordinate": 94,
+          "value": 0,
+          "term": null,
+          "is_active": false
+        },
+        {
+          "coordinate": 95,
+          "value": 0,
+          "term": null,
+          "is_active": false
+        },
+        {
+          "coordinate": 96,
+          "value": 0,
+          "term": null,
+          "is_active": false
+        },
+        {
+          "coordinate": 97,
+          "value": 0,
+          "term": null,
+          "is_active": false
+        },
+        {
+          "coordinate": 98,
+          "value": 0,
+          "term": null,
+          "is_active": false
+        },
+        {
+          "coordinate": 99,
+          "value": 0,
+          "term": null,
+          "is_active": false
+        }
+      ],
+      "top_terms": [
+        {
+          "term": "unsupervised",
+          "weight": 0.5680140774328015,
+          "coordinate": 88
+        },
+        {
+          "term": "unsupervised learning",
+          "weight": 0.5680140774328015,
+          "coordinate": 89
+        },
+        {
+          "term": "algorithms",
+          "weight": 0.45827018116532225,
+          "coordinate": 2
+        },
+        {
+          "term": "learning",
+          "weight": 0.38040564760664297,
+          "coordinate": 10
+        }
+      ]
+    },
+    {
+      "highlight": "Mean squared error measures regression performance",
+      "validation_status": "PASS",
+      "coordinate_map": [
+        {
+          "coordinate": 0,
+          "value": 0,
+          "term": null,
+          "is_active": false
+        },
+        {
+          "coordinate": 1,
+          "value": 0,
+          "term": null,
+          "is_active": false
+        },
+        {
+          "coordinate": 2,
+          "value": 0,
+          "term": null,
+          "is_active": false
+        },
+        {
+          "coordinate": 3,
+          "value": 0,
+          "term": null,
+          "is_active": false
+        },
+        {
+          "coordinate": 4,
+          "value": 0,
+          "term": null,
+          "is_active": false
+        },
+        {
+          "coordinate": 5,
+          "value": 0.3983516165374428,
+          "term": "error",
+          "is_active": true
+        },
+        {
+          "coordinate": 6,
+          "value": 0,
+          "term": null,
+          "is_active": false
+        },
+        {
+          "coordinate": 7,
+          "value": 0,
+          "term": null,
+          "is_active": false
+        },
+        {
+          "coordinate": 8,
+          "value": 0,
+          "term": null,
+          "is_active": false
+        },
+        {
+          "coordinate": 9,
+          "value": 0,
+          "term": null,
+          "is_active": false
+        },
+        {
+          "coordinate": 10,
+          "value": 0,
+          "term": null,
+          "is_active": false
+        },
+        {
+          "coordinate": 11,
+          "value": 0,
+          "term": null,
+          "is_active": false
+        },
+        {
+          "coordinate": 12,
+          "value": 0.3983516165374428,
+          "term": "mean",
+          "is_active": true
+        },
+        {
+          "coordinate": 13,
+          "value": 0,
+          "term": null,
+          "is_active": false
+        },
+        {
+          "coordinate": 14,
+          "value": 0.3983516165374428,
+          "term": "mean squared",
+          "is_active": true
+        },
+        {
+          "coordinate": 15,
+          "value": 0,
+          "term": null,
+          "is_active": false
+        },
+        {
+          "coordinate": 16,
+          "value": 0,
+          "term": null,
+          "is_active": false
+        },
+        {
+          "coordinate": 17,
+          "value": 0,
+          "term": null,
+          "is_active": false
+        },
+        {
+          "coordinate": 18,
+          "value": 0,
+          "term": null,
+          "is_active": false
+        },
+        {
+          "coordinate": 19,
+          "value": 0,
+          "term": null,
+          "is_active": false
+        },
+        {
+          "coordinate": 20,
+          "value": 0,
+          "term": null,
+          "is_active": false
+        },
+        {
+          "coordinate": 21,
+          "value": 0,
+          "term": null,
+          "is_active": false
+        },
+        {
+          "coordinate": 22,
+          "value": 0,
+          "term": null,
+          "is_active": false
+        },
+        {
+          "coordinate": 23,
+          "value": 0,
+          "term": null,
+          "is_active": false
+        },
+        {
+          "coordinate": 24,
+          "value": 0,
+          "term": null,
+          "is_active": false
+        },
+        {
+          "coordinate": 25,
+          "value": 0,
+          "term": null,
+          "is_active": false
+        },
+        {
+          "coordinate": 26,
+          "value": 0,
+          "term": null,
+          "is_active": false
+        },
+        {
+          "coordinate": 27,
+          "value": 0,
+          "term": null,
+          "is_active": false
+        },
+        {
+          "coordinate": 28,
+          "value": 0,
+          "term": null,
+          "is_active": false
+        },
+        {
+          "coordinate": 29,
+          "value": 0,
+          "term": null,
+          "is_active": false
+        },
+        {
+          "coordinate": 30,
+          "value": 0,
+          "term": null,
+          "is_active": false
+        },
+        {
+          "coordinate": 31,
+          "value": 0,
+          "term": null,
+          "is_active": false
+        },
+        {
+          "coordinate": 32,
+          "value": 0,
+          "term": null,
+          "is_active": false
+        },
+        {
+          "coordinate": 33,
+          "value": 0,
+          "term": null,
+          "is_active": false
+        },
+        {
+          "coordinate": 34,
+          "value": 0,
+          "term": null,
+          "is_active": false
+        },
+        {
+          "coordinate": 35,
+          "value": 0,
+          "term": null,
+          "is_active": false
+        },
+        {
+          "coordinate": 36,
+          "value": 0,
+          "term": null,
+          "is_active": false
+        },
+        {
+          "coordinate": 37,
+          "value": 0,
+          "term": null,
+          "is_active": false
+        },
+        {
+          "coordinate": 38,
+          "value": 0,
+          "term": null,
+          "is_active": false
+        },
+        {
+          "coordinate": 39,
+          "value": 0,
+          "term": null,
+          "is_active": false
+        },
+        {
+          "coordinate": 40,
+          "value": 0,
+          "term": null,
+          "is_active": false
+        },
+        {
+          "coordinate": 41,
+          "value": 0,
+          "term": null,
+          "is_active": false
+        },
+        {
+          "coordinate": 42,
+          "value": 0,
+          "term": null,
+          "is_active": false
+        },
+        {
+          "coordinate": 43,
+          "value": 0,
+          "term": null,
+          "is_active": false
+        },
+        {
+          "coordinate": 44,
+          "value": 0,
+          "term": null,
+          "is_active": false
+        },
+        {
+          "coordinate": 45,
+          "value": 0,
+          "term": null,
+          "is_active": false
+        },
+        {
+          "coordinate": 46,
+          "value": 0,
+          "term": null,
+          "is_active": false
+        },
+        {
+          "coordinate": 47,
+          "value": 0,
+          "term": null,
+          "is_active": false
+        },
+        {
+          "coordinate": 48,
+          "value": 0.32138757599667,
+          "term": "performance",
+          "is_active": true
+        },
+        {
+          "coordinate": 49,
+          "value": 0,
+          "term": null,
+          "is_active": false
+        },
+        {
+          "coordinate": 50,
+          "value": 0,
+          "term": null,
+          "is_active": false
+        },
+        {
+          "coordinate": 51,
+          "value": 0,
+          "term": null,
+          "is_active": false
+        },
+        {
+          "coordinate": 52,
+          "value": 0,
+          "term": null,
+          "is_active": false
+        },
+        {
+          "coordinate": 53,
+          "value": 0,
+          "term": null,
+          "is_active": false
+        },
+        {
+          "coordinate": 54,
+          "value": 0,
+          "term": null,
+          "is_active": false
+        },
+        {
+          "coordinate": 55,
+          "value": 0,
+          "term": null,
+          "is_active": false
+        },
+        {
+          "coordinate": 56,
+          "value": 0,
+          "term": null,
+          "is_active": false
+        },
+        {
+          "coordinate": 57,
+          "value": 0,
+          "term": null,
+          "is_active": false
+        },
+        {
+          "coordinate": 58,
+          "value": 0,
+          "term": null,
+          "is_active": false
+        },
+        {
+          "coordinate": 59,
+          "value": 0,
+          "term": null,
+          "is_active": false
+        },
+        {
+          "coordinate": 60,
+          "value": 0,
+          "term": null,
+          "is_active": false
+        },
+        {
+          "coordinate": 61,
+          "value": 0,
+          "term": null,
+          "is_active": false
+        },
+        {
+          "coordinate": 62,
+          "value": 0,
+          "term": null,
+          "is_active": false
+        },
+        {
+          "coordinate": 63,
+          "value": 0,
+          "term": null,
+          "is_active": false
+        },
+        {
+          "coordinate": 64,
+          "value": 0,
+          "term": null,
+          "is_active": false
+        },
+        {
+          "coordinate": 65,
+          "value": 0,
+          "term": null,
+          "is_active": false
+        },
+        {
+          "coordinate": 66,
+          "value": 0,
+          "term": null,
+          "is_active": false
+        },
+        {
+          "coordinate": 67,
+          "value": 0,
+          "term": null,
+          "is_active": false
+        },
+        {
+          "coordinate": 68,
+          "value": 0.32138757599667,
+          "term": "regression",
+          "is_active": true
+        },
+        {
+          "coordinate": 69,
+          "value": 0,
+          "term": null,
+          "is_active": false
+        },
+        {
+          "coordinate": 70,
+          "value": 0.3983516165374428,
+          "term": "squared",
+          "is_active": true
+        },
+        {
+          "coordinate": 71,
+          "value": 0.3983516165374428,
+          "term": "squared error",
+          "is_active": true
+        },
+        {
+          "coordinate": 72,
+          "value": 0,
+          "term": null,
+          "is_active": false
+        },
+        {
+          "coordinate": 73,
+          "value": 0,
+          "term": null,
+          "is_active": false
+        },
+        {
+          "coordinate": 74,
+          "value": 0,
+          "term": null,
+          "is_active": false
+        },
+        {
+          "coordinate": 75,
+          "value": 0,
+          "term": null,
+          "is_active": false
+        },
+        {
+          "coordinate": 76,
+          "value": 0,
+          "term": null,
+          "is_active": false
+        },
+        {
+          "coordinate": 77,
+          "value": 0,
+          "term": null,
+          "is_active": false
+        },
+        {
+          "coordinate": 78,
+          "value": 0,
+          "term": null,
+          "is_active": false
+        },
+        {
+          "coordinate": 79,
+          "value": 0,
+          "term": null,
+          "is_active": false
+        },
+        {
+          "coordinate": 80,
+          "value": 0,
+          "term": null,
+          "is_active": false
+        },
+        {
+          "coordinate": 81,
+          "value": 0,
+          "term": null,
+          "is_active": false
+        },
+        {
+          "coordinate": 82,
+          "value": 0,
+          "term": null,
+          "is_active": false
+        },
+        {
+          "coordinate": 83,
+          "value": 0,
+          "term": null,
+          "is_active": false
+        },
+        {
+          "coordinate": 84,
+          "value": 0,
+          "term": null,
+          "is_active": false
+        },
+        {
+          "coordinate": 85,
+          "value": 0,
+          "term": null,
+          "is_active": false
+        },
+        {
+          "coordinate": 86,
+          "value": 0,
+          "term": null,
+          "is_active": false
+        },
+        {
+          "coordinate": 87,
+          "value": 0,
+          "term": null,
+          "is_active": false
+        },
+        {
+          "coordinate": 88,
+          "value": 0,
+          "term": null,
+          "is_active": false
+        },
+        {
+          "coordinate": 89,
+          "value": 0,
+          "term": null,
+          "is_active": false
+        },
+        {
+          "coordinate": 90,
+          "value": 0,
+          "term": null,
+          "is_active": false
+        },
+        {
+          "coordinate": 91,
+          "value": 0,
+          "term": null,
+          "is_active": false
+        },
+        {
+          "coordinate": 92,
+          "value": 0,
+          "term": null,
+          "is_active": false
+        },
+        {
+          "coordinate": 93,
+          "value": 0,
+          "term": null,
+          "is_active": false
+        },
+        {
+          "coordinate": 94,
+          "value": 0,
+          "term": null,
+          "is_active": false
+        },
+        {
+          "coordinate": 95,
+          "value": 0,
+          "term": null,
+          "is_active": false
+        },
+        {
+          "coordinate": 96,
+          "value": 0,
+          "term": null,
+          "is_active": false
+        },
+        {
+          "coordinate": 97,
+          "value": 0,
+          "term": null,
+          "is_active": false
+        },
+        {
+          "coordinate": 98,
+          "value": 0,
+          "term": null,
+          "is_active": false
+        },
+        {
+          "coordinate": 99,
+          "value": 0,
+          "term": null,
+          "is_active": false
+        }
+      ],
+      "top_terms": [
+        {
+          "term": "error",
+          "weight": 0.3983516165374428,
+          "coordinate": 5
+        },
+        {
+          "term": "mean",
+          "weight": 0.3983516165374428,
+          "coordinate": 12
+        },
+        {
+          "term": "mean squared",
+          "weight": 0.3983516165374428,
+          "coordinate": 14
+        },
+        {
+          "term": "squared",
+          "weight": 0.3983516165374428,
+          "coordinate": 70
+        },
+        {
+          "term": "squared error",
+          "weight": 0.3983516165374428,
+          "coordinate": 71
+        },
+        {
+          "term": "performance",
+          "weight": 0.32138757599667,
+          "coordinate": 48
+        },
+        {
+          "term": "regression",
+          "weight": 0.32138757599667,
+          "coordinate": 68
+        }
+      ]
+    },
+    {
+      "highlight": "Support vector machines can handle non-linear data",
+      "validation_status": "INVALID_SLIDE_NUMBER",
+      "coordinate_map": [
+        {
+          "coordinate": 0,
+          "value": 0,
+          "term": null,
+          "is_active": false
+        },
+        {
+          "coordinate": 1,
+          "value": 0,
+          "term": null,
+          "is_active": false
+        },
+        {
+          "coordinate": 2,
+          "value": 0,
+          "term": null,
+          "is_active": false
+        },
+        {
+          "coordinate": 3,
+          "value": 0,
+          "term": null,
+          "is_active": false
+        },
+        {
+          "coordinate": 4,
+          "value": 0.49552379079705033,
+          "term": "data",
+          "is_active": true
+        },
+        {
+          "coordinate": 5,
+          "value": 0,
+          "term": null,
+          "is_active": false
+        },
+        {
+          "coordinate": 6,
+          "value": 0,
+          "term": null,
+          "is_active": false
+        },
+        {
+          "coordinate": 7,
+          "value": 0,
+          "term": null,
+          "is_active": false
+        },
+        {
+          "coordinate": 8,
+          "value": 0,
+          "term": null,
+          "is_active": false
+        },
+        {
+          "coordinate": 9,
+          "value": 0,
+          "term": null,
+          "is_active": false
+        },
+        {
+          "coordinate": 10,
+          "value": 0,
+          "term": null,
+          "is_active": false
+        },
+        {
+          "coordinate": 11,
+          "value": 0,
+          "term": null,
+          "is_active": false
+        },
+        {
+          "coordinate": 12,
+          "value": 0,
+          "term": null,
+          "is_active": false
+        },
+        {
+          "coordinate": 13,
+          "value": 0,
+          "term": null,
+          "is_active": false
+        },
+        {
+          "coordinate": 14,
+          "value": 0,
+          "term": null,
+          "is_active": false
+        },
+        {
+          "coordinate": 15,
+          "value": 0,
+          "term": null,
+          "is_active": false
+        },
+        {
+          "coordinate": 16,
+          "value": 0,
+          "term": null,
+          "is_active": false
+        },
+        {
+          "coordinate": 17,
+          "value": 0,
+          "term": null,
+          "is_active": false
+        },
+        {
+          "coordinate": 18,
+          "value": 0,
+          "term": null,
+          "is_active": false
+        },
+        {
+          "coordinate": 19,
+          "value": 0,
+          "term": null,
+          "is_active": false
+        },
+        {
+          "coordinate": 20,
+          "value": 0,
+          "term": null,
+          "is_active": false
+        },
+        {
+          "coordinate": 21,
+          "value": 0,
+          "term": null,
+          "is_active": false
+        },
+        {
+          "coordinate": 22,
+          "value": 0,
+          "term": null,
+          "is_active": false
+        },
+        {
+          "coordinate": 23,
+          "value": 0,
+          "term": null,
+          "is_active": false
+        },
+        {
+          "coordinate": 24,
+          "value": 0,
+          "term": null,
+          "is_active": false
+        },
+        {
+          "coordinate": 25,
+          "value": 0,
+          "term": null,
+          "is_active": false
+        },
+        {
+          "coordinate": 26,
+          "value": 0,
+          "term": null,
+          "is_active": false
+        },
+        {
+          "coordinate": 27,
+          "value": 0,
+          "term": null,
+          "is_active": false
+        },
+        {
+          "coordinate": 28,
+          "value": 0,
+          "term": null,
+          "is_active": false
+        },
+        {
+          "coordinate": 29,
+          "value": 0,
+          "term": null,
+          "is_active": false
+        },
+        {
+          "coordinate": 30,
+          "value": 0,
+          "term": null,
+          "is_active": false
+        },
+        {
+          "coordinate": 31,
+          "value": 0,
+          "term": null,
+          "is_active": false
+        },
+        {
+          "coordinate": 32,
+          "value": 0,
+          "term": null,
+          "is_active": false
+        },
+        {
+          "coordinate": 33,
+          "value": 0,
+          "term": null,
+          "is_active": false
+        },
+        {
+          "coordinate": 34,
+          "value": 0,
+          "term": null,
+          "is_active": false
+        },
+        {
+          "coordinate": 35,
+          "value": 0,
+          "term": null,
+          "is_active": false
+        },
+        {
+          "coordinate": 36,
+          "value": 0,
+          "term": null,
+          "is_active": false
+        },
+        {
+          "coordinate": 37,
+          "value": 0,
+          "term": null,
+          "is_active": false
+        },
+        {
+          "coordinate": 38,
+          "value": 0,
+          "term": null,
+          "is_active": false
+        },
+        {
+          "coordinate": 39,
+          "value": 0,
+          "term": null,
+          "is_active": false
+        },
+        {
+          "coordinate": 40,
+          "value": 0,
+          "term": null,
+          "is_active": false
+        },
+        {
+          "coordinate": 41,
+          "value": 0,
+          "term": null,
+          "is_active": false
+        },
+        {
+          "coordinate": 42,
+          "value": 0,
+          "term": null,
+          "is_active": false
+        },
+        {
+          "coordinate": 43,
+          "value": 0,
+          "term": null,
+          "is_active": false
+        },
+        {
+          "coordinate": 44,
+          "value": 0,
+          "term": null,
+          "is_active": false
+        },
+        {
+          "coordinate": 45,
+          "value": 0,
+          "term": null,
+          "is_active": false
+        },
+        {
+          "coordinate": 46,
+          "value": 0,
+          "term": null,
+          "is_active": false
+        },
+        {
+          "coordinate": 47,
+          "value": 0,
+          "term": null,
+          "is_active": false
+        },
+        {
+          "coordinate": 48,
+          "value": 0,
+          "term": null,
+          "is_active": false
+        },
+        {
+          "coordinate": 49,
+          "value": 0,
+          "term": null,
+          "is_active": false
+        },
+        {
+          "coordinate": 50,
+          "value": 0,
+          "term": null,
+          "is_active": false
+        },
+        {
+          "coordinate": 51,
+          "value": 0,
+          "term": null,
+          "is_active": false
+        },
+        {
+          "coordinate": 52,
+          "value": 0,
+          "term": null,
+          "is_active": false
+        },
+        {
+          "coordinate": 53,
+          "value": 0,
+          "term": null,
+          "is_active": false
+        },
+        {
+          "coordinate": 54,
+          "value": 0,
+          "term": null,
+          "is_active": false
+        },
+        {
+          "coordinate": 55,
+          "value": 0,
+          "term": null,
+          "is_active": false
+        },
+        {
+          "coordinate": 56,
+          "value": 0,
+          "term": null,
+          "is_active": false
+        },
+        {
+          "coordinate": 57,
+          "value": 0,
+          "term": null,
+          "is_active": false
+        },
+        {
+          "coordinate": 58,
+          "value": 0,
+          "term": null,
+          "is_active": false
+        },
+        {
+          "coordinate": 59,
+          "value": 0,
+          "term": null,
+          "is_active": false
+        },
+        {
+          "coordinate": 60,
+          "value": 0,
+          "term": null,
+          "is_active": false
+        },
+        {
+          "coordinate": 61,
+          "value": 0,
+          "term": null,
+          "is_active": false
+        },
+        {
+          "coordinate": 62,
+          "value": 0,
+          "term": null,
+          "is_active": false
+        },
+        {
+          "coordinate": 63,
+          "value": 0,
+          "term": null,
+          "is_active": false
+        },
+        {
+          "coordinate": 64,
+          "value": 0,
+          "term": null,
+          "is_active": false
+        },
+        {
+          "coordinate": 65,
+          "value": 0,
+          "term": null,
+          "is_active": false
+        },
+        {
+          "coordinate": 66,
+          "value": 0,
+          "term": null,
+          "is_active": false
+        },
+        {
+          "coordinate": 67,
+          "value": 0,
+          "term": null,
+          "is_active": false
+        },
+        {
+          "coordinate": 68,
+          "value": 0,
+          "term": null,
+          "is_active": false
+        },
+        {
+          "coordinate": 69,
+          "value": 0,
+          "term": null,
+          "is_active": false
+        },
+        {
+          "coordinate": 70,
+          "value": 0,
+          "term": null,
+          "is_active": false
+        },
+        {
+          "coordinate": 71,
+          "value": 0,
+          "term": null,
+          "is_active": false
+        },
+        {
+          "coordinate": 72,
+          "value": 0,
+          "term": null,
+          "is_active": false
+        },
+        {
+          "coordinate": 73,
+          "value": 0,
+          "term": null,
+          "is_active": false
+        },
+        {
+          "coordinate": 74,
+          "value": 0,
+          "term": null,
+          "is_active": false
+        },
+        {
+          "coordinate": 75,
+          "value": 0.6141889663426562,
+          "term": "support",
+          "is_active": true
+        },
+        {
+          "coordinate": 76,
+          "value": 0.6141889663426562,
+          "term": "support vector",
+          "is_active": true
+        },
+        {
+          "coordinate": 77,
+          "value": 0,
+          "term": null,
+          "is_active": false
+        },
+        {
+          "coordinate": 78,
+          "value": 0,
+          "term": null,
+          "is_active": false
+        },
+        {
+          "coordinate": 79,
+          "value": 0,
+          "term": null,
+          "is_active": false
+        },
+        {
+          "coordinate": 80,
+          "value": 0,
+          "term": null,
+          "is_active": false
+        },
+        {
+          "coordinate": 81,
+          "value": 0,
+          "term": null,
+          "is_active": false
+        },
+        {
+          "coordinate": 82,
+          "value": 0,
+          "term": null,
+          "is_active": false
+        },
+        {
+          "coordinate": 83,
+          "value": 0,
+          "term": null,
+          "is_active": false
+        },
+        {
+          "coordinate": 84,
+          "value": 0,
+          "term": null,
+          "is_active": false
+        },
+        {
+          "coordinate": 85,
+          "value": 0,
+          "term": null,
+          "is_active": false
+        },
+        {
+          "coordinate": 86,
+          "value": 0,
+          "term": null,
+          "is_active": false
+        },
+        {
+          "coordinate": 87,
+          "value": 0,
+          "term": null,
+          "is_active": false
+        },
+        {
+          "coordinate": 88,
+          "value": 0,
+          "term": null,
+          "is_active": false
+        },
+        {
+          "coordinate": 89,
+          "value": 0,
+          "term": null,
+          "is_active": false
+        },
+        {
+          "coordinate": 90,
+          "value": 0,
+          "term": null,
+          "is_active": false
+        },
+        {
+          "coordinate": 91,
+          "value": 0,
+          "term": null,
+          "is_active": false
+        },
+        {
+          "coordinate": 92,
+          "value": 0,
+          "term": null,
+          "is_active": false
+        },
+        {
+          "coordinate": 93,
+          "value": 0,
+          "term": null,
+          "is_active": false
+        },
+        {
+          "coordinate": 94,
+          "value": 0,
+          "term": null,
+          "is_active": false
+        },
+        {
+          "coordinate": 95,
+          "value": 0,
+          "term": null,
+          "is_active": false
+        },
+        {
+          "coordinate": 96,
+          "value": 0,
+          "term": null,
+          "is_active": false
+        },
+        {
+          "coordinate": 97,
+          "value": 0,
+          "term": null,
+          "is_active": false
+        },
+        {
+          "coordinate": 98,
+          "value": 0,
+          "term": null,
+          "is_active": false
+        },
+        {
+          "coordinate": 99,
+          "value": 0,
+          "term": null,
+          "is_active": false
+        }
+      ],
+      "top_terms": [
+        {
+          "term": "support",
+          "weight": 0.6141889663426562,
+          "coordinate": 75
+        },
+        {
+          "term": "support vector",
+          "weight": 0.6141889663426562,
+          "coordinate": 76
+        },
+        {
+          "term": "data",
+          "weight": 0.49552379079705033,
+          "coordinate": 4
+        }
+      ]
+    },
+    {
+      "highlight": "Convolutional networks are designed for image processing",
+      "validation_status": "FAIL",
+      "coordinate_map": [
+        {
+          "coordinate": 0,
+          "value": 0,
+          "term": null,
+          "is_active": false
+        },
+        {
+          "coordinate": 1,
+          "value": 0,
+          "term": null,
+          "is_active": false
+        },
+        {
+          "coordinate": 2,
+          "value": 0,
+          "term": null,
+          "is_active": false
+        },
+        {
+          "coordinate": 3,
+          "value": 0,
+          "term": null,
+          "is_active": false
+        },
+        {
+          "coordinate": 4,
+          "value": 0,
+          "term": null,
+          "is_active": false
+        },
+        {
+          "coordinate": 5,
+          "value": 0,
+          "term": null,
+          "is_active": false
+        },
+        {
+          "coordinate": 6,
+          "value": 0,
+          "term": null,
+          "is_active": false
+        },
+        {
+          "coordinate": 7,
+          "value": 0,
+          "term": null,
+          "is_active": false
+        },
+        {
+          "coordinate": 8,
+          "value": 0,
+          "term": null,
+          "is_active": false
+        },
+        {
+          "coordinate": 9,
+          "value": 0,
+          "term": null,
+          "is_active": false
+        },
+        {
+          "coordinate": 10,
+          "value": 0,
+          "term": null,
+          "is_active": false
+        },
+        {
+          "coordinate": 11,
+          "value": 0,
+          "term": null,
+          "is_active": false
+        },
+        {
+          "coordinate": 12,
+          "value": 0,
+          "term": null,
+          "is_active": false
+        },
+        {
+          "coordinate": 13,
+          "value": 0,
+          "term": null,
+          "is_active": false
+        },
+        {
+          "coordinate": 14,
+          "value": 0,
+          "term": null,
+          "is_active": false
+        },
+        {
+          "coordinate": 15,
+          "value": 0,
+          "term": null,
+          "is_active": false
+        },
+        {
+          "coordinate": 16,
+          "value": 0,
+          "term": null,
+          "is_active": false
+        },
+        {
+          "coordinate": 17,
+          "value": 0,
+          "term": null,
+          "is_active": false
+        },
+        {
+          "coordinate": 18,
+          "value": 0,
+          "term": null,
+          "is_active": false
+        },
+        {
+          "coordinate": 19,
+          "value": 0,
+          "term": null,
+          "is_active": false
+        },
+        {
+          "coordinate": 20,
+          "value": 0,
+          "term": null,
+          "is_active": false
+        },
+        {
+          "coordinate": 21,
+          "value": 0,
+          "term": null,
+          "is_active": false
+        },
+        {
+          "coordinate": 22,
+          "value": 0,
+          "term": null,
+          "is_active": false
+        },
+        {
+          "coordinate": 23,
+          "value": 0,
+          "term": null,
+          "is_active": false
+        },
+        {
+          "coordinate": 24,
+          "value": 0,
+          "term": null,
+          "is_active": false
+        },
+        {
+          "coordinate": 25,
+          "value": 0,
+          "term": null,
+          "is_active": false
+        },
+        {
+          "coordinate": 26,
+          "value": 0,
+          "term": null,
+          "is_active": false
+        },
+        {
+          "coordinate": 27,
+          "value": 0,
+          "term": null,
+          "is_active": false
+        },
+        {
+          "coordinate": 28,
+          "value": 0,
+          "term": null,
+          "is_active": false
+        },
+        {
+          "coordinate": 29,
+          "value": 0,
+          "term": null,
+          "is_active": false
+        },
+        {
+          "coordinate": 30,
+          "value": 1.0,
+          "term": "networks",
+          "is_active": true
+        },
+        {
+          "coordinate": 31,
+          "value": 0,
+          "term": null,
+          "is_active": false
+        },
+        {
+          "coordinate": 32,
+          "value": 0,
+          "term": null,
+          "is_active": false
+        },
+        {
+          "coordinate": 33,
+          "value": 0,
+          "term": null,
+          "is_active": false
+        },
+        {
+          "coordinate": 34,
+          "value": 0,
+          "term": null,
+          "is_active": false
+        },
+        {
+          "coordinate": 35,
+          "value": 0,
+          "term": null,
+          "is_active": false
+        },
+        {
+          "coordinate": 36,
+          "value": 0,
+          "term": null,
+          "is_active": false
+        },
+        {
+          "coordinate": 37,
+          "value": 0,
+          "term": null,
+          "is_active": false
+        },
+        {
+          "coordinate": 38,
+          "value": 0,
+          "term": null,
+          "is_active": false
+        },
+        {
+          "coordinate": 39,
+          "value": 0,
+          "term": null,
+          "is_active": false
+        },
+        {
+          "coordinate": 40,
+          "value": 0,
+          "term": null,
+          "is_active": false
+        },
+        {
+          "coordinate": 41,
+          "value": 0,
+          "term": null,
+          "is_active": false
+        },
+        {
+          "coordinate": 42,
+          "value": 0,
+          "term": null,
+          "is_active": false
+        },
+        {
+          "coordinate": 43,
+          "value": 0,
+          "term": null,
+          "is_active": false
+        },
+        {
+          "coordinate": 44,
+          "value": 0,
+          "term": null,
+          "is_active": false
+        },
+        {
+          "coordinate": 45,
+          "value": 0,
+          "term": null,
+          "is_active": false
+        },
+        {
+          "coordinate": 46,
+          "value": 0,
+          "term": null,
+          "is_active": false
+        },
+        {
+          "coordinate": 47,
+          "value": 0,
+          "term": null,
+          "is_active": false
+        },
+        {
+          "coordinate": 48,
+          "value": 0,
+          "term": null,
+          "is_active": false
+        },
+        {
+          "coordinate": 49,
+          "value": 0,
+          "term": null,
+          "is_active": false
+        },
+        {
+          "coordinate": 50,
+          "value": 0,
+          "term": null,
+          "is_active": false
+        },
+        {
+          "coordinate": 51,
+          "value": 0,
+          "term": null,
+          "is_active": false
+        },
+        {
+          "coordinate": 52,
+          "value": 0,
+          "term": null,
+          "is_active": false
+        },
+        {
+          "coordinate": 53,
+          "value": 0,
+          "term": null,
+          "is_active": false
+        },
+        {
+          "coordinate": 54,
+          "value": 0,
+          "term": null,
+          "is_active": false
+        },
+        {
+          "coordinate": 55,
+          "value": 0,
+          "term": null,
+          "is_active": false
+        },
+        {
+          "coordinate": 56,
+          "value": 0,
+          "term": null,
+          "is_active": false
+        },
+        {
+          "coordinate": 57,
+          "value": 0,
+          "term": null,
+          "is_active": false
+        },
+        {
+          "coordinate": 58,
+          "value": 0,
+          "term": null,
+          "is_active": false
+        },
+        {
+          "coordinate": 59,
+          "value": 0,
+          "term": null,
+          "is_active": false
+        },
+        {
+          "coordinate": 60,
+          "value": 0,
+          "term": null,
+          "is_active": false
+        },
+        {
+          "coordinate": 61,
+          "value": 0,
+          "term": null,
+          "is_active": false
+        },
+        {
+          "coordinate": 62,
+          "value": 0,
+          "term": null,
+          "is_active": false
+        },
+        {
+          "coordinate": 63,
+          "value": 0,
+          "term": null,
+          "is_active": false
+        },
+        {
+          "coordinate": 64,
+          "value": 0,
+          "term": null,
+          "is_active": false
+        },
+        {
+          "coordinate": 65,
+          "value": 0,
+          "term": null,
+          "is_active": false
+        },
+        {
+          "coordinate": 66,
+          "value": 0,
+          "term": null,
+          "is_active": false
+        },
+        {
+          "coordinate": 67,
+          "value": 0,
+          "term": null,
+          "is_active": false
+        },
+        {
+          "coordinate": 68,
+          "value": 0,
+          "term": null,
+          "is_active": false
+        },
+        {
+          "coordinate": 69,
+          "value": 0,
+          "term": null,
+          "is_active": false
+        },
+        {
+          "coordinate": 70,
+          "value": 0,
+          "term": null,
+          "is_active": false
+        },
+        {
+          "coordinate": 71,
+          "value": 0,
+          "term": null,
+          "is_active": false
+        },
+        {
+          "coordinate": 72,
+          "value": 0,
+          "term": null,
+          "is_active": false
+        },
+        {
+          "coordinate": 73,
+          "value": 0,
+          "term": null,
+          "is_active": false
+        },
+        {
+          "coordinate": 74,
+          "value": 0,
+          "term": null,
+          "is_active": false
+        },
+        {
+          "coordinate": 75,
+          "value": 0,
+          "term": null,
+          "is_active": false
+        },
+        {
+          "coordinate": 76,
+          "value": 0,
+          "term": null,
+          "is_active": false
+        },
+        {
+          "coordinate": 77,
+          "value": 0,
+          "term": null,
+          "is_active": false
+        },
+        {
+          "coordinate": 78,
+          "value": 0,
+          "term": null,
+          "is_active": false
+        },
+        {
+          "coordinate": 79,
+          "value": 0,
+          "term": null,
+          "is_active": false
+        },
+        {
+          "coordinate": 80,
+          "value": 0,
+          "term": null,
+          "is_active": false
+        },
+        {
+          "coordinate": 81,
+          "value": 0,
+          "term": null,
+          "is_active": false
+        },
+        {
+          "coordinate": 82,
+          "value": 0,
+          "term": null,
+          "is_active": false
+        },
+        {
+          "coordinate": 83,
+          "value": 0,
+          "term": null,
+          "is_active": false
+        },
+        {
+          "coordinate": 84,
+          "value": 0,
+          "term": null,
+          "is_active": false
+        },
+        {
+          "coordinate": 85,
+          "value": 0,
+          "term": null,
+          "is_active": false
+        },
+        {
+          "coordinate": 86,
+          "value": 0,
+          "term": null,
+          "is_active": false
+        },
+        {
+          "coordinate": 87,
+          "value": 0,
+          "term": null,
+          "is_active": false
+        },
+        {
+          "coordinate": 88,
+          "value": 0,
+          "term": null,
+          "is_active": false
+        },
+        {
+          "coordinate": 89,
+          "value": 0,
+          "term": null,
+          "is_active": false
+        },
+        {
+          "coordinate": 90,
+          "value": 0,
+          "term": null,
+          "is_active": false
+        },
+        {
+          "coordinate": 91,
+          "value": 0,
+          "term": null,
+          "is_active": false
+        },
+        {
+          "coordinate": 92,
+          "value": 0,
+          "term": null,
+          "is_active": false
+        },
+        {
+          "coordinate": 93,
+          "value": 0,
+          "term": null,
+          "is_active": false
+        },
+        {
+          "coordinate": 94,
+          "value": 0,
+          "term": null,
+          "is_active": false
+        },
+        {
+          "coordinate": 95,
+          "value": 0,
+          "term": null,
+          "is_active": false
+        },
+        {
+          "coordinate": 96,
+          "value": 0,
+          "term": null,
+          "is_active": false
+        },
+        {
+          "coordinate": 97,
+          "value": 0,
+          "term": null,
+          "is_active": false
+        },
+        {
+          "coordinate": 98,
+          "value": 0,
+          "term": null,
+          "is_active": false
+        },
+        {
+          "coordinate": 99,
+          "value": 0,
+          "term": null,
+          "is_active": false
+        }
+      ],
+      "top_terms": [
+        {
+          "term": "networks",
+          "weight": 1.0,
+          "coordinate": 30
+        }
+      ]
+    }
+  ],
+  "slide_coverage": {
+    "total_slides": 5,
+    "referenced_slides": 6,
+    "slide_hit_map": {
+      "3": 3,
+      "2": 2,
+      "4": 2,
+      "5": 3,
+      "1": 1,
+      "7": 1
+    }
+  },
+  "timestamp": "2026-05-27T13:18:55.389431"
+}

@@ -18,7 +18,7 @@ A Behavior object is a discrete, observable action that can be tested, tracked, 
 | object_type         | string    | Yes      | Must be "Behavior"                                                                           |
 | id                  | string    | Yes      | Unique identifier                                                                            |
 | user_enablement     | string    | Yes      | User enablement statement: '[Persona] is able to [task/action]'                              |
-
+| user_flow_id        | string    | Yes      | The user flow that contains this behavior and its sibling behaviors
 | signals             | [string]  | Yes      | Loggable system events that prove this behavior occurred                                     |
 | end_user            | string    | Yes      | The user who performs this behavior (e.g., "Admin", "Data Scientist")                        |
 | acceptance_criteria | [string]  | Yes      | Clear, testable criteria that define successful completion of this behavior                  |

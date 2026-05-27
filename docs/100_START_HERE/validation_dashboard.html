@@ -1,0 +1,425 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TF-IDF Validation Dashboard</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            padding: 20px;
+        }
+        
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+        
+        h1 {
+            color: white;
+            text-align: center;
+            margin-bottom: 30px;
+            font-size: 2.5em;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.2);
+        }
+        
+        .dashboard-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+            margin-bottom: 30px;
+        }
+        
+        .card {
+            background: white;
+            border-radius: 12px;
+            padding: 20px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+        }
+        
+        .card h2 {
+            color: #333;
+            margin-bottom: 15px;
+            font-size: 1.3em;
+            border-bottom: 2px solid #667eea;
+            padding-bottom: 10px;
+        }
+        
+        .stat-value {
+            font-size: 2.5em;
+            font-weight: bold;
+            color: #667eea;
+            margin: 10px 0;
+        }
+        
+        .stat-label {
+            color: #666;
+            font-size: 0.9em;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+        
+        .status-badge {
+            display: inline-block;
+            padding: 4px 12px;
+            border-radius: 20px;
+            font-size: 0.85em;
+            font-weight: 600;
+            margin: 2px;
+        }
+        
+        .status-pass { background: #10b981; color: white; }
+        .status-fail { background: #ef4444; color: white; }
+        .status-wrong { background: #f59e0b; color: white; }
+        .status-invalid { background: #6b7280; color: white; }
+        
+        .validation-item {
+            background: #f9fafb;
+            border-left: 4px solid #667eea;
+            padding: 15px;
+            margin-bottom: 15px;
+            border-radius: 8px;
+        }
+        
+        .highlight-text {
+            color: #1f2937;
+            font-weight: 500;
+            margin-bottom: 8px;
+        }
+        
+        .metadata {
+            display: flex;
+            gap: 20px;
+            font-size: 0.9em;
+            color: #6b7280;
+            margin-top: 8px;
+        }
+        
+        .similarity-bar {
+            height: 20px;
+            background: #e5e7eb;
+            border-radius: 10px;
+            overflow: hidden;
+            margin-top: 8px;
+        }
+        
+        .similarity-fill {
+            height: 100%;
+            background: linear-gradient(90deg, #667eea, #764ba2);
+            transition: width 0.3s ease;
+        }
+        
+        .vector-visualization {
+            display: grid;
+            grid-template-columns: repeat(20, 1fr);
+            gap: 2px;
+            margin-top: 15px;
+        }
+        
+        .vector-cell {
+            width: 100%;
+            aspect-ratio: 1;
+            border-radius: 2px;
+            cursor: pointer;
+            transition: transform 0.2s;
+        }
+        
+        .vector-cell:hover {
+            transform: scale(1.5);
+            z-index: 10;
+        }
+        
+        .vector-cell.active {
+            background: #667eea;
+        }
+        
+        .vector-cell.inactive {
+            background: #e5e7eb;
+        }
+        
+        .terms-cloud {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin-top: 10px;
+        }
+        
+        .term-tag {
+            background: #f3f4f6;
+            padding: 4px 10px;
+            border-radius: 6px;
+            font-size: 0.85em;
+            color: #4b5563;
+            border: 1px solid #d1d5db;
+        }
+        
+        .term-tag strong {
+            color: #667eea;
+            margin-left: 4px;
+        }
+        
+        .explanation-box {
+            background: #fef3c7;
+            border: 1px solid #fbbf24;
+            border-radius: 6px;
+            padding: 10px;
+            margin-top: 10px;
+            font-size: 0.9em;
+            color: #92400e;
+        }
+        
+        .load-button {
+            background: white;
+            color: #667eea;
+            border: 2px solid #667eea;
+            padding: 12px 24px;
+            border-radius: 8px;
+            font-size: 1em;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s;
+            display: block;
+            margin: 20px auto;
+        }
+        
+        .load-button:hover {
+            background: #667eea;
+            color: white;
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(102, 126, 234, 0.4);
+        }
+        
+        input[type="file"] {
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>🔍 TF-IDF Validation Dashboard</h1>
+        
+        <div class="card">
+            <h2>Load Validation Results</h2>
+            <input type="file" id="fileInput" accept=".json">
+            <button class="load-button" onclick="document.getElementById('fileInput').click()">
+                📁 Load validation_dashboard.json
+            </button>
+            <div id="loadStatus"></div>
+        </div>
+        
+        <div id="dashboardContent" style="display: none;">
+            <!-- Summary Cards -->
+            <div class="dashboard-grid">
+                <div class="card">
+                    <h2>Overall Accuracy</h2>
+                    <div class="stat-value" id="overallAccuracy">-</div>
+                    <div class="stat-label">Validation Accuracy</div>
+                </div>
+                
+                <div class="card">
+                    <h2>Total Highlights</h2>
+                    <div class="stat-value" id="totalHighlights">-</div>
+                    <div class="stat-label">Validated Items</div>
+                </div>
+                
+                <div class="card">
+                    <h2>Status Breakdown</h2>
+                    <div id="statusBreakdown"></div>
+                </div>
+                
+                <div class="card">
+                    <h2>Category Performance</h2>
+                    <div id="categoryStats"></div>
+                </div>
+            </div>
+            
+            <!-- Detailed Results -->
+            <div class="card">
+                <h2>Validation Details</h2>
+                <div id="validationDetails"></div>
+            </div>
+            
+            <!-- Vector Explanations -->
+            <div class="card">
+                <h2>Vector Explanations</h2>
+                <div id="vectorExplanations"></div>
+            </div>
+        </div>
+    </div>
+    
+    <script>
+        let dashboardData = null;
+        
+        document.getElementById('fileInput').addEventListener('change', function(e) {
+            const file = e.target.files[0];
+            if (file) {
+                const reader = new FileReader();
+                reader.onload = function(e) {
+                    try {
+                        dashboardData = JSON.parse(e.target.result);
+                        renderDashboard();
+                        document.getElementById('loadStatus').innerHTML = 
+                            '<span style="color: #10b981;">✓ Data loaded successfully</span>';
+                    } catch (error) {
+                        document.getElementById('loadStatus').innerHTML = 
+                            '<span style="color: #ef4444;">✗ Error loading file: ' + error.message + '</span>';
+                    }
+                };
+                reader.readAsText(file);
+            }
+        });
+        
+        function renderDashboard() {
+            if (!dashboardData) return;
+            
+            // Show dashboard content
+            document.getElementById('dashboardContent').style.display = 'block';
+            
+            // Overall Accuracy
+            const accuracy = (dashboardData.summary.overall_accuracy * 100).toFixed(1);
+            document.getElementById('overallAccuracy').textContent = accuracy + '%';
+            
+            // Total Highlights
+            document.getElementById('totalHighlights').textContent = dashboardData.summary.total_highlights;
+            
+            // Status Breakdown
+            const statusBreakdown = document.getElementById('statusBreakdown');
+            statusBreakdown.innerHTML = '';
+            for (const [status, count] of Object.entries(dashboardData.summary.status_breakdown)) {
+                const badge = document.createElement('div');
+                badge.style.marginBottom = '8px';
+                
+                let badgeClass = 'status-invalid';
+                if (status.includes('PASS')) badgeClass = 'status-pass';
+                else if (status === 'FAIL') badgeClass = 'status-fail';
+                else if (status === 'WRONG_CITATION') badgeClass = 'status-wrong';
+                
+                badge.innerHTML = `
+                    <span class="status-badge ${badgeClass}">${status}</span>
+                    <span style="margin-left: 10px; color: #4b5563;">${count}</span>
+                `;
+                statusBreakdown.appendChild(badge);
+            }
+            
+            // Category Stats
+            const categoryStats = document.getElementById('categoryStats');
+            categoryStats.innerHTML = '';
+            for (const [category, stats] of Object.entries(dashboardData.summary.category_stats)) {
+                const accuracy = ((stats.passed / stats.total) * 100).toFixed(0);
+                const div = document.createElement('div');
+                div.style.marginBottom = '10px';
+                div.innerHTML = `
+                    <div style="display: flex; justify-content: space-between; margin-bottom: 4px;">
+                        <span style="color: #4b5563;">${category}</span>
+                        <span style="color: #667eea; font-weight: 600;">${accuracy}%</span>
+                    </div>
+                    <div class="similarity-bar">
+                        <div class="similarity-fill" style="width: ${accuracy}%"></div>
+                    </div>
+                `;
+                categoryStats.appendChild(div);
+            }
+            
+            // Validation Details
+            const validationDetails = document.getElementById('validationDetails');
+            validationDetails.innerHTML = '';
+            
+            dashboardData.detailed_results.forEach((result, idx) => {
+                const item = document.createElement('div');
+                item.className = 'validation-item';
+                
+                let statusClass = 'status-invalid';
+                if (result.validation_status.includes('PASS')) statusClass = 'status-pass';
+                else if (result.validation_status === 'FAIL') statusClass = 'status-fail';
+                else if (result.validation_status === 'WRONG_CITATION') statusClass = 'status-wrong';
+                
+                const similarity = result.claimed_similarity ? (result.claimed_similarity * 100).toFixed(1) : 'N/A';
+                
+                item.innerHTML = `
+                    <div class="highlight-text">${result.highlight}</div>
+                    <span class="status-badge ${statusClass}">${result.validation_status}</span>
+                    <div class="metadata">
+                        <span>📍 Claimed: Slide ${result.claimed_slide || 'N/A'}</span>
+                        <span>🎯 Similarity: ${similarity}%</span>
+                        ${result.best_match_slide ? `<span>✨ Best Match: Slide ${result.best_match_slide}</span>` : ''}
+                        <span>🏷️ ${result.category}</span>
+                    </div>
+                    ${result.claimed_similarity ? `
+                        <div class="similarity-bar">
+                            <div class="similarity-fill" style="width: ${similarity}%"></div>
+                        </div>
+                    ` : ''}
+                    <div class="explanation-box">
+                        💡 ${result.explanation}
+                    </div>
+                    ${result.term_overlap && result.term_overlap.common_terms ? `
+                        <div class="terms-cloud">
+                            ${result.term_overlap.common_terms.slice(0, 5).map(term => 
+                                `<span class="term-tag">${term}</span>`
+                            ).join('')}
+                        </div>
+                    ` : ''}
+                `;
+                
+                validationDetails.appendChild(item);
+            });
+            
+            // Vector Explanations (show first 3)
+            const vectorExplanations = document.getElementById('vectorExplanations');
+            vectorExplanations.innerHTML = '';
+            
+            dashboardData.vector_explanations.slice(0, 3).forEach(explanation => {
+                const div = document.createElement('div');
+                div.style.marginBottom = '20px';
+                div.style.padding = '15px';
+                div.style.background = '#f9fafb';
+                div.style.borderRadius = '8px';
+                
+                let statusClass = 'status-invalid';
+                if (explanation.validation_status.includes('PASS')) statusClass = 'status-pass';
+                else if (explanation.validation_status === 'FAIL') statusClass = 'status-fail';
+                else if (explanation.validation_status === 'WRONG_CITATION') statusClass = 'status-wrong';
+                
+                // Create vector visualization
+                const activeCoords = explanation.coordinate_map.filter(c => c.is_active).length;
+                
+                div.innerHTML = `
+                    <div style="margin-bottom: 10px;">
+                        <strong style="color: #1f2937;">${explanation.highlight.substring(0, 60)}...</strong>
+                    </div>
+                    <span class="status-badge ${statusClass}">${explanation.validation_status}</span>
+                    <div style="margin-top: 10px; color: #6b7280; font-size: 0.9em;">
+                        Active coordinates: ${activeCoords}/100
+                    </div>
+                    <div class="vector-visualization">
+                        ${explanation.coordinate_map.map(coord => 
+                            `<div class="vector-cell ${coord.is_active ? 'active' : 'inactive'}" 
+                                  title="${coord.term || 'Empty'} (${coord.value.toFixed(4)})"
+                                  style="opacity: ${coord.is_active ? Math.min(1, coord.value * 5) : 0.3}">
+                             </div>`
+                        ).join('')}
+                    </div>
+                    <div style="margin-top: 15px;">
+                        <strong style="color: #4b5563;">Top Terms:</strong>
+                        <div class="terms-cloud">
+                            ${explanation.top_terms.slice(0, 8).map(term => 
+                                `<span class="term-tag">${term.term}<strong>${term.weight.toFixed(3)}</strong></span>`
+                            ).join('')}
+                        </div>
+                    </div>
+                `;
+                
+                vectorExplanations.appendChild(div);
+            });
+        }
+    </script>
+</body>
+</html>
