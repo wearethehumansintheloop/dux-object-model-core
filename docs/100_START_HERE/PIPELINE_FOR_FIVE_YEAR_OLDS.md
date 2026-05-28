@@ -3,6 +3,119 @@
 
 ---
 
+## 📍 WHERE IS EVERYTHING? (START HERE!)
+
+### 🏠 Location: You Are Here
+
+```
+📦 Your Computer
+ └─ 📁 Projects
+    └─ 📁 shut-the-dux-up
+       └─ 📁 dux-object-model-core  ← This is your repo!
+          └─ 📁 docs
+             └─ 📁 100_START_HERE  ← EVERYTHING LIVES HERE!
+```
+
+### 🚪 How to Get There
+
+**Open Terminal and type this:**
+
+```bash
+cd ~/Projects/shut-the-dux-up/dux-object-model-core/docs/100_START_HERE
+```
+
+**Or copy-paste this exact path:**
+```
+/Users/nicholasjayanty/Projects/shut-the-dux-up/dux-object-model-core/docs/100_START_HERE
+```
+
+### 📂 What's Inside That Folder?
+
+```
+📁 100_START_HERE/
+├── 🚀 run_validation_tests.sh           ← Click this to run everything!
+├── 📄 tfidf_validation_system.py        ← Script 1: Fake data test
+├── 📄 process_pdf_pymupdf.py            ← Script 2: Real PDF test
+├── 📕 DesignForTimeWell...pdf           ← Test PDF (already there!)
+├── 📊 validation_dashboard.html         ← Open this to see results!
+├── 🔍 interactive_vector_explorer.html  ← Open this to see vectors!
+├── 📋 validation_dashboard.json         ← Raw results (for robots)
+├── 📖 PIPELINE_FOR_FIVE_YEAR_OLDS.md   ← You are reading this!
+├── 📖 HITL_TEST_PLAN.md                 ← Detailed test instructions
+├── 📖 README_SPIKE_VALIDATION_SCRIPTS.md ← Technical deep-dive
+└── 📄 requirements.txt                  ← List of tools needed
+```
+
+### ⚡ Quick Start (Copy-Paste This!)
+
+```bash
+# Step 1: Go to the right place
+cd ~/Projects/shut-the-dux-up/dux-object-model-core/docs/100_START_HERE
+
+# Step 2: Run everything
+./run_validation_tests.sh
+
+# Step 3: Wait 5 seconds ⏳
+
+# Step 4: Dashboards open in your browser! 🎉
+```
+
+**That's it!** You're done! 🎊
+
+---
+
+## 💻 What Environment Am I In?
+
+### 🏷️ The Basics
+
+```
+🗂️  Repository:  dux-object-model-core
+📁  Folder:      docs/100_START_HERE
+🐍  Language:    Python 3
+🖥️   OS:          macOS (but works on Linux/Windows too)
+🌿  Branch:      feature/hitl-feature-template
+```
+
+### 🛠️ What Tools Are Installed?
+
+The test runner checks for you! But if you're curious:
+
+```bash
+# Check Python version
+python3 --version
+# Should say: Python 3.x.x (any 3.x is fine!)
+
+# Check if tools are installed
+pip3 list | grep scikit-learn
+pip3 list | grep numpy
+pip3 list | grep pandas
+pip3 list | grep PyMuPDF
+```
+
+**Don't have them?** No problem! The test runner will install them automatically:
+```bash
+pip3 install -r requirements.txt
+```
+
+### 🎭 What Repo Am I In?
+
+```
+📦 dux-object-model-core
+   ↳ The "upstream lab" (like Fedora)
+   ↳ Where object model validation lives
+   ↳ Feeds into downstream repos (hitl-core, etc.)
+```
+
+**You are NOT in:**
+- ❌ dux-research-platform
+- ❌ hitl-core  
+- ❌ duckie
+
+**You ARE in:**
+- ✅ dux-object-model-core (the validation lab!)
+
+---
+
 ## 🎯 What Does This Do?
 
 **Question:** Did you copy your homework from the right page?  
@@ -222,9 +335,28 @@ python3 process_pdf_pymupdf.py
 
 ### One Command Does Everything:
 
+**⚠️ IMPORTANT: You MUST be in the right folder first!**
+
 ```bash
-cd docs/100_START_HERE
+# Step 1: Go to the folder (copy-paste this!)
+cd ~/Projects/shut-the-dux-up/dux-object-model-core/docs/100_START_HERE
+
+# Step 2: Check you're in the right place
+pwd
+# Should show: /Users/nicholasjayanty/Projects/shut-the-dux-up/dux-object-model-core/docs/100_START_HERE
+
+# Step 3: List files to verify
+ls -lh run_validation_tests.sh
+# Should see: -rwxr-xr-x ... run_validation_tests.sh
+
+# Step 4: Run it!
 ./run_validation_tests.sh
+```
+
+### Or As One Copy-Paste Command:
+
+```bash
+cd ~/Projects/shut-the-dux-up/dux-object-model-core/docs/100_START_HERE && ./run_validation_tests.sh
 ```
 
 **What happens:**
@@ -236,6 +368,24 @@ cd docs/100_START_HERE
 6. ✅ Says "ALL TESTS PASSED" if everything worked!
 
 **Time:** About 5 seconds ⚡
+
+### 🚨 If You Get "No such file or directory"
+
+You're probably in the wrong folder! Try this:
+
+```bash
+# See where you are
+pwd
+
+# Go to your home folder first
+cd ~
+
+# Then navigate to the right place
+cd Projects/shut-the-dux-up/dux-object-model-core/docs/100_START_HERE
+
+# Try again
+./run_validation_tests.sh
+```
 
 ---
 
@@ -329,6 +479,24 @@ Overall Accuracy:  75%
 
 ## 🆘 Troubleshooting (When Things Break)
 
+### ❌ "No such file or directory"
+
+**Problem:** You're in the wrong folder!  
+**Fix:**
+```bash
+# Check where you are
+pwd
+
+# Go to the right place
+cd ~/Projects/shut-the-dux-up/dux-object-model-core/docs/100_START_HERE
+
+# Verify you're there
+ls run_validation_tests.sh
+# Should show: run_validation_tests.sh
+```
+
+---
+
 ### ❌ "python3: command not found"
 
 **Problem:** Python isn't installed  
@@ -341,6 +509,7 @@ Overall Accuracy:  75%
 **Problem:** Missing tools  
 **Fix:**
 ```bash
+cd ~/Projects/shut-the-dux-up/dux-object-model-core/docs/100_START_HERE
 pip3 install -r requirements.txt
 ```
 
@@ -362,6 +531,18 @@ pip3 install -r requirements.txt
 - Check if PDF has actual text (not just images)
 - Try a different PDF
 - Run Test 1 (fake data) to verify script works
+
+---
+
+### ❌ "Permission denied: ./run_validation_tests.sh"
+
+**Problem:** Script isn't executable  
+**Fix:**
+```bash
+cd ~/Projects/shut-the-dux-up/dux-object-model-core/docs/100_START_HERE
+chmod +x run_validation_tests.sh
+./run_validation_tests.sh
+```
 
 ---
 
