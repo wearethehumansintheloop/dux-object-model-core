@@ -54,9 +54,9 @@
       "explanation": "Weak match (similarity: 0.248). Only 3 common terms. Consider reviewing the citation.",
       "term_overlap": {
         "common_terms": [
-          "neural",
           "optimization",
-          "networks"
+          "networks",
+          "neural"
         ],
         "common_term_count": 3,
         "test_unique_terms": [
@@ -64,15 +64,15 @@
         ],
         "chunk_unique_terms": [
           "optimization convolutional",
-          "network",
-          "output",
-          "network architecture",
-          "neurons",
-          "layer",
+          "networks excel",
+          "output layer",
+          "include",
+          "layers",
+          "multiple",
           "neurons key",
-          "uses multiple",
-          "neural network",
-          "tasks"
+          "neurons",
+          "multiple layers",
+          "processing tasks"
         ],
         "weighted_overlap": 0.24818420484819997
       },
@@ -110,27 +110,27 @@
       "explanation": "Moderate match (similarity: 0.629). Found 5 common terms. Highlight contains unique terms: tasks",
       "term_overlap": {
         "common_terms": [
-          "supervised learning",
           "learning",
+          "classification",
+          "supervised learning",
           "regression",
-          "supervised",
-          "classification"
+          "supervised"
         ],
         "common_term_count": 5,
         "test_unique_terms": [
           "tasks"
         ],
         "chunk_unique_terms": [
-          "support",
-          "support vector",
-          "methods",
-          "random",
-          "training requires",
-          "include",
-          "types supervised",
           "random forests",
+          "include",
           "training",
-          "data"
+          "methods",
+          "types supervised",
+          "types",
+          "training requires",
+          "support vector",
+          "random",
+          "support"
         ],
         "weighted_overlap": 0.6286373820226261
       },
@@ -181,15 +181,15 @@
         "test_unique_terms": [],
         "chunk_unique_terms": [
           "variables",
+          "normalization handling",
           "techniques",
-          "using pca",
-          "pca data",
-          "performance",
-          "accuracy",
-          "model performance",
+          "performance accuracy",
           "missing",
-          "pca",
-          "normalization handling"
+          "values encoding",
+          "values",
+          "using",
+          "quality",
+          "quality directly"
         ],
         "weighted_overlap": 0.4273202219453996
       },
@@ -222,22 +222,22 @@
       "explanation": "Weak match (similarity: 0.179). Only 2 common terms. Consider reviewing the citation.",
       "term_overlap": {
         "common_terms": [
-          "classification",
-          "performance"
+          "performance",
+          "classification"
         ],
         "common_term_count": 2,
         "test_unique_terms": [],
         "chunk_unique_terms": [
-          "metrics",
-          "mean absolute",
-          "recall",
-          "matrix provides",
-          "techniques prevent",
-          "accuracy",
-          "squared regression",
-          "validation techniques",
-          "squared error",
-          "squared"
+          "recall score",
+          "error",
+          "techniques",
+          "performance breakdown",
+          "mean",
+          "precision",
+          "overfitting",
+          "tasks",
+          "prevent",
+          "overfitting confusion"
         ],
         "weighted_overlap": 0.17916275494091774
       },
@@ -265,24 +265,24 @@
       "explanation": "Weak match (similarity: 0.416). Only 4 common terms. Consider reviewing the citation.",
       "term_overlap": {
         "common_terms": [
-          "random",
-          "random forests",
+          "methods",
           "learning",
-          "methods"
+          "random forests",
+          "random"
         ],
         "common_term_count": 4,
         "test_unique_terms": [],
         "chunk_unique_terms": [
-          "support",
-          "supervised learning",
-          "support vector",
-          "methods classification",
-          "training requires",
           "include",
-          "types supervised",
           "training",
-          "supervised",
-          "regression"
+          "types supervised",
+          "types",
+          "training requires",
+          "support vector",
+          "support",
+          "classification",
+          "supervised learning",
+          "methods classification"
         ],
         "weighted_overlap": 0.41587249916240754
       },
@@ -321,22 +321,22 @@
       "term_overlap": {
         "common_terms": [
           "layers",
-          "multiple",
-          "learning"
+          "learning",
+          "multiple"
         ],
         "common_term_count": 3,
         "test_unique_terms": [],
         "chunk_unique_terms": [
           "optimization convolutional",
-          "network",
-          "neural",
-          "output",
-          "network architecture",
-          "neurons",
-          "layer",
+          "networks excel",
+          "output layer",
+          "include",
           "neurons key",
-          "uses multiple",
-          "neural network"
+          "neurons",
+          "multiple layers",
+          "neural",
+          "processing tasks",
+          "output"
         ],
         "weighted_overlap": 0.4317761682682405
       },
@@ -376,16 +376,16 @@
         "common_term_count": 3,
         "test_unique_terms": [],
         "chunk_unique_terms": [
-          "metrics",
-          "mean absolute",
-          "recall",
-          "performance",
-          "matrix provides",
-          "techniques prevent",
-          "accuracy",
-          "squared regression",
-          "validation techniques",
-          "squared error"
+          "recall score",
+          "error",
+          "techniques",
+          "performance breakdown",
+          "mean",
+          "precision",
+          "tasks",
+          "prevent",
+          "overfitting confusion",
+          "classification"
         ],
         "weighted_overlap": 0.2556632018636483
       },
@@ -424,15 +424,15 @@
         "test_unique_terms": [],
         "chunk_unique_terms": [
           "variables",
+          "normalization handling",
           "techniques",
-          "using pca",
-          "pca data",
-          "performance",
-          "feature",
-          "accuracy",
-          "model performance",
+          "performance accuracy",
+          "missing",
+          "values encoding",
+          "values",
+          "using",
           "normalization",
-          "missing"
+          "quality"
         ],
         "weighted_overlap": 0.1850350838777603
       },
@@ -455,24 +455,24 @@
       "explanation": "Moderate match (similarity: 0.559). Found 4 common terms. ",
       "term_overlap": {
         "common_terms": [
-          "algorithms",
+          "unsupervised learning",
           "unsupervised",
           "learning",
-          "unsupervised learning"
+          "algorithms"
         ],
         "common_term_count": 4,
         "test_unique_terms": [],
         "chunk_unique_terms": [
-          "supervised learning",
-          "ml",
-          "presentation covers",
-          "trees clustering",
-          "neural networks",
           "networks decision",
           "networks",
-          "neural",
+          "neural networks",
+          "trees",
           "ml including",
-          "trees"
+          "presentation covers",
+          "ml",
+          "presentation",
+          "supervised learning",
+          "neural"
         ],
         "weighted_overlap": 0.5585799431057906
       },
@@ -510,27 +510,27 @@
       "explanation": "Moderate match (similarity: 0.582). Found 7 common terms. ",
       "term_overlap": {
         "common_terms": [
-          "squared",
           "error",
           "performance",
-          "mean",
-          "regression",
           "mean squared",
-          "squared error"
+          "mean",
+          "squared",
+          "squared error",
+          "regression"
         ],
         "common_term_count": 7,
         "test_unique_terms": [],
         "chunk_unique_terms": [
-          "metrics",
-          "mean absolute",
-          "recall",
-          "matrix provides",
-          "techniques prevent",
-          "accuracy",
-          "squared regression",
-          "validation techniques",
-          "provides detailed",
-          "tasks"
+          "recall score",
+          "techniques",
+          "performance breakdown",
+          "precision",
+          "overfitting",
+          "tasks",
+          "prevent",
+          "overfitting confusion",
+          "classification",
+          "model"
         ],
         "weighted_overlap": 0.5818423340217305
       },
@@ -586,15 +586,15 @@
         "test_unique_terms": [],
         "chunk_unique_terms": [
           "optimization convolutional",
-          "network",
-          "neural",
-          "output",
-          "network architecture",
-          "neurons",
-          "layer",
+          "networks excel",
+          "output layer",
+          "include",
+          "layers",
+          "multiple",
           "neurons key",
-          "uses multiple",
-          "neural network"
+          "neurons",
+          "multiple layers",
+          "neural"
         ],
         "weighted_overlap": 0.15806673460698192
       },
@@ -8122,5 +8122,5 @@
       "7": 1
     }
   },
-  "timestamp": "2026-05-27T13:18:55.389431"
+  "timestamp": "2026-05-28T13:58:28.057142"
 }
