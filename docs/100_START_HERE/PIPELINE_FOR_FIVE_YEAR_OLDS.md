@@ -64,6 +64,134 @@ cd ~/Projects/shut-the-dux-up/dux-object-model-core/docs/100_START_HERE
 
 ---
 
+## ✅ Requirements: What Do I Need?
+
+### 🎯 ABSOLUTELY REQUIRED (Must Have!)
+
+```
+✅ Python 3.x (any version 3.x works)
+✅ Terminal/Command Line access
+✅ The repo cloned to your computer
+✅ Internet connection (first time only, to install tools)
+```
+
+**Check if you have Python:**
+```bash
+python3 --version
+```
+Should show: `Python 3.x.x` (any 3.x is fine!)
+
+**Don't have Python?** Download from [python.org](https://python.org)
+
+---
+
+### 📦 Python Packages (Auto-Installed!)
+
+The test runner installs these automatically if missing:
+
+```
+scikit-learn >= 1.0.0  (for TF-IDF math)
+numpy >= 1.20.0        (for number crunching)
+pandas >= 1.3.0        (for data tables)
+PyMuPDF >= 1.26.7      (for reading PDFs)
+```
+
+**You don't need to install these manually!** The script does it for you. 🎉
+
+**But if you want to install them yourself:**
+```bash
+cd ~/Projects/shut-the-dux-up/dux-object-model-core/docs/100_START_HERE
+pip3 install -r requirements.txt
+```
+
+---
+
+### 📁 Files (Already Included!)
+
+Everything you need is already in the repo:
+
+```
+✅ run_validation_tests.sh      (test runner)
+✅ tfidf_validation_system.py   (validator script)
+✅ process_pdf_pymupdf.py       (PDF processor)
+✅ requirements.txt              (package list)
+✅ Test PDFs (already there!)
+✅ HTML dashboards (created when you run tests)
+```
+
+**You don't need to download anything!** Just run the test runner.
+
+---
+
+### 🎨 OPTIONAL (Nice to Have, Not Required)
+
+```
+⭕ Your own PDF to test
+⭕ Your own citation markdown table
+⭕ Docling library (for higher-quality PDF extraction)
+```
+
+**Test 1 works without ANY of these!** It uses built-in fake data.
+
+---
+
+### 💾 Disk Space
+
+```
+Tiny! Less than 10 MB total
+```
+
+---
+
+### ⏱️ Time
+
+```
+First run: ~30 seconds (installing packages)
+After that: ~5 seconds per run
+```
+
+---
+
+### 🖥️ Operating System
+
+```
+✅ macOS (tested - dashboards auto-open)
+✅ Linux (works - manual dashboard opening)
+✅ Windows (works - manual dashboard opening)
+```
+
+---
+
+### 📋 Quick Requirements Checklist
+
+**Before running, verify:**
+
+```bash
+# 1. Do I have Python?
+python3 --version
+# ✅ Should see: Python 3.x.x
+
+# 2. Am I in the right folder?
+pwd
+# ✅ Should see: .../dux-object-model-core/docs/100_START_HERE
+
+# 3. Do the scripts exist?
+ls run_validation_tests.sh
+# ✅ Should see: run_validation_tests.sh
+
+# 4. Is the test runner executable?
+ls -l run_validation_tests.sh | grep "x"
+# ✅ Should see: -rwxr-xr-x (has 'x' = executable)
+```
+
+**If all 4 checks pass, you're ready to run!** 🚀
+
+```bash
+./run_validation_tests.sh
+```
+
+---
+
 ## 📦 Test Files: What Do I Need?
 
 ### ✅ Good News: Test Files Are ALREADY INCLUDED!
