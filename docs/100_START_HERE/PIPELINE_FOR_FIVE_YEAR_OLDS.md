@@ -64,6 +64,201 @@ cd ~/Projects/shut-the-dux-up/dux-object-model-core/docs/100_START_HERE
 
 ---
 
+## 📦 Test Files: What Do I Need?
+
+### ✅ Good News: Test Files Are ALREADY INCLUDED!
+
+**You don't need to download anything!** The repo already has test files ready to go:
+
+```
+📁 100_START_HERE/
+├── 📕 DesignForTimeWellSpentAgentOrientedBots_forReview.pdf  ← Test PDF (already there!)
+├── 📕 accenture-legacy-or-legend-slideshare-200117094747.pdf ← Another test PDF
+└── 📄 tfidf_validation_system.py ← Makes its own fake data (no files needed!)
+```
+
+**Just run the test runner - everything is ready!** 🎉
+
+```bash
+cd ~/Projects/shut-the-dux-up/dux-object-model-core/docs/100_START_HERE
+./run_validation_tests.sh
+```
+
+---
+
+### 🎨 Want to Test with YOUR OWN PDF?
+
+#### Option 1: Use Fake Data (No Setup!)
+
+Just run `tfidf_validation_system.py` - it makes up its own slides and citations:
+
+```bash
+cd ~/Projects/shut-the-dux-up/dux-object-model-core/docs/100_START_HERE
+python3 tfidf_validation_system.py
+```
+
+**No files needed!** Perfect for testing. ✨
+
+---
+
+#### Option 2: Test with Your Own PDF
+
+**Step 1: Put Your PDF in the Right Place**
+
+```bash
+# Copy your PDF to the test folder
+cp ~/Downloads/my-research.pdf ~/Projects/shut-the-dux-up/dux-object-model-core/docs/100_START_HERE/
+
+# OR if it's already somewhere, just copy the path and edit the script
+```
+
+**Step 2: Update the Script to Use Your PDF**
+
+Edit `process_pdf_pymupdf.py` (line 333):
+
+```python
+# Change this line:
+pdf_path = "DesignForTimeWellSpentAgentOrientedBots_forReview.pdf"
+
+# To this (use YOUR filename):
+pdf_path = "my-research.pdf"
+```
+
+**Step 3: Run It!**
+
+```bash
+python3 process_pdf_pymupdf.py
+```
+
+---
+
+### 📝 Want to Test with YOUR OWN Citations?
+
+**You need a markdown table with your highlights and page numbers.**
+
+#### Where to Put Your Citations:
+
+**Option A: Edit the Built-in Test Data**
+
+Edit `tfidf_validation_system.py` (line 148) and replace the sample table:
+
+```python
+def create_sample_test_document() -> str:
+    return """
+| Highlight | Citation | Category |
+|-----------|----------|----------|
+| Your copied text here | Slide 3 | Quote |
+| Another highlight | Page 5 | Fact |
+| Something else | Slide 1 | Idea |
+"""
+```
+
+**Option B: Create a Separate Markdown File**
+
+1. Create `my_citations.md` in the same folder:
+
+```markdown
+| Highlight | Citation | Category |
+|-----------|----------|----------|
+| Neural networks use backpropagation | Slide 3 | Method |
+| Machine learning is awesome | Slide 1 | Concept |
+| Deep learning requires data | Slide 2 | Fact |
+```
+
+2. Modify the script to read from your file (you'd need to edit the Python code)
+
+**OR just use the fake data to see if everything works first!** 🚀
+
+---
+
+### 🎯 Citation Format Rules
+
+Your markdown table MUST have these columns:
+
+```markdown
+| Highlight                    | Citation | Category |
+|------------------------------|----------|----------|
+| The text you copied          | Slide 3  | Type     |
+| Another quote from research  | Page 5   | Type     |
+```
+
+**Column 1: Highlight** (required)
+- The actual text you copied from the source
+- Can be a sentence, paragraph, or bullet point
+- Must match text that actually appears in the PDF!
+
+**Column 2: Citation** (required)
+- Where you claim the text came from
+- Format: "Slide 3", "Page 5", "Slide 12", etc.
+- The validator checks if you got this right!
+
+**Column 3: Category** (optional)
+- What type of thing this is: Fact, Quote, Method, Concept, etc.
+- Used for categorizing results
+- Can be anything you want
+
+---
+
+### 🚨 What If Files Are Missing?
+
+**Test PDF is missing?**
+```bash
+# Check if it's there
+ls ~/Projects/shut-the-dux-up/dux-object-model-core/docs/100_START_HERE/*.pdf
+
+# If missing, the test runner will skip Test 2 (but Test 1 still works!)
+# You can download any PDF and put it there
+```
+
+**Python scripts are missing?**
+```bash
+# You might be in the wrong folder!
+cd ~/Projects/shut-the-dux-up/dux-object-model-core/docs/100_START_HERE
+ls *.py
+# Should see: tfidf_validation_system.py, process_pdf_pymupdf.py, etc.
+```
+
+**HTML dashboards don't exist yet?**
+```bash
+# That's normal! They get created when you run the tests
+./run_validation_tests.sh
+# After running, you'll see: validation_dashboard.html and others
+```
+
+---
+
+### 📋 Checklist: Do I Have Everything?
+
+Before running tests, check:
+
+```bash
+cd ~/Projects/shut-the-dux-up/dux-object-model-core/docs/100_START_HERE
+
+# Check Python scripts
+ls *.py
+# ✅ Should see: tfidf_validation_system.py, process_pdf_pymupdf.py, etc.
+
+# Check test runner
+ls run_validation_tests.sh
+# ✅ Should see: run_validation_tests.sh
+
+# Check test PDFs (optional - not required for Test 1)
+ls *.pdf
+# ✅ Should see at least one PDF
+
+# Check requirements file
+ls requirements.txt
+# ✅ Should see: requirements.txt
+
+# Check if you have Python
+python3 --version
+# ✅ Should see: Python 3.x.x
+```
+
+**If you see all these ✅ checkmarks, you're ready to run!** 🎉
+
+---
+
 ## 💻 What Environment Am I In?
 
 ### 🏷️ The Basics
