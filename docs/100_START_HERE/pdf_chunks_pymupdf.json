@@ -1,0 +1,313 @@
+[
+  {
+    "page_number": 1,
+    "content_preview": " \ndesign for time well spent \nusing agent oriented \nsystem architecture \nprepared for Jenny Rodenhouse \nprepared by Damian Gill, Nicholas Jayanty,  \nand Christine Meinders\n",
+    "provenance": {
+      "source_file": "DesignForTimeWellSpentAgentOrientedBots_forReview.pdf",
+      "full_path": "/Users/nicholasjayanty/Projects/shut-the-dux-up/dux-object-model-core/docs/100_START_HERE/DesignForTimeWellSpentAgentOrientedBots_forReview.pdf",
+      "extraction_method": "pymupdf",
+      "page_ref": "Page 1",
+      "page_label": ""
+    },
+    "metadata": {
+      "page_number": 1,
+      "bbox": {
+        "x0": 0.0,
+        "y0": 0.0,
+        "x1": 612.0,
+        "y1": 792.0,
+        "width": 612.0,
+        "height": 792.0
+      },
+      "rotation": 0,
+      "has_tables": false,
+      "table_count": 0
+    },
+    "vector_summary": {
+      "total_coordinates": 100,
+      "active_coordinates": 8,
+      "top_5_terms": [
+        {
+          "term": "prepared",
+          "weight": 0.6522842902796314,
+          "coordinate": 64,
+          "page_ref": "Page 1"
+        },
+        {
+          "term": "meinders",
+          "weight": 0.3261421451398157,
+          "coordinate": 50,
+          "page_ref": "Page 1"
+        },
+        {
+          "term": "prepared damian",
+          "weight": 0.3261421451398157,
+          "coordinate": 65,
+          "page_ref": "Page 1"
+        },
+        {
+          "term": "prepared jenny",
+          "weight": 0.3261421451398157,
+          "coordinate": 66,
+          "page_ref": "Page 1"
+        },
+        {
+          "term": "design",
+          "weight": 0.26312942914086856,
+          "coordinate": 19,
+          "page_ref": "Page 1"
+        }
+      ],
+      "density": 0.08
+    }
+  },
+  {
+    "page_number": 2,
+    "content_preview": "Research Protocol  \nIntroduction \nThe time well spent movement believes in reimagining the attention economy and how we \ninteract with our technology.  Ensnared in an addictive relationship with the ‘slot machine’  in \nour pocket, we are poised to introduce an even greater technological evolution into our homes, \nworkplace, vehicles, and the devices that connect us to each other and the world, artiﬁcial \nintelligence.   \nAs interaction designers we are the ambassadors for the human experience in...",
+    "provenance": {
+      "source_file": "DesignForTimeWellSpentAgentOrientedBots_forReview.pdf",
+      "full_path": "/Users/nicholasjayanty/Projects/shut-the-dux-up/dux-object-model-core/docs/100_START_HERE/DesignForTimeWellSpentAgentOrientedBots_forReview.pdf",
+      "extraction_method": "pymupdf",
+      "page_ref": "Page 2",
+      "page_label": ""
+    },
+    "metadata": {
+      "page_number": 2,
+      "bbox": {
+        "x0": 0.0,
+        "y0": 0.0,
+        "x1": 612.0,
+        "y1": 792.0,
+        "width": 612.0,
+        "height": 792.0
+      },
+      "rotation": 0,
+      "has_tables": false,
+      "table_count": 0
+    },
+    "vector_summary": {
+      "total_coordinates": 100,
+      "active_coordinates": 40,
+      "top_5_terms": [
+        {
+          "term": "intention",
+          "weight": 0.4222381544626033,
+          "coordinate": 42,
+          "page_ref": "Page 2"
+        },
+        {
+          "term": "research",
+          "weight": 0.3377905235700826,
+          "coordinate": 75,
+          "page_ref": "Page 2"
+        },
+        {
+          "term": "users",
+          "weight": 0.25334289267756194,
+          "coordinate": 96,
+          "page_ref": "Page 2"
+        },
+        {
+          "term": "past",
+          "weight": 0.2043954506356899,
+          "coordinate": 59,
+          "page_ref": "Page 2"
+        },
+        {
+          "term": "present",
+          "weight": 0.2043954506356899,
+          "coordinate": 67,
+          "page_ref": "Page 2"
+        }
+      ],
+      "density": 0.4
+    }
+  },
+  {
+    "page_number": 3,
+    "content_preview": "Interview \nModerator: Today we are going to imagine a future where we live side by side with units of \nartiﬁcial intelligence know as bots.   We commonly see bots expressed as chatbots from \ncustomer support agents, to Facebook messenger and other communications tools.  Before we \ndo imagine that future, we wanted to talk to you about your day to day. \nPresent \nCould you describe your day?  \nDescribe what made it good?   \nDescribe any roadblocks you may have experienced.   \nDescribe what you wou...",
+    "provenance": {
+      "source_file": "DesignForTimeWellSpentAgentOrientedBots_forReview.pdf",
+      "full_path": "/Users/nicholasjayanty/Projects/shut-the-dux-up/dux-object-model-core/docs/100_START_HERE/DesignForTimeWellSpentAgentOrientedBots_forReview.pdf",
+      "extraction_method": "pymupdf",
+      "page_ref": "Page 3",
+      "page_label": ""
+    },
+    "metadata": {
+      "page_number": 3,
+      "bbox": {
+        "x0": 0.0,
+        "y0": 0.0,
+        "x1": 612.0,
+        "y1": 792.0,
+        "width": 612.0,
+        "height": 792.0
+      },
+      "rotation": 0,
+      "has_tables": false,
+      "table_count": 0
+    },
+    "vector_summary": {
+      "total_coordinates": 100,
+      "active_coordinates": 45,
+      "top_5_terms": [
+        {
+          "term": "day",
+          "weight": 0.5533037040858125,
+          "coordinate": 15,
+          "page_ref": "Page 3"
+        },
+        {
+          "term": "did",
+          "weight": 0.34290283978031255,
+          "coordinate": 20,
+          "page_ref": "Page 3"
+        },
+        {
+          "term": "know",
+          "weight": 0.27432227182425,
+          "coordinate": 44,
+          "page_ref": "Page 3"
+        },
+        {
+          "term": "did know",
+          "weight": 0.20574170386818752,
+          "coordinate": 21,
+          "page_ref": "Page 3"
+        },
+        {
+          "term": "experienced",
+          "weight": 0.20574170386818752,
+          "coordinate": 23,
+          "page_ref": "Page 3"
+        }
+      ],
+      "density": 0.45
+    }
+  },
+  {
+    "page_number": 4,
+    "content_preview": "[Moderator reveals bot cards] \nand these are the elements of artiﬁcial intelligence we’re calling bots.  Imagine a system of ants \nor bees where each bot has a role that it speciﬁcally carries out.  \nThese are some of the themes that emerged from our discussion.  Let’s select the one that is \nmost important to you. \n[Participant selects a theme.] \nNow imagine you have the ability to use this artiﬁcial intelligence to help you address this \ntheme. \nHow would you go about it?  Which of these bots ...",
+    "provenance": {
+      "source_file": "DesignForTimeWellSpentAgentOrientedBots_forReview.pdf",
+      "full_path": "/Users/nicholasjayanty/Projects/shut-the-dux-up/dux-object-model-core/docs/100_START_HERE/DesignForTimeWellSpentAgentOrientedBots_forReview.pdf",
+      "extraction_method": "pymupdf",
+      "page_ref": "Page 4",
+      "page_label": ""
+    },
+    "metadata": {
+      "page_number": 4,
+      "bbox": {
+        "x0": 0.0,
+        "y0": 0.0,
+        "x1": 612.0,
+        "y1": 792.0,
+        "width": 612.0,
+        "height": 792.0
+      },
+      "rotation": 0,
+      "has_tables": false,
+      "table_count": 0
+    },
+    "vector_summary": {
+      "total_coordinates": 100,
+      "active_coordinates": 40,
+      "top_5_terms": [
+        {
+          "term": "bot",
+          "weight": 0.41148536856211215,
+          "coordinate": 4,
+          "page_ref": "Page 4"
+        },
+        {
+          "term": "theme",
+          "weight": 0.40961446195035034,
+          "coordinate": 85,
+          "page_ref": "Page 4"
+        },
+        {
+          "term": "comfort",
+          "weight": 0.20480723097517517,
+          "coordinate": 12,
+          "page_ref": "Page 4"
+        },
+        {
+          "term": "comfort having",
+          "weight": 0.20480723097517517,
+          "coordinate": 13,
+          "page_ref": "Page 4"
+        },
+        {
+          "term": "having",
+          "weight": 0.20480723097517517,
+          "coordinate": 34,
+          "page_ref": "Page 4"
+        }
+      ],
+      "density": 0.4
+    }
+  },
+  {
+    "page_number": 5,
+    "content_preview": "Bot Activity \n \n \n",
+    "provenance": {
+      "source_file": "DesignForTimeWellSpentAgentOrientedBots_forReview.pdf",
+      "full_path": "/Users/nicholasjayanty/Projects/shut-the-dux-up/dux-object-model-core/docs/100_START_HERE/DesignForTimeWellSpentAgentOrientedBots_forReview.pdf",
+      "extraction_method": "pymupdf",
+      "page_ref": "Page 5",
+      "page_label": ""
+    },
+    "metadata": {
+      "page_number": 5,
+      "bbox": {
+        "x0": 0.0,
+        "y0": 0.0,
+        "x1": 612.0,
+        "y1": 792.0,
+        "width": 612.0,
+        "height": 792.0
+      },
+      "rotation": 0,
+      "has_tables": false,
+      "table_count": 0
+    },
+    "vector_summary": {
+      "total_coordinates": 100,
+      "active_coordinates": 1,
+      "top_5_terms": [
+        {
+          "term": "bot",
+          "weight": 1.0,
+          "coordinate": 4,
+          "page_ref": "Page 5"
+        }
+      ],
+      "density": 0.01
+    }
+  },
+  {
+    "page_number": 6,
+    "content_preview": "",
+    "provenance": {
+      "source_file": "DesignForTimeWellSpentAgentOrientedBots_forReview.pdf",
+      "full_path": "/Users/nicholasjayanty/Projects/shut-the-dux-up/dux-object-model-core/docs/100_START_HERE/DesignForTimeWellSpentAgentOrientedBots_forReview.pdf",
+      "extraction_method": "pymupdf",
+      "page_ref": "Page 6",
+      "page_label": ""
+    },
+    "metadata": {
+      "page_number": 6,
+      "bbox": {
+        "x0": 0.0,
+        "y0": 0.0,
+        "x1": 612.0,
+        "y1": 792.0,
+        "width": 612.0,
+        "height": 792.0
+      },
+      "rotation": 0,
+      "has_tables": false,
+      "table_count": 0
+    }
+  }
+]

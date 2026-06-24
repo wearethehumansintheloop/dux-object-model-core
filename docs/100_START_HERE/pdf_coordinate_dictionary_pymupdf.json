@@ -1,0 +1,740 @@
+{
+  "total_dimensions": 100,
+  "pdf_source": "DesignForTimeWellSpentAgentOrientedBots_forReview.pdf",
+  "coordinate_mapping": {
+    "0": {
+      "coordinate": 0,
+      "word": "action",
+      "appears_in_pages": [
+        2
+      ]
+    },
+    "1": {
+      "coordinate": 1,
+      "word": "agents",
+      "appears_in_pages": [
+        2,
+        3
+      ]
+    },
+    "2": {
+      "coordinate": 2,
+      "word": "aloud",
+      "appears_in_pages": [
+        4
+      ]
+    },
+    "3": {
+      "coordinate": 3,
+      "word": "aloud participant",
+      "appears_in_pages": [
+        4
+      ]
+    },
+    "4": {
+      "coordinate": 4,
+      "word": "bot",
+      "appears_in_pages": [
+        3,
+        4,
+        5
+      ]
+    },
+    "5": {
+      "coordinate": 5,
+      "word": "bot handle",
+      "appears_in_pages": [
+        4
+      ]
+    },
+    "6": {
+      "coordinate": 6,
+      "word": "bot theme",
+      "appears_in_pages": [
+        4
+      ]
+    },
+    "7": {
+      "coordinate": 7,
+      "word": "bots",
+      "appears_in_pages": [
+        3,
+        4
+      ]
+    },
+    "8": {
+      "coordinate": 8,
+      "word": "build",
+      "appears_in_pages": [
+        4
+      ]
+    },
+    "9": {
+      "coordinate": 9,
+      "word": "build super",
+      "appears_in_pages": [
+        4
+      ]
+    },
+    "10": {
+      "coordinate": 10,
+      "word": "builds",
+      "appears_in_pages": [
+        4
+      ]
+    },
+    "11": {
+      "coordinate": 11,
+      "word": "builds bot",
+      "appears_in_pages": [
+        4
+      ]
+    },
+    "12": {
+      "coordinate": 12,
+      "word": "comfort",
+      "appears_in_pages": [
+        4
+      ]
+    },
+    "13": {
+      "coordinate": 13,
+      "word": "comfort having",
+      "appears_in_pages": [
+        4
+      ]
+    },
+    "14": {
+      "coordinate": 14,
+      "word": "create",
+      "appears_in_pages": [
+        2,
+        4
+      ]
+    },
+    "15": {
+      "coordinate": 15,
+      "word": "day",
+      "appears_in_pages": [
+        2,
+        3
+      ]
+    },
+    "16": {
+      "coordinate": 16,
+      "word": "day day",
+      "appears_in_pages": [
+        2,
+        3
+      ]
+    },
+    "17": {
+      "coordinate": 17,
+      "word": "day experienced",
+      "appears_in_pages": [
+        3
+      ]
+    },
+    "18": {
+      "coordinate": 18,
+      "word": "day typical",
+      "appears_in_pages": [
+        3
+      ]
+    },
+    "19": {
+      "coordinate": 19,
+      "word": "design",
+      "appears_in_pages": [
+        1,
+        2
+      ]
+    },
+    "20": {
+      "coordinate": 20,
+      "word": "did",
+      "appears_in_pages": [
+        3
+      ]
+    },
+    "21": {
+      "coordinate": 21,
+      "word": "did know",
+      "appears_in_pages": [
+        3
+      ]
+    },
+    "22": {
+      "coordinate": 22,
+      "word": "exercise",
+      "appears_in_pages": [
+        2,
+        3
+      ]
+    },
+    "23": {
+      "coordinate": 23,
+      "word": "experienced",
+      "appears_in_pages": [
+        3
+      ]
+    },
+    "24": {
+      "coordinate": 24,
+      "word": "experienced did",
+      "appears_in_pages": [
+        3
+      ]
+    },
+    "25": {
+      "coordinate": 25,
+      "word": "express",
+      "appears_in_pages": [
+        2
+      ]
+    },
+    "26": {
+      "coordinate": 26,
+      "word": "express intention",
+      "appears_in_pages": [
+        2
+      ]
+    },
+    "27": {
+      "coordinate": 27,
+      "word": "facet",
+      "appears_in_pages": [
+        2
+      ]
+    },
+    "28": {
+      "coordinate": 28,
+      "word": "future",
+      "appears_in_pages": [
+        2,
+        3
+      ]
+    },
+    "29": {
+      "coordinate": 29,
+      "word": "future vision",
+      "appears_in_pages": [
+        2
+      ]
+    },
+    "30": {
+      "coordinate": 30,
+      "word": "generative",
+      "appears_in_pages": [
+        2
+      ]
+    },
+    "31": {
+      "coordinate": 31,
+      "word": "going",
+      "appears_in_pages": [
+        3
+      ]
+    },
+    "32": {
+      "coordinate": 32,
+      "word": "great",
+      "appears_in_pages": [
+        3
+      ]
+    },
+    "33": {
+      "coordinate": 33,
+      "word": "handle",
+      "appears_in_pages": [
+        4
+      ]
+    },
+    "34": {
+      "coordinate": 34,
+      "word": "having",
+      "appears_in_pages": [
+        4
+      ]
+    },
+    "35": {
+      "coordinate": 35,
+      "word": "having bot",
+      "appears_in_pages": [
+        4
+      ]
+    },
+    "36": {
+      "coordinate": 36,
+      "word": "help",
+      "appears_in_pages": [
+        2,
+        3,
+        4
+      ]
+    },
+    "37": {
+      "coordinate": 37,
+      "word": "human",
+      "appears_in_pages": [
+        2
+      ]
+    },
+    "38": {
+      "coordinate": 38,
+      "word": "imagine",
+      "appears_in_pages": [
+        3,
+        4
+      ]
+    },
+    "39": {
+      "coordinate": 39,
+      "word": "imagine future",
+      "appears_in_pages": [
+        3
+      ]
+    },
+    "40": {
+      "coordinate": 40,
+      "word": "important",
+      "appears_in_pages": [
+        3,
+        4
+      ]
+    },
+    "41": {
+      "coordinate": 41,
+      "word": "intelligence",
+      "appears_in_pages": [
+        2,
+        3,
+        4
+      ]
+    },
+    "42": {
+      "coordinate": 42,
+      "word": "intention",
+      "appears_in_pages": [
+        2
+      ]
+    },
+    "43": {
+      "coordinate": 43,
+      "word": "interview",
+      "appears_in_pages": [
+        2,
+        3
+      ]
+    },
+    "44": {
+      "coordinate": 44,
+      "word": "know",
+      "appears_in_pages": [
+        3
+      ]
+    },
+    "45": {
+      "coordinate": 45,
+      "word": "know terrible",
+      "appears_in_pages": [
+        3
+      ]
+    },
+    "46": {
+      "coordinate": 46,
+      "word": "know wanted",
+      "appears_in_pages": [
+        3
+      ]
+    },
+    "47": {
+      "coordinate": 47,
+      "word": "level",
+      "appears_in_pages": [
+        4
+      ]
+    },
+    "48": {
+      "coordinate": 48,
+      "word": "level comfort",
+      "appears_in_pages": [
+        4
+      ]
+    },
+    "49": {
+      "coordinate": 49,
+      "word": "medical history",
+      "appears_in_pages": [
+        4
+      ]
+    },
+    "50": {
+      "coordinate": 50,
+      "word": "meinders",
+      "appears_in_pages": [
+        1
+      ]
+    },
+    "51": {
+      "coordinate": 51,
+      "word": "merely",
+      "appears_in_pages": [
+        4
+      ]
+    },
+    "52": {
+      "coordinate": 52,
+      "word": "messenger",
+      "appears_in_pages": [
+        3
+      ]
+    },
+    "53": {
+      "coordinate": 53,
+      "word": "messenger communications",
+      "appears_in_pages": [
+        3
+      ]
+    },
+    "54": {
+      "coordinate": 54,
+      "word": "moderator",
+      "appears_in_pages": [
+        3,
+        4
+      ]
+    },
+    "55": {
+      "coordinate": 55,
+      "word": "moderator reveals",
+      "appears_in_pages": [
+        3,
+        4
+      ]
+    },
+    "56": {
+      "coordinate": 56,
+      "word": "opportunity",
+      "appears_in_pages": [
+        2
+      ]
+    },
+    "57": {
+      "coordinate": 57,
+      "word": "participant",
+      "appears_in_pages": [
+        2,
+        4
+      ]
+    },
+    "58": {
+      "coordinate": 58,
+      "word": "participant builds",
+      "appears_in_pages": [
+        4
+      ]
+    },
+    "59": {
+      "coordinate": 59,
+      "word": "past",
+      "appears_in_pages": [
+        2,
+        3
+      ]
+    },
+    "60": {
+      "coordinate": 60,
+      "word": "poised",
+      "appears_in_pages": [
+        2
+      ]
+    },
+    "61": {
+      "coordinate": 61,
+      "word": "poised introduce",
+      "appears_in_pages": [
+        2
+      ]
+    },
+    "62": {
+      "coordinate": 62,
+      "word": "prepare",
+      "appears_in_pages": [
+        3
+      ]
+    },
+    "63": {
+      "coordinate": 63,
+      "word": "prepare face",
+      "appears_in_pages": [
+        3
+      ]
+    },
+    "64": {
+      "coordinate": 64,
+      "word": "prepared",
+      "appears_in_pages": [
+        1
+      ]
+    },
+    "65": {
+      "coordinate": 65,
+      "word": "prepared damian",
+      "appears_in_pages": [
+        1
+      ]
+    },
+    "66": {
+      "coordinate": 66,
+      "word": "prepared jenny",
+      "appears_in_pages": [
+        1
+      ]
+    },
+    "67": {
+      "coordinate": 67,
+      "word": "present",
+      "appears_in_pages": [
+        2,
+        3
+      ]
+    },
+    "68": {
+      "coordinate": 68,
+      "word": "present day",
+      "appears_in_pages": [
+        3
+      ]
+    },
+    "69": {
+      "coordinate": 69,
+      "word": "present participants",
+      "appears_in_pages": [
+        2
+      ]
+    },
+    "70": {
+      "coordinate": 70,
+      "word": "productive",
+      "appears_in_pages": [
+        3
+      ]
+    },
+    "71": {
+      "coordinate": 71,
+      "word": "questions",
+      "appears_in_pages": [
+        2,
+        4
+      ]
+    },
+    "72": {
+      "coordinate": 72,
+      "word": "reimagining",
+      "appears_in_pages": [
+        2
+      ]
+    },
+    "73": {
+      "coordinate": 73,
+      "word": "relationship",
+      "appears_in_pages": [
+        2
+      ]
+    },
+    "74": {
+      "coordinate": 74,
+      "word": "remember",
+      "appears_in_pages": [
+        4
+      ]
+    },
+    "75": {
+      "coordinate": 75,
+      "word": "research",
+      "appears_in_pages": [
+        2
+      ]
+    },
+    "76": {
+      "coordinate": 76,
+      "word": "reveals",
+      "appears_in_pages": [
+        3,
+        4
+      ]
+    },
+    "77": {
+      "coordinate": 77,
+      "word": "role",
+      "appears_in_pages": [
+        2,
+        4
+      ]
+    },
+    "78": {
+      "coordinate": 78,
+      "word": "seldom",
+      "appears_in_pages": [
+        2
+      ]
+    },
+    "79": {
+      "coordinate": 79,
+      "word": "spent",
+      "appears_in_pages": [
+        1,
+        2
+      ]
+    },
+    "80": {
+      "coordinate": 80,
+      "word": "super",
+      "appears_in_pages": [
+        3,
+        4
+      ]
+    },
+    "81": {
+      "coordinate": 81,
+      "word": "super bot",
+      "appears_in_pages": [
+        3,
+        4
+      ]
+    },
+    "82": {
+      "coordinate": 82,
+      "word": "technological",
+      "appears_in_pages": [
+        2
+      ]
+    },
+    "83": {
+      "coordinate": 83,
+      "word": "technology",
+      "appears_in_pages": [
+        2,
+        3
+      ]
+    },
+    "84": {
+      "coordinate": 84,
+      "word": "terrible",
+      "appears_in_pages": [
+        3
+      ]
+    },
+    "85": {
+      "coordinate": 85,
+      "word": "theme",
+      "appears_in_pages": [
+        4
+      ]
+    },
+    "86": {
+      "coordinate": 86,
+      "word": "theme think",
+      "appears_in_pages": [
+        4
+      ]
+    },
+    "87": {
+      "coordinate": 87,
+      "word": "themes",
+      "appears_in_pages": [
+        2,
+        4
+      ]
+    },
+    "88": {
+      "coordinate": 88,
+      "word": "think",
+      "appears_in_pages": [
+        4
+      ]
+    },
+    "89": {
+      "coordinate": 89,
+      "word": "think aloud",
+      "appears_in_pages": [
+        4
+      ]
+    },
+    "90": {
+      "coordinate": 90,
+      "word": "time",
+      "appears_in_pages": [
+        1,
+        2,
+        3
+      ]
+    },
+    "91": {
+      "coordinate": 91,
+      "word": "time spent",
+      "appears_in_pages": [
+        1,
+        2
+      ]
+    },
+    "92": {
+      "coordinate": 92,
+      "word": "today",
+      "appears_in_pages": [
+        3
+      ]
+    },
+    "93": {
+      "coordinate": 93,
+      "word": "typical",
+      "appears_in_pages": [
+        3
+      ]
+    },
+    "94": {
+      "coordinate": 94,
+      "word": "use",
+      "appears_in_pages": [
+        3,
+        4
+      ]
+    },
+    "95": {
+      "coordinate": 95,
+      "word": "user",
+      "appears_in_pages": [
+        2
+      ]
+    },
+    "96": {
+      "coordinate": 96,
+      "word": "users",
+      "appears_in_pages": [
+        2
+      ]
+    },
+    "97": {
+      "coordinate": 97,
+      "word": "vision",
+      "appears_in_pages": [
+        2
+      ]
+    },
+    "98": {
+      "coordinate": 98,
+      "word": "wanted",
+      "appears_in_pages": [
+        3
+      ]
+    },
+    "99": {
+      "coordinate": 99,
+      "word": "work",
+      "appears_in_pages": [
+        3
+      ]
+    }
+  }
+}
