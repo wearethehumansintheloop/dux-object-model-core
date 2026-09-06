@@ -13,27 +13,42 @@
 - [Key benefit or value proposition #4]
 
 ## 📋 Schema Attributes
-| Attribute               | Type                           | Required | Description                                                                                  |
-|---------------------|--------------------------------|----------|----------------------------------------------------------------------------------------------|
-| object_type         | string (const: "[ObjectType]") | Yes      | Object type discriminator                                                                    |
-| id                  | string                         | Yes      | Unique identifier for this object                                                            |
-| [field_name]        | [type]                         | [Yes/No] | [Clear description of what this field represents and how it's used]                         |
-| [field_name]        | [type]                         | [Yes/No] | [Clear description of what this field represents and how it's used]                         |
-| [field_name]        | [type]                         | [Yes/No] | [Clear description of what this field represents and how it's used]                         |
-| tags                | [string]                       | No       | System-derived tags from DUX scan (not manually added)                                      |
-| created_at          | string                         | No       | Creation timestamp                                                                           |
-| updated_at          | string                         | No       | Last update timestamp                                                                        |
+
+**Legend**
+
+- `*` = asterisked (drift / confabulation–critical) when the object uses attribute-hashes; companion **attribute-hash** is system-derived.
+- **Origin:** `user-authored` | `system-proposed` | `system-derived`
+- **Values:** constraint — free text when unconstrained; otherwise the closed set (enum literals, const, etc.)
+- **Sample:** illustrative instance value(s); not exhaustive. Canonical JSON below is authoritative for multi-field examples.
+- Table order is **HITL / ORCA** (Core → Metadata → Nested objects). Canonical JSON key order is a **runtime** concern — not a drift surface against this table.
+- **Base fields (every object):** `object_type`, typed id (e.g. `outcome_id`, `user_outcome_id` — template `id`), `tags`, `created_at`, `updated_at`.
+
+| Attribute | Data type | Values | Sample | Origin | Required | Description |
+| --------- | --------- | ------ | ------ | ------ | -------- | ----------- |
+| `object_type` | string (const: `"[ObjectType]"`) | `"[ObjectType]"` | `"[ObjectType]"` | system-derived | Yes | Object type discriminator |
+| `[object]_id` | string | opaque / typed id | `[object]_001` | system-derived | Yes | Unique identifier for this object (template `id`) |
+| `[field_name]` | [type] | [constraint or free text] | [example] | user-authored \| system-proposed \| system-derived | Yes/No | [Clear description of what this field represents and how it's used] |
+| `[field_name]` | [type] | [constraint or free text] | [example] | user-authored \| system-proposed \| system-derived | Yes/No | [Clear description of what this field represents and how it's used] |
+| `tags` | array of strings | free text items | `["tag1", "tag2"]` | user-authored \| system-derived | No | Traceability / classification tags |
+| `created_at` | datetime | ISO 8601 | `2026-08-31T00:00:00Z` | system-derived | No | Creation timestamp |
+| `updated_at` | datetime | ISO 8601 | `2026-08-31T00:00:00Z` | system-derived | No | Last update timestamp |
+
+### Nested objects (when applicable)
+
+| Attribute | Data type | Values | Sample | Origin | Required | Description |
+| --------- | --------- | ------ | ------ | ------ | -------- | ----------- |
+| `[ref]_id` | [Object].id | opaque instance id | `[object]_001` | system-derived | Yes/No | Nested object reference |
 
 ## 📦 Canonical Example (Schema-Compliant)
 ```json
 {
   "object_type": "[ObjectType]",
-  "id": "[object_type]_001",
-  "[field_name]": "[example_value]",
+  "[object]_id": "[object]_001",
   "[field_name]": "[example_value]",
   "[field_name]": ["example_array_value_1", "example_array_value_2"],
-  "evidence": ["provenance_001", "provenance_002"],
-  "tags": ["tag1", "tag2"]
+  "tags": ["tag1", "tag2"],
+  "created_at": "2026-08-31T00:00:00Z",
+  "updated_at": "2026-08-31T00:00:00Z"
 }
 ```
 
@@ -45,8 +60,9 @@
 
 ## 🎨 Emoji Reference
 - 🔷 Behavior
-- 🧬 Provenance  
+- 🧬 Provenance
 - 🧭 User Outcome
+- 🎯 Outcome (Kit / career track-record deliverable — distinct from User Outcome)
 - 🟢 Result
 - 🎯 Problem
 - 💡 Insight
@@ -55,4 +71,4 @@
 - 🎪 Journey
 - 🏷️ Tag
 - 📊 Metric
-- 🔗 Relationship 
+- 🔗 Relationship
